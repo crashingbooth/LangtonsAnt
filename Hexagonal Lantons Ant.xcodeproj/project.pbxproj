@@ -14,6 +14,10 @@
 		1F2AD9491D23A9C70020B06E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AD9481D23A9C70020B06E /* Assets.xcassets */; };
 		1F2AD94C1D23A9C70020B06E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AD94A1D23A9C70020B06E /* LaunchScreen.storyboard */; };
 		1F2AD9571D23A9C70020B06E /* Hexagonal_Lantons_AntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9561D23A9C70020B06E /* Hexagonal_Lantons_AntTests.m */; };
+		1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9621D23A9E90020B06E /* HexagonalGridView.m */; };
+		1F2AD9661D23AA520020B06E /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9651D23AA520020B06E /* Grid.m */; };
+		1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD96B1D23BF800020B06E /* AbstractAnt.m */; };
+		1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		1F2AD9521D23A9C70020B06E /* Hexagonal Lantons AntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hexagonal Lantons AntTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AD9561D23A9C70020B06E /* Hexagonal_Lantons_AntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hexagonal_Lantons_AntTests.m; sourceTree = "<group>"; };
 		1F2AD9581D23A9C70020B06E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2AD9611D23A9E90020B06E /* HexagonalGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonalGridView.h; sourceTree = "<group>"; };
+		1F2AD9621D23A9E90020B06E /* HexagonalGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonalGridView.m; sourceTree = "<group>"; };
+		1F2AD9641D23AA520020B06E /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		1F2AD9651D23AA520020B06E /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
+		1F2AD96A1D23BF800020B06E /* AbstractAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAnt.h; sourceTree = "<group>"; };
+		1F2AD96B1D23BF800020B06E /* AbstractAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractAnt.m; sourceTree = "<group>"; };
+		1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonalAnt.h; sourceTree = "<group>"; };
+		1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonalAnt.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,14 @@
 		1F2AD9301D23A9C70020B06E = {
 			isa = PBXGroup;
 			children = (
+				1F2AD9611D23A9E90020B06E /* HexagonalGridView.h */,
+				1F2AD9621D23A9E90020B06E /* HexagonalGridView.m */,
+				1F2AD9641D23AA520020B06E /* Grid.h */,
+				1F2AD9651D23AA520020B06E /* Grid.m */,
+				1F2AD96A1D23BF800020B06E /* AbstractAnt.h */,
+				1F2AD96B1D23BF800020B06E /* AbstractAnt.m */,
+				1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */,
+				1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */,
 				1F2AD93B1D23A9C70020B06E /* Hexagonal Lantons Ant */,
 				1F2AD9551D23A9C70020B06E /* Hexagonal Lantons AntTests */,
 				1F2AD93A1D23A9C70020B06E /* Products */,
@@ -211,8 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
 				1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */,
+				1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */,
+				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
+				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +428,7 @@
 				1F2AD95D1D23A9C70020B06E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F2AD95E1D23A9C70020B06E /* Build configuration list for PBXNativeTarget "Hexagonal Lantons AntTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +437,7 @@
 				1F2AD9601D23A9C70020B06E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
