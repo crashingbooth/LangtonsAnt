@@ -10,12 +10,12 @@
 
 @implementation AbstractAnt
 
-GridPoint currentPos;
+GridPoint *currentPos;
 NSUInteger maxRow;
 NSUInteger maxCol;
 HexDirection direction;
 
--(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
+-(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
     self = [super init];
     if (self) {
         self.direction = direction;

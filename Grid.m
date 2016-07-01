@@ -61,27 +61,33 @@ NSArray *statesList;
     [self.ants addObject:ant ];
 }
 
--(void)update{
+-(NSMutableArray*)update{
     // for each ant:
     // move ant to new position
+    // get state for new pos
     // change newposition state
     // update ant state and posiiton
-
+    
+    // returns array of positions which have changed
+    
+    NSMutableArray* changedPositions = [[NSMutableArray alloc] init];
+    
     for (AbstractAnt *ant in self.ants) {
-        GridPoint newPos = [ant moveToNewPosition];
+        GridPoint *newPos = [ant moveToNewPosition];
         NSInteger stateAtPos = [[[self.matrix objectAtIndex:newPos.row] objectAtIndex:newPos.col] integerValue];
-        stateAtPos = (stateAtPos + 1) % self.numStates;
-        [[self.matrix objectAtIndex:newPos.row] replaceObjectAtIndex:newPos.col withObject:[NSNumber numberWithInteger:stateAtPos]];
         
-        // didn't change DIRECTION!!
-        HexDirection dirOfState = [[self.statesList objectAtIndex:stateAtPos] integerValue];
+        
+        
+        NSInteger dirOfState = [[self.statesList objectAtIndex:stateAtPos] integerValue];
+        //        NSLog([NSString stringWithFormat:@"stateAtPos: %lu, dir adjust: %li", stateAtPos, (long)dirOfState]);
         [ant updateDirection:dirOfState];
         
-
+        stateAtPos = (stateAtPos + 1) % self.numStates;
+        [[self.matrix objectAtIndex:newPos.row] replaceObjectAtIndex:newPos.col withObject:[NSNumber numberWithInteger:stateAtPos]];
+        [changedPositions addObject:newPos];
         
-      
     }
-    
+    return changedPositions;
     
     
 }

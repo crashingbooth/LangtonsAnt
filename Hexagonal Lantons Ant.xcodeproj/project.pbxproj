@@ -18,6 +18,7 @@
 		1F2AD9661D23AA520020B06E /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9651D23AA520020B06E /* Grid.m */; };
 		1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD96B1D23BF800020B06E /* AbstractAnt.m */; };
 		1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */; };
+		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 		1F2AD93F1D23A9C70020B06E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1F2AD9401D23A9C70020B06E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1F2AD9421D23A9C70020B06E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1F2AD9431D23A9C70020B06E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1F2AD9431D23A9C70020B06E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1F2AD9461D23A9C70020B06E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F2AD9481D23A9C70020B06E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2AD94B1D23A9C70020B06E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,8 @@
 		1F2AD96B1D23BF800020B06E /* AbstractAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractAnt.m; sourceTree = "<group>"; };
 		1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonalAnt.h; sourceTree = "<group>"; };
 		1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonalAnt.m; sourceTree = "<group>"; };
+		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
+		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				1F2AD9621D23A9E90020B06E /* HexagonalGridView.m */,
 				1F2AD9641D23AA520020B06E /* Grid.h */,
 				1F2AD9651D23AA520020B06E /* Grid.m */,
+				1FDBD3EB1D262D42008665FA /* GridPoint.h */,
+				1FDBD3EC1D262D42008665FA /* GridPoint.m */,
 				1F2AD96A1D23BF800020B06E /* AbstractAnt.h */,
 				1F2AD96B1D23BF800020B06E /* AbstractAnt.m */,
 				1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */,
@@ -237,6 +242,7 @@
 				1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
+				1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

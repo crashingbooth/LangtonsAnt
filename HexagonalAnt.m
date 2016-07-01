@@ -21,13 +21,13 @@ const NSInteger NUM_DIR = 6;
     } else {
         self.direction %= NUM_DIR;
     }
-    NSLog([NSString stringWithFormat:@"dir: %lu", self.direction]);
+//    NSLog([NSString stringWithFormat:@"dir: %lu", self.direction]);
 }
 
--(GridPoint)moveToNewPosition {
-    GridPoint newPoint;
+-(GridPoint*)moveToNewPosition {
+    GridPoint *newPoint = [[GridPoint alloc] init];
     switch (self.direction) {
-        case RIGHT_STRAIGHT:
+        case RIGHT:
             newPoint.row = self.currentPos.row;
             newPoint.col = self.currentPos.col + 1;
             break;
@@ -39,7 +39,7 @@ const NSInteger NUM_DIR = 6;
             newPoint.row = self.currentPos.row + 1;
             newPoint.col = self.currentPos.col - 1;
             break;
-        case LEFT_STRAIGHT:
+        case LEFT:
             newPoint.row = self.currentPos.row;
             newPoint.col = self.currentPos.col - 1;
             break;
@@ -58,6 +58,7 @@ const NSInteger NUM_DIR = 6;
     
     // odd rows are offset horizonatally by 1
     if (self.currentPos.row % 2 == 1) {
+        if (!(self.direction == LEFT || self.direction == RIGHT))
         newPoint.col += 1;
     }
     

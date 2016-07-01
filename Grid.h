@@ -20,7 +20,7 @@
 -(void)addAnt:(AbstractAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col;
 -(void)setStates:(NSArray*)stateValues;
 -(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSUInteger)numStates;
--(void)update;
+-(NSMutableArray*)update;
 -(void)buildZeroStateMatrix;
 -(void)logMatrix;
 
