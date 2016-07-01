@@ -42,7 +42,7 @@ NSUInteger count;
     [grid addAnt:ant atRow:5 andCol:5];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {
@@ -50,6 +50,7 @@ NSUInteger count;
     count++;
     [hgv.grid update];
     [hgv setNeedsDisplay];
+//    [hgv updateOnlyAntRect];
      NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
     
 

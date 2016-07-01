@@ -19,4 +19,5 @@
 @property(nonatomic, strong) Grid *grid;
 
 -(id) initWithWidth:(CGFloat) shapeWidth andFrame:(CGRect)frame andGrid:(Grid*)grid ;
+-(void)updateOnlyAntRect;
 @end

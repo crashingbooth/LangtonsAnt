@@ -14,6 +14,7 @@
 
 CGFloat sideHeight;
 CGFloat shapeWidth;
+NSMutableArray *paths;
 BOOL initialized;
 
 
@@ -27,6 +28,7 @@ NSArray *colours;
         self.sideHeight = shapeWidth * 0.57735;
         self.shapeWidth = shapeWidth;
         self.grid = grid;
+        paths = [[NSMutableArray alloc] init ];
         initialized = NO;
      
          NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
@@ -34,12 +36,11 @@ NSArray *colours;
     return self;
 }
 
-//-(CGFloat)shapeWidth {
-//    return sideHeight * 0.866025 * 2.0;
-//}
+
 
 - (void)drawRect:(CGRect)rect {
-    if (YES) {
+    NSLog(@"DRAWRECT");
+    if (initialized) {
         for (int row = 0; row < self.grid.matrix.count; row++) {
             NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
             for (int col = 0; col < currentRow.count; col++) {
@@ -70,6 +71,19 @@ NSArray *colours;
         }
     }
  
+}
+-(void)updateOnlyAntRect {
+    for (AbstractAnt *ant in self.grid.ants) {
+        NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
+        UIBezierPath *path = [self getPathAtRow:ant.currentPos.row  andCol:ant.currentPos.col];
+        UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.5];
+        [currentCol setFill];
+//        [path fill];
+        
+        CGRect boundingRect = CGRectMake(path.bounds.origin.x, path.bounds.origin.y, path.bounds.size.width, path.bounds.size.height);
+        [self setNeedsDisplayInRect:boundingRect];
+    }
+    
 }
 
 -(UIBezierPath*)getPathAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum {
