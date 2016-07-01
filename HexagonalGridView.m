@@ -29,6 +29,7 @@ NSArray *colours;
         self.shapeWidth = shapeWidth;
         self.grid = grid;
         paths = [[NSMutableArray alloc] init ];
+        [self createPaths] ;
         initialized = NO;
      
          NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
@@ -36,49 +37,55 @@ NSArray *colours;
     return self;
 }
 
+-(void)createPaths {
+    for (int row = 0; row < self.grid.matrix.count; row++) {
+        NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
+        NSMutableArray *pathsRow = [[NSMutableArray alloc] init];
+        for (int col = 0; col < currentRow.count; col++) {
+            UIBezierPath *path = [self getPathAtRow:row andCol:col];
+            [pathsRow addObject:path];
+        }
+        [paths addObject:pathsRow];
+    }
+
+    
+}
+
 
 
 - (void)drawRect:(CGRect)rect {
-    NSLog(@"DRAWRECT");
-    if (initialized) {
+    if (rect.size.width == self.frame.size.width) {
+        NSLog(@"all");
         for (int row = 0; row < self.grid.matrix.count; row++) {
             NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
             for (int col = 0; col < currentRow.count; col++) {
+                UIBezierPath *path = [[paths objectAtIndex:row] objectAtIndex:col];
                 NSUInteger state = [[[self.grid.matrix objectAtIndex:row] objectAtIndex: col] integerValue];
-                UIBezierPath *path = [self getPathAtRow:row andCol:col];
-                
-                
-                
                 UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.8];
                 [currentCol setFill];
-//                [[UIColor lightGrayColor] setStroke ];
-                
-                
                 [path fill];
-//                [path stroke];
-                
-                
             }
+            
         }
-        initialized = YES;
+        
     } else {
+          NSLog(@"ant only");
         for (AbstractAnt *ant in self.grid.ants) {
             NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
-            UIBezierPath *path = [self getPathAtRow:ant.currentPos.row  andCol:ant.currentPos.col];
+            UIBezierPath *path = [[paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
             UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.5];
             [currentCol setFill];
             [path fill];
         }
+        
     }
+
  
 }
 -(void)updateOnlyAntRect {
     for (AbstractAnt *ant in self.grid.ants) {
-        NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
-        UIBezierPath *path = [self getPathAtRow:ant.currentPos.row  andCol:ant.currentPos.col];
-        UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.5];
-        [currentCol setFill];
-//        [path fill];
+       
+        UIBezierPath *path = [[paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
         
         CGRect boundingRect = CGRectMake(path.bounds.origin.x, path.bounds.origin.y, path.bounds.size.width, path.bounds.size.height);
         [self setNeedsDisplayInRect:boundingRect];

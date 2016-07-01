@@ -49,9 +49,9 @@ NSUInteger count;
     //    NSLog(@"updated");
     count++;
     [hgv.grid update];
-    [hgv setNeedsDisplay];
-//    [hgv updateOnlyAntRect];
-     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
+//    [hgv setNeedsDisplay];
+    [hgv updateOnlyAntRect];
+//     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
     
 
 
