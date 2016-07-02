@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, HexDirection) {
 @property (nonatomic) NSUInteger maxRow;
 @property (nonatomic) NSUInteger maxCol;
 @property (nonatomic) HexDirection direction;
+@property (nonatomic) NSInteger totalDir;
 
 -(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol ;
 -(void)updateDirection:(NSInteger)turnDirection;

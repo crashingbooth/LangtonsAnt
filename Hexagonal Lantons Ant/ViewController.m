@@ -19,6 +19,7 @@
 @implementation ViewController
 HexagonalGridView *hgv;
 HexagonalAnt *ant;
+HexagonalAnt *ant2;
 NSUInteger count;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,30 +28,33 @@ NSUInteger count;
     
     CGFloat shapeWidth = self.view.frame.size.width / numCols;
 
-    Grid *grid = [[Grid alloc] initWithRows:numRows  andCols:numCols andStates:3];
-    NSArray *states = @[@-1, @2, @-1];
+    Grid *grid = [[Grid alloc] initWithRows:numRows  andCols:numCols andStates:2];
+    NSArray *states = @[@-1, @1];
     [grid setStates: states];
     [grid buildZeroStateMatrix];
     hgv = [[HexagonalGridView alloc] initWithWidth:shapeWidth andFrame:self.view.frame andGrid:grid];
     hgv.backgroundColor = [UIColor clearColor];
     [self.view addSubview:hgv];
 //    [hgv setNeedsDisplay];
-    GridPoint *start = [[GridPoint alloc] initWithRow:numRows / 2 andCol:numCols / 2] ;
+    GridPoint *start = [[GridPoint alloc] initWithRow:numRows / 4  andCol:numCols / 2] ;
+    
+     GridPoint *start2 = [[GridPoint alloc] initWithRow:numRows / 4 * 3 andCol:numCols / 2] ;
 
-//    ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:start maxRow:numRows maxCol:numCols];
-    ant = [[HexagonalAnt alloc] initWithDirection:LEFT atPos:start maxRow:numRows maxCol:numCols];
+    ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:start maxRow:numRows maxCol:numCols];
+    ant2 = [[HexagonalAnt alloc] initWithDirection:LEFT atPos:start2 maxRow:numRows maxCol:numCols];
     [grid addAnt:ant atRow:5 andCol:5];
+    [grid addAnt:ant2 atRow:5 andCol:5];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {
     //    NSLog(@"updated");
     count++;
     [hgv.grid update];
-//    [hgv setNeedsDisplay];
-    [hgv updateOnlyAntRect];
+    [hgv setNeedsDisplay];
+//    [hgv updateOnlyAntRect];
 //     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
     
 

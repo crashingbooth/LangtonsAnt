@@ -16,17 +16,17 @@ const NSInteger NUM_DIR = 6;
 -(void)updateDirection:(NSInteger)turnDirection {
     //    NSInteger turnDirectionInteger = [turnDirection integerValue];
     self.direction += turnDirection;
+    self.totalDir += turnDirection;
     if (self.direction < 0) {
         self.direction += NUM_DIR;
     } else {
         self.direction %= NUM_DIR;
     }
-//    NSLog([NSString stringWithFormat:@"dir: %lu", self.direction]);
+    NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
-
--(GridPoint*)moveToNewPosition {
+-(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection {
     GridPoint *newPoint = [[GridPoint alloc] init];
-    switch (self.direction) {
+    switch (neighbourDirection) {
         case RIGHT:
             newPoint.row = self.currentPos.row;
             newPoint.col = self.currentPos.col + 1;
@@ -59,7 +59,7 @@ const NSInteger NUM_DIR = 6;
     // odd rows are offset horizonatally by 1
     if (self.currentPos.row % 2 == 1) {
         if (!(self.direction == LEFT || self.direction == RIGHT))
-        newPoint.col += 1;
+            newPoint.col += 1;
     }
     
     // handle borders
@@ -75,6 +75,13 @@ const NSInteger NUM_DIR = 6;
     if (newPoint.col >= self.maxCol) {
         newPoint.col = 0;
     }
+    return newPoint;
+
+}
+
+-(GridPoint*)moveToNewPosition {
+    
+    GridPoint *newPoint = [self getNeighbourAtDirection:self.direction];
     
     self.currentPos = newPoint;
     

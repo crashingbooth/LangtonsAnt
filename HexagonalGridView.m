@@ -8,7 +8,7 @@
 
 #import "HexagonalGridView.h"
 #import "Grid.h"
-#import "AbstractAnt.h"
+#import "HexagonalAnt.h"
 
 @implementation HexagonalGridView
 
@@ -25,7 +25,7 @@ NSArray *colours;
     self.colours = clr;
     self = [super initWithFrame:frame];
     if (self) {
-        self.sideHeight = shapeWidth * 0.57735;
+        self.sideHeight = shapeWidth * 0.577350269;
         self.shapeWidth = shapeWidth;
         self.grid = grid;
         paths = [[NSMutableArray alloc] init ];
@@ -61,20 +61,62 @@ NSArray *colours;
             for (int col = 0; col < currentRow.count; col++) {
                 UIBezierPath *path = [[paths objectAtIndex:row] objectAtIndex:col];
                 NSUInteger state = [[[self.grid.matrix objectAtIndex:row] objectAtIndex: col] integerValue];
-                UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.8];
+                UIColor *currentCol = [self.colours objectAtIndex: state];
                 [currentCol setFill];
+                [currentCol setStroke];
+                path.lineWidth = 1;
+                [path stroke];
+
                 [path fill];
             }
             
         }
         
     } else {
-          NSLog(@"ant only");
-        for (AbstractAnt *ant in self.grid.ants) {
+//        NSLog(@"ant only");
+        for (HexagonalAnt *ant in self.grid.ants) {
+            NSUInteger backState = [[[self.grid.matrix objectAtIndex: [ant getNeighbourAtDirection:UP_LEFT].row] objectAtIndex:[ant getNeighbourAtDirection:UP_LEFT].col]integerValue];
+            CGRect backRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width / 2, rect.size.height / 2);
+            UIColor *backCol = [self.colours objectAtIndex: backState];
+            UIBezierPath *backPath = [UIBezierPath bezierPathWithRect:backRect];
+            
+            [backCol setFill];
+            [backPath fill];
+            
+            
+            backState = [[[self.grid.matrix objectAtIndex: [ant getNeighbourAtDirection:UP_RIGHT].row] objectAtIndex:[ant getNeighbourAtDirection:UP_RIGHT].col]integerValue];
+            backRect = CGRectMake(rect.origin.x + rect.size.width / 2, rect.origin.y, rect.size.width / 2, rect.size.height / 2);
+            backCol = [self.colours objectAtIndex: backState];
+            backPath = [UIBezierPath bezierPathWithRect:backRect];
+            [backCol setFill];
+            [backPath fill];
+            
+            
+            backState = [[[self.grid.matrix objectAtIndex: [ant getNeighbourAtDirection:DOWN_RIGHT].row] objectAtIndex:[ant getNeighbourAtDirection:DOWN_RIGHT].col]integerValue];
+            backRect = CGRectMake(rect.origin.x + rect.size.width / 2, rect.origin.y + rect.size.height / 2, rect.size.width / 2, rect.size.height / 2);
+            backCol = [self.colours objectAtIndex: backState];
+            backPath = [UIBezierPath bezierPathWithRect:backRect];
+            [backCol setFill];
+            [backPath fill];
+            
+            backState = [[[self.grid.matrix objectAtIndex: [ant getNeighbourAtDirection:DOWN_LEFT].row] objectAtIndex:[ant getNeighbourAtDirection:DOWN_LEFT].col]integerValue];
+            backRect = CGRectMake(rect.origin.x, rect.origin.y + rect.size.height / 2, rect.size.width / 2, rect.size.height / 2);
+            backCol = [self.colours objectAtIndex: backState];
+            backPath = [UIBezierPath bezierPathWithRect:backRect];
+            [backCol setFill];
+            [backPath fill];
+            
+            
+            
+            
             NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
             UIBezierPath *path = [[paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
-            UIColor *currentCol = [[self.colours objectAtIndex: state] colorWithAlphaComponent:0.5];
+            UIColor *currentCol = [self.colours objectAtIndex: state];
+            self.backgroundColor = [UIColor clearColor];
             [currentCol setFill];
+            [currentCol setStroke];
+            path.lineWidth = 1;
+            [path stroke];
             [path fill];
         }
         

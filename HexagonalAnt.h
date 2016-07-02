@@ -9,5 +9,7 @@
 #import "AbstractAnt.h"
 
 @interface HexagonalAnt : AbstractAnt
+-(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection;
+
 
 @end

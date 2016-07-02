@@ -14,12 +14,14 @@ GridPoint *currentPos;
 NSUInteger maxRow;
 NSUInteger maxCol;
 HexDirection direction;
+NSInteger totalDir;
 
 -(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
     self = [super init];
     if (self) {
         self.direction = direction;
         self.currentPos = currentPos;
+        self.totalDir = direction;
 
         self.maxRow = maxRow;
         self.maxCol = maxCol;

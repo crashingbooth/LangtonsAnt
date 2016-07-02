@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AbstractAnt.h"
+#import "HexagonalAnt.h"
 
 @interface Grid : NSObject
 @property (nonatomic) NSUInteger numRows;
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSArray *statesList;
 @property (nonatomic, strong) NSMutableArray *ants;
 
--(void)addAnt:(AbstractAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col;
+-(void)addAnt:(HexagonalAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col;
 -(void)setStates:(NSArray*)stateValues;
 -(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSUInteger)numStates;
 -(NSMutableArray*)update;

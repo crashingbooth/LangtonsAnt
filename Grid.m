@@ -56,7 +56,7 @@ NSArray *statesList;
     }
 }
 
--(void)addAnt:(AbstractAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col {
+-(void)addAnt:(HexagonalAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col {
     // likely ant will keep track of its own location
     [self.ants addObject:ant ];
 }
