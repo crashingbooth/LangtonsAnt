@@ -11,6 +11,7 @@
 #import "Grid.h"
 #import "HexagonalAnt.h"
 #import "AbstractAnt.h"
+#import "MidiNote.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,9 @@ HexagonalAnt *ant2;
 NSUInteger count;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    MidiNote *mid = [[MidiNote alloc] init ];
+    [mid test];
+    
     NSUInteger numRows = 70;
     NSUInteger numCols = 70;
     
