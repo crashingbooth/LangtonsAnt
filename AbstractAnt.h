@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, HexDirection) {
 
 @property (nonatomic) NSUInteger maxRow;
 @property (nonatomic) NSUInteger maxCol;
+@property (nonatomic) BOOL isMusical;
 @property (nonatomic) HexDirection direction;
 @property (nonatomic) NSInteger totalDir;
 @property (nonatomic, strong) MusicInterpretter *musInt;

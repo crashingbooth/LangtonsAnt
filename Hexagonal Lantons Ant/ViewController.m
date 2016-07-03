@@ -40,21 +40,22 @@ NSUInteger count;
     hgv = [[HexagonalGridView alloc] initWithWidth:shapeWidth andFrame:self.view.frame andGrid:grid];
     hgv.backgroundColor = [UIColor clearColor];
     [self.view addSubview:hgv];
-
+    
+    // 1st ant:
     GridPoint *start = [[GridPoint alloc] initWithRow:numRows / 4  andCol:numCols / 2] ;
-     GridPoint *start2 = [[GridPoint alloc] initWithRow:numRows / 4 * 3  andCol:numCols / 2] ;
-    
-  
-    
     MusicInterpretter *musInt1 = [[MusicInterpretter alloc] initWithRootNote:@60 withScale:@"pelang" onChannel:@0 withMidi:mid] ;
-    MusicInterpretter *musInt2 = [[MusicInterpretter alloc] initWithRootNote:@72 withScale:@"pelang" onChannel:@1 withMidi:mid] ;
     ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:start maxRow:numRows maxCol:numCols];
     [ant addMusicInterpretter:musInt1];
+    [grid addAnt:ant atRow:5 andCol:5];
     
+    // 2nd ant:
+    GridPoint *start2 = [[GridPoint alloc] initWithRow:numRows / 4 * 3  andCol:numCols / 2] ;
+    MusicInterpretter *musInt2 = [[MusicInterpretter alloc] initWithRootNote:@72 withScale:@"pelang" onChannel:@1 withMidi:mid] ;
     ant2 = [[HexagonalAnt alloc] initWithDirection:DOWN_RIGHT atPos:start2 maxRow:numRows maxCol:numCols];
     [ant2 addMusicInterpretter:musInt2];
-    [grid addAnt:ant atRow:5 andCol:5];
     [grid addAnt:ant2 atRow:5 andCol:5];
+    
+    
     [grid update];
     
     [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(update:) userInfo:nil repeats:YES];
@@ -64,8 +65,8 @@ NSUInteger count;
     //    NSLog(@"updated");
     count++;
     [hgv.grid update];
-    [hgv setNeedsDisplay];
-//    [hgv updateOnlyAntRect];
+//    [hgv setNeedsDisplay];
+    [hgv updateOnlyAntRect];
 //     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
     
 

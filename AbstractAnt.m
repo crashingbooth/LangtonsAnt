@@ -15,6 +15,7 @@ NSUInteger maxRow;
 NSUInteger maxCol;
 HexDirection direction;
 NSInteger totalDir;
+BOOL isMusical;
 MusicInterpretter *musInt;
 
 -(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
@@ -23,7 +24,7 @@ MusicInterpretter *musInt;
         self.direction = direction;
         self.currentPos = currentPos;
         self.totalDir = direction;
-
+        self.isMusical = NO;
         self.maxRow = maxRow;
         self.maxCol = maxCol;
     }
@@ -31,6 +32,7 @@ MusicInterpretter *musInt;
 }
 
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt {
+    self.isMusical = YES;
     self.musInt = musInt;
 }
 
