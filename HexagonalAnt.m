@@ -22,6 +22,9 @@ const NSInteger NUM_DIR = 6;
     } else {
         self.direction %= NUM_DIR;
     }
+    if (self.musInt != nil) {
+        [self.musInt playNoteFromDirection:self.direction];
+    }
     NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
 -(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection {

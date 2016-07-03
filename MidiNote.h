@@ -14,5 +14,5 @@
 @property (nonatomic,strong) AVAudioPlayerNode *playerNode;
 
 -(id)init;
--(void)test;
+-(void)playMidiNote:(NSNumber*)note onChannel:(NSNumber*)channel;
 @end

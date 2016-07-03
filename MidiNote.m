@@ -16,13 +16,13 @@ AVAudioUnitSampler *sampler;
 NSURL *soundbank;
 UInt8 melodicBank;
 UInt8 gmMIDIVoice;
-float duration = 1.0;
+float duration = 0.2;
 
 
 -(id)init {
     self = [super init];
     if (self) {
-        gmMIDIVoice = 0;
+        gmMIDIVoice = 108;
         melodicBank = (UInt8)kAUSampler_DefaultMelodicBankMSB;
         [self initAudioEngine];
     }
@@ -57,9 +57,11 @@ float duration = 1.0;
     
 }
 
--(void)playMidiNote:(UInt8)note onChannel:(UInt8)channel {
-    NSArray *info = @[[NSNumber numberWithInt:note], [NSNumber numberWithInt:channel]];
-    [sampler startNote:note withVelocity:127 onChannel:channel];
+-(void)playMidiNote:(NSNumber*)note onChannel:(NSNumber*)channel {
+    NSArray *info = @[note, channel];
+    UInt8 rawNote = (UInt8)[note integerValue];
+    UInt8 rawChannel = (UInt8)[channel integerValue];
+    [sampler startNote:rawNote withVelocity:127 onChannel:rawChannel];
     [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(finishNote:) userInfo:info repeats:NO];
 }
 
@@ -70,9 +72,7 @@ float duration = 1.0;
     [sampler stopNote:note onChannel:channel];
 
 }
--(void)test {
-    [self playMidiNote:60 onChannel:0];
-}
+
 
 
 

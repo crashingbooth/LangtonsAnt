@@ -12,6 +12,7 @@
 #import "HexagonalAnt.h"
 #import "AbstractAnt.h"
 #import "MidiNote.h"
+#import "MusicInterpretter.h"
 
 @interface ViewController ()
 
@@ -25,32 +26,38 @@ NSUInteger count;
 - (void)viewDidLoad {
     [super viewDidLoad];
     MidiNote *mid = [[MidiNote alloc] init ];
-    [mid test];
+   
     
     NSUInteger numRows = 70;
     NSUInteger numCols = 70;
     
     CGFloat shapeWidth = self.view.frame.size.width / numCols;
 
-    Grid *grid = [[Grid alloc] initWithRows:numRows  andCols:numCols andStates:2];
-    NSArray *states = @[@-1, @1];
+    Grid *grid = [[Grid alloc] initWithRows:numRows  andCols:numCols andStates:5];
+    NSArray *states = @[@2, @-2,@2, @2, @-3];
     [grid setStates: states];
     [grid buildZeroStateMatrix];
     hgv = [[HexagonalGridView alloc] initWithWidth:shapeWidth andFrame:self.view.frame andGrid:grid];
     hgv.backgroundColor = [UIColor clearColor];
     [self.view addSubview:hgv];
-//    [hgv setNeedsDisplay];
-    GridPoint *start = [[GridPoint alloc] initWithRow:numRows / 4  andCol:numCols / 2] ;
-    
-     GridPoint *start2 = [[GridPoint alloc] initWithRow:numRows / 4 * 3 andCol:numCols / 2] ;
 
+    GridPoint *start = [[GridPoint alloc] initWithRow:numRows / 4  andCol:numCols / 2] ;
+     GridPoint *start2 = [[GridPoint alloc] initWithRow:numRows / 4 * 3  andCol:numCols / 2] ;
+    
+  
+    
+    MusicInterpretter *musInt1 = [[MusicInterpretter alloc] initWithRootNote:@60 withScale:@"pelang" onChannel:@0 withMidi:mid] ;
+    MusicInterpretter *musInt2 = [[MusicInterpretter alloc] initWithRootNote:@72 withScale:@"pelang" onChannel:@1 withMidi:mid] ;
     ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:start maxRow:numRows maxCol:numCols];
-    ant2 = [[HexagonalAnt alloc] initWithDirection:LEFT atPos:start2 maxRow:numRows maxCol:numCols];
+    [ant addMusicInterpretter:musInt1];
+    
+    ant2 = [[HexagonalAnt alloc] initWithDirection:DOWN_RIGHT atPos:start2 maxRow:numRows maxCol:numCols];
+    [ant2 addMusicInterpretter:musInt2];
     [grid addAnt:ant atRow:5 andCol:5];
     [grid addAnt:ant2 atRow:5 andCol:5];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.2f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {

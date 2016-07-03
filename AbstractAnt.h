@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GridPoint.h"
+#import "MusicInterpretter.h"
 
 
 @interface AbstractAnt : NSObject
@@ -24,9 +25,11 @@ typedef NS_ENUM(NSInteger, HexDirection) {
 @property (nonatomic) NSUInteger maxCol;
 @property (nonatomic) HexDirection direction;
 @property (nonatomic) NSInteger totalDir;
+@property (nonatomic, strong) MusicInterpretter *musInt;
 
 -(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol ;
 -(void)updateDirection:(NSInteger)turnDirection;
 -(GridPoint*)moveToNewPosition;
+-(void)addMusicInterpretter:(MusicInterpretter*)musInt;
 
 @end
