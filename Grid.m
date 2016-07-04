@@ -49,7 +49,7 @@ NSArray *statesList;
     }
 }
 
--(void)addAnt:(HexagonalAnt*)ant {
+-(void)addAnt:(AbstractAnt*)ant {
     // ant will keep track of its own location
     [self.ants addObject:ant ];
 }
@@ -63,13 +63,12 @@ NSArray *statesList;
     
     // returns array of positions which have changed
     
+    // Maintain list for each ant's change
     NSMutableArray* changedPositions = [[NSMutableArray alloc] init];
     
     for (AbstractAnt *ant in self.ants) {
         GridPoint *newPos = [ant moveToNewPosition];
         NSInteger stateAtPos = [[[self.matrix objectAtIndex:newPos.row] objectAtIndex:newPos.col] integerValue];
-        
-        
         
         NSInteger dirOfState = [[self.statesList objectAtIndex:stateAtPos] integerValue];
         //        NSLog([NSString stringWithFormat:@"stateAtPos: %lu, dir adjust: %li", stateAtPos, (long)dirOfState]);

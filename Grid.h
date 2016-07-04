@@ -18,7 +18,7 @@
 
 
 -(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSArray*)statesList;
--(void)addAnt:(HexagonalAnt*)ant;
+-(void)addAnt:(AbstractAnt*)ant;
 -(NSMutableArray*)update;
 -(void)buildZeroStateMatrix;
 -(void)logMatrix;

@@ -13,22 +13,39 @@
 GridPoint *currentPos;
 NSUInteger maxRow;
 NSUInteger maxCol;
-HexDirection direction;
+NSInteger direction;
 NSInteger totalDir;
+NSInteger NUM_DIR;
 BOOL isMusical;
 MusicInterpretter *musInt;
 
--(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
+
+-(id)initWithPosition:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
     self = [super init];
     if (self) {
-        self.direction = direction;
         self.currentPos = currentPos;
-        self.totalDir = direction;
         self.isMusical = NO;
         self.maxRow = maxRow;
         self.maxCol = maxCol;
     }
     return self;
+}
+
+
+
+-(void)updateDirection:(NSInteger)turnDirection {
+    //    NSInteger turnDirectionInteger = [turnDirection integerValue];
+    self.direction += turnDirection;
+    self.totalDir += turnDirection;
+    if (self.direction < 0) {
+        self.direction += self.NUM_DIR; // should be class method
+    } else {
+        self.direction %= self.NUM_DIR;
+    }
+    if (self.isMusical) {
+        [self.musInt playNoteFromDirection:self.direction];
+    }
+    NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
 
 -(GridPoint*)moveToNewPosition {

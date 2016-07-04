@@ -12,26 +12,21 @@
 
 
 @interface AbstractAnt : NSObject
-typedef NS_ENUM(NSInteger, HexDirection) {
-    RIGHT = 0, DOWN_RIGHT = 1, DOWN_LEFT = 2, LEFT = 3, UP_LEFT = 4 , UP_RIGHT = 5
-};
-
 
 
 @property (nonatomic, strong) GridPoint* currentPos;
-
-
 @property (nonatomic) NSUInteger maxRow;
 @property (nonatomic) NSUInteger maxCol;
+@property (nonatomic) NSUInteger NUM_DIR; // should be class
 @property (nonatomic) BOOL isMusical;
-@property (nonatomic) HexDirection direction;
+@property (nonatomic) NSInteger direction;
 @property (nonatomic) NSInteger totalDir;
 @property (nonatomic, strong) MusicInterpretter *musInt;
 
--(id)initWithDirection:(enum HexDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol ;
+-(id)initWithPosition:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol;
 -(void)updateDirection:(NSInteger)turnDirection;
 -(GridPoint*)moveToNewPosition;
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt;
--(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection;
+-(GridPoint*)getNeighbourAtDirection:(NSInteger) neighbourDirection;
 
 @end

@@ -20,6 +20,8 @@
 		1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */; };
 		1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 1F40BCD41D27947600B303E0 /* Tim.sf2 */; };
 		1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */; };
+		1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */; };
+		1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,10 @@
 		1F40BCD41D27947600B303E0 /* Tim.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tim.sf2; sourceTree = "<group>"; };
 		1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInterpretter.h; sourceTree = "<group>"; };
 		1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInterpretter.m; sourceTree = "<group>"; };
+		1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourWayAnt.h; sourceTree = "<group>"; };
+		1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourWayAnt.m; sourceTree = "<group>"; };
+		1F8CDAAA1D2A358B00AE4D32 /* AntGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntGridView.h; sourceTree = "<group>"; };
+		1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntGridView.m; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -86,21 +92,16 @@
 		1F2AD9301D23A9C70020B06E = {
 			isa = PBXGroup;
 			children = (
-				1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */,
-				1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */,
-				1F40BCD41D27947600B303E0 /* Tim.sf2 */,
+				1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */,
 				1F2AD9611D23A9E90020B06E /* HexagonalGridView.h */,
 				1F2AD9621D23A9E90020B06E /* HexagonalGridView.m */,
-				1FDBD3EE1D2786A2008665FA /* MidiNote.h */,
-				1FDBD3EF1D2786A2008665FA /* MidiNote.m */,
+				1F8CDAAA1D2A358B00AE4D32 /* AntGridView.h */,
+				1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */,
 				1F2AD9641D23AA520020B06E /* Grid.h */,
 				1F2AD9651D23AA520020B06E /* Grid.m */,
 				1FDBD3EB1D262D42008665FA /* GridPoint.h */,
 				1FDBD3EC1D262D42008665FA /* GridPoint.m */,
-				1F2AD96A1D23BF800020B06E /* AbstractAnt.h */,
-				1F2AD96B1D23BF800020B06E /* AbstractAnt.m */,
-				1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */,
-				1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */,
+				1F8CDAA91D2A350A00AE4D32 /* Ants */,
 				1F2AD93B1D23A9C70020B06E /* Hexagonal Lantons Ant */,
 				1F2AD9551D23A9C70020B06E /* Hexagonal Lantons AntTests */,
 				1F2AD93A1D23A9C70020B06E /* Products */,
@@ -147,6 +148,31 @@
 				1F2AD9581D23A9C70020B06E /* Info.plist */,
 			);
 			path = "Hexagonal Lantons AntTests";
+			sourceTree = "<group>";
+		};
+		1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */,
+				1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */,
+				1F40BCD41D27947600B303E0 /* Tim.sf2 */,
+				1FDBD3EE1D2786A2008665FA /* MidiNote.h */,
+				1FDBD3EF1D2786A2008665FA /* MidiNote.m */,
+			);
+			name = "Music and MIDI";
+			sourceTree = "<group>";
+		};
+		1F8CDAA91D2A350A00AE4D32 /* Ants */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AD96A1D23BF800020B06E /* AbstractAnt.h */,
+				1F2AD96B1D23BF800020B06E /* AbstractAnt.m */,
+				1F2AD96D1D23BF970020B06E /* HexagonalAnt.h */,
+				1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */,
+				1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */,
+				1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */,
+			);
+			name = Ants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,11 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
 				1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */,
 				1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */,
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
+				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
