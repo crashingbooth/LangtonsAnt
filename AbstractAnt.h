@@ -32,5 +32,6 @@ typedef NS_ENUM(NSInteger, HexDirection) {
 -(void)updateDirection:(NSInteger)turnDirection;
 -(GridPoint*)moveToNewPosition;
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt;
+-(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection;
 
 @end

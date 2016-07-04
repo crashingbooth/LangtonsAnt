@@ -31,6 +31,12 @@ MusicInterpretter *musInt;
     return self;
 }
 
+-(GridPoint*)moveToNewPosition {
+    GridPoint *newPoint = [self getNeighbourAtDirection:self.direction];
+    self.currentPos = newPoint;
+    return newPoint;
+}
+
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt {
     self.isMusical = YES;
     self.musInt = musInt;

@@ -31,12 +31,6 @@ NSArray *statesList;
     return self;
 }
 
--(void)setStates:(NSArray*)stateValues {
-    // takes array of +1 and -1 corresonding to how ant direction changes for this state
-    for (int i = 0; i < self.numStates; i++) {
-        self.statesList = stateValues;
-    }
-}
 
 -(void)buildZeroStateMatrix {
     for (int row = 0; row < self.numRows; row++) {
@@ -56,7 +50,7 @@ NSArray *statesList;
 }
 
 -(void)addAnt:(HexagonalAnt*)ant {
-    // likely ant will keep track of its own location
+    // ant will keep track of its own location
     [self.ants addObject:ant ];
 }
 

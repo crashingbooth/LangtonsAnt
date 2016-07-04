@@ -35,7 +35,6 @@ NSUInteger count;
     NSArray *states = @[@-1, @-1,@1, @1, @1, @-1];
     Grid *grid = [[Grid alloc] initWithRows:numRows  andCols:numCols andStates:states];
    
-    [grid setStates: states];
     [grid buildZeroStateMatrix];
     hgv = [[HexagonalGridView alloc] initWithWidth:shapeWidth andFrame:self.view.frame andGrid:grid];
     hgv.backgroundColor = [UIColor clearColor];

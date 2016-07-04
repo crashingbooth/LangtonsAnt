@@ -83,17 +83,6 @@ const NSInteger NUM_DIR = 6;
 
 }
 
--(GridPoint*)moveToNewPosition {
-    
-    GridPoint *newPoint = [self getNeighbourAtDirection:self.direction];
-    
-    self.currentPos = newPoint;
-    
-    
-    
-    return newPoint;
-}
-
 
 
 @end

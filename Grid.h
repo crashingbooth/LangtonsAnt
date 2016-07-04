@@ -16,9 +16,9 @@
 @property (nonatomic, strong) NSArray *statesList;
 @property (nonatomic, strong) NSMutableArray *ants;
 
--(void)addAnt:(HexagonalAnt*)ant;
--(void)setStates:(NSArray*)stateValues;
+
 -(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSArray*)statesList;
+-(void)addAnt:(HexagonalAnt*)ant;
 -(NSMutableArray*)update;
 -(void)buildZeroStateMatrix;
 -(void)logMatrix;
