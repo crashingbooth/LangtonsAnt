@@ -27,6 +27,7 @@ const NSInteger NUM_DIR = 6;
     }
     NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
+
 -(GridPoint*)getNeighbourAtDirection:(HexDirection) neighbourDirection {
     GridPoint *newPoint = [[GridPoint alloc] init];
     switch (neighbourDirection) {
@@ -61,7 +62,7 @@ const NSInteger NUM_DIR = 6;
     
     // odd rows are offset horizonatally by 1
     if (self.currentPos.row % 2 == 1) {
-        if (!(self.direction == LEFT || self.direction == RIGHT))
+        if (!(neighbourDirection == LEFT || neighbourDirection == RIGHT))
             newPoint.col += 1;
     }
     

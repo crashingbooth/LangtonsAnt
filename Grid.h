@@ -12,14 +12,13 @@
 @interface Grid : NSObject
 @property (nonatomic) NSUInteger numRows;
 @property (nonatomic) NSUInteger numCols;
-@property (nonatomic) NSUInteger numStates;
 @property (nonatomic, strong) NSMutableArray *matrix;
 @property (nonatomic, strong) NSArray *statesList;
 @property (nonatomic, strong) NSMutableArray *ants;
 
--(void)addAnt:(HexagonalAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col;
+-(void)addAnt:(HexagonalAnt*)ant;
 -(void)setStates:(NSArray*)stateValues;
--(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSUInteger)numStates;
+-(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSArray*)statesList;
 -(NSMutableArray*)update;
 -(void)buildZeroStateMatrix;
 -(void)logMatrix;

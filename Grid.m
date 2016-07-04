@@ -14,18 +14,17 @@
 @implementation Grid : NSObject
 NSUInteger numRows;
 NSUInteger numCols;
-NSUInteger numStates;
 NSMutableArray *ants;
 NSMutableArray *matrix;
 NSArray *statesList;
 
--(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSUInteger)numStates {
+
+-(id)initWithRows:(NSUInteger)numRows andCols:(NSUInteger)numCols andStates:(NSArray*)statesList {
     self = [super init];
     if (self) {
         self.numRows = numRows;
         self.numCols = numCols;
-        self.numStates = numStates;
-//        self.statesList = [[NSMutableArray alloc] init ];
+        self.statesList = statesList;
         self.matrix = [[NSMutableArray alloc] init ];
         self.ants = [[NSMutableArray alloc] init ];
     }
@@ -56,7 +55,7 @@ NSArray *statesList;
     }
 }
 
--(void)addAnt:(HexagonalAnt*)ant atRow:(NSUInteger)row andCol:(NSUInteger)col {
+-(void)addAnt:(HexagonalAnt*)ant {
     // likely ant will keep track of its own location
     [self.ants addObject:ant ];
 }
@@ -82,7 +81,7 @@ NSArray *statesList;
         //        NSLog([NSString stringWithFormat:@"stateAtPos: %lu, dir adjust: %li", stateAtPos, (long)dirOfState]);
         [ant updateDirection:dirOfState];
         
-        stateAtPos = (stateAtPos + 1) % self.numStates;
+        stateAtPos = (stateAtPos + 1) % self.statesList.count;
         [[self.matrix objectAtIndex:newPos.row] replaceObjectAtIndex:newPos.col withObject:[NSNumber numberWithInteger:stateAtPos]];
         [changedPositions addObject:newPos];
         
