@@ -14,29 +14,32 @@
     if (self) {
         self.direction = direction;
         self.totalDir = direction;
-        self.NUM_DIR = 4;
     }
     return self;
+}
+
++(NSInteger)NUM_DIR {
+    return 4;
 }
 
 -(GridPoint*)getNeighbourAtDirection:(FourWayDirection) neighbourDirection {
     GridPoint *newPoint = [[GridPoint alloc] init];
     switch (neighbourDirection) {
-        case RIGHT:
+        case RIGHT_4:
             newPoint.row = self.currentPos.row;
             newPoint.col = self.currentPos.col + 1;
             break;
-        case DOWN:
+        case DOWN_4:
             newPoint.row = self.currentPos.row + 1;
             newPoint.col = self.currentPos.col;
             break;
-        case LEFT:
+        case LEFT_4:
             newPoint.row = self.currentPos.row;
             newPoint.col = self.currentPos.col - 1;
             break;
-        case UP:
+        case UP_4:
             newPoint.row = self.currentPos.row - 1;
-            newPoint.col = self.currentPos.col - 1;
+            newPoint.col = self.currentPos.col;
             break;
 
             

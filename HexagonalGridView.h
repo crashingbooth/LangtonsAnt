@@ -7,17 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Grid.h"
-#import "AbstractAnt.h"
+#import "AntGridView.h"
+
+@interface HexagonalGridView : AntGridView
 
 
 
-@interface HexagonalGridView : UIView
-@property (nonatomic) CGFloat sideHeight;
-@property (nonatomic) CGFloat shapeWidth;
-@property (nonatomic) NSArray *colours;
-@property(nonatomic, strong) Grid *grid;
-
--(id) initWithWidth:(CGFloat) shapeWidth andFrame:(CGRect)frame andGrid:(Grid*)grid ;
--(void)updateOnlyAntRect;
 @end

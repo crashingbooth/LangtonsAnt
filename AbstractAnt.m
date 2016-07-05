@@ -31,6 +31,13 @@ MusicInterpretter *musInt;
     return self;
 }
 
++(NSInteger)NUM_DIR {
+    //error
+    
+    NSLog(@"abstract, don't call me");
+    return -1;
+}
+
 
 
 -(void)updateDirection:(NSInteger)turnDirection {
@@ -38,9 +45,9 @@ MusicInterpretter *musInt;
     self.direction += turnDirection;
     self.totalDir += turnDirection;
     if (self.direction < 0) {
-        self.direction += self.NUM_DIR; // should be class method
+        self.direction += [[self class] NUM_DIR]; // should be class method
     } else {
-        self.direction %= self.NUM_DIR;
+        self.direction %= [[self class] NUM_DIR];
     }
     if (self.isMusical) {
         [self.musInt playNoteFromDirection:self.direction];

@@ -16,10 +16,13 @@
     if (self) {
         self.direction = direction;
         self.totalDir = direction;
-        self.NUM_DIR = 6;
     }
     return self;
 }
++(NSInteger)NUM_DIR {
+    return 6;
+}
+
 
 
 

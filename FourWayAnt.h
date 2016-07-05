@@ -10,7 +10,7 @@
 
 @interface FourWayAnt : AbstractAnt
 typedef NS_ENUM(NSInteger, FourWayDirection) {
-    RIGHT = 0, DOWN = 1, LEFT = 2, UP = 3
+    RIGHT_4 = 0, DOWN_4 = 1, LEFT_4 = 2, UP_4 = 3
 };
 -(id)initWithDirection:(enum FourWayDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol;
 

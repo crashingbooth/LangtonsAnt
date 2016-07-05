@@ -7,51 +7,19 @@
 //
 
 #import "HexagonalGridView.h"
-#import "Grid.h"
-#import "HexagonalAnt.h"
+
 
 @implementation HexagonalGridView
-
-CGFloat sideHeight;
-CGFloat shapeWidth;
-NSMutableArray *paths;
-BOOL initialized;
-
-
-NSArray *colours;
-
 -(id) initWithWidth:(CGFloat) shapeWidth andFrame:(CGRect)frame andGrid:(Grid*)grid {
-    NSArray *clr  = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
-    self.colours = clr;
-    self = [super initWithFrame:frame];
+    self = [super initWithWidth:shapeWidth andFrame:frame andGrid:grid];
+    
     if (self) {
         self.sideHeight = shapeWidth * 0.577350269;
-        self.shapeWidth = shapeWidth;
-        self.grid = grid;
-        paths = [[NSMutableArray alloc] init ];
-        [self createPaths] ;
-        initialized = NO;
-     
-         NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
+//        NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
     }
+//    [self createPaths];
     return self;
 }
-
--(void)createPaths {
-    for (int row = 0; row < self.grid.matrix.count; row++) {
-        NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
-        NSMutableArray *pathsRow = [[NSMutableArray alloc] init];
-        for (int col = 0; col < currentRow.count; col++) {
-            UIBezierPath *path = [self getPathAtRow:row andCol:col];
-            [pathsRow addObject:path];
-        }
-        [paths addObject:pathsRow];
-    }
-
-    
-}
-
-
 
 - (void)drawRect:(CGRect)rect {
     if (rect.size.width == self.frame.size.width) {
@@ -59,21 +27,21 @@ NSArray *colours;
         for (int row = 0; row < self.grid.matrix.count; row++) {
             NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
             for (int col = 0; col < currentRow.count; col++) {
-                UIBezierPath *path = [[paths objectAtIndex:row] objectAtIndex:col];
+                UIBezierPath *path = [[self.paths objectAtIndex:row] objectAtIndex:col];
                 NSUInteger state = [[[self.grid.matrix objectAtIndex:row] objectAtIndex: col] integerValue];
                 UIColor *currentCol = [self.colours objectAtIndex: state];
                 [currentCol setFill];
                 [currentCol setStroke];
                 path.lineWidth = 1;
                 [path stroke];
-
+                
                 [path fill];
             }
             
         }
         
     } else {
-//        NSLog(@"ant only");
+        //        NSLog(@"ant only");
         for (HexagonalAnt *ant in self.grid.ants) {
             NSUInteger backState = [[[self.grid.matrix objectAtIndex: [ant getNeighbourAtDirection:UP_LEFT].row] objectAtIndex:[ant getNeighbourAtDirection:UP_LEFT].col]integerValue];
             CGRect backRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width / 2, rect.size.height / 2);
@@ -110,7 +78,7 @@ NSArray *colours;
             
             
             NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
-            UIBezierPath *path = [[paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
+            UIBezierPath *path = [[self.paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
             UIColor *currentCol = [self.colours objectAtIndex: state];
             self.backgroundColor = [UIColor clearColor];
             [currentCol setFill];
@@ -121,23 +89,14 @@ NSArray *colours;
         }
         
     }
-
- 
-}
--(void)updateOnlyAntRect {
-    for (AbstractAnt *ant in self.grid.ants) {
-       
-        UIBezierPath *path = [[paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
-        
-        CGRect boundingRect = CGRectMake(path.bounds.origin.x, path.bounds.origin.y, path.bounds.size.width, path.bounds.size.height);
-        [self setNeedsDisplayInRect:boundingRect];
-    }
+    
     
 }
 
+
 -(UIBezierPath*)getPathAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum {
     UIBezierPath *path = [UIBezierPath bezierPath];
-
+    
     CGFloat startX = (CGFloat)colNum * self.shapeWidth;
     
     CGFloat startY = (CGFloat)rowNum * self.sideHeight * 1.5;
@@ -155,6 +114,8 @@ NSArray *colours;
     
     return path;
 }
+
+
 
 
 
