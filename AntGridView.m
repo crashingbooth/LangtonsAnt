@@ -12,7 +12,7 @@
 
 CGFloat sideHeight;
 CGFloat shapeWidth;
-NSMutableArray *paths;
+NSMutableArray *rects;
 
 
 
@@ -26,83 +26,77 @@ NSArray *colours;
         self.sideHeight = shapeWidth;
         self.shapeWidth = shapeWidth;
         self.grid = grid;
-
-        NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
+//        [self setOpaque:NO];
+//        [self setClearsContextBeforeDrawing:NO];
+//        NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
     }
     return self;
 }
 
--(void)createPaths {
-    self.paths = [[NSMutableArray alloc] init ];
+-(void)createRects {
+    // called from init
+    self.rects = [[NSMutableArray alloc] init ];
     for (int row = 0; row < self.grid.matrix.count; row++) {
         NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
-        NSMutableArray *pathsRow = [[NSMutableArray alloc] init];
+        NSMutableArray *rectsRow = [[NSMutableArray alloc] init];
         for (int col = 0; col < currentRow.count; col++) {
-            UIBezierPath *path = [self getPathAtRow:row andCol:col];
-            [pathsRow addObject:path];
+            CGRect cellRect = CGRectMake((CGFloat)col * self.shapeWidth, (CGFloat)row * self.shapeWidth,  self.shapeWidth, self.shapeWidth);
+            NSValue *rectWrap = [NSValue valueWithCGRect: cellRect];
+            [rectsRow addObject:rectWrap];
         }
-        [self.paths addObject:pathsRow];
+        [self.rects addObject:rectsRow];
     }
 }
 
 
 
 -(void)updateOnlyAntRect {
+    // called by the ViewController
     for (AbstractAnt *ant in self.grid.ants) {
-        UIBezierPath *path = [[self.paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
-        CGRect boundingRect = CGRectMake(path.bounds.origin.x, path.bounds.origin.y, path.bounds.size.width, path.bounds.size.height);
+        CGRect boundingRect =  [[[self.rects objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col] CGRectValue];
         [self setNeedsDisplayInRect:boundingRect];
     }
-    
 }
 
--(UIBezierPath*)getPathAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum {
+-(CGRect)getRectAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum {
     CGRect rect = CGRectMake((CGFloat)colNum * self.shapeWidth, (CGFloat)rowNum * self.shapeWidth,  self.shapeWidth, self.shapeWidth);
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    return path;
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+    return rect;
 }
 
 - (void)drawRect:(CGRect)rect {
-    if (rect.size.width == self.frame.size.width) {
-        NSLog(@"all");
+    if (CGRectEqualToRect(rect, self.frame)) {
+        // for full screen
         for (int row = 0; row < self.grid.matrix.count; row++) {
             NSMutableArray *currentRow = [self.grid.matrix objectAtIndex:row];
             for (int col = 0; col < currentRow.count; col++) {
-                UIBezierPath *path = [[self.paths objectAtIndex:row] objectAtIndex:col];
+                CGRect currentRect = [[[self.rects objectAtIndex:row] objectAtIndex:col] CGRectValue];
+//                UIBezierPath *path = [UIBezierPath bezierPathWithRect:currentRect];
                 NSUInteger state = [[[self.grid.matrix objectAtIndex:row] objectAtIndex: col] integerValue];
                 UIColor *currentCol = [self.colours objectAtIndex: state];
-                [currentCol setFill];
-                [currentCol setStroke];
-                path.lineWidth = 1;
-                [path stroke];
-                
-                [path fill];
-            }
-            
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                CGContextSetFillColorWithColor(context, [currentCol CGColor]);
+                //            CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
+                CGContextFillRect(context, currentRect);
+                          }
         }
-        
     } else {
-        //        NSLog(@"ant only");
+        // for single cell
         for (AbstractAnt *ant in self.grid.ants) {
-            
             NSUInteger state = [[[self.grid.matrix objectAtIndex:ant.currentPos.row ] objectAtIndex: ant.currentPos.col] integerValue];
-            // try to make new path and reinsert it into paths
-            UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-            [[paths objectAtIndex:ant.currentPos.row ]replaceObjectAtIndex:ant.currentPos.col withObject:path];
-//            [[self.paths objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col];
-            UIColor *currentCol = [self.colours objectAtIndex: state];
-            self.backgroundColor = [UIColor clearColor];
-            [currentCol setFill];
-            [currentCol setStroke];
-            path.lineWidth = 2;
-             [path fill];
-            [path stroke];
-           
-            NSLog([NSString stringWithFormat:@"col: %li, row: %li startPath: %.4f,startRect: %.4f, end: %.4f", ant.currentPos.col, ant.currentPos.row,path.bounds.origin.y, rect.origin.y, path.bounds.size.height,  rect.size.height]);
+            CGRect cellRect =  [[[self.rects objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col] CGRectValue];
+            //  cellRect == rect arg
+            
+        UIColor *currentCol = [self.colours objectAtIndex: state];
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextSetFillColorWithColor(context, [currentCol CGColor]);
+//            CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
+            CGContextFillRect(context, cellRect);
+          
+
         }
         
     }
-    
     
 }
 

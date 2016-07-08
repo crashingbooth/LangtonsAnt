@@ -17,10 +17,10 @@
 @property (nonatomic) CGFloat shapeWidth;
 @property (nonatomic) NSArray *colours;
 @property(nonatomic, strong) Grid *grid;
-@property(nonatomic, strong) NSMutableArray *paths;
+@property(nonatomic, strong) NSMutableArray *rects;
 
 -(id) initWithWidth:(CGFloat) shapeWidth andFrame:(CGRect)frame andGrid:(Grid*)grid ;
 -(void)updateOnlyAntRect;
--(void)createPaths;
+-(void)createRects;
 -(UIBezierPath*)getPathAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum;
 @end

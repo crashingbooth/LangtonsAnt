@@ -46,7 +46,7 @@ GridPoint *startPoint;
    
     [self makeSquareGrid];
     hgv.backgroundColor = [UIColor clearColor];
-    [hgv createPaths];
+    [hgv createRects];
     [self.view addSubview:hgv];
     
     // 1st ant:
@@ -62,8 +62,8 @@ GridPoint *startPoint;
 -(void)update:(NSTimer*)timer {
     count++;
         [hgv.grid update];
-    [hgv setNeedsDisplay];
-//    [hgv updateOnlyAntRect];
+//    [hgv setNeedsDisplay];
+    [hgv updateOnlyAntRect];
 //     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
     
 }
