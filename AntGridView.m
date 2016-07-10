@@ -26,8 +26,8 @@ NSArray *colours;
         self.sideHeight = shapeWidth;
         self.shapeWidth = shapeWidth;
         self.grid = grid;
-//        [self setOpaque:NO];
-//        [self setClearsContextBeforeDrawing:NO];
+        [self setOpaque:YES];
+        [self setClearsContextBeforeDrawing:YES];
 //        NSLog([NSString stringWithFormat:@"shapewidth: %.3f, height %.3f", self.shapeWidth, self.sideHeight]);
     }
     return self;
@@ -78,6 +78,9 @@ NSArray *colours;
                 CGContextSetFillColorWithColor(context, [currentCol CGColor]);
                 //            CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
                 CGContextFillRect(context, currentRect);
+                CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
+                CGContextStrokeRect(context, currentRect);
+                
                           }
         }
     } else {
@@ -90,8 +93,10 @@ NSArray *colours;
         UIColor *currentCol = [self.colours objectAtIndex: state];
             CGContextRef context = UIGraphicsGetCurrentContext();
             CGContextSetFillColorWithColor(context, [currentCol CGColor]);
-//            CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
+            CGContextSetStrokeColorWithColor(context, [currentCol CGColor]);
             CGContextFillRect(context, cellRect);
+            CGContextStrokeRect(context, cellRect);
+            CGContextClipToRect(context, rect);
           
 
         }

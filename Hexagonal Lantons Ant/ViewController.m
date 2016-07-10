@@ -35,10 +35,10 @@ GridPoint *startPoint;
     [super viewDidLoad];
     MidiNote *mid = [[MidiNote alloc] init ];
    
-    rows = 50;
-    cols = 50;
+    rows = 20;
+    cols = 20;
     
-    gridWidth = self.view.frame.size.width / cols;
+    gridWidth = round(self.view.frame.size.width / cols);
     states = @[@-1, @-1,@1,@1];
     grid = [[Grid alloc] initWithRows:rows  andCols:cols andStates:states];
     startPoint = [[GridPoint alloc] initWithRow:rows / 2 - 1 andCol:cols / 2 - 1] ;
@@ -56,7 +56,7 @@ GridPoint *startPoint;
     [grid addAnt:ant];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.7f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {
