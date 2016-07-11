@@ -16,6 +16,7 @@
 #import "FourWayAnt.h"
 #import "MidiNote.h"
 #import "MusicInterpretter.h"
+#import "UIViewWithPath.h"
 
 @interface ViewController ()
 
@@ -35,13 +36,16 @@ GridPoint *startPoint;
     [super viewDidLoad];
 //    MidiNote *mid = [[MidiNote alloc] init ];
    
-    rows = 50;
-    cols = 50;
+    rows = 55;
+    cols = 55;
     
     gridWidth = round(self.view.frame.size.width / cols);
-    states = @[@-1, @-1,@1,@1];
+    states = @[@-1,@-1, @1,@1];
     grid = [[Grid alloc] initWithRows:rows  andCols:cols andStates:states];
-    startPoint = [[GridPoint alloc] initWithRow:rows / 2 - 1 andCol:cols / 2 - 1] ;
+    startPoint = [[GridPoint alloc] initWithRow:rows / 2 + 10 andCol:cols / 2 - 1] ;
+    
+   
+    
     [grid buildZeroStateMatrix];
 
    
@@ -54,7 +58,7 @@ GridPoint *startPoint;
     [grid addAnt:ant];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.02f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {
@@ -63,13 +67,13 @@ GridPoint *startPoint;
 
 -(void)makeSquareGrid {
     ant = [[FourWayAnt alloc] initWithDirection:RIGHT_4 atPos:startPoint maxRow:rows maxCol:cols];
-    gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxSize:gridWidth];
+    gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth];
     
 }
 
 -(void)makeHexGrid {
     ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:startPoint maxRow:rows maxCol:cols];
-    gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxSize:gridWidth];
+    gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth];
 }
 
 

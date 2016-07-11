@@ -20,43 +20,30 @@
     for (int row = 0; row < rows; row++) {
         NSMutableArray *currentRow = [[NSMutableArray alloc] init];
         for (int col = 0; col < cols; col++) {
-            CGFloat startX = (CGFloat)col * self.boxSize;
+            CGFloat startX = (CGFloat)col * self.boxWidth;
             if (row % 2 == 1) {
-                startX += self.boxSize / 2.0;
+                startX += self.boxWidth / 2.0;
             }
             
-            CGRect rect = CGRectMake(startX, (CGFloat)row * [self boxHeight], self.boxSize, [self boxHeight]);
+            CGRect rect = CGRectMake(startX, (CGFloat)row * [self sideHeight] * 1.5, self.boxWidth, [self sideHeight] * 2);
             UIViewWithPath *cell = [[UIViewWithPath alloc] initWithFrame:rect];
             cell.backgroundColor = [UIColor clearColor];
             
             
-            UIBezierPath *path = [self getPathAtRow:row andCol:col];
-            cell.path = path;
+
+            cell.path = [cell getPath];
             cell.color = self.colors[0];
+            [cell setNeedsDisplay];
             [self.parentView addSubview:cell];
             [currentRow addObject:cell];
         }
         [self.gridOfViews addObject:currentRow];
     }
 }
--(CGFloat)boxHeight {
-    return self.boxSize * 0.577350269;
+-(CGFloat)sideHeight {
+    return self.boxWidth * 0.577350269;
 }
--(UIBezierPath*)getPathAtRow:(NSUInteger)rowNum andCol:(NSUInteger)colNum {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    CGFloat startY = [self boxHeight] / 2.0;
 
-
-    [path moveToPoint: CGPointMake(0, startY)];
-    [path addLineToPoint:CGPointMake(self.boxSize / 2.0, 0)];
-    [path addLineToPoint:CGPointMake(self.boxSize, startY)];
-    [path addLineToPoint:CGPointMake(self.boxSize, startY + [self boxHeight])];
-    [path addLineToPoint:CGPointMake(self.boxSize / 2.0, [self boxHeight] * 2)];
-    [path addLineToPoint:CGPointMake(0, startY + [self boxHeight])];
-    [path closePath];
-
-    return path;
-}
 
 
 

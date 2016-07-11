@@ -17,7 +17,7 @@
     for (int row = 0; row < rows; row++) {
         NSMutableArray *currentRow = [[NSMutableArray alloc] init];
         for (int col = 0; col < cols; col++) {
-            CGRect rect = CGRectMake((CGFloat)col * self.boxSize, (CGFloat)row * self.boxSize, self.boxSize, self.boxSize);
+            CGRect rect = CGRectMake((CGFloat)col * self.boxWidth, (CGFloat)row * self.boxWidth, self.boxWidth, self.boxWidth);
             UIView *cell = [[UIView alloc] initWithFrame:rect];
             cell.backgroundColor = [UIColor whiteColor];
             [self.parentView addSubview:cell];

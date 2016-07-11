@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9B91D33BD1300AEC27D /* EightWayAnt.m */; };
 		1F2AD93E1D23A9C70020B06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD93D1D23A9C70020B06E /* main.m */; };
 		1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9401D23A9C70020B06E /* AppDelegate.m */; };
 		1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9431D23A9C70020B06E /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F11D9B81D33BD1300AEC27D /* EightWayAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightWayAnt.h; sourceTree = "<group>"; };
+		1F11D9B91D33BD1300AEC27D /* EightWayAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightWayAnt.m; sourceTree = "<group>"; };
 		1F2AD9391D23A9C70020B06E /* Hexagonal Lantons Ant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hexagonal Lantons Ant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AD93D1D23A9C70020B06E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F2AD93F1D23A9C70020B06E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				1F2AD96E1D23BF970020B06E /* HexagonalAnt.m */,
 				1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */,
 				1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */,
+				1F11D9B81D33BD1300AEC27D /* EightWayAnt.h */,
+				1F11D9B91D33BD1300AEC27D /* EightWayAnt.m */,
 			);
 			name = Ants;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
 				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,

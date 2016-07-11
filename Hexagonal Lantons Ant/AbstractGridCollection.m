@@ -12,15 +12,15 @@
 @implementation AbstractGridCollection
 NSMutableArray *gridOfViews;
 UIView *parentView;
-CGFloat boxSize;
+CGFloat boxWidth;
 
 
--(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxSize:(CGFloat)boxSizeFromVC {
+-(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC {
     self = [super init];
     if (self) {
         self.parentView = parentView;
         self.grid = myGrid;
-        self.boxSize = boxSizeFromVC;
+        self.boxWidth = boxWidthFromVC;
         self.colors = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
         
         [self setUpInitialViews];

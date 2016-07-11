@@ -11,5 +11,6 @@
 @interface UIViewWithPath : UIView
 @property (strong, nonatomic) UIBezierPath *path;
 @property (strong, nonatomic) UIColor *color;
+-(UIBezierPath*)getPath;
 
 @end

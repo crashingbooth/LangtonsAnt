@@ -15,10 +15,10 @@
 @property (weak, nonatomic) Grid *grid;
 @property (strong, nonatomic) NSMutableArray *gridOfViews;
 @property (strong, nonatomic) NSArray *colors;
-@property (nonatomic) CGFloat boxSize;
+@property (nonatomic) CGFloat boxWidth;
 
 
--(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxSize:(CGFloat)boxSizeFromVC;
+-(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC;
 // abstract:
 -(void)setUpInitialViews;
 -(void)updateViews;
