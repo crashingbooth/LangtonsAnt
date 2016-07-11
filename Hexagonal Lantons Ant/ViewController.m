@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AbstractGridCollection.h"
 #import "SquareGridCollection.h"
+#import "HexagonGridColection.h"
 #import "Grid.h"
 #import "HexagonalAnt.h"
 #import "AbstractAnt.h"
@@ -44,7 +45,7 @@ GridPoint *startPoint;
     [grid buildZeroStateMatrix];
 
    
-    [self makeSquareGrid];
+    [self makeHexGrid];
 
     // 1st ant:
 //    AbstractAnt *ant = [[FourWayAnt alloc] initWithDirection:0 atPos:startPoint maxRow:rows maxCol:cols];
@@ -67,8 +68,8 @@ GridPoint *startPoint;
 }
 
 -(void)makeHexGrid {
-//    hgv = [[HexagonalGridView alloc] initWithWidth:gridWidth andFrame:self.view.frame andGrid:grid];
-//    ant = [[HexagonalAnt alloc] initWithDirection:RIGHT_4 atPos:startPoint maxRow:rows maxCol:cols];
+    ant = [[HexagonalAnt alloc] initWithDirection:RIGHT atPos:startPoint maxRow:rows maxCol:cols];
+    gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxSize:gridWidth];
 }
 
 
