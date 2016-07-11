@@ -31,52 +31,74 @@ NSUInteger rows;
 NSUInteger cols;
 CGFloat gridWidth;
 GridPoint *startPoint;
+NSArray *clr;
+NSMutableArray *gridOfViews;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    MidiNote *mid = [[MidiNote alloc] init ];
+//    MidiNote *mid = [[MidiNote alloc] init ];
    
-    rows = 20;
-    cols = 20;
+    rows = 50;
+    cols = 50;
     
     gridWidth = round(self.view.frame.size.width / cols);
     states = @[@-1, @-1,@1,@1];
     grid = [[Grid alloc] initWithRows:rows  andCols:cols andStates:states];
     startPoint = [[GridPoint alloc] initWithRow:rows / 2 - 1 andCol:cols / 2 - 1] ;
     [grid buildZeroStateMatrix];
+     clr  = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
    
     [self makeSquareGrid];
-    hgv.backgroundColor = [UIColor clearColor];
-    [hgv createRects];
-    [self.view addSubview:hgv];
+//    hgv.backgroundColor = [UIColor clearColor];
+//    [hgv createRects];
+//    [self.view addSubview:hgv];
     
     // 1st ant:
-
+//    AbstractAnt *ant = [[FourWayAnt alloc] initWithDirection:0 atPos:startPoint maxRow:rows maxCol:cols];
 //    MusicInterpretter *musInt1 = [[MusicInterpretter alloc] initWithRootNote:@60 withScale:@"pelang" onChannel:@0 withMidi:mid] ;
 //    [ant addMusicInterpretter:musInt1];
     [grid addAnt:ant];
     [grid update];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.7f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
 -(void)update:(NSTimer*)timer {
-    count++;
-        [hgv.grid update];
-//    [hgv setNeedsDisplay];
-    [hgv updateOnlyAntRect];
-//     NSLog([NSString stringWithFormat:@" dir adjust: %li", count]);
+    [grid update];
+//    NSArray *ants = grid.ants;
+    for (AbstractAnt *ant in grid.ants) {
+        
+        
+//        NSLog([NSString stringWithFormat:@"%i, %i", cell.row, cell.col]);
+        UIView *changedTile = [[gridOfViews objectAtIndex: ant.currentPos.row ] objectAtIndex:ant.currentPos.col];
+        NSInteger newState = [[[grid.matrix objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col] integerValue];
+//         NSLog([NSString stringWithFormat:@"%i, %i, %li", cell.row, cell.col, newState]);
+        changedTile.backgroundColor = [clr objectAtIndex:newState];
+    }
     
 }
 
 -(void)makeSquareGrid {
-    hgv = [[AntGridView alloc] initWithWidth:gridWidth andFrame:self.view.frame andGrid:grid];
     ant = [[FourWayAnt alloc] initWithDirection:RIGHT_4 atPos:startPoint maxRow:rows maxCol:cols];
+    gridOfViews = [[NSMutableArray alloc] init];
+    for (int row = 0; row < rows; row++) {
+        NSMutableArray *currentRow = [[NSMutableArray alloc] init];
+        for (int col = 0; col < cols; col++) {
+            CGRect rect = CGRectMake((CGFloat)col * gridWidth, (CGFloat)row * gridWidth, gridWidth, gridWidth);
+            UIView *cell = [[UIView alloc] initWithFrame:rect];
+            cell.backgroundColor = [UIColor whiteColor];
+            [self.view addSubview:cell];
+            [currentRow addObject:cell];
+        }
+        [gridOfViews addObject:currentRow];
+    }
 }
 
 -(void)makeHexGrid {
     hgv = [[HexagonalGridView alloc] initWithWidth:gridWidth andFrame:self.view.frame andGrid:grid];
     ant = [[HexagonalAnt alloc] initWithDirection:RIGHT_4 atPos:startPoint maxRow:rows maxCol:cols];
 }
+
+
 
 
 

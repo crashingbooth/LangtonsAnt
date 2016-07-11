@@ -52,6 +52,7 @@ MusicInterpretter *musInt;
     if (self.isMusical) {
         [self.musInt playNoteFromDirection:self.direction];
     }
+//
     NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
 
