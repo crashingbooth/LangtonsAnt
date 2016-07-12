@@ -29,7 +29,11 @@
             UIViewWithPath *cell = [[UIViewWithPath alloc] initWithFrame:rect];
             cell.backgroundColor = [UIColor clearColor];
             
-            
+            if (self.drawAsCircle == YES) {
+                cell.pathShape = CIRCLE;
+            } else {
+                cell.pathShape = HEXAGON;
+            }
 
             cell.path = [cell getPath];
             cell.color = self.colors[0];

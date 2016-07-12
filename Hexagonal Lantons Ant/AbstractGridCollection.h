@@ -16,9 +16,10 @@
 @property (strong, nonatomic) NSMutableArray *gridOfViews;
 @property (strong, nonatomic) NSArray *colors;
 @property (nonatomic) CGFloat boxWidth;
+@property (nonatomic) BOOL drawAsCircle;
 
 
--(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC;
+-(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle;
 // abstract:
 -(void)setUpInitialViews;
 -(void)updateViews;

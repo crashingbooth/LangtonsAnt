@@ -7,6 +7,7 @@
 //
 
 #import "SquareGridCollection.h"
+#import "UIViewWithPath.h"
 
 @implementation SquareGridCollection
 
@@ -18,8 +19,17 @@
         NSMutableArray *currentRow = [[NSMutableArray alloc] init];
         for (int col = 0; col < cols; col++) {
             CGRect rect = CGRectMake((CGFloat)col * self.boxWidth, (CGFloat)row * self.boxWidth, self.boxWidth, self.boxWidth);
-            UIView *cell = [[UIView alloc] initWithFrame:rect];
-            cell.backgroundColor = [UIColor whiteColor];
+            UIViewWithPath *cell = [[UIViewWithPath alloc] initWithFrame:rect];
+            cell.backgroundColor = [UIColor clearColor];
+            if (self.drawAsCircle == YES) {
+//                cell.backgroundColor = [UIColor clearColor];
+                cell.pathShape = CIRCLE;
+            } else {
+                cell.pathShape = SQUARE;
+            }
+//            cell.backgroundColor = [UIColor whiteColor];
+            cell.color = self.colors[0];
+            cell.path = [cell getPath];
             [self.parentView addSubview:cell];
             [currentRow addObject:cell];
         }
@@ -30,11 +40,12 @@
 -(void)updateViews {
     [self.grid update];
     for (AbstractAnt *ant in self.grid.ants) {
-
-        UIView *changedTile = [[self.gridOfViews objectAtIndex: ant.currentPos.row ] objectAtIndex:ant.currentPos.col];
+        
+        UIViewWithPath *changedTile = [[self.gridOfViews objectAtIndex: ant.currentPos.row ] objectAtIndex:ant.currentPos.col];
         NSInteger newState = [[[self.grid.matrix objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col] integerValue];
         //         NSLog([NSString stringWithFormat:@"%i, %i, %li", cell.row, cell.col, newState]);
-        changedTile.backgroundColor = [self.colors objectAtIndex:newState];
+        changedTile.color = [self.colors objectAtIndex:newState];
+        [changedTile setNeedsDisplay];
     }
     
 }

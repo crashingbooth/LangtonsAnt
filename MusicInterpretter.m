@@ -27,17 +27,20 @@ NSMutableArray *scaleDict;
 }
 
 -(void)initScaleList{
-    NSArray *pentatonic = @[@0, @3, @5, @7, @10, @12];
-    NSArray *pelang = @[@0, @1, @3, @7, @8, @12];
+    NSArray *pentatonic = @[@0, @3, @5, @7, @10, @12, @15, @17];
+    NSArray *pelang = @[@0, @1, @3, @7, @8, @12, @13, @15];
+    NSArray *dorian = @[@0, @2, @3, @5, @7, @9, @10, @12];
     NSArray *intervals;
     
     if ([self.scaleName isEqualToString:@"pentatonic"]) {
         intervals = pentatonic;
     } else if ([self.scaleName isEqualToString:@"pelang"]) {
         intervals = pelang;
+    } else if ([self.scaleName isEqualToString:@"dorian"]) {
+        intervals = dorian;
     }
     
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < intervals.count; i++) {
         NSInteger rawNote = [[intervals objectAtIndex:i] integerValue] + [self.root integerValue];
         NSNumber *note = [NSNumber numberWithInt:rawNote];
        

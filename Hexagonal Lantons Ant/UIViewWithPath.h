@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewWithPath : UIView
+typedef NS_ENUM(NSInteger, PathShape) {
+    SQUARE = 0, CIRCLE = 1, HEXAGON = 2
+};
+
 @property (strong, nonatomic) UIBezierPath *path;
 @property (strong, nonatomic) UIColor *color;
+@property (nonatomic) PathShape pathShape;
 -(UIBezierPath*)getPath;
+
+
 
 @end

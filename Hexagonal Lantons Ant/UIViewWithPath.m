@@ -11,6 +11,8 @@
 @implementation UIViewWithPath
 UIBezierPath *path;
 UIColor *color;
+PathShape pathShape;
+
 
 
 - (void)drawRect:(CGRect)rect {
@@ -21,6 +23,36 @@ UIColor *color;
 }
 
 -(UIBezierPath*)getPath {
+    switch (self.pathShape) {
+        case SQUARE:
+            return [self getSquarePath];
+            break;
+        case CIRCLE:
+            return [self getCirclePath];
+            break;
+        case HEXAGON:
+            return [self getHexagonPath];
+            break;
+            
+        default:
+            NSLog(@"pathShape not set properly");
+            break;
+    }
+    return [self getCirclePath];
+}
+
+-(UIBezierPath*)getSquarePath {
+    return [UIBezierPath bezierPathWithRect:self.bounds];
+}
+
+-(UIBezierPath*)getCirclePath {
+    CGFloat margin = 0.5;
+    CGRect smallRect = CGRectMake(margin, margin, self.bounds.size.width - (margin * 2), self.bounds.size.height - (margin * 2));
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:smallRect];
+    return path;
+}
+
+-(UIBezierPath*)getHexagonPath {
     CGFloat sideHeight = self.bounds.size.height / 2;
     CGFloat boxWidth = self.bounds.size.width;
     UIBezierPath *path = [UIBezierPath bezierPath];
