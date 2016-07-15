@@ -7,10 +7,9 @@
 //
 
 #import "AbstractAnt.h"
+#import "Constants.h"
 
 @interface EightWayAnt : AbstractAnt
-typedef NS_ENUM(NSInteger, EightWayDirection) {
-    RIGHT_8 = 0, DOWN_RIGHT_8 = 1, DOWN_8 = 2, DOWN_LEFT_8 = 3, LEFT_8 = 4, UP_LEFT_8 = 5, UP_8 = 6, UP_RIGHT_8 =7
-};
+
 -(id)initWithDirection:(enum EightWayDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol;
 @end
