@@ -19,10 +19,10 @@ UInt8 gmMIDIVoice;
 float duration = 0.2;
 
 
--(id)init {
+-(id)initWithGMMidiNumber:(UInt8)gmMidiNumber {
     self = [super init];
     if (self) {
-        gmMIDIVoice = 108;
+        gmMIDIVoice = gmMidiNumber;
         melodicBank = (UInt8)kAUSampler_DefaultMelodicBankMSB;
         [self initAudioEngine];
     }

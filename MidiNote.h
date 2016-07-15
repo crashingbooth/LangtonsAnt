@@ -13,6 +13,6 @@
 @property (nonatomic,strong) AVAudioEngine *engine;
 @property (nonatomic,strong) AVAudioPlayerNode *playerNode;
 
--(id)init;
+-(id)initWithGMMidiNumber:(UInt8)gmMidiNumber;
 -(void)playMidiNote:(NSNumber*)note onChannel:(NSNumber*)channel;
 @end
