@@ -21,4 +21,8 @@ typedef NS_ENUM(NSInteger, EightWayDirection) {
     RIGHT_8 = 0, DOWN_RIGHT_8 = 1, DOWN_8 = 2, DOWN_LEFT_8 = 3, LEFT_8 = 4, UP_LEFT_8 = 5, UP_8 = 6, UP_RIGHT_8 =7
 };
 
+typedef NS_ENUM(NSInteger, AntType) {
+    FOUR_WAY = 0, SIX_WAY, EIGHTWAY
+};
+
 @end

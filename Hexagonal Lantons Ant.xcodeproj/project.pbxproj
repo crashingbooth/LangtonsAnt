@@ -114,9 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				1F11D9BB1D38CBE400AEC27D /* Settings.h */,
+				1F11D9BC1D38CBE400AEC27D /* Settings.m */,
 				1F11D9BE1D38CF5D00AEC27D /* Constants.h */,
 				1F11D9BF1D38CF5D00AEC27D /* Constants.m */,
-				1F11D9BC1D38CBE400AEC27D /* Settings.m */,
 				1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */,
 				1F2DAF411D336DF1000D898A /* Old UIViews */,
 				1F2AD9641D23AA520020B06E /* Grid.h */,
