@@ -11,14 +11,14 @@
 
 @implementation Settings
 AntType antType;
-NSArray *statesList;
+NSArray *statesListInGrid;
 NSInteger numStates;
-NSInteger numRows;
-NSInteger numCols;
+NSInteger numRowsInGrid;
+NSInteger numColsInGrid;
 NSArray *colorList;
-NSArray *antList;
+NSArray *antsInitialStatus;
 NSInteger numAnts;
-Grid *grid;
+Grid *settingsGrid;
 
 
 + (Settings *)sharedInstance {
@@ -35,25 +35,28 @@ Grid *grid;
     self = [super init];
     if (self) {
         self.antType = FOUR_WAY;
-        self.statesList = @[@-1, @1];
-        self.numRows = 40;
-        self.numCols = 40;
+        self.statesListInGrid = @[@-1, @1];
+        self.numRowsInGrid = 40;
+        self.numColsInGrid = 40;
         self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
-        GridPoint *start = [[GridPoint alloc] initWithRow:self.numRows / 2 andCol:self.numCols / 2];
-        FourWayAnt *ant = [[FourWayAnt alloc] initWithDirection:RIGHT_4 atPos:start maxRow:self.numRows maxCol:self.numCols];
-        self.grid = [[Grid alloc] initWithRows:self.numRows andCols:self.numCols andStates:self.statesList];
-        [self.grid addAnt:ant];
+        GridPoint *start = [[GridPoint alloc] initWithRow:self.numRowsInGrid / 2 andCol:self.numColsInGrid / 2];
+        FourWayAnt *ant = [[FourWayAnt alloc] initWithDirection:RIGHT_4 atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
+        self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
+        [self.settingsGrid addAnt:ant];
         
     }
     return self;
 }
 
 -(NSInteger) numStates {
-    return statesList.count;
+    return statesListInGrid.count;
 }
 
 -(NSInteger) numAnts {
-    return antList.count;
+    return antsInitialStatus.count;
 }
+
+//  8way  states = @[@3,@-2,@4, @2, @-3] , 60 x 40 good  ;
+//  8way  states = @[@3,@-2,@4, @2, @-3] , 70 x 55 good, row/4 col/2, row/2 col/4  ;
 
 @end

@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, EightWayDirection) {
 };
 
 typedef NS_ENUM(NSInteger, AntType) {
-    FOUR_WAY = 0, SIX_WAY, EIGHTWAY
+    FOUR_WAY = 0, SIX_WAY, EIGHT_WAY
 };
 
 @end

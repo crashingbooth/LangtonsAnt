@@ -18,13 +18,13 @@
 @interface Settings : NSObject
 @property (nonatomic) AntType antType;
 @property (nonatomic) NSInteger numStates;
-@property (nonatomic, strong) NSArray *statesList;
-@property (nonatomic) NSInteger numRows;
-@property (nonatomic) NSInteger numCols;
+@property (nonatomic, strong) NSArray *statesListInGrid;
+@property (nonatomic) NSInteger numRowsInGrid;
+@property (nonatomic) NSInteger numColsInGrid;
 @property (nonatomic, strong) NSArray *colorList;
-@property (nonatomic, strong) NSArray *antList;
+@property (nonatomic, strong) NSArray *antsInitialStatus;
 @property (nonatomic) NSInteger numAnts;
-@property (nonatomic, strong) Grid *grid;
+@property (nonatomic, strong) Grid *settingsGrid;
 
 
 + (Settings *)sharedInstance;
