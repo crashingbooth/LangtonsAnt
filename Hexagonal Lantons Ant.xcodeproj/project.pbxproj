@@ -11,6 +11,8 @@
 		1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9BC1D38CBE400AEC27D /* Settings.m */; };
 		1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9BF1D38CF5D00AEC27D /* Constants.m */; };
 		1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */; };
+		1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */; };
+		1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C91D3AE43300AEC27D /* SpeedCell.m */; };
 		1F2AD93E1D23A9C70020B06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD93D1D23A9C70020B06E /* main.m */; };
 		1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9401D23A9C70020B06E /* AppDelegate.m */; };
 		1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9431D23A9C70020B06E /* ViewController.m */; };
@@ -53,6 +55,10 @@
 		1F11D9BF1D38CF5D00AEC27D /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1F11D9C11D38E04100AEC27D /* MainDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainDisplayViewController.h; sourceTree = "<group>"; };
 		1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainDisplayViewController.m; sourceTree = "<group>"; };
+		1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuTVC.h; path = ../MainMenuTVC.h; sourceTree = "<group>"; };
+		1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuTVC.m; path = ../MainMenuTVC.m; sourceTree = "<group>"; };
+		1F11D9C81D3AE43300AEC27D /* SpeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedCell.h; sourceTree = "<group>"; };
+		1F11D9C91D3AE43300AEC27D /* SpeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedCell.m; sourceTree = "<group>"; };
 		1F2AD9391D23A9C70020B06E /* Hexagonal Lantons Ant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hexagonal Lantons Ant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AD93D1D23A9C70020B06E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F2AD93F1D23A9C70020B06E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +119,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F11D9C71D3A1EFF00AEC27D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F11D9C11D38E04100AEC27D /* MainDisplayViewController.h */,
+				1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */,
+				1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */,
+				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
+				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
+				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
+			);
+			name = ViewControllers;
+			path = "Hexagonal Lantons Ant";
+			sourceTree = "<group>";
+		};
 		1F2AD9301D23A9C70020B06E = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +140,13 @@
 				1F11D9BC1D38CBE400AEC27D /* Settings.m */,
 				1F11D9BE1D38CF5D00AEC27D /* Constants.h */,
 				1F11D9BF1D38CF5D00AEC27D /* Constants.m */,
+				1F8CDAA91D2A350A00AE4D32 /* Ants */,
+				1F11D9C71D3A1EFF00AEC27D /* ViewControllers */,
 				1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */,
-				1F2DAF411D336DF1000D898A /* Old UIViews */,
 				1F2AD9641D23AA520020B06E /* Grid.h */,
 				1F2AD9651D23AA520020B06E /* Grid.m */,
 				1FDBD3EB1D262D42008665FA /* GridPoint.h */,
 				1FDBD3EC1D262D42008665FA /* GridPoint.m */,
-				1F8CDAA91D2A350A00AE4D32 /* Ants */,
 				1F2DAF4B1D337B65000D898A /* GridCollections */,
 				1F2AD93B1D23A9C70020B06E /* Hexagonal Lantons Ant */,
 				1F2AD9551D23A9C70020B06E /* Hexagonal Lantons AntTests */,
@@ -146,10 +166,9 @@
 		1F2AD93B1D23A9C70020B06E /* Hexagonal Lantons Ant */ = {
 			isa = PBXGroup;
 			children = (
+				1F2DAF411D336DF1000D898A /* Old UIViews */,
 				1F2AD93F1D23A9C70020B06E /* AppDelegate.h */,
 				1F2AD9401D23A9C70020B06E /* AppDelegate.m */,
-				1F11D9C11D38E04100AEC27D /* MainDisplayViewController.h */,
-				1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */,
 				1F2AD9451D23A9C70020B06E /* Main.storyboard */,
 				1F2AD9481D23A9C70020B06E /* Assets.xcassets */,
 				1F2AD94A1D23A9C70020B06E /* LaunchScreen.storyboard */,
@@ -187,6 +206,7 @@
 				1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */,
 			);
 			name = "Old UIViews";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1F2DAF4B1D337B65000D898A /* GridCollections */ = {
@@ -336,9 +356,11 @@
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
+				1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */,
 				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
+				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
 				1F2DAF401D336BA4000D898A /* AbstractGridCollection.m in Sources */,
 				1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */,

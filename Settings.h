@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSArray *antsInitialStatus;
 @property (nonatomic) NSInteger numAnts;
 @property (nonatomic, strong) Grid *settingsGrid;
+@property (nonatomic) NSNumber *speed;
 
 
 + (Settings *)sharedInstance;

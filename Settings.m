@@ -19,6 +19,7 @@ NSArray *colorList;
 NSArray *antsInitialStatus;
 NSInteger numAnts;
 Grid *settingsGrid;
+NSNumber *speed;
 
 
 + (Settings *)sharedInstance {
@@ -43,6 +44,7 @@ Grid *settingsGrid;
         FourWayAnt *ant = [[FourWayAnt alloc] initWithDirection:RIGHT_4 atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
         self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
         [self.settingsGrid addAnt:ant];
+        self.speed = [NSNumber numberWithFloat:0.13];
         
     }
     return self;

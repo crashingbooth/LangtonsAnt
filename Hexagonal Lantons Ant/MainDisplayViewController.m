@@ -35,8 +35,6 @@ Settings *settings;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
-    
     [self displayOrHideSettingsButton];
     
     settings = [Settings sharedInstance];
@@ -48,10 +46,13 @@ Settings *settings;
     
     [grid update];
     [self setCurrentState:ACTIVE];
-//    [NSTimer scheduledTimerWithTimeInterval:0.13f target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
 
--(void)update:(NSTimer*)timer {
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)update:(NSTimer*)timer {
     if (_currentState == PAUSED) {
         [timer invalidate];
     } else {
@@ -60,15 +61,15 @@ Settings *settings;
    
 }
 
--(void)setCurrentState:(CurrentState)currentState {
+- (void)setCurrentState:(CurrentState)currentState {
     _currentState = currentState;
     [self displayOrHideSettingsButton];
     if (currentState == ACTIVE) {
-         [NSTimer scheduledTimerWithTimeInterval:0.13f target:self selector:@selector(update:) userInfo:nil repeats:YES];
+         [NSTimer scheduledTimerWithTimeInterval:[settings.speed floatValue]  target:self selector:@selector(update:) userInfo:nil repeats:YES];
     }
 }
 
--(void)makeGridCollection {
+- (void)makeGridCollection {
     switch (settings.antType) {
         case FOUR_WAY:
             gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:YES];
@@ -93,7 +94,7 @@ Settings *settings;
 }
 
 
--(void)displayOrHideSettingsButton {
+- (void)displayOrHideSettingsButton {
     if (_currentState == ACTIVE) {
         _settingsButton.enabled = NO;
         _settingsButton.alpha = 0;
