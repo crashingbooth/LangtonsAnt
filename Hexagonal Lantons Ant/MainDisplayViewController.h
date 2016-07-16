@@ -10,4 +10,9 @@
 
 @interface MainDisplayViewController : UIViewController
 
+typedef NS_ENUM(NSInteger, CurrentState) {
+    ACTIVE = 0,
+    PAUSED
+};
+@property (nonatomic) CurrentState currentState;
 @end
