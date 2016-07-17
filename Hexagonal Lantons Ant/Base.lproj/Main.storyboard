@@ -124,6 +124,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="slider" destination="e9A-oC-ARQ" id="pbg-xE-3M6"/>
                                     <outlet property="speedCellOutput" destination="nFy-I0-p4u" id="AXX-uF-jcg"/>
                                 </connections>
                             </tableViewCell>

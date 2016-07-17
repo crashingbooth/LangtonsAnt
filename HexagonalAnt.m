@@ -22,6 +22,10 @@
 +(NSInteger)NUM_DIR {
     return 6;
 }
+- (id)copyWithZone:(NSZone *)zone {
+    HexagonalAnt *ant = [[HexagonalAnt alloc] initWithDirection:self.direction atPos:self.currentPos maxRow:self.maxRow maxCol:self.maxCol];
+    return ant;
+}
 
 
 

@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "AbstractAnt.h"
 #import "FourWayAnt.h"
+#import "EightWayAnt.h"
 #import "GridPoint.h"
 #import "Grid.h"
 
@@ -29,4 +30,5 @@
 
 
 + (Settings *)sharedInstance;
+- (NSDictionary*) createDictFromCurrentSettings ;
 @end

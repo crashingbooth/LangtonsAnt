@@ -21,6 +21,10 @@
 +(NSInteger)NUM_DIR {
     return 8;
 }
+- (id)copyWithZone:(NSZone *)zone {
+    EightWayAnt *ant = [[EightWayAnt alloc] initWithDirection:self.direction atPos:self.currentPos maxRow:self.maxRow maxCol:self.maxCol];
+    return ant;
+}
 
 -(GridPoint*)getNeighbourAtDirection:(EightWayDirection) neighbourDirection {
     GridPoint *newPoint = [[GridPoint alloc] init];

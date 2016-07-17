@@ -22,6 +22,11 @@
     return 4;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    FourWayAnt *ant = [[FourWayAnt alloc] initWithDirection:self.direction atPos:self.currentPos maxRow:self.maxRow maxCol:self.maxCol];
+    return ant;
+}
+
 -(GridPoint*)getNeighbourAtDirection:(FourWayDirection) neighbourDirection {
     GridPoint *newPoint = [[GridPoint alloc] init];
     switch (neighbourDirection) {

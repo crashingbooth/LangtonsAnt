@@ -12,7 +12,7 @@
 #import "MusicInterpretter.h"
 
 
-@interface AbstractAnt : NSObject
+@interface AbstractAnt : NSObject <NSCopying>
 
 
 @property (nonatomic, strong) GridPoint* currentPos;
@@ -29,5 +29,6 @@
 -(GridPoint*)moveToNewPosition;
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt;
 -(GridPoint*)getNeighbourAtDirection:(NSInteger) neighbourDirection;
+
 
 @end

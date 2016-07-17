@@ -31,6 +31,8 @@ MusicInterpretter *musInt;
     return self;
 }
 
+
+
 +(NSInteger)NUM_DIR {
     //error
     

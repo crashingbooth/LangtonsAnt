@@ -17,9 +17,12 @@ NSArray *cellLabels;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO];
     [self fillArrays];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 
