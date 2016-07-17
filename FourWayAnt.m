@@ -10,7 +10,7 @@
 
 @implementation FourWayAnt
 -(id)initWithDirection:(enum FourWayDirection)direction atPos:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {
-    self = [super initWithPosition:currentPos maxRow:maxCol maxCol:maxCol];
+    self = [super initWithPosition:currentPos maxRow:maxRow maxCol:maxCol];
     if (self) {
         self.direction = direction;
         self.totalDir = direction;

@@ -17,6 +17,7 @@
 
 
 @interface Settings : NSObject
+@property (nonatomic) NSString *name;
 @property (nonatomic) AntType antType;
 @property (nonatomic) NSInteger numStates;
 @property (nonatomic, strong) NSArray *statesListInGrid;
