@@ -21,6 +21,7 @@
 
 -(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle;
 // abstract:
--(void)setUpInitialViews;
--(void)updateViews;
+- (void)setUpInitialViews;
+- (void)updateViews;
+- (void)removeAllViews;
 @end

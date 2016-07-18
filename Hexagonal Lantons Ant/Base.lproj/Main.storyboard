@@ -166,13 +166,24 @@
                                                 <constraint firstAttribute="width" secondItem="GKe-hT-nIa" secondAttribute="height" multiplier="1:1" id="AHO-Zr-F31"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SettingsName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-04-0RT">
+                                            <rect key="frame" x="59" y="8" width="109" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GKe-hT-nIa" firstAttribute="leading" secondItem="6lZ-No-hkY" secondAttribute="leadingMargin" id="61R-Q0-0Jk"/>
+                                        <constraint firstItem="zgk-04-0RT" firstAttribute="top" secondItem="6lZ-No-hkY" secondAttribute="topMargin" id="FFN-Xz-Ibc"/>
                                         <constraint firstItem="GKe-hT-nIa" firstAttribute="height" secondItem="6lZ-No-hkY" secondAttribute="height" id="J6y-Hr-jpo"/>
                                         <constraint firstItem="GKe-hT-nIa" firstAttribute="top" secondItem="6lZ-No-hkY" secondAttribute="topMargin" id="qYr-Su-6Te"/>
+                                        <constraint firstItem="zgk-04-0RT" firstAttribute="leading" secondItem="GKe-hT-nIa" secondAttribute="trailing" constant="7.5" id="zyt-a7-duW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="settingsName" destination="zgk-04-0RT" id="ZzR-fb-K8M"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -29,5 +29,13 @@ CGFloat boxWidth;
     return self;
 }
 
+- (void)removeAllViews {
+    for (NSArray* row in self.gridOfViews) {
+        for (UIView *cell in row) {
+            [cell removeFromSuperview];
+        }
+    }
+}
+
 
 @end

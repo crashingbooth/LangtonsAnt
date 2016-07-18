@@ -25,6 +25,7 @@ NSMutableArray *EightWayPresetNames;
 NSMutableArray *SixWayPresetNames;
 NSMutableArray *FourWayPresetNames;
 NSMutableDictionary *presetDictionaries;
+BOOL needToRebuild = NO;
 
 
 static NSString *const nameKey = @"name";
@@ -96,6 +97,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     for (AbstractAnt *ant in self.antsInitialStatus) {
         [self.settingsGrid addAnt: [ant copyWithZone:nil]];
     }
+    self.needToRebuild = YES;
 }
 
 - (NSDictionary*) createDictFromCurrentSettings {

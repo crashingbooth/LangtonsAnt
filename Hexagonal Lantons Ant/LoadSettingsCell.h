@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoadSettingsCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *settingsName;
 
 @end

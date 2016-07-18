@@ -38,18 +38,29 @@ Settings *settings;
     [self displayOrHideSettingsButton];
     
     settings = [Settings sharedInstance];
-    gridWidth = round(self.view.frame.size.width / settings.numColsInGrid);
-    grid = settings.settingsGrid;
-    [grid buildZeroStateMatrix];
-    [self makeGridCollection];
-    [self.view bringSubviewToFront:_settingsButton];
+//    [self rebuildGridCollectionIfNecessary];
+}
+
+- (void)rebuildGridCollectionIfNecessary{
+    if (settings.needToRebuild) {
+        [gridColl removeAllViews];
+        gridWidth = round(self.view.frame.size.width / settings.numColsInGrid);
+        grid = settings.settingsGrid;
+        [grid buildZeroStateMatrix];
+        [self makeGridCollection];
+        [self.view bringSubviewToFront:_settingsButton];
+        
+        [grid update];
+        [self setCurrentState:ACTIVE];
+        settings.needToRebuild = NO;
+        
+    }
     
-    [grid update];
-    [self setCurrentState:ACTIVE];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
+    [self rebuildGridCollectionIfNecessary];
 }
 
 - (void)update:(NSTimer*)timer {
