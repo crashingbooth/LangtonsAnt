@@ -13,6 +13,8 @@
 		1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */; };
 		1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */; };
 		1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9C91D3AE43300AEC27D /* SpeedCell.m */; };
+		1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */; };
+		1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */; };
 		1F2AD93E1D23A9C70020B06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD93D1D23A9C70020B06E /* main.m */; };
 		1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9401D23A9C70020B06E /* AppDelegate.m */; };
 		1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD9431D23A9C70020B06E /* ViewController.m */; };
@@ -59,6 +61,10 @@
 		1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuTVC.m; path = ../MainMenuTVC.m; sourceTree = "<group>"; };
 		1F11D9C81D3AE43300AEC27D /* SpeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedCell.h; sourceTree = "<group>"; };
 		1F11D9C91D3AE43300AEC27D /* SpeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedCell.m; sourceTree = "<group>"; };
+		1F11D9CB1D3C8C4000AEC27D /* LoadSettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadSettingsTVC.h; path = ../LoadSettingsTVC.h; sourceTree = "<group>"; };
+		1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadSettingsTVC.m; path = ../LoadSettingsTVC.m; sourceTree = "<group>"; };
+		1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadSettingsCell.h; sourceTree = "<group>"; };
+		1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadSettingsCell.m; sourceTree = "<group>"; };
 		1F2AD9391D23A9C70020B06E /* Hexagonal Lantons Ant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hexagonal Lantons Ant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AD93D1D23A9C70020B06E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F2AD93F1D23A9C70020B06E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +134,10 @@
 				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
 				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
 				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
+				1F11D9CB1D3C8C4000AEC27D /* LoadSettingsTVC.h */,
+				1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */,
+				1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */,
+				1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -359,6 +369,7 @@
 				1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */,
 				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
+				1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
@@ -374,6 +385,7 @@
 				1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */,
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
+				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
 				1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

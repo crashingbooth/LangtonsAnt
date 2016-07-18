@@ -21,6 +21,11 @@ NSArray *antsInitialStatus;
 NSInteger numAnts;
 Grid *settingsGrid;
 NSNumber *speed;
+NSMutableArray *EightWayPresetNames;
+NSMutableArray *SixWayPresetNames;
+NSMutableArray *FourWayPresetNames;
+NSMutableDictionary *presetDictionaries;
+
 
 static NSString *const nameKey = @"name";
 static NSString *const antTypeKey = @"antType";
@@ -33,6 +38,7 @@ static NSString *const numAntsKey = @"numAnts";
 static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
 static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
 static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
+
 
 
 + (Settings *)sharedInstance {
@@ -48,11 +54,13 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 -(id)init {
     self = [super init];
     if (self) {
-        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
-        [self extractSettingsFromDict:[self testSettings2]];
+        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor], [UIColor blackColor], [UIColor purpleColor], [UIColor magentaColor],[UIColor redColor], [UIColor whiteColor]];
+       
         
     }
-    [self createDictFromCurrentSettings];
+    [self buildPresets];
+     [self extractSettingsFromDict:self.presetDictionaries[@"vanilla"]];
+  
     return self;
 }
 
@@ -116,35 +124,36 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     return dict;
 }
 
-- (NSDictionary*) testSettings{
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"Symmetrical Hexagon";
-    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
-    dict[numStatesKey] = [NSNumber numberWithInteger: 4];
-    dict[statesListKey] = @[ @(-1), @(-1), @1, @1];
-    dict[numRowsKey] = [NSNumber numberWithInteger: 100];
-    dict[numColsKey] = [NSNumber numberWithInteger: 100];
-    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
-    dict[numAntsKey] = [NSNumber numberWithInteger:2];
-    NSArray *startRows = @[@20, @80];
-    NSArray *startCols = @[@80, @20];
-    NSArray *startDirections = @[@0,@0];
+
+
+- (void) buildPresets {
+    self.eightWayPresetNames = [[NSMutableArray alloc] init];
+    self.sixWayPresetNames = [[NSMutableArray alloc] init];
+    self.fourWayPresetNames = [[NSMutableArray alloc] init];
+    self.presetDictionaries = [[NSMutableDictionary alloc] init];
     
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Symmetrical Hexagon 4-state";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] = @[ @(-1), @(-1), @1, @1];
+    dict[numRowsKey] = [NSNumber numberWithInteger: 60];
+    dict[numColsKey] = [NSNumber numberWithInteger: 60];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    NSArray *startRows = @[@30];
+    NSArray *startCols = @[@30];
+    NSArray *startDirections = @[@0];
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
     
     
-    return dict;
+    [self addPresetDictToPresetStorage:dict];
     
-}
-
-- (NSDictionary*) testSettings2 {
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"13 loop";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
-    dict[numStatesKey] = [NSNumber numberWithInteger: 5];
-//    dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3];
+    //    dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3];
     dict[statesListKey] =  @[@2,@-2, @1,@-1];
     NSInteger rows = 70;
     NSInteger cols = 55;
@@ -152,26 +161,95 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[numAntsKey] = [NSNumber numberWithInteger:2];
-    NSArray *startRows = @[@(rows / 4), @(rows / 2)];
-    NSArray *startCols = @[@(cols / 2), @(cols / 4)];
-    NSArray *startDirections = @[@0,@0];
-    
+    startRows = @[@(rows / 4), @(rows / 2)];
+    startCols = @[@(cols / 2), @(cols / 4)];
+    startDirections = @[@0,@0];
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
     
     
-    return dict;
+    [self addPresetDictToPresetStorage:dict];
     
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"horizontal gridmaker";
+    dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
+    dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3,@1];
+    rows = 134;
+    cols = 75;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:2];
+    startRows = @[@(rows / 4), @(rows / 2)];
+    startCols = @[@(cols / 2), @(cols / 4)];
+    startDirections = @[@2,@3];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"vanilla";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @1, @-1];
+    rows = 75;
+    cols = 55;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 2)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    // 4
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"horizontal gridmaker variation";
+    dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
+    dict[statesListKey] = @[ @(3), @(-1), @4,@0, @1, @-3];
+    rows = 134;
+    cols = 75;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:2];
+    startRows = @[@(rows / 4), @(rows / 2)];
+    startCols = @[@(cols / 2), @(cols / 4)];
+    startDirections = @[@0,@1];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    [self addPresetDictToPresetStorage:dict];
+
 }
 
--(NSInteger) numStates {
-    return statesListInGrid.count;
+- (void)addPresetDictToPresetStorage:(NSDictionary*) dict {
+    AntType type = [dict[antTypeKey] integerValue];
+    NSString *name = dict[nameKey];
+    if (type == FOUR_WAY) {
+        [self.fourWayPresetNames addObject:dict[nameKey]];
+    } else if (type == SIX_WAY) {
+        [self.sixWayPresetNames addObject:dict[nameKey]];
+    } else if (type == EIGHT_WAY) {
+        [self.eightWayPresetNames addObject:dict[nameKey]];
+    }
+//    self.presetDictionaries[name] = @"happy birthday";
+    self.presetDictionaries[name] = dict;
+    
+//    [self.presetDictionaries setValue:dict forKey:dict[nameKey]];
 }
 
--(NSInteger) numAnts {
-    return antsInitialStatus.count;
-}
+
 
 //  8way  states = @[@3,@-2,@4, @2, @-3] , 60 x 40 good  ;
 //  8way  states = @[@3,@-2,@4, @2, @-3] , 70 x 55 good, row/4 col/2, row/2 col/4  ;

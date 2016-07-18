@@ -68,6 +68,18 @@ NSArray *cellLabels;
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.row) {
+        case 5: // load settings
+            [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 - (void)fillArrays {
     cellLabels = @[ @"New Rules",       // 0

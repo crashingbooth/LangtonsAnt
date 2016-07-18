@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -134,10 +135,55 @@
                             <outlet property="delegate" destination="SPu-D8-1X4" id="RP6-wt-BWq"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="uta-km-7U9" kind="show" identifier="toLoadSettingsTVC" id="zMv-MO-3mi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-3m-t4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1889" y="314"/>
+        </scene>
+        <!--Load SettingsTVC-->
+        <scene sceneID="RBf-T9-Q83">
+            <objects>
+                <tableViewController id="uta-km-7U9" customClass="LoadSettingsTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oPx-Ib-FdT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadSettingsCell" id="A0m-RZ-7QK" customClass="LoadSettingsCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A0m-RZ-7QK" id="6lZ-No-hkY">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKe-hT-nIa">
+                                            <rect key="frame" x="8" y="8" width="43.5" height="43.5"/>
+                                            <color key="backgroundColor" red="0.14473073959999999" green="0.50894191259999999" blue="0.72398570200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="GKe-hT-nIa" secondAttribute="height" multiplier="1:1" id="AHO-Zr-F31"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GKe-hT-nIa" firstAttribute="leading" secondItem="6lZ-No-hkY" secondAttribute="leadingMargin" id="61R-Q0-0Jk"/>
+                                        <constraint firstItem="GKe-hT-nIa" firstAttribute="height" secondItem="6lZ-No-hkY" secondAttribute="height" id="J6y-Hr-jpo"/>
+                                        <constraint firstItem="GKe-hT-nIa" firstAttribute="top" secondItem="6lZ-No-hkY" secondAttribute="topMargin" id="qYr-Su-6Te"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uta-km-7U9" id="I0r-36-wOV"/>
+                            <outlet property="delegate" destination="uta-km-7U9" id="YHg-MD-LOa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kki-N0-Sxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="314"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7V-c8-UEZ">

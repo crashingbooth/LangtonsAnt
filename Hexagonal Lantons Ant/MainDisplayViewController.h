@@ -16,3 +16,5 @@ typedef NS_ENUM(NSInteger, CurrentState) {
 };
 @property (nonatomic) CurrentState currentState;
 @end
+
+

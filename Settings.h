@@ -28,6 +28,10 @@
 @property (nonatomic) NSInteger numAnts;
 @property (nonatomic, strong) Grid *settingsGrid;
 @property (nonatomic) NSNumber *speed;
+@property (nonatomic) NSMutableArray *eightWayPresetNames;
+@property (nonatomic) NSMutableArray *sixWayPresetNames;
+@property (nonatomic) NSMutableArray *fourWayPresetNames;
+@property (nonatomic) NSMutableDictionary *presetDictionaries;
 
 
 + (Settings *)sharedInstance;
