@@ -66,7 +66,6 @@ NSTimeInterval timeInterval = 0.1;
             cell.settingsName.text = [Settings sharedInstance].fourWayPresetNames[indexPath.row];
             presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
             [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
-//            [demoViews addObject:cell.loadSettingsDemoView];
             [cell.loadSettingsDemoView animate:timeInterval];
 
 
@@ -77,7 +76,6 @@ NSTimeInterval timeInterval = 0.1;
             cell.settingsName.text = [Settings sharedInstance].sixWayPresetNames[indexPath.row];
             presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
             [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
-//             [demoViews addObject:cell.loadSettingsDemoView];
              [cell.loadSettingsDemoView animate:timeInterval];
              return cell;
             break;
@@ -86,7 +84,6 @@ NSTimeInterval timeInterval = 0.1;
             cell.settingsName.text = [Settings sharedInstance].eightWayPresetNames[indexPath.row];
             presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
             [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
-//             [demoViews addObject:cell.loadSettingsDemoView];
              [cell.loadSettingsDemoView animate:timeInterval];
 
              return cell;
@@ -128,6 +125,10 @@ NSTimeInterval timeInterval = 0.1;
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadSettingsNeedsCleanUp" object:nil];
 }
 
 

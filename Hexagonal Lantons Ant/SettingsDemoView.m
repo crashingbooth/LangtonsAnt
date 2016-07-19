@@ -17,6 +17,7 @@ CGFloat widthOfShape;
 AbstractGridCollection *demoGrid;
 AbstractAnt *originalAnt;
 Settings *demo;
+NSTimer *myTimer;
 NSMutableDictionary *dict;
 
 static NSString *const nameKey = @"name";
@@ -31,7 +32,7 @@ static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
 static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 
 - (void)setUpWithSettingsDict:(NSMutableDictionary*) originalDict{
-    // COPY THE DICT FIRST!!!!!!!!!
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanUp:) name:@"loadSettingsNeedsCleanUp" object:nil];
     
     self.demo =  [[Settings alloc] init];
     NSNumber *size = @20;
@@ -50,7 +51,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     widthOfShape = self.frame.size.width / [size floatValue];
     [self.demo.settingsGrid buildZeroStateMatrix];
     
-    switch (demo.antType) {
+    switch (self.demo.antType) {
         case FOUR_WAY:
             self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:YES];
             break;
@@ -67,6 +68,8 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
 }
 
+
+
 - (void) update:(NSTimer*)timer {
     [self.demoGrid updateViews];
 }
@@ -79,7 +82,18 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 }
 
 - (void)animate:(NSTimeInterval)timeInterval {
-    [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(update:) userInfo:nil repeats:YES];
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(update:) userInfo:nil repeats:YES];
+}
+
+- (void)cleanUp:(NSNotification*)msg {
+    [myTimer invalidate];
+    NSLog(@"msg recievde");
+    self.demo = nil;
+    [self.demoGrid removeAllViews];
+    self.demoGrid = nil;
+    [self removeFromSuperview];
+    // delete settings etc
+    
 }
 
 
