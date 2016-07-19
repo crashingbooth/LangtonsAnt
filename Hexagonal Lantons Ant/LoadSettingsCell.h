@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsDemoView.h"
 
 @interface LoadSettingsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *settingsName;
+@property (weak, nonatomic) IBOutlet SettingsDemoView *loadSettingsDemoView;
 
 @end

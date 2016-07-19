@@ -7,6 +7,7 @@
 //
 
 #import "AbstractGridCollection.h"
+#import "UIViewWithPath.h"
 
 
 @implementation AbstractGridCollection
@@ -33,6 +34,14 @@ CGFloat boxWidth;
     for (NSArray* row in self.gridOfViews) {
         for (UIView *cell in row) {
             [cell removeFromSuperview];
+        }
+    }
+}
+
+- (void)cleanGrid {
+    for (NSArray* row in self.gridOfViews) {
+        for (UIViewWithPath *cell in row) {
+            cell.color = self.colors[0];
         }
     }
 }

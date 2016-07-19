@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuTVC.h"
+#import "Constants.h"
+#import "Settings.h"
 
 @interface MainMenuTVC ()
 
@@ -42,6 +44,11 @@ NSArray *cellLabels;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     switch (indexPath.row) {
+        case 5:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
+            cell.textLabel.text = cellLabels[indexPath.row];
+            cell.detailTextLabel.text = [Settings sharedInstance].name;
+            break;
         case 6:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
             break;

@@ -25,4 +25,6 @@ typedef NS_ENUM(NSInteger, AntType) {
     FOUR_WAY = 0, SIX_WAY, EIGHT_WAY
 };
 
+extern float loadSettingsBoxSize;
+
 @end

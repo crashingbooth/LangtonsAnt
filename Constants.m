@@ -9,5 +9,6 @@
 #import "Constants.h"
 
 @implementation Constants
+float loadSettingsBoxSize = 80.0;
 
 @end

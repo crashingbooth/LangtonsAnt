@@ -24,4 +24,5 @@
 - (void)setUpInitialViews;
 - (void)updateViews;
 - (void)removeAllViews;
+- (void)cleanGrid;
 @end

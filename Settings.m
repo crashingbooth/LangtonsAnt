@@ -30,7 +30,6 @@ BOOL needToRebuild = NO;
 
 static NSString *const nameKey = @"name";
 static NSString *const antTypeKey = @"antType";
-static NSString *const numStatesKey = @"numStates";
 static NSString *const statesListKey = @"statesList"; // Array of NSInteger
 static NSString *const numRowsKey = @"numRows";
 static NSString *const numColsKey = @"numCols";
@@ -104,7 +103,6 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = self.name;
     dict[antTypeKey] = [NSNumber numberWithInteger:self.antType];
-    dict[numStatesKey] = [NSNumber numberWithInteger: self.statesListInGrid.count];
     dict[statesListKey] = self.statesListInGrid;
     dict[numRowsKey] = [NSNumber numberWithInteger:self.numRowsInGrid];
     dict[numColsKey] = [NSNumber numberWithInteger:self.numColsInGrid];

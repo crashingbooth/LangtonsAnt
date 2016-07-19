@@ -15,10 +15,13 @@
 @end
 
 @implementation LoadSettingsTVC
+NSMutableArray *demoViews;
+NSTimeInterval timeInterval = 0.1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    demoViews = [[NSMutableArray alloc] init];
+//    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(updateDemos:) userInfo:nil repeats:YES];
     
 }
 
@@ -55,27 +58,47 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LoadSettingsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"loadSettingsCell" forIndexPath:indexPath];
     
+    NSString *presetName;
+    NSMutableDictionary *presetDict;
     switch (indexPath.section) {
         case 0:
+            presetName = [Settings sharedInstance].fourWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].fourWayPresetNames[indexPath.row];
+            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
+            [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
+//            [demoViews addObject:cell.loadSettingsDemoView];
+            [cell.loadSettingsDemoView animate:timeInterval];
+
+
             return cell;
             break;
         case 1:
+            presetName = [Settings sharedInstance].sixWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].sixWayPresetNames[indexPath.row];
-            return cell;
+            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
+            [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
+//             [demoViews addObject:cell.loadSettingsDemoView];
+             [cell.loadSettingsDemoView animate:timeInterval];
+             return cell;
             break;
         case 2:
+            presetName = [Settings sharedInstance].eightWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].eightWayPresetNames[indexPath.row];
-            return cell;
+            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
+            [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
+//             [demoViews addObject:cell.loadSettingsDemoView];
+             [cell.loadSettingsDemoView animate:timeInterval];
+
+             return cell;
             break;
             
         default:
-        
+          return cell;
             break;
     }
 
     
-    return cell;
+  
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +125,13 @@
     self.navigationController.viewControllers = navigationArray;
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
+
+
 
 
 
