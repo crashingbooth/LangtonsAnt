@@ -78,6 +78,9 @@ NSArray *cellLabels;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
+        case 1: // edit Setting
+            [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
+            break;
         case 5: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;

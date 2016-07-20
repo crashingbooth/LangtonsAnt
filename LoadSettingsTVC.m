@@ -124,7 +124,7 @@ NSTimeInterval timeInterval = 0.1;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 85;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

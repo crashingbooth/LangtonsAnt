@@ -137,6 +137,7 @@
                     </tableView>
                     <connections>
                         <segue destination="uta-km-7U9" kind="show" identifier="toLoadSettingsTVC" id="zMv-MO-3mi"/>
+                        <segue destination="rUu-0S-gq8" kind="show" identifier="toRuleSelectVC" id="UXj-35-nOY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-3m-t4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,6 +196,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kki-N0-Sxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2575" y="314"/>
+        </scene>
+        <!--Rule SelectVC-->
+        <scene sceneID="lye-bD-c0R">
+            <objects>
+                <viewController id="rUu-0S-gq8" customClass="RuleSelectVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eac-Tc-p1d"/>
+                        <viewControllerLayoutGuide type="bottom" id="dx4-2n-52e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4j3-9C-saS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGX-Zy-SQ1" customClass="RuleDisplayView">
+                                <rect key="frame" x="120" y="64" width="360" height="360"/>
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.81960784310000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="F6i-VA-dcv"/>
+                                    <constraint firstAttribute="width" secondItem="OGX-Zy-SQ1" secondAttribute="height" multiplier="15:8" id="HY0-dZ-2EU"/>
+                                    <constraint firstAttribute="width" secondItem="OGX-Zy-SQ1" secondAttribute="height" multiplier="1:1" id="OJa-Vb-sfi"/>
+                                    <constraint firstAttribute="width" constant="360" id="p2R-PP-Vie"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HY0-dZ-2EU"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OGX-Zy-SQ1" firstAttribute="centerX" secondItem="4j3-9C-saS" secondAttribute="centerX" id="90E-hc-wcv"/>
+                            <constraint firstItem="OGX-Zy-SQ1" firstAttribute="centerX" secondItem="4j3-9C-saS" secondAttribute="centerX" id="hpe-xJ-vkx"/>
+                            <constraint firstItem="OGX-Zy-SQ1" firstAttribute="top" secondItem="eac-Tc-p1d" secondAttribute="bottom" id="iV1-2T-Q0f"/>
+                            <constraint firstItem="OGX-Zy-SQ1" firstAttribute="top" secondItem="eac-Tc-p1d" secondAttribute="bottom" id="n6d-ji-ONh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="90E-hc-wcv"/>
+                                <exclude reference="n6d-ji-ONh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3m-ti-P7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602" y="1029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7V-c8-UEZ">

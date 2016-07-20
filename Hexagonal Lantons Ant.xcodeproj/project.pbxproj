@@ -33,6 +33,8 @@
 		1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DAF491D3375DC000D898A /* UIViewWithPath.m */; };
 		1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 1F40BCD41D27947600B303E0 /* Tim.sf2 */; };
 		1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */; };
+		1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */; };
+		1F6EB2F91D3EF83200C294B3 /* RuleSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */; };
 		1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */; };
 		1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
@@ -100,6 +102,10 @@
 		1F40BCD41D27947600B303E0 /* Tim.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tim.sf2; sourceTree = "<group>"; };
 		1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInterpretter.h; sourceTree = "<group>"; };
 		1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInterpretter.m; sourceTree = "<group>"; };
+		1F6EB2F31D3EF6D700C294B3 /* RuleDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayView.h; sourceTree = "<group>"; };
+		1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayView.m; sourceTree = "<group>"; };
+		1F6EB2F71D3EF83200C294B3 /* RuleSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleSelectVC.h; sourceTree = "<group>"; };
+		1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleSelectVC.m; sourceTree = "<group>"; };
 		1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourWayAnt.h; sourceTree = "<group>"; };
 		1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourWayAnt.m; sourceTree = "<group>"; };
 		1F8CDAAA1D2A358B00AE4D32 /* AntGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntGridView.h; sourceTree = "<group>"; };
@@ -133,16 +139,8 @@
 			children = (
 				1F11D9C11D38E04100AEC27D /* MainDisplayViewController.h */,
 				1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */,
-				1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */,
-				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
 				1F11D9D11D3CAB7300AEC27D /* SettingsDemoView.h */,
 				1F11D9D21D3CAB7300AEC27D /* SettingsDemoView.m */,
-				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
-				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
-				1F11D9CB1D3C8C4000AEC27D /* LoadSettingsTVC.h */,
-				1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */,
-				1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */,
-				1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -157,6 +155,7 @@
 				1F11D9BF1D38CF5D00AEC27D /* Constants.m */,
 				1F8CDAA91D2A350A00AE4D32 /* Ants */,
 				1F11D9C71D3A1EFF00AEC27D /* ViewControllers */,
+				1F6EB2F61D3EF6F300C294B3 /* TableVC and Cells */,
 				1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */,
 				1F2AD9641D23AA520020B06E /* Grid.h */,
 				1F2AD9651D23AA520020B06E /* Grid.m */,
@@ -185,7 +184,11 @@
 				1F2AD93F1D23A9C70020B06E /* AppDelegate.h */,
 				1F2AD9401D23A9C70020B06E /* AppDelegate.m */,
 				1F2AD9451D23A9C70020B06E /* Main.storyboard */,
+				1F6EB2F71D3EF83200C294B3 /* RuleSelectVC.h */,
+				1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */,
 				1F2AD9481D23A9C70020B06E /* Assets.xcassets */,
+				1F6EB2F31D3EF6D700C294B3 /* RuleDisplayView.h */,
+				1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */,
 				1F2AD94A1D23A9C70020B06E /* LaunchScreen.storyboard */,
 				1F2AD94D1D23A9C70020B06E /* Info.plist */,
 				1F2AD93C1D23A9C70020B06E /* Supporting Files */,
@@ -237,6 +240,22 @@
 				1F2DAF3F1D336BA4000D898A /* AbstractGridCollection.m */,
 			);
 			name = GridCollections;
+			path = "Hexagonal Lantons Ant";
+			sourceTree = "<group>";
+		};
+		1F6EB2F61D3EF6F300C294B3 /* TableVC and Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */,
+				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
+				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
+				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
+				1F11D9CB1D3C8C4000AEC27D /* LoadSettingsTVC.h */,
+				1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */,
+				1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */,
+				1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */,
+			);
+			name = "TableVC and Cells";
 			path = "Hexagonal Lantons Ant";
 			sourceTree = "<group>";
 		};
@@ -379,8 +398,10 @@
 				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
 				1F2DAF401D336BA4000D898A /* AbstractGridCollection.m in Sources */,
+				1F6EB2F91D3EF83200C294B3 /* RuleSelectVC.m in Sources */,
 				1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */,
 				1F2AD96F1D23BF970020B06E /* HexagonalAnt.m in Sources */,
+				1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */,
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,

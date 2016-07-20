@@ -91,6 +91,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     self.demo = nil;
     [self.demoGrid removeAllViews];
     self.demoGrid = nil;
+    self.dict = nil;
     [self removeFromSuperview];
     // delete settings etc
     
