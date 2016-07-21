@@ -13,26 +13,30 @@ AntType type;
 NSUInteger numSectors;
 UIImageView *controlArrow;
 UIImageView *guideArrow;
+UIColor *stateColor;
 NSInteger ruleValue;
 BOOL editable = YES;
 CGFloat PI;
 CGFloat sectorSize;
+NSArray *stateNames; // 2d array
 
 
 
 
-- (id)initWithType:(AntType) type ruleNumber:(NSInteger)ruleNumber {
+
+- (id)initWithType:(AntType) type ruleNumber:(NSInteger)ruleNumber color:(UIColor*) stateColor {
     self = [super init];
     if (self) {
         PI = (CGFloat)M_PI;
         self.controlArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
         self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
+    
         
         self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
         self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
-        //        self.guideArrow.alpha = 0.7;
         [self setUpWithAntType:type];
-        
+        self.stateColor = stateColor;
+        self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.guideArrow];
         [self addSubview:self.controlArrow];
         self.ruleValue = ruleNumber;
@@ -43,6 +47,10 @@ CGFloat sectorSize;
 
     
     return self;
+}
+
+- (CGFloat)circleWidth {
+    return self.frame.size.height * 0.05;
 }
 
 - (void)setUpWithAntType:(AntType)type {
@@ -65,7 +73,7 @@ CGFloat sectorSize;
 
 - (void)longPressRecognized:(UILongPressGestureRecognizer*)gesture {
     CGPoint loc = [gesture locationInView:self];
-    if (editable) {
+    if (self.editable) {
         if (gesture.state == UIGestureRecognizerStateChanged) {
             
             CGFloat angle = [self getAngleFromPoint:loc];
@@ -97,13 +105,13 @@ CGFloat sectorSize;
     
     UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:circleRect];
     [circlePath setLineWidth: circleWidth];
+    [self.stateColor setFill];
+    [circlePath fill];
     [circlePath stroke];
-    CGRect arrowBounds = CGRectMake(circleWidth * 2, circleWidth * 2, self.frame.size.width - (circleWidth * 4), self.frame.size.height - (circleWidth * 4));
     CGRect guideBounds = CGRectMake(circleWidth * 5, circleWidth * 5, self.frame.size.width - (circleWidth * 10), self.frame.size.height - (circleWidth * 10));
-    self.controlArrow.frame = arrowBounds;
-    self.controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
+   
     self.guideArrow.frame = guideBounds;
-    
+    [self positionControlArrow];
 
     for (NSNumber *pointNum in [self markerPoints:(circleWidth *2)]) {
         CGPoint point = [pointNum CGPointValue];
@@ -112,11 +120,18 @@ CGFloat sectorSize;
         [markerPath fill];
         
     }
+}
+
+- (void)positionControlArrow {
+    CGFloat circleWidth = [self circleWidth];
+    CGRect arrowBounds = CGRectMake(circleWidth * 2, circleWidth * 2, self.frame.size.width - (circleWidth * 4), self.frame.size.height - (circleWidth * 4));
+    self.controlArrow.frame = arrowBounds;
     
-    
-    
+    self.controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
     
 }
+
+
 
 - (NSMutableArray*)markerPoints:(CGFloat)distanceFromEdge {
     NSMutableArray *points = [[NSMutableArray alloc] init];

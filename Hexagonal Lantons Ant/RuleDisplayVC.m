@@ -25,14 +25,54 @@ NSMutableArray *ruleDisplayViews;
     numRules = [Settings sharedInstance].statesListInGrid.count;
     [self createRuleDisplayViews];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    [self.view addGestureRecognizer:tap];
+    
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-//    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
-//}
+- (void)tapped:(UITapGestureRecognizer*)gesture {
+    UIView* view = gesture.view;
+    CGPoint loc = [gesture locationInView:view];
+    NSLog([NSString stringWithFormat:@"%f, %f", loc.x, loc.y]);
+    
+    
+    for (RuleDisplayView *rsv in ruleDisplayViews) {
+        if (CGRectContainsPoint(rsv.frame, loc)) {
+            rsv.editable = YES;
+            [rsv setUserInteractionEnabled:YES];
+            [self selectRule:rsv];
+            
+            for (RuleDisplayView *unusedView in ruleDisplayViews) {
+                if (unusedView != rsv) {
+                    [unusedView removeFromSuperview];
+                }
+            }
+        }
+    }
+    
+   
+}
+
+- (void)selectRule:(RuleDisplayView*)selectedRule {
+    if (isLandscape) {
+        
+    } else {
+        CGFloat bigWidth = self.view.frame.size.width * 0.8;
+        CGFloat sideMargin = (self.view.frame.size. width - bigWidth) / 2.0;
+        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth);
+        [UIView animateWithDuration:0.2
+                         animations:^{ selectedRule.frame = rect;}
+                         completion:^(BOOL finished) {[selectedRule setNeedsDisplay];}
+         ];
+        
+       
+        [selectedRule setNeedsDisplay];
+    }
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
+    isLandscape = self.view.frame.size.width > self.view.frame.size.height;
     [self positionRuleViews];
 }
 
@@ -42,8 +82,9 @@ NSMutableArray *ruleDisplayViews;
     for (int i = 0; i < numRules; i++) {
 
         NSInteger num = [[Settings sharedInstance].statesListInGrid[i] integerValue];
-        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:type ruleNumber:num];
-        rdv.backgroundColor = [[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.3];
+        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:type ruleNumber:num color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.3]];
+        rdv.editable = NO;
+        [rdv setUserInteractionEnabled:NO];
         [ruleDisplayViews addObject: rdv];
     }
 }
@@ -52,16 +93,34 @@ NSMutableArray *ruleDisplayViews;
     // spaces will be 1/2 size of rules (rule = 2 spaces)
     // # of spaces will be # of rules + 1
     NSInteger spaces = numRules * 3 + 1;
-    CGFloat spaceWidth = self.view.frame.size.width / (CGFloat) spaces;
-    CGFloat yOffset = self.view.frame.size.height / 2 - spaceWidth;
-    CGFloat xOffset = 0.0;
-    for (RuleDisplayView * rdv in ruleDisplayViews) {
-        xOffset += spaceWidth;
-        CGRect rect = CGRectMake(xOffset, yOffset, spaceWidth * 2.0, spaceWidth * 2);
-        rdv.frame = rect;
-        [self.view addSubview:rdv];
-        xOffset += (spaceWidth * 2);
-         NSLog(@"called");
+    if (isLandscape) {
+    
+        CGFloat spaceWidth = self.view.frame.size.width / (CGFloat) spaces;
+        CGFloat yOffset = self.view.frame.size.height / 2 - spaceWidth;
+        CGFloat xOffset = 0.0;
+        for (RuleDisplayView * rdv in ruleDisplayViews) {
+            xOffset += spaceWidth;
+            CGRect rect = CGRectMake(xOffset, yOffset, spaceWidth * 2.0, spaceWidth * 2);
+            rdv.frame = rect;
+            [self.view addSubview:rdv];
+            xOffset += (spaceWidth * 2);
+
+        }
+        
+    } else {
+        CGFloat navBarHeight = self.navigationController.navigationBar.frame.size.height;
+        CGFloat spaceHeight = (self.view.frame.size.height - navBarHeight) / (CGFloat) spaces;
+        CGFloat xOffset = spaceHeight;
+        CGFloat yOffset = navBarHeight;
+        
+        for (RuleDisplayView * rdv in ruleDisplayViews) {
+            yOffset += spaceHeight;
+            CGRect rect = CGRectMake(xOffset, yOffset, spaceHeight * 2.0, spaceHeight * 2.0);
+            rdv.frame = rect;
+            [self.view addSubview:rdv];
+            yOffset += (spaceHeight * 2.0);
+
+        }
         
     }
    

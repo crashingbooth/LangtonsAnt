@@ -249,6 +249,56 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 //    [self.presetDictionaries setValue:dict forKey:dict[nameKey]];
 }
 
+- (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type {
+    NSString *stateName;
+    switch (stateNumber) {
+        case 0:
+            stateName = @"N";
+            break;
+        case 1:
+            if (type == FOUR_WAY) {
+                stateName = @"R";
+            } else {
+                stateName = @"R1";
+            }
+            break;
+        case -1:
+            if (type == FOUR_WAY) {
+                stateName = @"L";
+            } else {
+                stateName = @"L1";
+            }
+            break;
+        case 2:
+            if (type == FOUR_WAY) {
+                stateName = @"U";
+            } else {
+                stateName = @"R2";
+            }
+            break;
+        case -2:
+            stateName = @"L2";
+            break;
+        case 3:
+            if (type == SIX_WAY) {
+                stateName = @"U";
+            } else {
+                stateName = @"R3";
+            }
+            break;
+        case -3:
+            stateName = @"L3";
+            break;
+        case 4:
+            stateName = @"U";
+            break;
+        default:
+            stateName = @"INVALID";
+            break;
+    }
+    return stateName;
+}
+
 
 
 //  8way  states = @[@3,@-2,@4, @2, @-3] , 60 x 40 good  ;
