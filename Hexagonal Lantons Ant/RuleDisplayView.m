@@ -13,8 +13,6 @@ AntType type;
 NSUInteger numSectors;
 UIImageView *controlArrow;
 UIImageView *guideArrow;
-UIView *touchZone;
-CGFloat touchZoneRotation;
 NSInteger ruleValue;
 BOOL rotating = NO;
 CGFloat PI;
@@ -36,9 +34,6 @@ CGFloat sectorSize;
         
         [self addSubview:guideArrow];
         [self addSubview:controlArrow];
-        touchZone = [[UIView alloc] initWithFrame:CGRectZero];
-        touchZone.backgroundColor = [UIColor redColor];
-        touchZoneRotation = 0.0;
         self.ruleValue = -2;
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
@@ -69,12 +64,7 @@ CGFloat sectorSize;
 
 - (void)longPressRecognized:(UILongPressGestureRecognizer*)gesture {
     CGPoint loc = [gesture locationInView:self];
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-        
-        if ([touchZone pointInside:loc withEvent:nil]) {
-            rotating = YES;
-        }
-    } else if (gesture.state == UIGestureRecognizerStateChanged) {
+     if (gesture.state == UIGestureRecognizerStateChanged) {
 
         CGFloat angle = [self getAngleFromPoint:loc];
 //        NSInteger sector = [self getSectorFromAngle:angle];
@@ -120,8 +110,6 @@ CGFloat sectorSize;
         
     }
     
-    CGPoint zonePoint = [self makePointFromRotation:touchZoneRotation distanceFromEdge:circleWidth * 2];
-    touchZone.frame = CGRectMake(zonePoint.x - (circleWidth * 1.5), zonePoint.y - (circleWidth * 1.5), circleWidth * 3, circleWidth * 3);
     
     
     
