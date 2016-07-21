@@ -12,9 +12,10 @@
 @interface RuleDisplayView : UIView
 @property (nonatomic) AntType type;
 @property (nonatomic) NSInteger ruleValue;
+@property (nonatomic) NSInteger ruleNumber;
 @property (nonatomic, strong) UIImageView *controlArrow;
 @property (nonatomic, strong) UIImageView *guideArrow;
 @property (nonatomic, strong) UIColor *stateColor;
 @property (nonatomic) BOOL editable;
-- (id)initWithType:(AntType) type ruleNumber:(NSInteger)ruleNumber color:(UIColor*) stateColor;
+- (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor;
 @end

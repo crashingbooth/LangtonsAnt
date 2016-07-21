@@ -24,7 +24,7 @@ NSArray *stateNames; // 2d array
 
 
 
-- (id)initWithType:(AntType) type ruleNumber:(NSInteger)ruleNumber color:(UIColor*) stateColor {
+- (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
     self = [super init];
     if (self) {
         PI = (CGFloat)M_PI;
@@ -39,7 +39,8 @@ NSArray *stateNames; // 2d array
         self.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.guideArrow];
         [self addSubview:self.controlArrow];
-        self.ruleValue = ruleNumber;
+        self.ruleValue = ruleValue;
+        self.ruleNumber = ruleNumber;
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
         longPress.minimumPressDuration = 0.01;

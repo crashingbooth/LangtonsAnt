@@ -82,7 +82,7 @@ NSMutableArray *ruleDisplayViews;
     for (int i = 0; i < numRules; i++) {
 
         NSInteger num = [[Settings sharedInstance].statesListInGrid[i] integerValue];
-        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:type ruleNumber:num color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.3]];
+        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:type ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.3]];
         rdv.editable = NO;
         [rdv setUserInteractionEnabled:NO];
         [ruleDisplayViews addObject: rdv];
