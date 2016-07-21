@@ -35,6 +35,7 @@
 		1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */; };
 		1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */; };
 		1F6EB2F91D3EF83200C294B3 /* RuleSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */; };
+		1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */; };
 		1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */; };
 		1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
@@ -106,6 +107,8 @@
 		1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayView.m; sourceTree = "<group>"; };
 		1F6EB2F71D3EF83200C294B3 /* RuleSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleSelectVC.h; sourceTree = "<group>"; };
 		1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleSelectVC.m; sourceTree = "<group>"; };
+		1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayVC.h; sourceTree = "<group>"; };
+		1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayVC.m; sourceTree = "<group>"; };
 		1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourWayAnt.h; sourceTree = "<group>"; };
 		1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourWayAnt.m; sourceTree = "<group>"; };
 		1F8CDAAA1D2A358B00AE4D32 /* AntGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntGridView.h; sourceTree = "<group>"; };
@@ -141,6 +144,10 @@
 				1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */,
 				1F11D9D11D3CAB7300AEC27D /* SettingsDemoView.h */,
 				1F11D9D21D3CAB7300AEC27D /* SettingsDemoView.m */,
+				1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */,
+				1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */,
+				1F6EB2F31D3EF6D700C294B3 /* RuleDisplayView.h */,
+				1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -187,8 +194,6 @@
 				1F6EB2F71D3EF83200C294B3 /* RuleSelectVC.h */,
 				1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */,
 				1F2AD9481D23A9C70020B06E /* Assets.xcassets */,
-				1F6EB2F31D3EF6D700C294B3 /* RuleDisplayView.h */,
-				1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */,
 				1F2AD94A1D23A9C70020B06E /* LaunchScreen.storyboard */,
 				1F2AD94D1D23A9C70020B06E /* Info.plist */,
 				1F2AD93C1D23A9C70020B06E /* Supporting Files */,
@@ -404,6 +409,7 @@
 				1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */,
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
+				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,

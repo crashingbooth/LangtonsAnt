@@ -12,4 +12,7 @@
 @interface RuleDisplayView : UIView
 @property (nonatomic) AntType type;
 @property (nonatomic) NSInteger ruleValue;
+@property (nonatomic, strong) UIImageView *controlArrow;
+@property (nonatomic, strong) UIImageView *guideArrow;
+- (id)initWithType:(AntType) type ruleNumber:(NSInteger)ruleNumber;
 @end
