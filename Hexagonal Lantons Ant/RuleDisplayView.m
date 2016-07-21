@@ -15,9 +15,10 @@ UIImageView *controlArrow;
 UIImageView *guideArrow;
 UIView *touchZone;
 CGFloat touchZoneRotation;
-NSInteger ruleValue = 0;
+NSInteger ruleValue;
 BOOL rotating = NO;
 CGFloat PI;
+CGFloat sectorSize;
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -30,15 +31,15 @@ CGFloat PI;
         guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
         guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
 //        guideArrow.alpha = 0.7;
-        self.type = FOUR_WAY;
-        [self setUpWithAntType:EIGHT_WAY];
+        self.type = SIX_WAY;
+        [self setUpWithAntType:SIX_WAY];
         
         [self addSubview:guideArrow];
         [self addSubview:controlArrow];
         touchZone = [[UIView alloc] initWithFrame:CGRectZero];
         touchZone.backgroundColor = [UIColor redColor];
         touchZoneRotation = 0.0;
-        
+        self.ruleValue = -2;
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
         longPress.minimumPressDuration = 0.01;
@@ -63,7 +64,7 @@ CGFloat PI;
         default:
             break;
     }
-    
+    sectorSize = (PI * 2) / (CGFloat)numSectors;
 }
 
 - (void)longPressRecognized:(UILongPressGestureRecognizer*)gesture {
@@ -85,7 +86,6 @@ CGFloat PI;
         rotating = NO;
         CGFloat angle = [self getAngleFromPoint:loc];
         NSInteger sector = [self getSectorFromAngle:angle];
-        CGFloat sectorSize = (PI * 2.0) / (CGFloat)numSectors;
         CGFloat finalAngle = ((CGFloat)sector * sectorSize);
 //        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
         controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
@@ -108,6 +108,7 @@ CGFloat PI;
     CGRect arrowBounds = CGRectMake(circleWidth * 2, circleWidth * 2, self.frame.size.width - (circleWidth * 4), self.frame.size.height - (circleWidth * 4));
     CGRect guideBounds = CGRectMake(circleWidth * 5, circleWidth * 5, self.frame.size.width - (circleWidth * 10), self.frame.size.height - (circleWidth * 10));
     controlArrow.frame = arrowBounds;
+    controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
     guideArrow.frame = guideBounds;
     
 
@@ -157,14 +158,14 @@ CGFloat PI;
 - (NSInteger)getSectorFromAngle:(CGFloat)angle {
     CGFloat modAngle = angle - (PI / 2.0);
     
-    CGFloat sectorAngle = (PI * 2.0) / (CGFloat)numSectors;
-    if (modAngle < -1 * (sectorAngle / 2.0)) {
+    
+    if (modAngle < -1 * (sectorSize / 2.0)) {
         modAngle += (PI * 2.0);
     }
    
     for (int sector = 0; sector < numSectors; sector++) {
-        CGFloat minAngle = (sectorAngle * (CGFloat)sector) - (sectorAngle / 2.0);
-        CGFloat maxAngle = (sectorAngle * (CGFloat)(sector + 1)) - (sectorAngle / 2.0);
+        CGFloat minAngle = (sectorSize * (CGFloat)sector) - (sectorSize / 2.0);
+        CGFloat maxAngle = (sectorSize * (CGFloat)(sector + 1)) - (sectorSize / 2.0);
         
         if (modAngle >= minAngle && modAngle < maxAngle) {
             return sector;
@@ -181,6 +182,17 @@ CGFloat PI;
         rule -= numSectors;
     }
     return rule;
+}
+
+- (NSInteger)getSectorFromRule:(NSInteger)rule {
+    if (rule < 0) {
+        rule += numSectors;
+    }
+    return numSectors - rule;
+}
+
+- (CGFloat)getAngleFromRule:(NSInteger)rule {
+    return -1 * (sectorSize * (CGFloat)[self getSectorFromRule:rule]);
 }
 
 
