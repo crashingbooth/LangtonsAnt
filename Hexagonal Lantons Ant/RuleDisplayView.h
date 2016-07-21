@@ -11,4 +11,5 @@
 
 @interface RuleDisplayView : UIView
 @property (nonatomic) AntType type;
+@property (nonatomic) NSInteger ruleValue;
 @end

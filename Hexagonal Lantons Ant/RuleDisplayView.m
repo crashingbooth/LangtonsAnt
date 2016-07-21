@@ -15,6 +15,7 @@ UIImageView *controlArrow;
 UIImageView *guideArrow;
 UIView *touchZone;
 CGFloat touchZoneRotation;
+NSInteger ruleValue = 0;
 BOOL rotating = NO;
 CGFloat PI;
 
@@ -40,8 +41,8 @@ CGFloat PI;
         
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
-        longPress.minimumPressDuration = 0.05;
-        [self addSubview:touchZone];
+        longPress.minimumPressDuration = 0.01;
+//        [self addSubview:touchZone];
         
     }
     return self;
@@ -71,14 +72,25 @@ CGFloat PI;
         
         if ([touchZone pointInside:loc withEvent:nil]) {
             rotating = YES;
-            NSLog([NSString stringWithFormat:   @"started %.2f", [self getAngleFromPoint:loc]]);
         }
     } else if (gesture.state == UIGestureRecognizerStateChanged) {
+
         CGFloat angle = [self getAngleFromPoint:loc];
-         NSLog([NSString stringWithFormat:   @"rotating %.2f sector %li", angle, (long)[self getSectorFromAngle:angle]]);
+//        NSInteger sector = [self getSectorFromAngle:angle];
+//        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
+        controlArrow.transform = CGAffineTransformMakeRotation(-1 * (angle - (PI / 2.0)));
+    
         
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
-        rotating = YES;
+        rotating = NO;
+        CGFloat angle = [self getAngleFromPoint:loc];
+        NSInteger sector = [self getSectorFromAngle:angle];
+        CGFloat sectorSize = (PI * 2.0) / (CGFloat)numSectors;
+        CGFloat finalAngle = ((CGFloat)sector * sectorSize);
+//        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
+        controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
+        ruleValue = [self getRuleValueFromSector:sector];
+        
         NSLog(@"finished");
 
     }
@@ -161,6 +173,14 @@ CGFloat PI;
     }
     NSLog(@"failed");
     return -1;
+}
+
+- (NSInteger)getRuleValueFromSector:(NSInteger)sector {
+    NSInteger rule = numSectors - sector;
+    if (rule > numSectors / 2) {
+        rule -= numSectors;
+    }
+    return rule;
 }
 
 
