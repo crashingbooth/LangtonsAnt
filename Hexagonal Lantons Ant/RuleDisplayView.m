@@ -130,6 +130,7 @@ NSArray *stateNames; // 2d array
     [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
     [Settings sharedInstance].statesListInGrid = stateList;
     [Settings sharedInstance].needToRebuild = YES;
+    [Settings sharedInstance].name = @"custom";
 }
 
 

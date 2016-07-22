@@ -39,4 +39,6 @@
 - (NSDictionary*) createDictFromCurrentSettings ;
 - (void) extractSettingsFromDict: (NSDictionary*) dict;
 - (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type;
+- (NSString*)getRuleSystemAsString;
+- (NSString*)getFullDescription;
 @end

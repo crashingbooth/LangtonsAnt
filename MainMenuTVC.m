@@ -25,6 +25,7 @@ NSArray *cellLabels;
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
+    [self.tableView reloadData];
 }
 
 
@@ -44,6 +45,11 @@ NSArray *cellLabels;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     switch (indexPath.row) {
+        case 1:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
+            cell.textLabel.text = cellLabels[indexPath.row];
+            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
+            break;
         case 5:
             cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
             cell.textLabel.text = cellLabels[indexPath.row];

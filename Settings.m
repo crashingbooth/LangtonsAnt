@@ -299,6 +299,38 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     return stateName;
 }
 
+- (NSString*)getRuleSystemAsString {
+    NSMutableString *ruleString = [[NSMutableString alloc] init];
+    for (NSNumber *ruleNum in self.statesListInGrid) {
+        NSString *ruleNumAsString = [self getStateName:[ruleNum integerValue] forAntType:self.antType];
+        [ruleString appendString:ruleNumAsString];
+        [ruleString appendString:@" "];
+    }
+    return ruleString;
+}
+
+- (NSString*)getFullDescription {
+    NSString *typeString;
+    NSString *numAntsString;
+    NSString *ruleString;
+    switch (self.antType) {
+        case FOUR_WAY:
+            typeString = @"Four way";
+            break;
+        case SIX_WAY:
+            typeString = @"Six way";
+            break;
+        case EIGHT_WAY:
+            typeString = @"Eight way";
+            break;
+    }
+    numAntsString = [NSString stringWithFormat:@"%li ant(s)", self.numAnts];
+    ruleString = [self getRuleSystemAsString];
+    
+    return [NSString stringWithFormat:@"%@ - %@ - %@",typeString, numAntsString, ruleString ];
+    
+}
+
 
 
 //  8way  states = @[@3,@-2,@4, @2, @-3] , 60 x 40 good  ;
