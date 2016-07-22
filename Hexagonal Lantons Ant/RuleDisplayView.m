@@ -20,6 +20,7 @@ NSInteger ruleValue;
 BOOL editable = YES;
 CGFloat PI;
 CGFloat sectorSize;
+Settings *ruleDisplaySettings;
 NSArray *stateNames; // 2d array
 
 
@@ -29,6 +30,7 @@ NSArray *stateNames; // 2d array
 - (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
     self = [super init];
     if (self) {
+        ruleDisplaySettings = [Settings sharedInstance];
         PI = (CGFloat)M_PI;
         self.controlArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
         self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
@@ -55,8 +57,10 @@ NSArray *stateNames; // 2d array
         [self addSubview:self.stateValLabel];
         [self createLabelText];
         self.stateValLabel.adjustsFontSizeToFitWidth = YES;
-          self.stateValLabel.minimumScaleFactor = 20;
-         self.stateValLabel.textAlignment = NSTextAlignmentCenter;
+        self.stateValLabel.minimumScaleFactor = 20;
+        self.stateNumLabel.font = [self.stateValLabel.font fontWithSize:8];
+        self.stateValLabel.textAlignment = NSTextAlignmentCenter;
+        
         
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
@@ -69,7 +73,7 @@ NSArray *stateNames; // 2d array
 
 - (void)createLabelText{
     self.stateNumLabel.text = [NSString stringWithFormat:@"State: %li", (long)self.ruleNumber];
-    self.stateValLabel.text = [[Settings sharedInstance] getStateName:self.ruleValue forAntType:type];
+    self.stateValLabel.text = [[Settings sharedInstance] getStateName:self.ruleValue forAntType:self.type];
     
 }
 
@@ -106,16 +110,26 @@ NSArray *stateNames; // 2d array
             
             CGFloat angle = [self getAngleFromPoint:loc];
             NSInteger sector = [self getSectorFromAngle:angle];
-            CGFloat finalAngle = ((CGFloat)sector * sectorSize);
-            //        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
-            self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
-            ruleValue = [self getRuleValueFromSector:sector];
+            NSInteger newRuleValue = [self getRuleValueFromSector:sector];
+            if (newRuleValue != self.ruleValue) {
+                CGFloat finalAngle = ((CGFloat)sector * sectorSize);
+                self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
+                self.ruleValue = newRuleValue;
+                [self createLabelText];
+                [self changeSettings];
+            }
             
-            NSLog(@"finished");
         }
         
     }
     
+}
+
+- (void)changeSettings {
+    NSMutableArray *stateList = [[Settings sharedInstance].statesListInGrid mutableCopy];
+    [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
+    [Settings sharedInstance].statesListInGrid = stateList;
+    [Settings sharedInstance].needToRebuild = YES;
 }
 
 
@@ -145,13 +159,18 @@ NSArray *stateNames; // 2d array
     }
     
     CGRect topLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.1);
+    CGRect bottomLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.1);
     self.stateNumLabel.frame = topLabelRect;
+    self.stateValLabel.frame = bottomLabelRect;
     if (self.editable) {
         self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:13];
+        self.stateValLabel.font = [self.stateValLabel.font fontWithSize:13];
     } else {
         self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
+        self.stateValLabel.font = [self.stateValLabel.font fontWithSize:8];
     }
-    [self.stateNumLabel setCenter:CGPointMake(sideLength / 2.0, heightOffset / 4.0)];
+    [self.stateNumLabel setCenter:CGPointMake(sideLength / 2.0, heightOffset / 2.0)];
+    [self.stateValLabel setCenter:CGPointMake(sideLength / 2.0, heightOffset + sideLength + heightOffset / 2.0)];
 }
 
 - (void) positionControlArrow {
