@@ -15,6 +15,8 @@ UIImageView *controlArrow;
 UIImageView *guideArrow;
 UILabel *stateNumLabel;
 UILabel *stateValLabel;
+
+
 UIColor *stateColor;
 NSInteger ruleValue;
 BOOL editable = YES;
@@ -30,45 +32,70 @@ NSArray *stateNames; // 2d array
 - (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
     self = [super init];
     if (self) {
-        ruleDisplaySettings = [Settings sharedInstance];
-        PI = (CGFloat)M_PI;
-        self.controlArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
-        self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
-    
-        
-        self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
-        self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
+        [self basicSetup];
         [self setUpWithAntType:type];
         self.stateColor = stateColor;
-        self.backgroundColor = [UIColor whiteColor];
-        [self addSubview:self.guideArrow];
-        [self addSubview:self.controlArrow];
+       
         self.ruleValue = ruleValue;
         self.ruleNumber = ruleNumber;
         
-        self.stateNumLabel = [[UILabel alloc] init];
-        [self addSubview:self.stateNumLabel];
-        self.stateNumLabel.adjustsFontSizeToFitWidth = YES;
-        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
-        self.stateNumLabel.textAlignment = NSTextAlignmentCenter;
-        self.stateNumLabel.textColor = [UIColor blueColor];
-        self.stateNumLabel.minimumScaleFactor = 20;
-        self.stateValLabel = [[UILabel alloc] init];
-        [self addSubview:self.stateValLabel];
         [self createLabelText];
-        self.stateValLabel.adjustsFontSizeToFitWidth = YES;
-        self.stateValLabel.minimumScaleFactor = 20;
-        self.stateNumLabel.font = [self.stateValLabel.font fontWithSize:8];
-        self.stateValLabel.textAlignment = NSTextAlignmentCenter;
         
-        
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
-        [self addGestureRecognizer:longPress];
-        longPress.minimumPressDuration = 0.01;
-    }
+            }
 
     
     return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self basicSetup];
+    }
+    return self;
+}
+
+- (void)basicSetup {
+    ruleDisplaySettings = [Settings sharedInstance];
+    PI = (CGFloat)M_PI;
+    self.controlArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
+    self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
+    
+    self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
+    self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
+    self.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.guideArrow];
+    [self addSubview:self.controlArrow];
+    self.stateNumLabel = [[UILabel alloc] init];
+    [self addSubview:self.stateNumLabel];
+    self.stateNumLabel.adjustsFontSizeToFitWidth = YES;
+    self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
+    self.stateNumLabel.textAlignment = NSTextAlignmentCenter;
+    self.stateNumLabel.textColor = [UIColor blueColor];
+    self.stateNumLabel.minimumScaleFactor = 20;
+    self.stateValLabel = [[UILabel alloc] init];
+    [self addSubview:self.stateValLabel];
+
+    self.stateValLabel.adjustsFontSizeToFitWidth = YES;
+    self.stateValLabel.minimumScaleFactor = 20;
+    self.stateNumLabel.font = [self.stateValLabel.font fontWithSize:8];
+    self.stateValLabel.textAlignment = NSTextAlignmentCenter;
+    
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
+    [self addGestureRecognizer:longPress];
+    longPress.minimumPressDuration = 0.01;
+}
+
+- (void)completeSetUp:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
+    [self setUpWithAntType:type];
+    self.stateColor = stateColor;
+    
+    self.ruleValue = ruleValue;
+    self.ruleNumber = ruleNumber;
+    
+    [self createLabelText];
+    
 }
 
 - (void)createLabelText{

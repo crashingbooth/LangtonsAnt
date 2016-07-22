@@ -10,6 +10,7 @@
 #import "Settings.h"
 #import "Constants.h"
 #import "RuleDisplayView.h"
+#import "SelectedRuleViewController.h"
 
 @interface RuleDisplayVC ()
 
@@ -19,10 +20,12 @@
 BOOL isLandscape;
 NSInteger numRules;
 NSMutableArray *ruleDisplayViews;
+RuleDisplayView *selectedRuleDisplay;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     numRules = [Settings sharedInstance].statesListInGrid.count;
+    selectedRuleDisplay = nil;
     [self createRuleDisplayViews];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
@@ -40,7 +43,7 @@ NSMutableArray *ruleDisplayViews;
         if (CGRectContainsPoint(rsv.frame, loc)) {
             rsv.editable = YES;
             [rsv setUserInteractionEnabled:YES];
-            [self selectRule:rsv];
+//            [self selectRule:rsv];
             RuleDisplayView *newDisplay = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType  ruleValue:rsv.ruleValue ruleNumber:rsv.ruleNumber color:rsv.stateColor];
             
             for (RuleDisplayView *unusedView in ruleDisplayViews) {
@@ -55,18 +58,31 @@ NSMutableArray *ruleDisplayViews;
 }
 
 - (void)selectRule:(RuleDisplayView*)selectedRule {
+    selectedRuleDisplay = selectedRule;
     if (isLandscape) {
         
     } else {
-        CGFloat bigWidth = self.view.frame.size.width * 0.8;
-        CGFloat sideMargin = (self.view.frame.size. width - bigWidth) / 2.0;
-        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth * 1.2);
-        selectedRule.editable = YES;
-        selectedRule.frame = rect;
-        [self.view addSubview:selectedRule];
+//        CGFloat bigWidth = self.view.frame.size.width * 0.8;
+//        CGFloat sideMargin = (self.view.frame.size. width - bigWidth) / 2.0;
+//        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth * 1.2);
+//        selectedRule.editable = YES;
+//        selectedRule.frame = rect;
+//        [self.view addSubview:selectedRule];
+//        
+        
+        [self performSegueWithIdentifier:@"toSelectedRuleVC" sender:self];
+        
+        
         // TODO: animate!!
      
       
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier  isEqual: @"toSelectedRuleVC"]) {
+        SelectedRuleViewController * srvc = segue.destinationViewController;
+        [srvc getRuleDetails:[Settings sharedInstance].antType ruleValue:selectedRuleDisplay.ruleValue ruleNumber:selectedRuleDisplay.ruleNumber color:selectedRuleDisplay.stateColor];
     }
 }
 

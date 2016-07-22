@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main Display View Controller-->
@@ -210,10 +211,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="cOK-Ue-qrf" kind="show" identifier="toSelectedRuleVC" id="Lo8-MG-U3l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3m-ti-P7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2602" y="1029"/>
+            <point key="canvasLocation" x="1889" y="1175"/>
+        </scene>
+        <!--Selected Rule View Controller-->
+        <scene sceneID="FtU-6A-3K7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qur-Ic-sBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="cOK-Ue-qrf" customClass="SelectedRuleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UKn-Gr-XaM"/>
+                        <viewControllerLayoutGuide type="bottom" id="OE0-Op-drO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="USy-bz-NXD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMX-OU-mol" customClass="RuleDisplayView">
+                                <rect key="frame" x="120" y="84" width="360" height="432"/>
+                                <color key="backgroundColor" red="1" green="0.90980392160000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YMX-OU-mol" secondAttribute="height" multiplier="5:6" id="3X3-9P-eYJ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU4-OP-I87">
+                                <rect key="frame" x="258" y="533" width="85" height="30"/>
+                                <state key="normal" title="Delete State"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uU4-OP-I87" firstAttribute="centerX" secondItem="USy-bz-NXD" secondAttribute="centerX" id="6gs-7S-P43"/>
+                            <constraint firstItem="YMX-OU-mol" firstAttribute="centerY" secondItem="USy-bz-NXD" secondAttribute="centerY" id="H1t-mD-HXE"/>
+                            <constraint firstItem="YMX-OU-mol" firstAttribute="centerX" secondItem="USy-bz-NXD" secondAttribute="centerX" id="Qpa-cs-fDb"/>
+                            <constraint firstItem="uU4-OP-I87" firstAttribute="top" secondItem="YMX-OU-mol" secondAttribute="bottom" constant="17" id="oLq-S9-DQ1"/>
+                            <constraint firstItem="YMX-OU-mol" firstAttribute="width" secondItem="USy-bz-NXD" secondAttribute="width" multiplier="0.6" id="wiP-EA-L8b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectedRule" destination="YMX-OU-mol" id="Y2g-D2-2FD"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2575" y="1175"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7V-c8-UEZ">
@@ -231,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpf-ET-bjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="-378"/>
+            <point key="canvasLocation" x="260" y="320"/>
         </scene>
     </scenes>
     <resources>

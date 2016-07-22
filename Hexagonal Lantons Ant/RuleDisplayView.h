@@ -21,5 +21,6 @@
 @property (nonatomic, strong) UIColor *stateColor;
 @property (nonatomic) BOOL editable;
 - (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor;
+- (void)completeSetUp:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor;
 - (void) positionControlArrow ;
 @end
