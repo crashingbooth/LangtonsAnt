@@ -13,6 +13,8 @@ AntType type;
 NSUInteger numSectors;
 UIImageView *controlArrow;
 UIImageView *guideArrow;
+UILabel *stateNumLabel;
+UILabel *stateValLabel;
 UIColor *stateColor;
 NSInteger ruleValue;
 BOOL editable = YES;
@@ -41,6 +43,21 @@ NSArray *stateNames; // 2d array
         [self addSubview:self.controlArrow];
         self.ruleValue = ruleValue;
         self.ruleNumber = ruleNumber;
+        
+        self.stateNumLabel = [[UILabel alloc] init];
+        [self addSubview:self.stateNumLabel];
+        self.stateNumLabel.adjustsFontSizeToFitWidth = YES;
+        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
+        self.stateNumLabel.textAlignment = NSTextAlignmentCenter;
+        self.stateNumLabel.textColor = [UIColor blueColor];
+        self.stateNumLabel.minimumScaleFactor = 20;
+        self.stateValLabel = [[UILabel alloc] init];
+        [self addSubview:self.stateValLabel];
+        [self createLabelText];
+        self.stateValLabel.adjustsFontSizeToFitWidth = YES;
+          self.stateValLabel.minimumScaleFactor = 20;
+         self.stateValLabel.textAlignment = NSTextAlignmentCenter;
+        
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognized:)];
         [self addGestureRecognizer:longPress];
         longPress.minimumPressDuration = 0.01;
@@ -50,8 +67,10 @@ NSArray *stateNames; // 2d array
     return self;
 }
 
-- (CGFloat)circleWidth {
-    return self.frame.size.height * 0.05;
+- (void)createLabelText{
+    self.stateNumLabel.text = [NSString stringWithFormat:@"State: %li", (long)self.ruleNumber];
+    self.stateValLabel.text = [[Settings sharedInstance] getStateName:self.ruleValue forAntType:type];
+    
 }
 
 - (void)setUpWithAntType:(AntType)type {
@@ -101,15 +120,18 @@ NSArray *stateNames; // 2d array
 
 
 - (void)drawRect:(CGRect)rect {
-    CGFloat circleWidth = self.frame.size.height * 0.05;
-    CGRect circleRect = CGRectMake(circleWidth / 2.0, circleWidth / 2.0, self.frame.size.height -  circleWidth,  self.frame.size.width - circleWidth);
+    CGFloat sideLength = self.frame.size.width;
+    CGFloat heightOffset = (self.frame.size.height - sideLength) / 2.0;
+    CGRect innerFrame = CGRectMake(0, heightOffset, sideLength, sideLength);
+    CGFloat circleWidth = sideLength * 0.05;
+    CGRect circleRect = CGRectMake(circleWidth / 2.0, heightOffset + (circleWidth / 2.0), sideLength -  circleWidth,  sideLength - circleWidth);
     
     UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:circleRect];
     [circlePath setLineWidth: circleWidth];
     [self.stateColor setFill];
     [circlePath fill];
     [circlePath stroke];
-    CGRect guideBounds = CGRectMake(circleWidth * 5, circleWidth * 5, self.frame.size.width - (circleWidth * 10), self.frame.size.height - (circleWidth * 10));
+    CGRect guideBounds = CGRectMake(circleWidth * 5, heightOffset + (circleWidth * 5), sideLength - (circleWidth * 10), sideLength - (circleWidth * 10));
    
     self.guideArrow.frame = guideBounds;
     [self positionControlArrow];
@@ -121,16 +143,30 @@ NSArray *stateNames; // 2d array
         [markerPath fill];
         
     }
+    
+    CGRect topLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.1);
+    self.stateNumLabel.frame = topLabelRect;
+    if (self.editable) {
+        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:13];
+    } else {
+        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
+    }
+    [self.stateNumLabel setCenter:CGPointMake(sideLength / 2.0, heightOffset / 4.0)];
 }
 
-- (void)positionControlArrow {
-    CGFloat circleWidth = [self circleWidth];
-    CGRect arrowBounds = CGRectMake(circleWidth * 2, circleWidth * 2, self.frame.size.width - (circleWidth * 4), self.frame.size.height - (circleWidth * 4));
+- (void) positionControlArrow {
+    CGFloat sideLength = self.frame.size.width;
+    CGFloat heightOffset = (self.frame.size.height - sideLength) / 2.0;
+    CGRect innerFrame = CGRectMake(0, heightOffset, sideLength, sideLength);
+    CGFloat circleWidth = sideLength * 0.05;
+    CGRect arrowBounds = CGRectMake(circleWidth * 2, heightOffset + (circleWidth * 2), sideLength - (circleWidth * 4), sideLength - (circleWidth * 4));
     self.controlArrow.frame = arrowBounds;
     
     self.controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
     
 }
+
+
 
 
 

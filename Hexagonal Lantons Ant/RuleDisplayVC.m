@@ -41,12 +41,13 @@ NSMutableArray *ruleDisplayViews;
             rsv.editable = YES;
             [rsv setUserInteractionEnabled:YES];
             [self selectRule:rsv];
+            RuleDisplayView *newDisplay = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType  ruleValue:rsv.ruleValue ruleNumber:rsv.ruleNumber color:rsv.stateColor];
             
             for (RuleDisplayView *unusedView in ruleDisplayViews) {
-                if (unusedView != rsv) {
                     [unusedView removeFromSuperview];
-                }
+
             }
+            [self selectRule:newDisplay];
         }
     }
     
@@ -59,14 +60,13 @@ NSMutableArray *ruleDisplayViews;
     } else {
         CGFloat bigWidth = self.view.frame.size.width * 0.8;
         CGFloat sideMargin = (self.view.frame.size. width - bigWidth) / 2.0;
-        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth);
-        [UIView animateWithDuration:0.2
-                         animations:^{ selectedRule.frame = rect;}
-                         completion:^(BOOL finished) {[selectedRule setNeedsDisplay];}
-         ];
-        
-       
-        [selectedRule setNeedsDisplay];
+        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth * 1.2);
+        selectedRule.editable = YES;
+        selectedRule.frame = rect;
+        [self.view addSubview:selectedRule];
+        // TODO: animate!!
+     
+      
     }
 }
 
@@ -99,8 +99,8 @@ NSMutableArray *ruleDisplayViews;
         CGFloat yOffset = self.view.frame.size.height / 2 - spaceWidth;
         CGFloat xOffset = 0.0;
         for (RuleDisplayView * rdv in ruleDisplayViews) {
-            xOffset += spaceWidth;
-            CGRect rect = CGRectMake(xOffset, yOffset, spaceWidth * 2.0, spaceWidth * 2);
+            xOffset += spaceWidth / 1.2;
+            CGRect rect = CGRectMake(xOffset, yOffset, spaceWidth * 2.0, spaceWidth * 2 * 1.2);
             rdv.frame = rect;
             [self.view addSubview:rdv];
             xOffset += (spaceWidth * 2);
@@ -114,11 +114,11 @@ NSMutableArray *ruleDisplayViews;
         CGFloat yOffset = navBarHeight;
         
         for (RuleDisplayView * rdv in ruleDisplayViews) {
-            yOffset += spaceHeight;
-            CGRect rect = CGRectMake(xOffset, yOffset, spaceHeight * 2.0, spaceHeight * 2.0);
+            yOffset += spaceHeight / 1.2;
+            CGRect rect = CGRectMake(xOffset, yOffset, spaceHeight * 2.0, spaceHeight * 2.0 * 1.2);
             rdv.frame = rect;
             [self.view addSubview:rdv];
-            yOffset += (spaceHeight * 2.0);
+            yOffset += (spaceHeight * 2.0 * 1.1);
 
         }
         
