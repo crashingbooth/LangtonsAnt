@@ -24,8 +24,9 @@ CGFloat boxWidth;
         self.boxWidth = boxWidthFromVC;
         self.drawAsCircle = drawAsCircle;
 
-        
+        NSLog(@"starting GridColl setUp");
         [self setUpInitialViews];
+        NSLog(@"finishedGridColl setUp");
     }
     return self;
 }

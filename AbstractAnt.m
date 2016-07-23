@@ -55,7 +55,8 @@ MusicInterpretter *musInt;
         [self.musInt playNoteFromDirection:self.direction];
     }
 //
-    NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
+//
+//    NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
 
 -(GridPoint*)moveToNewPosition {
