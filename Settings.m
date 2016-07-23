@@ -54,7 +54,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 -(id)init {
     self = [super init];
     if (self) {
-        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor], [UIColor blackColor], [UIColor purpleColor], [UIColor magentaColor],[UIColor redColor], [UIColor whiteColor]];
+        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor magentaColor],[UIColor redColor], [UIColor whiteColor]];
        
         
     }
@@ -168,6 +168,42 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Complex hex-highway";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] = @[ @2, @-2, @2, @2, @2];
+    dict[numRowsKey] = [NSNumber numberWithInteger: 90];
+    dict[numColsKey] = [NSNumber numberWithInteger: 60];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@30];
+    startCols = @[@30];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Labrynth Maker";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] = @[ @-1, @2, @-1];
+    dict[numRowsKey] = [NSNumber numberWithInteger: 90];
+    dict[numColsKey] = [NSNumber numberWithInteger: 60];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@30];
+    startCols = @[@30];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"13 loop";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     //    dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3];
@@ -227,6 +263,48 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
     
     [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"symmetrical 4a";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @1, @-1, @-1, @1];
+    rows = 75;
+    cols = 55;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 2)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"symmetrical 4b";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @1, @1, @-1, @-1];
+    rows = 75;
+    cols = 55;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 2)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    
     
     // 4
     dict = [[NSMutableDictionary alloc] init];

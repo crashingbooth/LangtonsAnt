@@ -75,8 +75,10 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 }
 
 - (void) reset {
-    NSMutableArray *newAnt = @[[originalAnt copyWithZone:nil]];
-    demo.settingsGrid.ants = newAnt;
+    if (originalAnt != nil) {
+        NSMutableArray *newAnt = @[[originalAnt copyWithZone:nil]];
+        demo.settingsGrid.ants = newAnt;
+    }
     [demo.settingsGrid buildZeroStateMatrix];
     [demoGrid cleanGrid];
 }

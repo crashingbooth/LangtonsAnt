@@ -152,7 +152,7 @@ NSArray *stateNames; // 2d array
     NSMutableArray *stateList = [[Settings sharedInstance].statesListInGrid mutableCopy];
     [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
     [Settings sharedInstance].statesListInGrid = stateList;
-    [Settings sharedInstance].needToRebuild = YES;
+    [[Settings sharedInstance] recreateGrid];
     [Settings sharedInstance].name = @"custom";
 }
 

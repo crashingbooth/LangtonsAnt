@@ -18,4 +18,5 @@
 - (void)setUpWithSettingsDict:(NSMutableDictionary*) dict;
 - (void) update:(NSTimer*)timer;
 - (void)animate:(NSTimeInterval)timeInterval;
+- (void) reset;
 @end
