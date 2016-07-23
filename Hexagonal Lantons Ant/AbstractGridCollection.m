@@ -31,6 +31,21 @@ CGFloat boxWidth;
     return self;
 }
 
+- (void)updateOrCreateTile:(GridPoint*) gridPoint {
+    UIViewWithPath *changeTile = [[self.gridOfViews objectAtIndex: gridPoint.row ] objectAtIndex:gridPoint.col];
+    NSInteger newState = [[[self.grid.matrix objectAtIndex:gridPoint.row] objectAtIndex:gridPoint.col] integerValue];
+    UIColor *stateColor = [Settings sharedInstance].colorList[newState];
+    if ([changeTile isEqual:[NSNull null]] ) {
+        CGRect rect = [self getRectOfGridShape:gridPoint];
+        changeTile = [self createTile:rect color:stateColor];
+        [self.gridOfViews[gridPoint.row] replaceObjectAtIndex:gridPoint.col withObject:changeTile];
+        
+    } else {
+        changeTile.color = stateColor;
+    }
+    [changeTile setNeedsDisplay];
+}
+
 -(void)setUpInitialViews {
     NSInteger rows = self.grid.numRows;
     NSInteger cols = self.grid.numCols;
@@ -44,10 +59,14 @@ CGFloat boxWidth;
     }
 }
 
+
+
 - (void)removeAllViews {
     for (NSArray* row in self.gridOfViews) {
         for (UIView *cell in row) {
-            [cell removeFromSuperview];
+            if (![cell isEqual:[NSNull null]]) {
+                [cell removeFromSuperview];
+            }
         }
     }
 }
@@ -55,8 +74,18 @@ CGFloat boxWidth;
 - (void)cleanGrid {
     for (NSArray* row in self.gridOfViews) {
         for (UIViewWithPath *cell in row) {
-            cell.color = [Settings sharedInstance].colorList[0];
+            if (![cell isEqual:[NSNull null]]) {
+                cell.color = [Settings sharedInstance].colorList[0];
+            }
         }
+    }
+}
+
+-(void)updateViews {
+    [self.grid update];
+    for (AbstractAnt *ant in self.grid.ants) {
+        GridPoint *antLoc = ant.currentPos;
+        [self updateOrCreateTile:antLoc];
     }
 }
 

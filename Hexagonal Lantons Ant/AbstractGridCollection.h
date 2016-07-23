@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "Grid.h"
 #import "Settings.h"
+#import "UIViewWithPath.h"
 
 @interface AbstractGridCollection : NSObject
 @property (weak, nonatomic) UIView *parentView;
@@ -19,10 +20,13 @@
 @property (nonatomic) BOOL drawAsCircle;
 
 
--(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle;
-// abstract:
-- (void)setUpInitialViews;
+- (id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle;
+- (void)updateOrCreateTile:(GridPoint*) gridPoint;
 - (void)updateViews;
 - (void)removeAllViews;
 - (void)cleanGrid;
+
+// abstract:
+- (CGRect)getRectOfGridShape:(GridPoint*)gridPoint;
+- (UIViewWithPath*)createTile:(CGRect)frame color:(UIColor*)color ;
 @end
