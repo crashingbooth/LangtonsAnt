@@ -98,6 +98,16 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     }
     self.needToRebuild = YES;
 }
+- (void)recreateGrid {
+     self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
+    self.settingsGrid.ants  = [[NSMutableArray alloc] init];
+    for (AbstractAnt *ant in self.antsInitialStatus) {
+        [self.settingsGrid addAnt: [ant copyWithZone:nil]];
+    }
+    self.needToRebuild = YES;
+    
+    
+}
 
 - (NSDictionary*) createDictFromCurrentSettings {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];

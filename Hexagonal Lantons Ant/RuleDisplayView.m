@@ -88,14 +88,13 @@ NSArray *stateNames; // 2d array
 }
 
 - (void)completeSetUp:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
+    // when called from storyboard, use 2 step init
+    
     [self setUpWithAntType:type];
     self.stateColor = stateColor;
-    
     self.ruleValue = ruleValue;
     self.ruleNumber = ruleNumber;
-    
     [self createLabelText];
-    
 }
 
 - (void)createLabelText{
@@ -145,11 +144,8 @@ NSArray *stateNames; // 2d array
                 [self createLabelText];
                 [self changeSettings];
             }
-            
         }
-        
     }
-    
 }
 
 - (void)changeSettings {
@@ -164,7 +160,6 @@ NSArray *stateNames; // 2d array
 - (void)drawRect:(CGRect)rect {
     CGFloat sideLength = self.frame.size.width;
     CGFloat heightOffset = (self.frame.size.height - sideLength) / 2.0;
-    CGRect innerFrame = CGRectMake(0, heightOffset, sideLength, sideLength);
     CGFloat circleWidth = sideLength * 0.05;
     CGRect circleRect = CGRectMake(circleWidth / 2.0, heightOffset + (circleWidth / 2.0), sideLength -  circleWidth,  sideLength - circleWidth);
     

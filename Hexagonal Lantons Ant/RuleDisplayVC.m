@@ -24,14 +24,15 @@ RuleDisplayView *selectedRuleDisplay;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    numRules = [Settings sharedInstance].statesListInGrid.count;
-    selectedRuleDisplay = nil;
-    [self createRuleDisplayViews];
+//    numRules = [Settings sharedInstance].statesListInGrid.count;
+//    selectedRuleDisplay = nil;
+//    [self createRuleDisplayViews];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [self.view addGestureRecognizer:tap];
     
 }
+
 
 - (void)tapped:(UITapGestureRecognizer*)gesture {
     UIView* view = gesture.view;
@@ -89,6 +90,9 @@ RuleDisplayView *selectedRuleDisplay;
 
 - (void)viewWillAppear:(BOOL)animated {
     isLandscape = self.view.frame.size.width > self.view.frame.size.height;
+    numRules = [Settings sharedInstance].statesListInGrid.count;
+    selectedRuleDisplay = nil;
+    [self createRuleDisplayViews];
     [self positionRuleViews];
 }
 

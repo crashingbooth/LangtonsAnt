@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 #import "Grid.h"
 #import "AbstractAnt.h"
 #import "HexagonalAnt.h"
@@ -30,6 +31,7 @@ NSArray *statesList;
     }
     return self;
 }
+
 
 
 -(void)buildZeroStateMatrix {

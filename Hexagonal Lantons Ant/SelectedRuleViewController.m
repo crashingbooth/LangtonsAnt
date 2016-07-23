@@ -33,8 +33,20 @@ UIColor *passedUIColor;
     self.passedUIColor = stateColor;
     self.passedRuleValue = ruleValue;
     self.passedRuleNumber = ruleNumber;
-    
-    
-}
+} 
 
+- (IBAction)deleteStateButton:(UIButton *)sender {
+    NSMutableArray *statesList = [[Settings sharedInstance].statesListInGrid mutableCopy];
+    if (statesList.count <= 2 ) {
+        // TO DO popup warning minimum # of states
+        NSLog(@"too few states");
+        return;
+    } else {
+        [statesList removeObjectAtIndex:self.passedRuleNumber];
+        [Settings sharedInstance].statesListInGrid = statesList;
+        [[Settings sharedInstance] recreateGrid];
+        [Settings sharedInstance].needToRebuild = YES;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end
