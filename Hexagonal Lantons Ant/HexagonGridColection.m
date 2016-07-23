@@ -44,8 +44,27 @@
         [self.gridOfViews addObject:currentRow];
     }
 }
+
 -(CGFloat)sideHeight {
     return self.boxWidth * 0.577350269;
+}
+
+
+
+
+
+
+
+-(CGRect)getHexRect:(GridPoint*)gridPoint {
+    
+    CGFloat startX = (CGFloat)gridPoint.col * self.boxWidth;
+    if (gridPoint.row % 2 == 1) {
+        startX += self.boxWidth / 2.0;
+    }
+    
+    CGRect rect = CGRectMake(startX, (CGFloat)gridPoint.row * [self sideHeight] * 1.5, self.boxWidth, [self sideHeight] * 2);
+    
+    return rect;
 }
 
 

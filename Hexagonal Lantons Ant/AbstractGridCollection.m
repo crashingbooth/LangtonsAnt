@@ -31,6 +31,19 @@ CGFloat boxWidth;
     return self;
 }
 
+-(void)setUpInitialViews {
+    NSInteger rows = self.grid.numRows;
+    NSInteger cols = self.grid.numCols;
+    self.gridOfViews = [NSMutableArray arrayWithCapacity:rows];
+    for (int row = 0; row < rows; row++) {
+        NSMutableArray *currentRow = [NSMutableArray arrayWithCapacity:cols];
+        for (int col = 0; col < cols; col++) {
+            [currentRow addObject:[NSNull null]];
+        }
+        [self.gridOfViews addObject:currentRow];
+    }
+}
+
 - (void)removeAllViews {
     for (NSArray* row in self.gridOfViews) {
         for (UIView *cell in row) {

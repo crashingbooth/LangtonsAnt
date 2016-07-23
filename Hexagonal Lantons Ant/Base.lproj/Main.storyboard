@@ -235,7 +235,6 @@
         <!--Selected Rule View Controller-->
         <scene sceneID="FtU-6A-3K7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qur-Ic-sBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cOK-Ue-qrf" customClass="SelectedRuleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UKn-Gr-XaM"/>
@@ -273,6 +272,7 @@
                         <outlet property="selectedRule" destination="YMX-OU-mol" id="Y2g-D2-2FD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qur-Ic-sBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2575" y="1175"/>
         </scene>
