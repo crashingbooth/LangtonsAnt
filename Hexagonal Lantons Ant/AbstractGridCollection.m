@@ -23,7 +23,7 @@ CGFloat boxWidth;
         self.grid = myGrid;
         self.boxWidth = boxWidthFromVC;
         self.drawAsCircle = drawAsCircle;
-        self.colors = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor blackColor],  [UIColor blueColor], [UIColor purpleColor], [UIColor lightGrayColor],[UIColor darkGrayColor], [UIColor whiteColor]];
+
         
         [self setUpInitialViews];
     }
@@ -41,7 +41,7 @@ CGFloat boxWidth;
 - (void)cleanGrid {
     for (NSArray* row in self.gridOfViews) {
         for (UIViewWithPath *cell in row) {
-            cell.color = self.colors[0];
+            cell.color = [Settings sharedInstance].colorList[0];
         }
     }
 }

@@ -42,4 +42,5 @@
 - (NSString*)getRuleSystemAsString;
 - (NSString*)getFullDescription;
 - (void)recreateGrid;
+- (void)addState;
 @end

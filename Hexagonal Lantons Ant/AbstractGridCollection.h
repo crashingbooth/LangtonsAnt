@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Grid.h"
+#import "Settings.h"
 
 @interface AbstractGridCollection : NSObject
 @property (weak, nonatomic) UIView *parentView;
 @property (weak, nonatomic) Grid *grid;
 @property (strong, nonatomic) NSMutableArray *gridOfViews;
-@property (strong, nonatomic) NSArray *colors;
 @property (nonatomic) CGFloat boxWidth;
 @property (nonatomic) BOOL drawAsCircle;
 

@@ -109,6 +109,13 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
 }
 
+- (void)addState {
+    NSMutableArray *statesListCopy = [self.statesListInGrid mutableCopy];
+    [statesListCopy addObject:@0];
+    self.statesListInGrid = statesListCopy;
+    [self recreateGrid];
+}
+
 - (NSDictionary*) createDictFromCurrentSettings {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = self.name;

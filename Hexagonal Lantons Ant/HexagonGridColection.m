@@ -36,7 +36,7 @@
             }
 
             cell.path = [cell getPath];
-            cell.color = self.colors[0];
+            cell.color = [Settings sharedInstance].colorList[0];
             [cell setNeedsDisplay];
             [self.parentView addSubview:cell];
             [currentRow addObject:cell];
@@ -58,7 +58,7 @@
         UIViewWithPath *changedTile = [[self.gridOfViews objectAtIndex: ant.currentPos.row ] objectAtIndex:ant.currentPos.col];
         NSInteger newState = [[[self.grid.matrix objectAtIndex:ant.currentPos.row] objectAtIndex:ant.currentPos.col] integerValue];
         //         NSLog([NSString stringWithFormat:@"%i, %i, %li", cell.row, cell.col, newState]);
-        changedTile.color = [self.colors objectAtIndex:newState];
+        changedTile.color = [Settings sharedInstance].colorList[newState];
         [changedTile setNeedsDisplay];
     }
     

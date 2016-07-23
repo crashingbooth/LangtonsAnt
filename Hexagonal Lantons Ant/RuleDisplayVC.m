@@ -42,15 +42,9 @@ RuleDisplayView *selectedRuleDisplay;
     
     for (RuleDisplayView *rsv in ruleDisplayViews) {
         if (CGRectContainsPoint(rsv.frame, loc)) {
-            rsv.editable = YES;
-            [rsv setUserInteractionEnabled:YES];
-//            [self selectRule:rsv];
             RuleDisplayView *newDisplay = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType  ruleValue:rsv.ruleValue ruleNumber:rsv.ruleNumber color:rsv.stateColor];
             
-            for (RuleDisplayView *unusedView in ruleDisplayViews) {
-                    [unusedView removeFromSuperview];
-
-            }
+            [self removeRuleDisplayViews];
             [self selectRule:newDisplay];
         }
     }
@@ -58,25 +52,20 @@ RuleDisplayView *selectedRuleDisplay;
    
 }
 
+- (void)removeRuleDisplayViews {
+    for (RuleDisplayView *unusedView in ruleDisplayViews) {
+        [unusedView removeFromSuperview];
+    }
+    ruleDisplayViews = [[NSMutableArray alloc] init];
+    
+}
+
 - (void)selectRule:(RuleDisplayView*)selectedRule {
     selectedRuleDisplay = selectedRule;
     if (isLandscape) {
         
     } else {
-//        CGFloat bigWidth = self.view.frame.size.width * 0.8;
-//        CGFloat sideMargin = (self.view.frame.size. width - bigWidth) / 2.0;
-//        CGRect rect = CGRectMake(sideMargin, (self.view.frame.size.height - bigWidth) / 2.0, bigWidth, bigWidth * 1.2);
-//        selectedRule.editable = YES;
-//        selectedRule.frame = rect;
-//        [self.view addSubview:selectedRule];
-//        
-        
         [self performSegueWithIdentifier:@"toSelectedRuleVC" sender:self];
-        
-        
-        // TODO: animate!!
-     
-      
     }
 }
 
@@ -90,13 +79,14 @@ RuleDisplayView *selectedRuleDisplay;
 
 - (void)viewWillAppear:(BOOL)animated {
     isLandscape = self.view.frame.size.width > self.view.frame.size.height;
-    numRules = [Settings sharedInstance].statesListInGrid.count;
-    selectedRuleDisplay = nil;
+
     [self createRuleDisplayViews];
-    [self positionRuleViews];
+
 }
 
 - (void)createRuleDisplayViews {
+    numRules = [Settings sharedInstance].statesListInGrid.count;
+    selectedRuleDisplay = nil;
     AntType type = [Settings sharedInstance].antType;
     ruleDisplayViews = [[NSMutableArray alloc] init];
     for (int i = 0; i < numRules; i++) {
@@ -107,6 +97,13 @@ RuleDisplayView *selectedRuleDisplay;
         [rdv setUserInteractionEnabled:NO];
         [ruleDisplayViews addObject: rdv];
     }
+    [self positionRuleViews];
+}
+- (IBAction)addRuleButton:(UIButton *)sender {
+    [[Settings sharedInstance] addState];
+    [self removeRuleDisplayViews];
+    [self createRuleDisplayViews];
+    
 }
 
 - (void)positionRuleViews {
