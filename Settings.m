@@ -168,6 +168,24 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Symmetrical Hex 2-state";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] = @[ @-1, @1];
+    dict[numRowsKey] = [NSNumber numberWithInteger: 30];
+    dict[numColsKey] = [NSNumber numberWithInteger: 20];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@15];
+    startCols = @[@10];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"Complex hex-highway";
     dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
     dict[statesListKey] = @[ @2, @-2, @2, @2, @2];
@@ -325,6 +343,26 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     dict[antDirectionKey] = startDirections;
     
     [self addPresetDictToPresetStorage:dict];
+    
+    // 4
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"bender";
+    dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
+    dict[statesListKey] = @[ @0,@4,@3];
+    rows = 134;
+    cols = 75;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 4)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    [self addPresetDictToPresetStorage:dict];
 
 }
 
@@ -419,7 +457,30 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
             typeString = @"Eight way";
             break;
     }
-    numAntsString = [NSString stringWithFormat:@"%li ant(s)", self.numAnts];
+    numAntsString = [NSString stringWithFormat:@"%li ant(s)", self.settingsGrid.ants.count];
+    ruleString = [self getRuleSystemAsString];
+    
+    return [NSString stringWithFormat:@"%@ - %@ - %@",typeString, numAntsString, ruleString ];
+    
+}
+
+- (NSString*)getFullDescription:(NSDictionary*)dictWithCorrectAntNum {
+    // b/c LoadSettingsView only displays one ant, so use it's original dict to get correct val
+    NSString *typeString;
+    NSString *numAntsString;
+    NSString *ruleString;
+    switch (self.antType) {
+        case FOUR_WAY:
+            typeString = @"Four way";
+            break;
+        case SIX_WAY:
+            typeString = @"Six way";
+            break;
+        case EIGHT_WAY:
+            typeString = @"Eight way";
+            break;
+    }
+    numAntsString = [NSString stringWithFormat:@"%li ant(s)", [dictWithCorrectAntNum[numAntsKey] integerValue]];
     ruleString = [self getRuleSystemAsString];
     
     return [NSString stringWithFormat:@"%@ - %@ - %@",typeString, numAntsString, ruleString ];

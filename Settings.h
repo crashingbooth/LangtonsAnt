@@ -41,6 +41,7 @@
 - (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type;
 - (NSString*)getRuleSystemAsString;
 - (NSString*)getFullDescription;
+- (NSString*)getFullDescription:(NSDictionary*)dictWithCorrectAntNum;
 - (void)recreateGrid;
 - (void)addState;
 @end

@@ -19,6 +19,7 @@ PathShape pathShape;
     [self.color setFill];
     [self.color setStroke];
     [self.path fill];
+    [self.path setLineWidth:0.5];
     [self.path stroke];
 }
 

@@ -11,6 +11,8 @@
 
 @interface LoadSettingsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *settingsName;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
 @property (weak, nonatomic) IBOutlet SettingsDemoView *loadSettingsDemoView;
 
 @end

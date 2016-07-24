@@ -16,6 +16,7 @@
 
 -(CGFloat)sideHeight {
     return self.boxWidth * 0.577350269;
+
 }
 
 - (UIViewWithPath*)createTile:(CGRect)frame color:(UIColor*)color {

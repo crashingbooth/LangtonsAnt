@@ -64,20 +64,14 @@ NSTimeInterval timeInterval = 0.1;
         case 0:
             presetName = [Settings sharedInstance].fourWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].fourWayPresetNames[indexPath.row];
-            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
-
             break;
         case 1:
             presetName = [Settings sharedInstance].sixWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].sixWayPresetNames[indexPath.row];
-            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
-
             break;
         case 2:
             presetName = [Settings sharedInstance].eightWayPresetNames[indexPath.row];
             cell.settingsName.text = [Settings sharedInstance].eightWayPresetNames[indexPath.row];
-            presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
-
             break;
             
        
@@ -85,6 +79,7 @@ NSTimeInterval timeInterval = 0.1;
     presetDict = [Settings sharedInstance].presetDictionaries[presetName] ;
     [cell.loadSettingsDemoView.demoGrid removeAllViews];
     [cell.loadSettingsDemoView setUpWithSettingsDict:presetDict];
+    cell.descriptionLabel.text = [cell.loadSettingsDemoView.demo getFullDescription:presetDict];
     
     [cell.loadSettingsDemoView animate:timeInterval];
     return cell;
