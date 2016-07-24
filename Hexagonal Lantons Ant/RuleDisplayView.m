@@ -199,7 +199,6 @@ NSArray *stateNames; // 2d array
 - (void) positionControlArrow {
     CGFloat sideLength = self.frame.size.width;
     CGFloat heightOffset = (self.frame.size.height - sideLength) / 2.0;
-    CGRect innerFrame = CGRectMake(0, heightOffset, sideLength, sideLength);
     CGFloat circleWidth = sideLength * 0.05;
     CGRect arrowBounds = CGRectMake(circleWidth * 2, heightOffset + (circleWidth * 2), sideLength - (circleWidth * 4), sideLength - (circleWidth * 4));
     self.controlArrow.frame = arrowBounds;
