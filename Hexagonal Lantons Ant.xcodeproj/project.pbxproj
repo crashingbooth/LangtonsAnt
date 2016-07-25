@@ -39,6 +39,7 @@
 		1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */; };
 		1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */; };
 		1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */; };
+		1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,8 @@
 		1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AntGridView.m; sourceTree = "<group>"; };
 		1F93F0341D42CD5000D018B9 /* SelectedRuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedRuleViewController.h; sourceTree = "<group>"; };
 		1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedRuleViewController.m; sourceTree = "<group>"; };
+		1F93F0371D444FD900D018B9 /* SetDimensionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetDimensionsCell.h; sourceTree = "<group>"; };
+		1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetDimensionsCell.m; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
 				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
 				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
+				1F93F0371D444FD900D018B9 /* SetDimensionsCell.h */,
+				1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */,
 				1F11D9CB1D3C8C4000AEC27D /* LoadSettingsTVC.h */,
 				1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */,
 				1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */,
@@ -416,6 +421,7 @@
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
+				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,

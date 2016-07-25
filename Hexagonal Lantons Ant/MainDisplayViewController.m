@@ -44,7 +44,7 @@ Settings *settings;
 - (void)rebuildGridCollectionIfNecessary{
     if (settings.needToRebuild) {
         [gridColl removeAllViews];
-        gridWidth = round(self.view.frame.size.width / settings.numColsInGrid);
+        gridWidth = self.view.frame.size.width / settings.numColsInGrid;
         grid = settings.settingsGrid;
         [grid buildZeroStateMatrix];
         [self makeGridCollection];
@@ -59,6 +59,10 @@ Settings *settings;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    // use this ratio when choosing custom widths
+    if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
+        [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
+    }
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
 }
@@ -113,6 +117,7 @@ Settings *settings;
     } else {
         _settingsButton.enabled = YES;
         _settingsButton.alpha = 1.0;
+        [self.view bringSubviewToFront:_settingsButton];
     }
 }
 

@@ -33,12 +33,15 @@
 @property (nonatomic) NSMutableArray *sixWayPresetNames;
 @property (nonatomic) NSMutableArray *fourWayPresetNames;
 @property (nonatomic) NSMutableDictionary *presetDictionaries;
+@property (nonatomic) CGFloat lengthToWidthRatio;
 
 
 + (Settings *)sharedInstance;
 - (NSDictionary*) createDictFromCurrentSettings ;
 - (void) extractSettingsFromDict: (NSDictionary*) dict;
 - (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type;
+- (void)establishLengthToWidthRatio:(CGFloat)width length:(CGFloat)length;
+- (NSInteger)getAppropriateNumberOfRowsForScreen:(NSInteger)numCols;
 - (NSString*)getRuleSystemAsString;
 - (NSString*)getFullDescription;
 - (NSString*)getFullDescription:(NSDictionary*)dictWithCorrectAntNum;

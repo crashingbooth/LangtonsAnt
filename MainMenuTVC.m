@@ -50,6 +50,12 @@ NSArray *cellLabels;
             cell.textLabel.text = cellLabels[indexPath.row];
             cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
             break;
+        case 2:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SetDimensionCell" forIndexPath:indexPath];
+//            cell.textLabel.text = cellLabels[indexPath.row];
+//            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
+            break;
+        
         case 5:
             cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
             cell.textLabel.text = cellLabels[indexPath.row];
@@ -70,9 +76,21 @@ NSArray *cellLabels;
 
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     switch (indexPath.row) {
+        case 2:
+            if (selectedIndexPath.row == 2) {
+                return 88;
+            } else {
+                return 44;
+            }
+            break;
         case 6:
-            return 88;
+            if (selectedIndexPath.row == 6) {
+                return 88;
+            } else {
+                return 44;
+            }
             break;
             
         default:
@@ -87,11 +105,17 @@ NSArray *cellLabels;
         case 1: // edit Setting
             [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
             break;
+//        case 2:
+//            [tableView beginUpdates];
+//            [tableView endUpdates];
+//            break;
         case 5: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
             
         default:
+            [tableView beginUpdates];
+            [tableView endUpdates];
             break;
     }
 }

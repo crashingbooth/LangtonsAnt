@@ -26,6 +26,7 @@ NSMutableArray *SixWayPresetNames;
 NSMutableArray *FourWayPresetNames;
 NSMutableDictionary *presetDictionaries;
 BOOL needToRebuild = NO;
+CGFloat lengthToWidthRatio;
 
 
 static NSString *const nameKey = @"name";
@@ -62,6 +63,25 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
      [self extractSettingsFromDict:self.presetDictionaries[@"vanilla"]];
   
     return self;
+}
+
+- (void)establishLengthToWidthRatio:(CGFloat)width length:(CGFloat)length {
+    self.lengthToWidthRatio = length / width;
+}
+
+- (NSInteger)getAppropriateNumberOfRowsForScreen:(NSInteger)numCols {
+    NSAssert(self.lengthToWidthRatio > 0 , @"lengthToWidthRatioUnset ");
+    
+    CGFloat rawNumber = (self.lengthToWidthRatio * (CGFloat)numCols);
+    if (self.antType == SIX_WAY) {
+        rawNumber = rawNumber/(1.5 * 0.577350269);
+    }
+    NSInteger numberOfRows = (NSInteger)rawNumber;
+    if (numberOfRows % 2 == 1) {
+        numberOfRows -= 1;
+    }
+    NSLog([NSString stringWithFormat:@"%.2f %li", self.lengthToWidthRatio, numberOfRows  ]);
+    return numberOfRows;
 }
 
 - (void) extractSettingsFromDict: (NSDictionary*) dict {
@@ -101,8 +121,20 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 - (void)recreateGrid {
      self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
     self.settingsGrid.ants  = [[NSMutableArray alloc] init];
-    for (AbstractAnt *ant in self.antsInitialStatus) {
-        [self.settingsGrid addAnt: [ant copyWithZone:nil]];
+    
+    NSInteger numberOfAnts = self.antsInitialStatus.count;
+    for (int i = 0; i < numberOfAnts; i++) {
+        AbstractAnt *originalAnt = self.antsInitialStatus[i];
+        AbstractAnt *copyAnt = [originalAnt copyWithZone:nil];
+        if (self.numColsInGrid != originalAnt.maxCol) {
+            copyAnt.maxCol = self.numColsInGrid;
+            copyAnt.maxRow = self.numRowsInGrid;
+            copyAnt.currentPos.col = self.numColsInGrid / 2;
+            copyAnt.currentPos.row = (self.numRowsInGrid / (numberOfAnts + 1)) * (i + 1);
+        }
+        
+        [self.settingsGrid addAnt: copyAnt];
+
     }
     self.needToRebuild = YES;
     

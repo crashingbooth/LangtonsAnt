@@ -25,7 +25,14 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    if (selected) {
+        [_slider setEnabled:YES];
+        [_slider setAlpha:1.0];
+    } else {
+        [_slider setEnabled:NO];
+        [_slider setAlpha:0.0];
+    }
+    
     // Configure the view for the selected state
 }
 
