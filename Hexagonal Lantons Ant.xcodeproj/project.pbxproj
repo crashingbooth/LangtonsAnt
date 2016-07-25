@@ -44,6 +44,11 @@
 		1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03E1D45B04900D018B9 /* NewRulesCell.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
+		1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896A91D45D70F004AE72E /* BasicCell.m */; };
+		1FE896AD1D45DC10004AE72E /* LoadSettingsMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896AC1D45DC10004AE72E /* LoadSettingsMenuCell.m */; };
+		1FE896B01D45DF21004AE72E /* SaveSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896AF1D45DF21004AE72E /* SaveSettingsCell.m */; };
+		1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B21D45E214004AE72E /* EditSettingsCell.m */; };
+		1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B51D46C279004AE72E /* RuleDisplayCellInternalView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +134,16 @@
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
 		1FDBD3EF1D2786A2008665FA /* MidiNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiNote.m; sourceTree = "<group>"; };
+		1FE896A81D45D70F004AE72E /* BasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicCell.h; sourceTree = "<group>"; };
+		1FE896A91D45D70F004AE72E /* BasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicCell.m; sourceTree = "<group>"; };
+		1FE896AB1D45DC10004AE72E /* LoadSettingsMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadSettingsMenuCell.h; sourceTree = "<group>"; };
+		1FE896AC1D45DC10004AE72E /* LoadSettingsMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadSettingsMenuCell.m; sourceTree = "<group>"; };
+		1FE896AE1D45DF21004AE72E /* SaveSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveSettingsCell.h; sourceTree = "<group>"; };
+		1FE896AF1D45DF21004AE72E /* SaveSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveSettingsCell.m; sourceTree = "<group>"; };
+		1FE896B11D45E214004AE72E /* EditSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSettingsCell.h; sourceTree = "<group>"; };
+		1FE896B21D45E214004AE72E /* EditSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSettingsCell.m; sourceTree = "<group>"; };
+		1FE896B41D46C279004AE72E /* RuleDisplayCellInternalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayCellInternalView.h; sourceTree = "<group>"; };
+		1FE896B51D46C279004AE72E /* RuleDisplayCellInternalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayCellInternalView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +282,8 @@
 			children = (
 				1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */,
 				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
+				1FE896AE1D45DF21004AE72E /* SaveSettingsCell.h */,
+				1FE896AF1D45DF21004AE72E /* SaveSettingsCell.m */,
 				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
 				1F11D9C91D3AE43300AEC27D /* SpeedCell.m */,
 				1F93F0371D444FD900D018B9 /* SetDimensionsCell.h */,
@@ -277,8 +294,16 @@
 				1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */,
 				1F93F03A1D45AFA000D018B9 /* RuleDisplayCell.h */,
 				1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */,
+				1FE896B41D46C279004AE72E /* RuleDisplayCellInternalView.h */,
+				1FE896B51D46C279004AE72E /* RuleDisplayCellInternalView.m */,
 				1F93F03D1D45B04900D018B9 /* NewRulesCell.h */,
 				1F93F03E1D45B04900D018B9 /* NewRulesCell.m */,
+				1FE896A81D45D70F004AE72E /* BasicCell.h */,
+				1FE896A91D45D70F004AE72E /* BasicCell.m */,
+				1FE896AB1D45DC10004AE72E /* LoadSettingsMenuCell.h */,
+				1FE896AC1D45DC10004AE72E /* LoadSettingsMenuCell.m */,
+				1FE896B11D45E214004AE72E /* EditSettingsCell.h */,
+				1FE896B21D45E214004AE72E /* EditSettingsCell.m */,
 			);
 			name = "TableVC and Cells";
 			path = "Hexagonal Lantons Ant";
@@ -414,6 +439,7 @@
 			files = (
 				1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */,
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
+				1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
 				1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */,
@@ -423,7 +449,9 @@
 				1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,
+				1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */,
 				1F2AD9441D23A9C70020B06E /* ViewController.m in Sources */,
+				1FE896AD1D45DC10004AE72E /* LoadSettingsMenuCell.m in Sources */,
 				1F2DAF401D336BA4000D898A /* AbstractGridCollection.m in Sources */,
 				1F6EB2F91D3EF83200C294B3 /* RuleSelectVC.m in Sources */,
 				1F2AD9411D23A9C70020B06E /* AppDelegate.m in Sources */,
@@ -434,11 +462,13 @@
 				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
 				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
+				1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
 				1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */,
 				1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */,
 				1F11D9D31D3CAB7300AEC27D /* SettingsDemoView.m in Sources */,
+				1FE896B01D45DF21004AE72E /* SaveSettingsCell.m in Sources */,
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,

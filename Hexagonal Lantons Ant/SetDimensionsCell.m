@@ -46,6 +46,8 @@ NSMutableArray *pickerData;
         [self updateLabels];
         [_colsValLabel setAlpha:0.0];
         [_columnPicker setAlpha:1.0];
+        ((UIView *)[_columnPicker.subviews objectAtIndex:1]).backgroundColor = [UIColor whiteColor];
+        ((UIView *)[_columnPicker.subviews objectAtIndex:2]).backgroundColor = [UIColor whiteColor];
 
     }
 

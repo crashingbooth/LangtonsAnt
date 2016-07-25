@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RuleDisplayCellInternalView.h"
 
 @interface RuleDisplayCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
+
+@property (weak, nonatomic) IBOutlet RuleDisplayCellInternalView *rdcInternal;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end

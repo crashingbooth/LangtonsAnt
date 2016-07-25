@@ -43,8 +43,9 @@
     [_fourWayButton setAlpha:0.0];
     [_sixWayButton setAlpha:0.0];
     [_eightWayButton setAlpha:0.0];
+
     
-     _generateRuleLabel.text = @"Create New Rule";
+     _generateRuleLabel.text = @"New Rule";
     
 }
 

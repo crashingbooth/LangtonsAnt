@@ -9,6 +9,7 @@
 #import "MainMenuTVC.h"
 #import "Constants.h"
 #import "Settings.h"
+#import "BasicCell.h"
 
 @interface MainMenuTVC ()
 
@@ -49,28 +50,29 @@ BOOL selectionMade;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+//    BasicCell *basicCell = [tableView dequeueReusableCellWithIdentifier:@"BasicCell" forIndexPath:indexPath];
     switch (indexPath.row) {
         case 0:
             cell = [tableView dequeueReusableCellWithIdentifier:@"NewRulesCell" forIndexPath:indexPath];
-//            cell.textLabel.text = cellLabels[indexPath.row];
-//            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
             break;
             
         case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
-            cell.textLabel.text = cellLabels[indexPath.row];
-            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"RuleDisplayCell" forIndexPath:indexPath];
             break;
         case 2:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SetDimensionCell" forIndexPath:indexPath];
 //            cell.textLabel.text = cellLabels[indexPath.row];
 //            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
             break;
-        
+        case 3:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"AddAntCell" forIndexPath:indexPath];
+            break;
+        case 4:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SaveSettingsCell" forIndexPath:indexPath];
+            break;
+
         case 5:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
-            cell.textLabel.text = cellLabels[indexPath.row];
-            cell.detailTextLabel.text = [Settings sharedInstance].name;
+            cell = [tableView dequeueReusableCellWithIdentifier:@"LoadSettingsMenuCell" forIndexPath:indexPath];
             break;
         case 6:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
@@ -92,6 +94,12 @@ BOOL selectionMade;
         case 0:
             if (selectedIndexPath.row == 0 && selectionMade) {
                 NSLog(@"Selected??");
+                return 88;
+            } else {
+                return 44;
+            }
+            break;
+            if (selectedIndexPath.row == 1) {
                 return 88;
             } else {
                 return 44;

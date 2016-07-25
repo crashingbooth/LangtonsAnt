@@ -141,6 +141,9 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
         [self.settingsGrid addAnt: copyAnt];
 
     }
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"UpdateRuleCell"
+     object:self];
     self.needToRebuild = YES;
     
     
