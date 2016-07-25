@@ -40,6 +40,8 @@
 		1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CDAAB1D2A358B00AE4D32 /* AntGridView.m */; };
 		1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */; };
 		1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */; };
+		1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */; };
+		1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03E1D45B04900D018B9 /* NewRulesCell.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 /* End PBXBuildFile section */
@@ -119,6 +121,10 @@
 		1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedRuleViewController.m; sourceTree = "<group>"; };
 		1F93F0371D444FD900D018B9 /* SetDimensionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetDimensionsCell.h; sourceTree = "<group>"; };
 		1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetDimensionsCell.m; sourceTree = "<group>"; };
+		1F93F03A1D45AFA000D018B9 /* RuleDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayCell.h; sourceTree = "<group>"; };
+		1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayCell.m; sourceTree = "<group>"; };
+		1F93F03D1D45B04900D018B9 /* NewRulesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRulesCell.h; sourceTree = "<group>"; };
+		1F93F03E1D45B04900D018B9 /* NewRulesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRulesCell.m; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -269,6 +275,10 @@
 				1F11D9CC1D3C8C4000AEC27D /* LoadSettingsTVC.m */,
 				1F11D9CE1D3C8FD600AEC27D /* LoadSettingsCell.h */,
 				1F11D9CF1D3C8FD600AEC27D /* LoadSettingsCell.m */,
+				1F93F03A1D45AFA000D018B9 /* RuleDisplayCell.h */,
+				1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */,
+				1F93F03D1D45B04900D018B9 /* NewRulesCell.h */,
+				1F93F03E1D45B04900D018B9 /* NewRulesCell.m */,
 			);
 			name = "TableVC and Cells";
 			path = "Hexagonal Lantons Ant";
@@ -402,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */,
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
@@ -431,6 +442,7 @@
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
+				1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */,
 				1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

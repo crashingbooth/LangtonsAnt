@@ -16,16 +16,21 @@
 
 @implementation MainMenuTVC
 NSArray *cellLabels;
+BOOL selectionMade;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fillArrays];
+    [self.tableView selectRowAtIndexPath:nil animated:NO scrollPosition:UITableViewScrollPositionTop];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
     [self.tableView reloadData];
+    
+    // to prevent default selection of row 0:
+    selectionMade = NO;
 }
 
 
@@ -45,6 +50,12 @@ NSArray *cellLabels;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     switch (indexPath.row) {
+        case 0:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"NewRulesCell" forIndexPath:indexPath];
+//            cell.textLabel.text = cellLabels[indexPath.row];
+//            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
+            break;
+            
         case 1:
             cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
             cell.textLabel.text = cellLabels[indexPath.row];
@@ -78,6 +89,14 @@ NSArray *cellLabels;
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     switch (indexPath.row) {
+        case 0:
+            if (selectedIndexPath.row == 0 && selectionMade) {
+                NSLog(@"Selected??");
+                return 88;
+            } else {
+                return 44;
+            }
+            break;
         case 2:
             if (selectedIndexPath.row == 2) {
                 return 88;
@@ -102,6 +121,11 @@ NSArray *cellLabels;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
+        case 0:
+            selectionMade = YES;
+            [tableView beginUpdates];
+            [tableView endUpdates];
+            break;
         case 1: // edit Setting
             [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
             break;

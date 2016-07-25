@@ -130,19 +130,13 @@
                                     <outlet property="speedCellOutput" destination="nFy-I0-p4u" id="AXX-uF-jcg"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetDimensionCell" rowHeight="80" id="xqM-WC-zbt" customClass="SetDimensionsCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SetDimensionsCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetDimensionCell" rowHeight="80" id="xqM-WC-zbt" customClass="SetDimensionsCell">
                                 <rect key="frame" x="0.0" y="216" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xqM-WC-zbt" id="GTj-gv-luu">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimensions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-an-w91">
-                                            <rect key="frame" x="8" y="8" width="72" height="19"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbC-w2-714">
                                             <rect key="frame" x="255" y="0.0" width="90" height="79.5"/>
                                         </pickerView>
@@ -160,6 +154,12 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="colsVal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt4-hK-P0U">
                                             <rect key="frame" x="277" y="30" width="45" height="19"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dimensions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-an-w91">
+                                            <rect key="frame" x="8" y="8" width="72" height="19"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -184,6 +184,78 @@
                                     <outlet property="colsValLabel" destination="zt4-hK-P0U" id="srU-iV-WHg"/>
                                     <outlet property="columnPicker" destination="HbC-w2-714" id="Dhb-82-dLe"/>
                                     <outlet property="rowsLabel" destination="FFa-xF-rEw" id="U7u-gf-u8K"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RuleDisplayCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RuleDisplayCell" rowHeight="80" id="au5-PW-1HZ" customClass="RuleDisplayCell">
+                                <rect key="frame" x="0.0" y="296" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RuleDisplayCellID" tableViewCell="au5-PW-1HZ" id="LIa-qn-nCG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="NewRulesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewRulesCell" rowHeight="80" id="SAw-Da-LhG" customClass="NewRulesCell">
+                                <rect key="frame" x="0.0" y="376" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewRulesCellID" tableViewCell="SAw-Da-LhG" id="704-jF-499">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZw-t8-egv">
+                                            <rect key="frame" x="8" y="25" width="584" height="29"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Rule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imb-ZS-Mo1">
+                                                    <rect key="frame" x="0.0" y="6" width="196" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ONE-qn-8Jc">
+                                                    <rect key="frame" x="206" y="0.0" width="379" height="29"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-df-40a">
+                                                            <rect key="frame" x="0.0" y="0.0" width="124" height="29"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                            <state key="normal" title="Four Way"/>
+                                                            <connections>
+                                                                <action selector="fourWayPress:" destination="SAw-Da-LhG" eventType="touchUpInside" id="ZhA-62-AOL"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFg-BH-Zxy">
+                                                            <rect key="frame" x="127" y="0.0" width="125" height="29"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                            <state key="normal" title="Six Way"/>
+                                                            <connections>
+                                                                <action selector="sixWayPress:" destination="SAw-Da-LhG" eventType="touchUpInside" id="i66-g2-OP4"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2A-zd-iiE">
+                                                            <rect key="frame" x="255" y="0.0" width="124" height="29"/>
+                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                                            <state key="normal" title="Eight Way"/>
+                                                            <connections>
+                                                                <action selector="eightWayPress:" destination="SAw-Da-LhG" eventType="touchUpInside" id="wvJ-RT-WMz"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Imb-ZS-Mo1" firstAttribute="centerY" secondItem="PZw-t8-egv" secondAttribute="centerY" id="DvL-Pc-1xT"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="f2A-zd-iiE" secondAttribute="trailing" id="83F-hA-ADy"/>
+                                        <constraint firstItem="PZw-t8-egv" firstAttribute="centerY" secondItem="704-jF-499" secondAttribute="centerY" id="Im7-Rf-IrY"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Imb-ZS-Mo1" secondAttribute="leading" id="dWM-fB-EHp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eightWayButton" destination="f2A-zd-iiE" id="NSU-Nv-ezE"/>
+                                    <outlet property="fourWayButton" destination="Wbe-df-40a" id="Cmi-qV-Am9"/>
+                                    <outlet property="generateRuleLabel" destination="Imb-ZS-Mo1" id="da4-iv-Ma9"/>
+                                    <outlet property="sixWayButton" destination="GFg-BH-Zxy" id="Oc2-JE-YNk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

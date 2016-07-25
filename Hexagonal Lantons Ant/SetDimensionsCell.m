@@ -25,7 +25,8 @@ NSMutableArray *pickerData;
         [pickerData addObject:[NSNumber numberWithInt:i * 10]];
         [self updateLabels];
     }
-    
+    NSInteger rowNumber = ([Settings sharedInstance].numColsInGrid / 10) - 1;
+    [_columnPicker selectRow:rowNumber inComponent:0 animated:NO];
     
 }
 
@@ -43,8 +44,8 @@ NSMutableArray *pickerData;
         NSLog(@"selected");
     } else {
         [self updateLabels];
-        [_colsValLabel setAlpha:1.0];
-        [_columnPicker setAlpha:0.0];
+        [_colsValLabel setAlpha:0.0];
+        [_columnPicker setAlpha:1.0];
 
     }
 
