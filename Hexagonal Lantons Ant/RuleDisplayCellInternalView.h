@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Settings.h"
+#import "RuleDisplayView.h"
+#import "Constants.h"
 
 @interface RuleDisplayCellInternalView : UIView
 @property (nonatomic) CGFloat rdcWidth;
+- (void)setUp;
+- (void)cleanUp;
+- (void) createRuleDisplayViews;
 @end

@@ -10,7 +10,7 @@
 #import "Settings.h"
 
 @implementation RuleDisplayCell
-
+BOOL expanded;
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupAsNotSelected];
@@ -25,8 +25,16 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         [self setupAsSelected];
+        if (!expanded)
+            [_rdcInternal setUp];
+        expanded = YES;
     } else {
         [self setupAsNotSelected];
+        if (expanded) {
+            [_rdcInternal cleanUp];
+        }
+        expanded = NO;
+
     }
     
 
@@ -34,7 +42,6 @@
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {
-
     if ([[notification name] isEqualToString:@"UpdateRuleCell"])
        _detailLabel.text = [[Settings sharedInstance] getFullDescription];
 }
@@ -56,6 +63,13 @@
     [_mainLabel setAlpha: 1.0];
     [_addButton setEnabled:NO];
     [_addButton setAlpha:0.0];
+    
+}
+
+- (IBAction)addRuleButton:(UIButton *)sender {
+    [[Settings sharedInstance] addState];
+    [_rdcInternal cleanUp];
+    [_rdcInternal createRuleDisplayViews];
     
 }
 

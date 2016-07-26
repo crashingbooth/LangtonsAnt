@@ -14,6 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     [self unselectedBehaviour];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

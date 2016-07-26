@@ -201,6 +201,9 @@
                                             <rect key="frame" x="562" y="24.5" width="30" height="31"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <state key="normal" title="add"/>
+                                            <connections>
+                                                <action selector="addRuleButton:" destination="au5-PW-1HZ" eventType="touchUpInside" id="mSp-Td-FsT"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-xJ-Oz3" customClass="RuleDisplayCellInternalView">
                                             <rect key="frame" x="8" y="8" width="554" height="63.5"/>
@@ -402,6 +405,7 @@
                     <connections>
                         <segue destination="uta-km-7U9" kind="show" identifier="toLoadSettingsTVC" id="zMv-MO-3mi"/>
                         <segue destination="rUu-0S-gq8" kind="show" identifier="toRuleSelectVC" id="UXj-35-nOY"/>
+                        <segue destination="cOK-Ue-qrf" kind="show" identifier="toEditableRuleVC" id="DmZ-Bg-4hb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-3m-t4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -496,9 +500,6 @@
                             <constraint firstItem="y6N-6v-Xuq" firstAttribute="trailing" secondItem="4j3-9C-saS" secondAttribute="trailingMargin" id="zWW-Do-bVG"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="cOK-Ue-qrf" kind="show" identifier="toSelectedRuleVC" id="Lo8-MG-U3l"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3m-ti-P7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -546,7 +547,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qur-Ic-sBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="1175"/>
+            <point key="canvasLocation" x="2424" y="982"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7V-c8-UEZ">

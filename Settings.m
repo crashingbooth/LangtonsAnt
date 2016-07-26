@@ -403,6 +403,25 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     dict[antDirectionKey] = startDirections;
     
     [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"8 rules";
+    dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
+    dict[statesListKey] = @[ @0,@4,@3, @0,@4,@3, @-2,@-2];
+    rows = 106;
+    cols = 80;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 4)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    [self addPresetDictToPresetStorage:dict];
 
 }
 

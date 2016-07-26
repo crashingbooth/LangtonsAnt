@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "Settings.h"
 #import "BasicCell.h"
+#import "SelectedRuleViewController.h"
 
 @interface MainMenuTVC ()
 
@@ -18,11 +19,13 @@
 @implementation MainMenuTVC
 NSArray *cellLabels;
 BOOL selectionMade;
+NSInteger ruleNumberOfSelection = -1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fillArrays];
     [self.tableView selectRowAtIndexPath:nil animated:NO scrollPosition:UITableViewScrollPositionTop];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"PresentEditableVC" object:nil];
 
 }
 
@@ -32,6 +35,30 @@ BOOL selectionMade;
     
     // to prevent default selection of row 0:
     selectionMade = NO;
+}
+
+- (void) receiveTestNotification:(NSNotification *) notification {
+    
+    if ([[notification name] isEqualToString:@"PresentEditableVC"]) {
+        NSDictionary *userInfo = notification.userInfo;
+        ruleNumberOfSelection = [[userInfo objectForKey:@"ruleNumber"] integerValue];
+        [self performSegueWithIdentifier:@"toEditableRuleVC" sender:self];
+    }
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier  isEqual: @"toEditableRuleVC"]) {
+        SelectedRuleViewController * srvc = segue.destinationViewController;
+        AntType selType = [Settings sharedInstance].antType;
+        NSInteger selValue = [[Settings sharedInstance].statesListInGrid[ruleNumberOfSelection] integerValue];
+        UIColor *selColor = [[Settings sharedInstance].colorList[ruleNumberOfSelection] colorWithAlphaComponent:0.3];
+        
+        [srvc getRuleDetails:selType ruleValue:selValue ruleNumber:ruleNumberOfSelection color:selColor];
+                        
+  
+    }
 }
 
 
@@ -99,6 +126,7 @@ BOOL selectionMade;
                 return 44;
             }
             break;
+        case 1:
             if (selectedIndexPath.row == 1) {
                 return 88;
             } else {
@@ -135,7 +163,9 @@ BOOL selectionMade;
             [tableView endUpdates];
             break;
         case 1: // edit Setting
-            [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
+//            [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
+            [tableView beginUpdates];
+            [tableView endUpdates];
             break;
 //        case 2:
 //            [tableView beginUpdates];
