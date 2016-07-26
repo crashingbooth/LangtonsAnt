@@ -143,9 +143,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
    
     self.name = @"custom";
     self.needToRebuild = YES;
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"UpdateRuleCell"
-     object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateRuleCell" object:self];
     
     
     
@@ -212,7 +210,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"Symmetrical Hex 2-state";
     dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
-    dict[statesListKey] = @[ @-1, @1];
+    dict[statesListKey] = @[ @1, @-1];
     dict[numRowsKey] = [NSNumber numberWithInteger: 30];
     dict[numColsKey] = [NSNumber numberWithInteger: 20];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
@@ -452,9 +450,9 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"8 rules";
+    dict[nameKey] = @"basic 8-way";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
-    dict[statesListKey] = @[ @0,@4,@3, @0,@4,@3, @-2,@-2];
+    dict[statesListKey] = @[@1,@-1];
     rows = 106;
     cols = 80;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];

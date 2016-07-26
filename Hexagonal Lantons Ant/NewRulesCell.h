@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Settings.h"
 
 @interface NewRulesCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *generateRuleLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *fourWayButton;
 @property (weak, nonatomic) IBOutlet UIButton *sixWayButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *eightWayButton;
 @end

@@ -24,7 +24,6 @@
     } else {
         [self unselectedBehaviour];
     }
-    // Configure the view for the selected state
 }
 
 - (void)selectedBehaviour {
@@ -51,12 +50,18 @@
 }
 
 - (IBAction)fourWayPress:(UIButton *)sender {
-    
+     [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"standard Langton's Ant"]];
+    [[Settings sharedInstance] recreateGrid];
 }
 - (IBAction)sixWayPress:(id)sender {
+    [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"Symmetrical Hex 2-state"]];
+    [[Settings sharedInstance] recreateGrid];
 }
 
 - (IBAction)eightWayPress:(UIButton *)sender {
+    [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"basic 8-way"]];
+    
+    [[Settings sharedInstance] recreateGrid];
 }
 
 @end
