@@ -55,12 +55,12 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 -(id)init {
     self = [super init];
     if (self) {
-        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor magentaColor],[UIColor redColor], [UIColor whiteColor]];
+        self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ];
        
         
     }
     [self buildPresets];
-     [self extractSettingsFromDict:self.presetDictionaries[@"vanilla"]];
+     [self extractSettingsFromDict:self.presetDictionaries[@"standard Langton's Ant"]];
   
     return self;
 }
@@ -243,6 +243,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
     [self addPresetDictToPresetStorage:dict];
     
+    
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"Labrynth Maker";
     dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
@@ -262,19 +263,19 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"13 loop";
-    dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
-    //    dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3];
-    dict[statesListKey] =  @[@2,@-2, @1,@-1];
-    NSInteger rows = 80;
-    NSInteger cols = 60;
+    dict[nameKey] = @"spiral";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] =  @[@-1,@-2,@0, @3, @-2, @-1,@2];
+
+    NSInteger rows = 200;
+    NSInteger cols = 150;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
-    dict[numAntsKey] = [NSNumber numberWithInteger:2];
-    startRows = @[@(rows / 4), @(rows / 2)];
-    startCols = @[@(cols / 2), @((cols / 4) - 1)];
-    startDirections = @[@0,@0];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 2)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
@@ -303,7 +304,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"vanilla";
+    dict[nameKey] = @"standard Langton's Ant";
     dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
     dict[statesListKey] = @[ @1, @-1];
     rows = 80;
@@ -361,6 +362,50 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
     
     [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"square filler";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @-1,@1, @1,@1, @1,@1, @-1,@-1, @1 ];
+//    LR RR RR LL R
+    rows = 150;
+    cols = 150;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(rows / 2)];
+    startCols = @[@(cols / 2)];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"expanding triangle (be patient)";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @1,@1,@-1, @-1,@-1,@1,@-1, @-1,@-1,@1,@1,@1];
+//   RRLLLRLLLRRR
+    rows = 150;
+    cols = 150;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@(30)];
+    startCols = @[@120];
+    startDirections = @[@3];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    
     
     
     

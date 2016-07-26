@@ -16,4 +16,5 @@
 - (void)setUp;
 - (void)cleanUp;
 - (void) createRuleDisplayViews;
+- (void)addViewWithAnimation;
 @end

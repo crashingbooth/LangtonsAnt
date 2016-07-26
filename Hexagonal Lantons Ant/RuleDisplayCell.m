@@ -1,3 +1,4 @@
+
 //
 //  RuleDisplayCell.m
 //  Hexagonal Lantons Ant
@@ -67,12 +68,9 @@ BOOL expanded;
 }
 
 - (IBAction)addRuleButton:(UIButton *)sender {
-    
-    
-    [[Settings sharedInstance] addState];
-    [_rdcInternal cleanUp];
-    [_rdcInternal createRuleDisplayViews];
-    
+    if ([Settings sharedInstance].statesListInGrid.count < 12) {
+        [_rdcInternal addViewWithAnimation];
+    }    
 }
 
 @end

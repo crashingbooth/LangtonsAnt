@@ -48,6 +48,7 @@ UIColor *passedUIColor;
         [[Settings sharedInstance] recreateGrid];
         [Settings sharedInstance].needToRebuild = YES;
         [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"stateDeleted" object:nil];
     }
 }
 @end

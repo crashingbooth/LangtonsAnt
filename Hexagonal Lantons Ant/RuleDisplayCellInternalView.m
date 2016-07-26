@@ -15,6 +15,7 @@ CGFloat space;
 CGFloat iconWidth;
 CGFloat selfHeight = 71.5; // stipulated in MainMenuTVC
 CGFloat heightWidthRatio = 1.4;
+CGFloat MAX_RULES = 8.0;
 NSInteger numberOfRulesToDisplay;
 RuleDisplayView *selectedRDV;
 NSMutableArray *menuRuleDisplayViews;
@@ -24,6 +25,8 @@ NSMutableArray *menuRuleDisplayViews;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [self addGestureRecognizer:tap];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@ selector(receivedNotification:) name:@"stateDeleted" object:nil ];
 }
 
 - (void) createRuleDisplayViews {
@@ -41,10 +44,25 @@ NSMutableArray *menuRuleDisplayViews;
     [self positionRuleViews];
 }
 
+- (void)receivedNotification:(NSNotification*) notification {
+    if ([notification.name isEqualToString:@"stateDeleted"]) {
+        NSLog(@"delete notification");
+        MAX_RULES = 8.0;
+        [self cleanUp];
+        [self createRuleDisplayViews];
+    }
+}
+
 
 
 - (void)positionRuleViews {
-    iconWidth = (self.rdcWidth -(minSpace * 9.0)) / 8.0;
+    
+    // assume there will be less than 8 rule, after 8 adjust sizes
+    if (numberOfRulesToDisplay > MAX_RULES) {
+        MAX_RULES = numberOfRulesToDisplay;
+    }
+    
+    iconWidth = (self.rdcWidth -(minSpace * (MAX_RULES + 1))) / MAX_RULES;
     if (iconWidth * heightWidthRatio  > selfHeight) {
         iconWidth = selfHeight / heightWidthRatio;
     }
@@ -55,7 +73,15 @@ NSMutableArray *menuRuleDisplayViews;
             xOffset += space;
             CGRect rect = CGRectMake(xOffset, yOffset, iconWidth, iconWidth * heightWidthRatio );
             rdv.frame = rect;
-            [self addSubview:rdv];
+            if (![rdv isDescendantOfView:self]) {
+                  [self addSubview:rdv];
+            } else {
+                [rdv removeFromSuperview];
+                [self addSubview:rdv];
+                [rdv setNeedsDisplay];
+            }
+                
+          
             xOffset += iconWidth;
             
         }
@@ -85,6 +111,26 @@ NSMutableArray *menuRuleDisplayViews;
             
         }
     }
+}
+
+- (void)addViewWithAnimation {
+    [[Settings sharedInstance] addState];
+    numberOfRulesToDisplay += 1;
+    NSInteger num = numberOfRulesToDisplay - 1;
+    NSInteger val = [[Settings sharedInstance].statesListInGrid[numberOfRulesToDisplay - 1] integerValue];
+    UIColor *col = [[Settings sharedInstance].colorList[num] colorWithAlphaComponent:0.4];
+    AntType newType = [Settings sharedInstance].antType;
+    
+    RuleDisplayView *newView = [[RuleDisplayView alloc] initWithType:newType ruleValue:val ruleNumber:num color:col];
+    newView.editable = NO;
+    [newView setUserInteractionEnabled:NO];
+    [menuRuleDisplayViews addObject:newView];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self positionRuleViews];
+    } ];
+    
+    
 }
 
 
