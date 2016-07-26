@@ -76,8 +76,6 @@ NSMutableArray *menuRuleDisplayViews;
     
     for (RuleDisplayView *rsv in menuRuleDisplayViews) {
         if (CGRectContainsPoint(rsv.frame, loc)) {
-//            RuleDisplayView *newDisplay = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType  ruleValue:rsv.ruleValue ruleNumber:rsv.ruleNumber color:rsv.stateColor];
-            
             [self cleanUp];
             selectedRDV = rsv;
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger: rsv.ruleNumber] forKey:@"ruleNumber"];

@@ -53,6 +53,8 @@ NSInteger ruleNumberOfSelection = -1;
         NSDictionary *userInfo = notification.userInfo;
         ruleNumberOfSelection = [[userInfo objectForKey:@"ruleNumber"] integerValue];
         [self performSegueWithIdentifier:@"toEditableRuleVC" sender:self];
+        
+        
     } else if ([[notification name] isEqualToString:@"min2StatesAlert"])  {
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@"You need at least 2 states!"
