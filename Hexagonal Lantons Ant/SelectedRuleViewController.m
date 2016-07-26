@@ -40,6 +40,7 @@ UIColor *passedUIColor;
     if (statesList.count <= 2 ) {
         // TO DO popup warning minimum # of states
         NSLog(@"too few states");
+        [[NSNotificationCenter defaultCenter ] postNotificationName:@"min2StatesAlert" object:nil];
         return;
     } else {
         [statesList removeObjectAtIndex:self.passedRuleNumber];

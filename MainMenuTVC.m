@@ -19,31 +19,52 @@
 @implementation MainMenuTVC
 NSArray *cellLabels;
 BOOL selectionMade;
+BOOL stillEditingRules = NO;
 NSInteger ruleNumberOfSelection = -1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fillArrays];
+    stillEditingRules = NO;
     [self.tableView selectRowAtIndexPath:nil animated:NO scrollPosition:UITableViewScrollPositionTop];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"PresentEditableVC" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"min2StatesAlert" object:nil];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO];
     [self.tableView reloadData];
+    if (stillEditingRules) {
+        NSLog(@"autoselect");
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath
+                                    animated:YES
+                              scrollPosition:UITableViewScrollPositionNone];
+        [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    }
     
     // to prevent default selection of row 0:
     selectionMade = NO;
 }
 
 - (void) receiveTestNotification:(NSNotification *) notification {
-    
     if ([[notification name] isEqualToString:@"PresentEditableVC"]) {
         NSDictionary *userInfo = notification.userInfo;
         ruleNumberOfSelection = [[userInfo objectForKey:@"ruleNumber"] integerValue];
         [self performSegueWithIdentifier:@"toEditableRuleVC" sender:self];
+    } else if ([[notification name] isEqualToString:@"min2StatesAlert"])  {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"You need at least 2 states!"
+                                      message:@"If there are fewer than two states, the ant will not be able to change state"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+
+        [self presentViewController:alert animated:YES completion:nil];
     }
+    
 }
 
 
@@ -155,7 +176,7 @@ NSInteger ruleNumberOfSelection = -1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    stillEditingRules = NO;
     switch (indexPath.row) {
         case 0:
             selectionMade = YES;
@@ -164,6 +185,7 @@ NSInteger ruleNumberOfSelection = -1;
             break;
         case 1: // edit Setting
 //            [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
+            stillEditingRules = YES;
             [tableView beginUpdates];
             [tableView endUpdates];
             break;

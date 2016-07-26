@@ -14,6 +14,7 @@ CGFloat minSpace = 5;
 CGFloat space;
 CGFloat iconWidth;
 CGFloat selfHeight = 71.5; // stipulated in MainMenuTVC
+CGFloat heightWidthRatio = 1.4;
 NSInteger numberOfRulesToDisplay;
 RuleDisplayView *selectedRDV;
 NSMutableArray *menuRuleDisplayViews;
@@ -26,13 +27,13 @@ NSMutableArray *menuRuleDisplayViews;
 }
 
 - (void) createRuleDisplayViews {
-    CGFloat h = self.frame.size.height;
+//    CGFloat h = self.frame.size.height;
     // clean up old array if nec
     numberOfRulesToDisplay = [Settings sharedInstance].statesListInGrid.count;
     menuRuleDisplayViews = [[NSMutableArray alloc] init];
     for (int i = 0; i < numberOfRulesToDisplay; i++) {
         NSInteger num = [[Settings sharedInstance].statesListInGrid[i] integerValue];
-        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.3]];
+        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.4]];
         rdv.editable = NO;
         [rdv setUserInteractionEnabled:NO];
         [menuRuleDisplayViews addObject: rdv];
@@ -44,15 +45,15 @@ NSMutableArray *menuRuleDisplayViews;
 
 - (void)positionRuleViews {
     iconWidth = (self.rdcWidth -(minSpace * 9.0)) / 8.0;
-    if (iconWidth * 1.2 > selfHeight) {
-        iconWidth = selfHeight / 1.2;
+    if (iconWidth * heightWidthRatio  > selfHeight) {
+        iconWidth = selfHeight / heightWidthRatio;
     }
     space = (self.rdcWidth - (numberOfRulesToDisplay * iconWidth)) / (numberOfRulesToDisplay + 1);
-    CGFloat yOffset = (selfHeight - (iconWidth * 1.2)) / 2.0;
+    CGFloat yOffset = (selfHeight - (iconWidth * heightWidthRatio )) / 2.0;
     CGFloat xOffset = 0.0;
         for (RuleDisplayView * rdv in menuRuleDisplayViews) {
             xOffset += space;
-            CGRect rect = CGRectMake(xOffset, yOffset, iconWidth, iconWidth * 1.2);
+            CGRect rect = CGRectMake(xOffset, yOffset, iconWidth, iconWidth * heightWidthRatio );
             rdv.frame = rect;
             [self addSubview:rdv];
             xOffset += iconWidth;

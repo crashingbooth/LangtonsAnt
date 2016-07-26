@@ -67,6 +67,8 @@ BOOL expanded;
 }
 
 - (IBAction)addRuleButton:(UIButton *)sender {
+    
+    
     [[Settings sharedInstance] addState];
     [_rdcInternal cleanUp];
     [_rdcInternal createRuleDisplayViews];

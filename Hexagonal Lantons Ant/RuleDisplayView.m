@@ -19,7 +19,7 @@ UILabel *stateValLabel;
 
 UIColor *stateColor;
 NSInteger ruleValue;
-BOOL editable = YES;
+BOOL editable = NO;
 CGFloat PI;
 CGFloat sectorSize;
 Settings *ruleDisplaySettings;
@@ -98,7 +98,11 @@ NSArray *stateNames; // 2d array
 }
 
 - (void)createLabelText{
-    self.stateNumLabel.text = [NSString stringWithFormat:@"State: %li", (long)self.ruleNumber];
+    if (editable) {
+        self.stateNumLabel.text = [NSString stringWithFormat:@"State: %li", (long)self.ruleNumber];
+    } else {
+        self.stateNumLabel.text = [NSString stringWithFormat:@"%li", (long)self.ruleNumber];
+    }
     self.stateValLabel.text = [[Settings sharedInstance] getStateName:self.ruleValue forAntType:self.type];
     
 }
@@ -181,13 +185,14 @@ NSArray *stateNames; // 2d array
         
     }
     
-    CGRect topLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.1);
-    CGRect bottomLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.1);
+    CGRect topLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.2);
+    CGRect bottomLabelRect = CGRectMake(0, 0, sideLength / 2.0, sideLength * 0.2);
     self.stateNumLabel.frame = topLabelRect;
     self.stateValLabel.frame = bottomLabelRect;
     if (self.editable) {
-        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:13];
-        self.stateValLabel.font = [self.stateValLabel.font fontWithSize:13];
+        [self createLabelText];
+        self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:15];
+        self.stateValLabel.font = [self.stateValLabel.font fontWithSize:15];
     } else {
         self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
         self.stateValLabel.font = [self.stateValLabel.font fontWithSize:8];
