@@ -80,7 +80,6 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     if (numberOfRows % 2 == 1) {
         numberOfRows -= 1;
     }
-    NSLog([NSString stringWithFormat:@"%.2f %li", self.lengthToWidthRatio, numberOfRows  ]);
     return numberOfRows;
 }
 
@@ -141,10 +140,13 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
         [self.settingsGrid addAnt: copyAnt];
 
     }
+   
+    self.name = @"custom";
+    self.needToRebuild = YES;
     [[NSNotificationCenter defaultCenter]
      postNotificationName:@"UpdateRuleCell"
      object:self];
-    self.needToRebuild = YES;
+    
     
     
 }
