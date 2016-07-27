@@ -198,7 +198,7 @@ NSInteger ruleNumberOfSelection = -1;
 //            [tableView beginUpdates];
 //            [tableView endUpdates];
 //            break;
-        case 4: // load settings
+        case 4: // add ant
             [self performSegueWithIdentifier:@"toModifyAntTVC" sender:self];
             break;
         case 6: // load settings

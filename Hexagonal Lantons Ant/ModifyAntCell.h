@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModifyAntCell : UITableViewCell
+@interface ModifyAntCell : UITableViewCell <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *antNumberLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *antPicker;
+@property (nonatomic) NSInteger antNumber;
+@property (nonatomic) NSInteger startRow;
+@property (nonatomic) NSInteger startCol;
+@property (nonatomic) NSInteger startDir;
+@property (nonatomic, copy) NSArray *colVals;
+@property (nonatomic, copy) NSArray *rowVals;
+@property (nonatomic, copy) NSArray *dirVals;
 
+- (void)setUp;
 @end

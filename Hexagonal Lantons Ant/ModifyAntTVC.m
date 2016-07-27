@@ -7,6 +7,8 @@
 //
 
 #import "ModifyAntTVC.h"
+#import "Settings.h"
+#import "ModifyAntCell.h"
 
 @interface ModifyAntTVC ()
 
@@ -32,24 +34,27 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [Settings sharedInstance].antsInitialStatus.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+    ModifyAntCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ModifyAntCell" forIndexPath:indexPath];
+        cell.antNumber = indexPath.row;
+        [cell setUp];
+        return cell;
+    }
     
     // Configure the cell...
     
-    return cell;
+    return [UITableViewCell alloc];
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
