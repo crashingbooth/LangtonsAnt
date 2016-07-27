@@ -21,10 +21,15 @@ BOOL selectionMadeInModAnt = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"antDeleted" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     selectionMadeInModAnt = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[Settings sharedInstance] recreateGrid];
 }
     
 
@@ -76,7 +81,7 @@ BOOL selectionMadeInModAnt = NO;
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
     if (selectedIndexPath == indexPath && indexPath.section == 1) {
-        return 88;
+        return 100;
     }  else {
         return 44;
     }
@@ -94,7 +99,7 @@ BOOL selectionMadeInModAnt = NO;
             selectionMadeInModAnt = YES;
             break;
         case 2:
-            selectionMadeInModAnt = NO;
+//            selectionMadeInModAnt = NO;
             [[Settings sharedInstance] addAnt];
             [tableView reloadData];
         default:
@@ -104,6 +109,12 @@ BOOL selectionMadeInModAnt = NO;
         [tableView beginUpdates];
         [tableView endUpdates];
       
+}
+
+- (void)notificationRecieved:(NSNotification*)notification {
+    if ([notification.name isEqualToString:@"antDeleted"]) {
+        [self.tableView reloadData];
+    }
 }
 
 

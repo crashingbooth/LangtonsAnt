@@ -180,16 +180,32 @@ NSArray *dirVals;
     return tView;
 }
 
-//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    // set settings, calculate row
-//    NSInteger newCols = [pickerData[row] integerValue];
-//    [Settings sharedInstance].numColsInGrid = newCols;
-//    [Settings sharedInstance].numRowsInGrid = [[Settings sharedInstance] getAppropriateNumberOfRowsForScreen: newCols];
-//    [self updateLabels];
-//    [[Settings sharedInstance] recreateGrid];
-//    // reset settings!!!!
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    NSInteger newRow = self.startRow;
+    NSInteger newCol = self.startCol;
+    NSInteger newDir = self.startDir;
+    
+    switch (component) {
+        case 0:
+            newCol = row;
+            break;
+        case 1:
+            newRow = row;
+            break;
+        case 2:
+            newDir = row;
+            break;
+        default:
+            break;
+    }
+    
+    [[Settings sharedInstance] modifyAnt:self.antNumber startRow:newRow startCol:newCol startDir:newDir];
+}
 //}
 - (IBAction)removeButtonPress:(id)sender {
+    [[Settings sharedInstance] removeAnt:self.antNumber];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"antDeleted" object:nil];
 }
 
 @end

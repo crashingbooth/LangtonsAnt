@@ -160,6 +160,8 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self recreateGrid];
 }
 
+
+#pragma mark - ModifyAnt Public Methods
 - (void)addAnt {
     // called in ModifyAntTVC
     NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
@@ -176,8 +178,29 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [antsCopy addObject:ant];
     self.antsInitialStatus = antsCopy;
     [self recreateGrid];
-    
-    
+}
+
+- (void)removeAnt:(NSInteger)index {
+    if (index > self.antsInitialStatus.count) {
+        NSLog(@"invalid index");
+    } else if (self.antsInitialStatus.count <= 1) {
+        NSLog(@"Too few ants");
+    } else {
+        NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
+        [antsCopy removeObjectAtIndex:index];
+        self.antsInitialStatus = antsCopy;
+        [self recreateGrid];
+    }
+}
+
+- (void)modifyAnt:(NSInteger)index startRow:(NSInteger)startRow startCol:(NSInteger)startCol startDir:(NSInteger)startDir {
+    NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
+    AbstractAnt *ant = antsCopy[index];
+    GridPoint *newStart = [[GridPoint alloc] initWithRow:startRow andCol:startCol];
+    ant.currentPos = newStart;
+    ant.direction = startDir;
+    // recreateGrid will be called when ModifyAntTVC is closed
+
 }
 
 - (NSDictionary*) createDictFromCurrentSettings {

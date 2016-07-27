@@ -49,4 +49,6 @@
 - (void)recreateGrid;
 - (void)addState;
 - (void)addAnt;
+- (void)removeAnt:(NSInteger)index;
+- (void)modifyAnt:(NSInteger)index startRow:(NSInteger)startRow startCol:(NSInteger)startCol startDir:(NSInteger)startDir;
 @end
