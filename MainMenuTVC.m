@@ -111,20 +111,23 @@ NSInteger ruleNumberOfSelection = -1;
             break;
         case 2:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SetDimensionCell" forIndexPath:indexPath];
-//            cell.textLabel.text = cellLabels[indexPath.row];
-//            cell.detailTextLabel.text = [[Settings sharedInstance] getFullDescription];
             break;
+            
         case 3:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"AddAntCell" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"ShapeCell" forIndexPath:indexPath];
             break;
         case 4:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"AddAntCell" forIndexPath:indexPath];
+            break;
+        case 5:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SaveSettingsCell" forIndexPath:indexPath];
             break;
 
-        case 5:
+        case 6:
             cell = [tableView dequeueReusableCellWithIdentifier:@"LoadSettingsMenuCell" forIndexPath:indexPath];
             break;
-        case 6:
+        case 7:
+            
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
             break;
             
@@ -163,8 +166,8 @@ NSInteger ruleNumberOfSelection = -1;
                 return 44;
             }
             break;
-        case 6:
-            if (selectedIndexPath.row == 6) {
+        case 7:
+            if (selectedIndexPath.row == 7) {
                 return 88;
             } else {
                 return 44;
@@ -195,7 +198,7 @@ NSInteger ruleNumberOfSelection = -1;
 //            [tableView beginUpdates];
 //            [tableView endUpdates];
 //            break;
-        case 5: // load settings
+        case 6: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
             
@@ -211,10 +214,11 @@ NSInteger ruleNumberOfSelection = -1;
     cellLabels = @[ @"New Rules",       // 0
                     @"Edit Rules",      // 1
                     @"Dimensions",      // 2
-                    @"Add Ant",         // 3
-                    @"Save Settings",   // 4
-                    @"Load Settings",   // 5
-                    @"Speed"            // 6
+                    @"Cell Shape",
+                    @"Add Ant",         // 4
+                    @"Save Settings",   // 5
+                    @"Load Settings",   // 6
+                    @"Speed"            // 7
                     ];
                     
 }

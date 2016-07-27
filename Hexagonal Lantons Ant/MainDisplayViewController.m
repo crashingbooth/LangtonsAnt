@@ -87,13 +87,13 @@ Settings *settings;
 - (void)makeGridCollection {
     switch (settings.antType) {
         case FOUR_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:YES];
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape];
             break;
         case SIX_WAY:
             gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:NO];
             break;
         case EIGHT_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:YES];
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape];
             break;
         default:
             break;

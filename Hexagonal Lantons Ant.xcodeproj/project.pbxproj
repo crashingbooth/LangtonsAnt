@@ -49,6 +49,7 @@
 		1FE896B01D45DF21004AE72E /* SaveSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896AF1D45DF21004AE72E /* SaveSettingsCell.m */; };
 		1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B21D45E214004AE72E /* EditSettingsCell.m */; };
 		1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B51D46C279004AE72E /* RuleDisplayCellInternalView.m */; };
+		1FE896B91D4824A2004AE72E /* ShapeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B81D4824A2004AE72E /* ShapeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,8 @@
 		1FE896B21D45E214004AE72E /* EditSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSettingsCell.m; sourceTree = "<group>"; };
 		1FE896B41D46C279004AE72E /* RuleDisplayCellInternalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayCellInternalView.h; sourceTree = "<group>"; };
 		1FE896B51D46C279004AE72E /* RuleDisplayCellInternalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayCellInternalView.m; sourceTree = "<group>"; };
+		1FE896B71D4824A2004AE72E /* ShapeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeCell.h; sourceTree = "<group>"; };
+		1FE896B81D4824A2004AE72E /* ShapeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +307,8 @@
 				1FE896AC1D45DC10004AE72E /* LoadSettingsMenuCell.m */,
 				1FE896B11D45E214004AE72E /* EditSettingsCell.h */,
 				1FE896B21D45E214004AE72E /* EditSettingsCell.m */,
+				1FE896B71D4824A2004AE72E /* ShapeCell.h */,
+				1FE896B81D4824A2004AE72E /* ShapeCell.m */,
 			);
 			name = "TableVC and Cells";
 			path = "Hexagonal Lantons Ant";
@@ -460,6 +465,7 @@
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
+				1FE896B91D4824A2004AE72E /* ShapeCell.m in Sources */,
 				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
 				1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */,

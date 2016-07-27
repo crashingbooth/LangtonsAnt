@@ -28,6 +28,7 @@
 @property (nonatomic) NSInteger numAnts;
 @property (nonatomic, strong) Grid *settingsGrid;
 @property (nonatomic) NSNumber *speed;
+@property (nonatomic) BOOL defaultShape;
 @property (nonatomic) BOOL needToRebuild;
 @property (nonatomic) NSMutableArray *eightWayPresetNames;
 @property (nonatomic) NSMutableArray *sixWayPresetNames;

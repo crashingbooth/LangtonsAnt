@@ -54,7 +54,7 @@
     [[Settings sharedInstance] recreateGrid];
 }
 - (IBAction)sixWayPress:(id)sender {
-    [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"Symmetrical Hex 2-state"]];
+    [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"symmetrical hex 2-state"]];
     [[Settings sharedInstance] recreateGrid];
 }
 

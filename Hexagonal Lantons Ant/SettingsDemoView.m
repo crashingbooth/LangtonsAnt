@@ -53,13 +53,13 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     
     switch (self.demo.antType) {
         case FOUR_WAY:
-            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:YES];
+            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape];
             break;
         case SIX_WAY:
             self.demoGrid = [[HexagonGridColection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:NO];
             break;
         case EIGHT_WAY:
-            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:YES];
+            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape];
             break;
         default:
             break;

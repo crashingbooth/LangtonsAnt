@@ -365,20 +365,86 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="p2S-7T-6bF" customClass="LoadSettingsMenuCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShapeCell" rowHeight="80" id="p2S-7T-6bF" customClass="ShapeCell">
                                 <rect key="frame" x="0.0" y="696" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p2S-7T-6bF" id="iFr-MN-XVw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-g4-wax">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Shape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-g4-wax">
+                                            <rect key="frame" x="8" y="8" width="70" height="18.5"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-H5-4kJ">
+                                            <rect key="frame" x="285" y="25" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LKh-H5-4kJ" secondAttribute="height" multiplier="1:1" id="Ahr-xR-sf8"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="hexagon"/>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-je-N5Z">
+                                            <rect key="frame" x="150" y="25" width="300" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCL-0t-B2P">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="xCL-0t-B2P" secondAttribute="height" multiplier="1:1" id="yAo-Fl-9bl"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="circle"/>
+                                                    <connections>
+                                                        <action selector="circleAction:" destination="p2S-7T-6bF" eventType="touchUpInside" id="poh-i3-k5H"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-gs-biM">
+                                                    <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="gCc-gs-biM" secondAttribute="height" multiplier="1:1" id="Xce-k6-eJt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="square"/>
+                                                    <connections>
+                                                        <action selector="squareAction:" destination="p2S-7T-6bF" eventType="touchUpInside" id="HQF-dO-DeE"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="RKY-ru-b83"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="f7y-g4-wax" secondAttribute="leading" id="5Hd-lH-26m"/>
+                                        <constraint firstItem="LKh-H5-4kJ" firstAttribute="top" secondItem="tZF-je-N5Z" secondAttribute="top" id="8p1-s3-JW1"/>
+                                        <constraint firstItem="tZF-je-N5Z" firstAttribute="centerX" secondItem="iFr-MN-XVw" secondAttribute="centerX" id="Vba-s0-3qf"/>
+                                        <constraint firstAttribute="topMargin" secondItem="f7y-g4-wax" secondAttribute="top" id="Wt2-Gj-gfl"/>
+                                        <constraint firstItem="tZF-je-N5Z" firstAttribute="width" secondItem="iFr-MN-XVw" secondAttribute="width" multiplier="0.5" id="hT3-O0-28a"/>
+                                        <constraint firstItem="tZF-je-N5Z" firstAttribute="centerY" secondItem="iFr-MN-XVw" secondAttribute="centerY" id="rMg-qz-YJy"/>
+                                        <constraint firstItem="LKh-H5-4kJ" firstAttribute="bottom" secondItem="tZF-je-N5Z" secondAttribute="bottom" id="rpV-M7-B8H"/>
+                                        <constraint firstItem="LKh-H5-4kJ" firstAttribute="centerX" secondItem="tZF-je-N5Z" secondAttribute="centerX" id="upf-2O-lND"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="circleOutlet" destination="xCL-0t-B2P" id="RCk-gZ-DaF"/>
+                                    <outlet property="hexOutlet" destination="LKh-H5-4kJ" id="8nA-1P-ImK"/>
+                                    <outlet property="squareOutlet" destination="gCc-gs-biM" id="Knu-Bq-v5d"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Nwn-xP-0Ag" customClass="LoadSettingsMenuCell">
+                                <rect key="frame" x="0.0" y="776" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nwn-xP-0Ag" id="qrz-jQ-MFZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Load Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQE-e5-bJF">
                                             <rect key="frame" x="8" y="8" width="85" height="19"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xN-wI-e49">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="va4-Hp-fIf">
                                             <rect key="frame" x="50" y="30" width="22.5" height="14.5"/>
                                             <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -386,14 +452,14 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="leadingMargin" secondItem="f7y-g4-wax" secondAttribute="leading" id="5Hd-lH-26m"/>
-                                        <constraint firstAttribute="topMargin" secondItem="f7y-g4-wax" secondAttribute="top" id="Wt2-Gj-gfl"/>
-                                        <constraint firstItem="8xN-wI-e49" firstAttribute="leading" secondItem="iFr-MN-XVw" secondAttribute="leadingMargin" constant="42" id="ilb-bl-M02"/>
-                                        <constraint firstItem="8xN-wI-e49" firstAttribute="top" secondItem="f7y-g4-wax" secondAttribute="bottom" constant="3" id="nOK-lh-CwK"/>
+                                        <constraint firstItem="va4-Hp-fIf" firstAttribute="leading" secondItem="qrz-jQ-MFZ" secondAttribute="leadingMargin" constant="42" id="3am-KX-bMZ"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="xQE-e5-bJF" secondAttribute="leading" id="66z-Vs-djw"/>
+                                        <constraint firstItem="va4-Hp-fIf" firstAttribute="top" secondItem="xQE-e5-bJF" secondAttribute="bottom" constant="3" id="ORY-xz-RQp"/>
+                                        <constraint firstAttribute="topMargin" secondItem="xQE-e5-bJF" secondAttribute="top" id="ycY-0f-Sly"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="detailsLabel" destination="8xN-wI-e49" id="yDb-YD-iKX"/>
+                                    <outlet property="detailsLabel" destination="va4-Hp-fIf" id="3QR-Vk-Xdv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -537,6 +603,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" width="128" height="128"/>
         <image name="cogwheel" width="256" height="256"/>
+        <image name="hexagon" width="128" height="128"/>
+        <image name="square" width="128" height="128"/>
     </resources>
 </document>
