@@ -22,6 +22,8 @@ BOOL selectionMadeInModAnt = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"antDeleted" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"couldDeleteAnt" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -114,6 +116,17 @@ BOOL selectionMadeInModAnt = NO;
 - (void)notificationRecieved:(NSNotification*)notification {
     if ([notification.name isEqualToString:@"antDeleted"]) {
         [self.tableView reloadData];
+    } else if ([notification.name isEqualToString:@"couldDeleteAnt"]) {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"You need at least 1 ant!"
+                                      message:@"Without at least one ant, nothing will happen"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    
     }
 }
 

@@ -10,8 +10,6 @@
 
 @interface SetDimensionsCell : UITableViewCell<UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *rowsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *colsValLabel;
-
 @property (weak, nonatomic) IBOutlet UIPickerView *columnPicker;
 
 @end

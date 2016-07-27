@@ -204,8 +204,12 @@ NSArray *dirVals;
 }
 //}
 - (IBAction)removeButtonPress:(id)sender {
-    [[Settings sharedInstance] removeAnt:self.antNumber];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"antDeleted" object:nil];
+    if ([Settings sharedInstance].antsInitialStatus.count > 1) {
+        [[Settings sharedInstance] removeAnt:self.antNumber];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"antDeleted" object:nil];  // to ModifyAntTVC
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"couldDeleteAnt" object:nil];  // to ModifyAntTVC
+    }
 }
 
 @end

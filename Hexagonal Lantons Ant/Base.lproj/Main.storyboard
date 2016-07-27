@@ -21,10 +21,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1D-mV-uAa">
-                                <rect key="frame" x="558" y="10" width="32" height="32"/>
+                                <rect key="frame" x="546" y="10" width="44" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="b75-vc-ODy"/>
-                                    <constraint firstAttribute="height" constant="32" id="g61-rq-0wi"/>
+                                    <constraint firstAttribute="width" constant="44" id="b75-vc-ODy"/>
+                                    <constraint firstAttribute="height" constant="44" id="g61-rq-0wi"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="cogwheel"/>
                                 <connections>

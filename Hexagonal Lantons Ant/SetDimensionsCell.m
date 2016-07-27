@@ -17,7 +17,6 @@ NSMutableArray *pickerData;
     // Initialization code
     _columnPicker.delegate = self;
     _columnPicker.dataSource = self;
-    _colsValLabel.textAlignment = NSTextAlignmentLeft;
   
     pickerData = [[NSMutableArray alloc] init];
     
@@ -31,7 +30,6 @@ NSMutableArray *pickerData;
 }
 
 - (void)updateLabels{
-    _colsValLabel.text = [ NSString stringWithFormat:@"%li", [Settings sharedInstance].numColsInGrid];
     _rowsLabel.text = [ NSString stringWithFormat:@"Rows: %li", [Settings sharedInstance].numRowsInGrid];
     
 }
@@ -39,19 +37,18 @@ NSMutableArray *pickerData;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     if (selected) {
-        [_colsValLabel setAlpha:0.0];
+        [_columnPicker setUserInteractionEnabled:YES];
         [_columnPicker setAlpha:1.0];
-        NSLog(@"selected");
+
     } else {
         [self updateLabels];
-        [_colsValLabel setAlpha:0.0];
         [_columnPicker setAlpha:1.0];
+        [_columnPicker setUserInteractionEnabled:NO];
         ((UIView *)[_columnPicker.subviews objectAtIndex:1]).backgroundColor = [UIColor whiteColor];
         ((UIView *)[_columnPicker.subviews objectAtIndex:2]).backgroundColor = [UIColor whiteColor];
 
     }
 
-    // Configure the view for the selected state
 }
 
 
