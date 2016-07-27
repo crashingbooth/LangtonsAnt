@@ -471,6 +471,7 @@
                     <connections>
                         <segue destination="uta-km-7U9" kind="show" identifier="toLoadSettingsTVC" id="zMv-MO-3mi"/>
                         <segue destination="cOK-Ue-qrf" kind="show" identifier="toEditableRuleVC" id="DmZ-Bg-4hb"/>
+                        <segue destination="4I2-Qu-ikb" kind="show" identifier="toModifyAntTVC" id="Bwu-hQ-CCq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-3m-t4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,6 +601,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpf-ET-bjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="320"/>
+        </scene>
+        <!--Modify AntTVC-->
+        <scene sceneID="60i-db-li3">
+            <objects>
+                <tableViewController id="4I2-Qu-ikb" customClass="ModifyAntTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ij2-ys-0GH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ModifyAntCell" id="s56-4a-Adr" customClass="ModifyAntCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s56-4a-Adr" id="rx7-dT-lxZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AntNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiA-xh-oJO">
+                                            <rect key="frame" x="8" y="8" width="74" height="19"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ii-4U-AgZ">
+                                            <rect key="frame" x="150" y="0.0" width="300" height="79.5"/>
+                                        </pickerView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fiA-xh-oJO" firstAttribute="top" secondItem="rx7-dT-lxZ" secondAttribute="topMargin" id="7za-Mt-KGf"/>
+                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="centerX" secondItem="rx7-dT-lxZ" secondAttribute="centerX" id="hJz-lX-wi9"/>
+                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="height" secondItem="rx7-dT-lxZ" secondAttribute="height" id="suh-aT-9FU"/>
+                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="width" secondItem="rx7-dT-lxZ" secondAttribute="width" multiplier="0.5" id="vJi-ht-IXm"/>
+                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="centerY" secondItem="rx7-dT-lxZ" secondAttribute="centerY" id="vMI-dh-E6h"/>
+                                        <constraint firstItem="fiA-xh-oJO" firstAttribute="leading" secondItem="rx7-dT-lxZ" secondAttribute="leadingMargin" id="wRD-Pd-aX4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="antNumberLabel" destination="fiA-xh-oJO" id="QhK-Su-GqL"/>
+                                    <outlet property="antPicker" destination="7Ii-4U-AgZ" id="YIf-UV-J9l"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4I2-Qu-ikb" id="qYq-YC-Nz6"/>
+                            <outlet property="delegate" destination="4I2-Qu-ikb" id="eud-uN-RB7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-bf-6oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="1092"/>
         </scene>
     </scenes>
     <resources>
