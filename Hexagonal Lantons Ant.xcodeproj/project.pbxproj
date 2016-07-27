@@ -52,6 +52,7 @@
 		1FE896B91D4824A2004AE72E /* ShapeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896B81D4824A2004AE72E /* ShapeCell.m */; };
 		1FE896BE1D484757004AE72E /* ModifyAntTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896BD1D484757004AE72E /* ModifyAntTVC.m */; };
 		1FE896C11D4847A4004AE72E /* ModifyAntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C01D4847A4004AE72E /* ModifyAntCell.m */; };
+		1FE896C51D488F6B004AE72E /* AddAntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C41D488F6B004AE72E /* AddAntCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		1FE896BD1D484757004AE72E /* ModifyAntTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAntTVC.m; sourceTree = "<group>"; };
 		1FE896BF1D4847A4004AE72E /* ModifyAntCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyAntCell.h; sourceTree = "<group>"; };
 		1FE896C01D4847A4004AE72E /* ModifyAntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAntCell.m; sourceTree = "<group>"; };
+		1FE896C31D488F6B004AE72E /* AddAntCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAntCell.h; sourceTree = "<group>"; };
+		1FE896C41D488F6B004AE72E /* AddAntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAntCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,8 @@
 				1FE896BD1D484757004AE72E /* ModifyAntTVC.m */,
 				1FE896BF1D4847A4004AE72E /* ModifyAntCell.h */,
 				1FE896C01D4847A4004AE72E /* ModifyAntCell.m */,
+				1FE896C31D488F6B004AE72E /* AddAntCell.h */,
+				1FE896C41D488F6B004AE72E /* AddAntCell.m */,
 			);
 			name = ModifyAnt;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */,
 				1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */,
 				1F11D9D31D3CAB7300AEC27D /* SettingsDemoView.m in Sources */,
+				1FE896C51D488F6B004AE72E /* AddAntCell.m in Sources */,
 				1FE896B01D45DF21004AE72E /* SaveSettingsCell.m in Sources */,
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,

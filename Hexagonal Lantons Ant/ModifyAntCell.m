@@ -27,12 +27,31 @@ NSArray *dirVals;
     [self setUpDataSource];
     _antPicker.delegate = self;
     _antPicker.dataSource = self;
+    [self notSelectedBehaviour];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    if (selected) {
+        [self selectedBehaviour];
+    } else {
+        [self notSelectedBehaviour];
+            ((UIView *)[_antPicker.subviews objectAtIndex:1]).backgroundColor = [UIColor whiteColor];
+            ((UIView *)[_antPicker.subviews objectAtIndex:2]).backgroundColor = [UIColor whiteColor];
+    }
     // Configure the view for the selected state
+}
+
+- (void)selectedBehaviour{
+    [_antPicker setUserInteractionEnabled:YES];
+    [_removeButtonOutlet setAlpha:0.7];
+    [_removeButtonOutlet setUserInteractionEnabled:YES];
+}
+
+- (void)notSelectedBehaviour {
+    [_antPicker setUserInteractionEnabled:NO];
+    [_removeButtonOutlet setAlpha:0.0];
+    [_removeButtonOutlet setUserInteractionEnabled:NO];
 }
 
 - (void)setUp {
@@ -147,7 +166,12 @@ NSArray *dirVals;
     if (!tView)
     {
         tView = [[UILabel alloc] init];
-        [tView setFont:[UIFont fontWithName:@"Futura-Medium" size:14]];
+        if (component == 2) {
+            [tView setFont:[UIFont fontWithName:@"Futura-Medium" size:12]];
+        } else {
+            [tView setFont:[UIFont fontWithName:@"Futura-Medium" size:14]];
+        }
+        
         [tView setTextAlignment:NSTextAlignmentCenter];
         tView.numberOfLines = 3;
     }
@@ -165,5 +189,7 @@ NSArray *dirVals;
 //    [[Settings sharedInstance] recreateGrid];
 //    // reset settings!!!!
 //}
+- (IBAction)removeButtonPress:(id)sender {
+}
 
 @end

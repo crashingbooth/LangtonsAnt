@@ -625,14 +625,27 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ii-4U-AgZ">
-                                            <rect key="frame" x="150" y="0.0" width="300" height="79.5"/>
+                                            <rect key="frame" x="90" y="0.0" width="420" height="79.5"/>
                                         </pickerView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kph-lT-Yaz">
+                                            <rect key="frame" x="562" y="25" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Vy4-c5-3E1"/>
+                                                <constraint firstAttribute="width" constant="30" id="kba-W1-11w"/>
+                                            </constraints>
+                                            <state key="normal" image="minus-circle"/>
+                                            <connections>
+                                                <action selector="removeButtonPress:" destination="s56-4a-Adr" eventType="touchUpInside" id="c91-th-KNh"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fiA-xh-oJO" firstAttribute="top" secondItem="rx7-dT-lxZ" secondAttribute="topMargin" id="7za-Mt-KGf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kph-lT-Yaz" secondAttribute="trailing" id="Fcz-ox-Wvu"/>
+                                        <constraint firstItem="kph-lT-Yaz" firstAttribute="centerY" secondItem="rx7-dT-lxZ" secondAttribute="centerY" id="WMK-9V-af4"/>
                                         <constraint firstItem="7Ii-4U-AgZ" firstAttribute="centerX" secondItem="rx7-dT-lxZ" secondAttribute="centerX" id="hJz-lX-wi9"/>
                                         <constraint firstItem="7Ii-4U-AgZ" firstAttribute="height" secondItem="rx7-dT-lxZ" secondAttribute="height" id="suh-aT-9FU"/>
-                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="width" secondItem="rx7-dT-lxZ" secondAttribute="width" multiplier="0.5" id="vJi-ht-IXm"/>
+                                        <constraint firstItem="7Ii-4U-AgZ" firstAttribute="width" secondItem="rx7-dT-lxZ" secondAttribute="width" multiplier="0.7" id="vJi-ht-IXm"/>
                                         <constraint firstItem="7Ii-4U-AgZ" firstAttribute="centerY" secondItem="rx7-dT-lxZ" secondAttribute="centerY" id="vMI-dh-E6h"/>
                                         <constraint firstItem="fiA-xh-oJO" firstAttribute="leading" secondItem="rx7-dT-lxZ" secondAttribute="leadingMargin" id="wRD-Pd-aX4"/>
                                     </constraints>
@@ -640,7 +653,76 @@
                                 <connections>
                                     <outlet property="antNumberLabel" destination="fiA-xh-oJO" id="QhK-Su-GqL"/>
                                     <outlet property="antPicker" destination="7Ii-4U-AgZ" id="YIf-UV-J9l"/>
+                                    <outlet property="removeButtonOutlet" destination="kph-lT-Yaz" id="jV0-4c-In7"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ModifyAntLabelCell" id="So2-Ad-Exb" customClass="ModifyAntCell">
+                                <rect key="frame" x="0.0" y="172" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="So2-Ad-Exb" id="r2S-P8-fMj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JWe-uc-pBd">
+                                            <rect key="frame" x="90" y="30" width="420" height="19"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Row" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-7K-jrc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Col" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auf-yf-7fR">
+                                                    <rect key="frame" x="140" y="0.0" width="140" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Direction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrL-mo-l4b">
+                                                    <rect key="frame" x="280" y="0.0" width="140" height="19"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JWe-uc-pBd" firstAttribute="centerX" secondItem="r2S-P8-fMj" secondAttribute="centerX" id="HpX-qb-5gV"/>
+                                        <constraint firstItem="JWe-uc-pBd" firstAttribute="width" secondItem="r2S-P8-fMj" secondAttribute="width" multiplier="0.7" id="csn-uX-2Dw"/>
+                                        <constraint firstItem="JWe-uc-pBd" firstAttribute="centerY" secondItem="r2S-P8-fMj" secondAttribute="centerY" id="hwG-3O-zwt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAnt" id="QY7-RV-5Pe" customClass="AddAntCell">
+                                <rect key="frame" x="0.0" y="252" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QY7-RV-5Pe" id="bnf-Py-Ajf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-bb-8iT">
+                                            <rect key="frame" x="562" y="25" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="CdJ-bc-0SO"/>
+                                                <constraint firstAttribute="height" constant="30" id="u8E-ga-HNa"/>
+                                            </constraints>
+                                            <state key="normal" image="add-button-inside-black-circle"/>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIp-bD-OEF">
+                                            <rect key="frame" x="8" y="30" width="89" height="19"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iIp-bD-OEF" firstAttribute="leading" secondItem="bnf-Py-Ajf" secondAttribute="leadingMargin" id="ByS-qN-Y4G"/>
+                                        <constraint firstItem="iIp-bD-OEF" firstAttribute="centerY" secondItem="bnf-Py-Ajf" secondAttribute="centerY" id="r2P-ub-vX6"/>
+                                        <constraint firstItem="mLd-bb-8iT" firstAttribute="centerY" secondItem="bnf-Py-Ajf" secondAttribute="centerY" id="rbv-hV-4tB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mLd-bb-8iT" secondAttribute="trailing" id="y9U-5F-W7x"/>
+                                    </constraints>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -655,9 +737,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-button-inside-black-circle" width="128" height="128"/>
         <image name="circle" width="128" height="128"/>
         <image name="cogwheel" width="256" height="256"/>
         <image name="hexagon" width="128" height="128"/>
+        <image name="minus-circle" width="64" height="64"/>
         <image name="square" width="128" height="128"/>
     </resources>
 </document>

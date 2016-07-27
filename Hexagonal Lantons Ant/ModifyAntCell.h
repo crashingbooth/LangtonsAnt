@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSArray *colVals;
 @property (nonatomic, copy) NSArray *rowVals;
 @property (nonatomic, copy) NSArray *dirVals;
+@property (weak, nonatomic) IBOutlet UIButton *removeButtonOutlet;
 
 - (void)setUp;
 @end
