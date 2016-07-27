@@ -160,6 +160,26 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     [self recreateGrid];
 }
 
+- (void)addAnt {
+    // called in ModifyAntTVC
+    NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
+    
+    AbstractAnt *ant;
+    GridPoint *start = [[GridPoint alloc] initWithRow: self.numRowsInGrid / 2 andCol: self.numColsInGrid / 2];
+    if (self.antType == FOUR_WAY) {
+        ant = [[FourWayAnt alloc] initWithDirection:0  atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
+    } else if (self.antType == SIX_WAY) {
+        ant = [[HexagonalAnt alloc] initWithDirection: 0 atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
+    } else if (self.antType == EIGHT_WAY) {
+        ant = [[EightWayAnt alloc] initWithDirection:0 atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
+    }
+    [antsCopy addObject:ant];
+    self.antsInitialStatus = antsCopy;
+    [self recreateGrid];
+    
+    
+}
+
 - (NSDictionary*) createDictFromCurrentSettings {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = self.name;

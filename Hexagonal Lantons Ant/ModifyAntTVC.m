@@ -80,24 +80,33 @@ BOOL selectionMadeInModAnt = NO;
     }  else {
         return 44;
     }
-//    if (selectionMadeInModAnt && indexPath.section == 1) {
-//        if (indexPath == selectedIndexPath ) {
-//            return 88;
-//        }
-//        else {
-//            return 44;
-//        }
-//    }
+
     return 44;
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+        
+            break;
+        case 1:
             selectionMadeInModAnt = YES;
-            [tableView beginUpdates];
-            [tableView endUpdates];
+            break;
+        case 2:
+            selectionMadeInModAnt = NO;
+            [[Settings sharedInstance] addAnt];
+            [tableView reloadData];
+        default:
+            break;
+    }
+
+        [tableView beginUpdates];
+        [tableView endUpdates];
       
 }
+
+
 
 
 

@@ -48,4 +48,5 @@
 - (NSString*)getFullDescription:(NSDictionary*)dictWithCorrectAntNum;
 - (void)recreateGrid;
 - (void)addState;
+- (void)addAnt;
 @end
