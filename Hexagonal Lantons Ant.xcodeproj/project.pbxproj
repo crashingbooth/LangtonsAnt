@@ -120,8 +120,8 @@
 		1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayView.m; sourceTree = "<group>"; };
 		1F6EB2F71D3EF83200C294B3 /* RuleSelectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleSelectVC.h; sourceTree = "<group>"; };
 		1F6EB2F81D3EF83200C294B3 /* RuleSelectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleSelectVC.m; sourceTree = "<group>"; };
-		1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleDisplayVC.h; sourceTree = "<group>"; };
-		1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayVC.m; sourceTree = "<group>"; };
+		1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RuleDisplayVC.h; path = "Hexagonal Lantons Ant/RuleDisplayVC.h"; sourceTree = "<group>"; };
+		1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RuleDisplayVC.m; path = "Hexagonal Lantons Ant/RuleDisplayVC.m"; sourceTree = "<group>"; };
 		1F8CDAA61D2A2E3D00AE4D32 /* FourWayAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourWayAnt.h; sourceTree = "<group>"; };
 		1F8CDAA71D2A2E3D00AE4D32 /* FourWayAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourWayAnt.m; sourceTree = "<group>"; };
 		1F8CDAAA1D2A358B00AE4D32 /* AntGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AntGridView.h; sourceTree = "<group>"; };
@@ -183,8 +183,6 @@
 				1F11D9C21D38E04100AEC27D /* MainDisplayViewController.m */,
 				1F11D9D11D3CAB7300AEC27D /* SettingsDemoView.h */,
 				1F11D9D21D3CAB7300AEC27D /* SettingsDemoView.m */,
-				1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */,
-				1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */,
 				1F6EB2F31D3EF6D700C294B3 /* RuleDisplayView.h */,
 				1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */,
 				1F93F0341D42CD5000D018B9 /* SelectedRuleViewController.h */,
@@ -262,6 +260,8 @@
 		1F2DAF411D336DF1000D898A /* Old UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */,
+				1F6EB3211D409A0F00C294B3 /* RuleDisplayVC.m */,
 				1FE896A81D45D70F004AE72E /* BasicCell.h */,
 				1FE896A91D45D70F004AE72E /* BasicCell.m */,
 				1F2AD9421D23A9C70020B06E /* ViewController.h */,

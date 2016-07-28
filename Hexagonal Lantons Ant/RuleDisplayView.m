@@ -58,8 +58,6 @@ NSArray *stateNames; // 2d array
 - (void)basicSetup {
     ruleDisplaySettings = [Settings sharedInstance];
     PI = (CGFloat)M_PI;
-    self.controlArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
-    self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
     
     self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
     self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
@@ -175,7 +173,7 @@ NSArray *stateNames; // 2d array
     CGRect guideBounds = CGRectMake(circleWidth * 5, heightOffset + (circleWidth * 5), sideLength - (circleWidth * 10), sideLength - (circleWidth * 10));
    
     self.guideArrow.frame = guideBounds;
-    [self positionControlArrow];
+    [self recreateArrow];
 
     for (NSNumber *pointNum in [self markerPoints:(circleWidth *2)]) {
         CGPoint point = [pointNum CGPointValue];
@@ -201,16 +199,30 @@ NSArray *stateNames; // 2d array
     [self.stateValLabel setCenter:CGPointMake(sideLength / 2.0, heightOffset + sideLength + heightOffset / 2.0)];
 }
 
-- (void) positionControlArrow {
-    CGFloat sideLength = self.frame.size.width;
-    CGFloat heightOffset = (self.frame.size.height - sideLength) / 2.0;
+
+
+- (CGRect)controlArrowFrame:(CGRect)superViewFrame{
+    CGFloat sideLength = superViewFrame.size.width;
+    CGFloat heightOffset = (superViewFrame.size.height - sideLength) / 2.0;
     CGFloat circleWidth = sideLength * 0.05;
     CGRect arrowBounds = CGRectMake(circleWidth * 2, heightOffset + (circleWidth * 2), sideLength - (circleWidth * 4), sideLength - (circleWidth * 4));
-    self.controlArrow.frame = arrowBounds;
     
-    self.controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
-    
+    return arrowBounds;
 }
+
+- (void)recreateArrow {
+    if ([self.controlArrow isDescendantOfView:self]) {
+        [self.controlArrow removeFromSuperview];
+    }
+    
+    self.controlArrow = [[UIImageView alloc] initWithFrame:[self controlArrowFrame:self.bounds]];
+    self.controlArrow.image = [UIImage imageNamed:@"up-arrow.png"];
+    
+    self.controlArrow.transform =  CGAffineTransformIdentity;
+    self.controlArrow.transform = CGAffineTransformMakeRotation([self getAngleFromRule:self.ruleValue]);
+    [self addSubview:self.controlArrow];
+}
+
 
 
 

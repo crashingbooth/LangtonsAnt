@@ -63,7 +63,7 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     }
     [self buildPresets];
 //     [self extractSettingsFromDict:self.presetDictionaries[@"standard Langton's Ant"]];
-     [self extractSettingsFromDict:self.presetDictionaries[@"square filler"]];
+     [self extractSettingsFromDict:self.presetDictionaries[@"symmetrical hexagon 4-state"]];
   
     return self;
 }

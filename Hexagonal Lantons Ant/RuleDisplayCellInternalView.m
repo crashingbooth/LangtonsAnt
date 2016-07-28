@@ -128,6 +128,10 @@ NSMutableArray *menuRuleDisplayViews;
     
     [UIView animateWithDuration:0.2 animations:^{
         [self positionRuleViews];
+        for (RuleDisplayView *rdv in menuRuleDisplayViews) {
+            
+            [rdv setNeedsDisplay];
+        }
     } ];
     
     
