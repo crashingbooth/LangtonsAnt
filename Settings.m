@@ -16,12 +16,14 @@ NSArray *statesListInGrid;
 NSInteger numStates;
 NSInteger numRowsInGrid;
 NSInteger numColsInGrid;
-NSArray *colorList;
-NSArray *antsInitialStatus;
+NSArray *colorList;  // each entry in array is an array of color, index correspands to colorscheme
+NSArray *antsInitialStatus; // copies, because actual ants change
 NSInteger numAnts;
 Grid *settingsGrid;
 NSNumber *speed;
 BOOL defaultShape;
+NSInteger colorScheme;
+
 NSMutableArray *EightWayPresetNames;
 NSMutableArray *SixWayPresetNames;
 NSMutableArray *FourWayPresetNames;
@@ -38,9 +40,11 @@ static NSString *const numColsKey = @"numCols";
 static NSString *const speedKey = @"speed";
 static NSString *const numAntsKey = @"numAnts";
 static NSString *const shapeKey = @"shape";
+static NSString *const colorSchemeKey = @"colorScheme";
 static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
 static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
 static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
+
 
 
 

@@ -24,11 +24,13 @@
 @property (nonatomic) NSInteger numRowsInGrid;
 @property (nonatomic) NSInteger numColsInGrid;
 @property (nonatomic, strong) NSArray *colorList;
-@property (nonatomic, strong) NSArray *antsInitialStatus;
+@property (nonatomic, copy) NSArray *antsInitialStatus;
 @property (nonatomic) NSInteger numAnts;
 @property (nonatomic, strong) Grid *settingsGrid;
 @property (nonatomic) NSNumber *speed;
 @property (nonatomic) BOOL defaultShape;
+@property (nonatomic) NSInteger colorScheme;
+
 @property (nonatomic) BOOL needToRebuild;
 @property (nonatomic) NSMutableArray *eightWayPresetNames;
 @property (nonatomic) NSMutableArray *sixWayPresetNames;
