@@ -45,6 +45,9 @@ static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
 static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
 static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 
+static NSString *const userDefaultsPresetNameKey = @"userDefaultsPresetName";
+static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
+
 
 
 
@@ -76,7 +79,6 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
         
     }
     [self buildPresets];
-//     [self extractSettingsFromDict:self.presetDictionaries[@"standard Langton's Ant"]];
      [self extractSettingsFromDict:self.presetDictionaries[@"symmetrical hexagon 4-state"]];
   
     return self;
@@ -161,8 +163,11 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
         [self.settingsGrid addAnt: copyAnt];
 
     }
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterShortStyle];
    
-    self.name = @"custom";
+    self.name = [NSString stringWithFormat:@"custom: %@",dateString];
     self.needToRebuild = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateRuleCell" object:self];
     
@@ -255,6 +260,28 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     return dict;
 }
 
+- (void)getPresetFromNSUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *arrayOfPresetDicts = [defaults arrayForKey:userDefaultsPresetDictKey];
+    if (arrayOfPresetDicts != nil) {
+        for (NSDictionary *dict in arrayOfPresetDicts) {
+             [self addPresetDictToPresetStorage:dict];
+        }
+    }
+}
+
+- (void)saveCurrentSettings {
+    NSDictionary *dict = [self createDictFromCurrentSettings];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *arrayOfPresetDicts = [[defaults arrayForKey:userDefaultsPresetDictKey] mutableCopy];
+    if (arrayOfPresetDicts == nil) {
+        arrayOfPresetDicts = [[NSMutableArray alloc] init];
+    }
+    [arrayOfPresetDicts addObject:dict];
+    [defaults setObject:arrayOfPresetDicts forKey:userDefaultsPresetDictKey];
+    [self addPresetDictToPresetStorage:dict];
+}
 
 
 - (void) buildPresets {

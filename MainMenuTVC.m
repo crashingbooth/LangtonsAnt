@@ -174,7 +174,7 @@ NSInteger ruleNumberOfSelection = -1;
             }
             break;
         case 8:
-            if (selectedIndexPath.row == 7) {
+            if (selectedIndexPath.row == 8) {
                 return 88;
             } else {
                 return 44;
@@ -211,6 +211,10 @@ NSInteger ruleNumberOfSelection = -1;
         case 5: // add ant
             [self performSegueWithIdentifier:@"toModifyAntTVC" sender:self];
             break;
+        case 6: // add ant
+            [self saveDialogue];
+          
+            break;
         case 7: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
@@ -220,6 +224,32 @@ NSInteger ruleNumberOfSelection = -1;
             [tableView endUpdates];
             break;
     }
+}
+
+- (void)saveDialogue {
+    NSString *description = [[Settings sharedInstance] getFullDescription];
+    NSString *name = [Settings sharedInstance].name;
+    UIAlertController *saveDialogueAlert = [UIAlertController alertControllerWithTitle:@"Save Settings" message: description  preferredStyle:UIAlertControllerStyleAlert];
+        [saveDialogueAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.text = name;
+      
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+
+    }];
+    [saveDialogueAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSString *chosenName = saveDialogueAlert.textFields[0].text;
+        [Settings sharedInstance].name = chosenName;
+        [[Settings sharedInstance] saveCurrentSettings];
+        NSLog(@"saving");
+    }]];
+    [saveDialogueAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }]];
+    
+    [self presentViewController:saveDialogueAlert animated:YES completion:nil];
+    
+    
+
 }
 
 

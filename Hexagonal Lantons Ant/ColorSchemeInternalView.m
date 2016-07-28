@@ -16,13 +16,15 @@ NSInteger colorSchemeIndex;
 - (void)setUp:(NSInteger)index {
     self.colorSchemeIndex = index;
     self.colorListForColorScheme = [[Settings sharedInstance] assignColorScheme:index];
-    self.numStatesForColorScheme = [Settings sharedInstance].statesListInGrid.count;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:@"added Rule" object:nil];
 }
 
 
 
 
 - (void)drawRect:(CGRect)rect {
+    self.numStatesForColorScheme = [Settings sharedInstance].statesListInGrid.count;
     CGFloat maxNumStates = 12.0;
     CGFloat xPadding = 4.0;
     CGFloat circleDiameter = (self.frame.size.width - (xPadding * 2.0)) / maxNumStates;
@@ -44,6 +46,13 @@ NSInteger colorSchemeIndex;
         
         xOffset += circleDiameter;
     }
+}
+
+- (void)update:(NSNotification*) notification {
+    if ([notification.name isEqualToString:@"added Rule"]) {
+        [self setNeedsDisplay];
+    }
+    
 }
 
 

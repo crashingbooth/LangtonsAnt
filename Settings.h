@@ -55,4 +55,9 @@
 - (void)addAnt;
 - (void)removeAnt:(NSInteger)index;
 - (void)modifyAnt:(NSInteger)index startRow:(NSInteger)startRow startCol:(NSInteger)startCol startDir:(NSInteger)startDir;
+- (void)saveCurrentSettings;
+
+// to be called from AppDelegate:
+- (void)buildPresets;
+- (void)getPresetFromNSUserDefaults;
 @end

@@ -155,7 +155,6 @@ NSArray *stateNames; // 2d array
     [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
     [Settings sharedInstance].statesListInGrid = stateList;
     [[Settings sharedInstance] recreateGrid];
-    [Settings sharedInstance].name = @"custom";
 }
 
 
