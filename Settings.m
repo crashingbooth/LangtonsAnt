@@ -58,6 +58,16 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     return sharedInstance;
 }
 
++ (NSArray*)masterColorList {
+    NSArray *masterList = @[
+            @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor]],
+            @[[UIColor whiteColor],[UIColor redColor], [UIColor orangeColor], [UIColor blueColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ]
+                            
+                            ];
+    
+    return masterList;
+}
+
 -(id)init {
     self = [super init];
     if (self) {
@@ -162,17 +172,8 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 
 - (NSArray*)assignColorScheme:(NSInteger)colorIndex {
     NSArray* colors = [[NSArray alloc] init];
-    switch (colorIndex) {
-        case 0:
-            colors = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ];
-            break;
-        case 1:
-            colors = @[[UIColor whiteColor],[UIColor redColor], [UIColor orangeColor], [UIColor blueColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ];
-            break;
-            
-        default:
-            break;
-    }
+    // change ColorShemeTVC
+        colors = [Settings masterColorList][colorIndex];
     
     return colors;
 }

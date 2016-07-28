@@ -643,43 +643,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qV6-WP-8XD" customClass="ColorSchemeSelectCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorSchemeFromMenu" rowHeight="80" id="syq-Gs-eap" customClass="ColorSchemeSelectCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qV6-WP-8XD" id="Dlb-2U-XXZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorScheme" rowHeight="80" id="hBY-xe-RZI" customClass="ColorSchemeSelectCell">
-                                <rect key="frame" x="0.0" y="136" width="600" height="80"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBY-xe-RZI" id="Ltb-LB-saG">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="syq-Gs-eap" id="07g-1d-HCj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKB-Zv-SCR" customClass="ColorSchemeInternalView">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAv-qT-MSf" customClass="ColorSchemeInternalView">
+                                            <rect key="frame" x="8" y="0.0" width="592" height="80"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9m-8s-toh">
-                                            <rect key="frame" x="8" y="8" width="90" height="19"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="yKB-Zv-SCR" firstAttribute="centerY" secondItem="Ltb-LB-saG" secondAttribute="centerY" id="0SW-Xr-Mxt"/>
-                                        <constraint firstItem="yKB-Zv-SCR" firstAttribute="centerX" secondItem="Ltb-LB-saG" secondAttribute="centerX" id="25w-Bl-1dV"/>
-                                        <constraint firstAttribute="topMargin" secondItem="S9m-8s-toh" secondAttribute="top" id="N4V-Pz-3AE"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="S9m-8s-toh" secondAttribute="leading" id="V3J-MJ-I2p"/>
+                                        <constraint firstItem="vAv-qT-MSf" firstAttribute="leading" secondItem="07g-1d-HCj" secondAttribute="leadingMargin" id="5J7-Vs-hCY"/>
+                                        <constraint firstItem="vAv-qT-MSf" firstAttribute="top" secondItem="07g-1d-HCj" secondAttribute="top" id="6er-Kb-Su6"/>
+                                        <constraint firstItem="vAv-qT-MSf" firstAttribute="centerY" secondItem="07g-1d-HCj" secondAttribute="centerY" id="OI8-MC-7oV"/>
+                                        <constraint firstAttribute="trailing" secondItem="vAv-qT-MSf" secondAttribute="trailing" id="veI-Wb-UJy"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstItem="yKB-Zv-SCR" firstAttribute="height" secondItem="hBY-xe-RZI" secondAttribute="height" id="123-vM-7hC"/>
-                                    <constraint firstItem="yKB-Zv-SCR" firstAttribute="width" secondItem="hBY-xe-RZI" secondAttribute="width" id="rfK-cZ-2jW"/>
-                                </constraints>
+                                <connections>
+                                    <outlet property="colorSchemeInternalView" destination="vAv-qT-MSf" id="Zdd-ra-cO9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

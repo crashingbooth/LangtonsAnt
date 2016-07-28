@@ -40,6 +40,7 @@
 
 
 + (Settings *)sharedInstance;
++ (NSArray*)masterColorList;
 - (NSDictionary*) createDictFromCurrentSettings ;
 - (void) extractSettingsFromDict: (NSDictionary*) dict;
 - (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type;
