@@ -26,6 +26,7 @@ static NSString *const statesListKey = @"statesList"; // Array of NSInteger
 static NSString *const numRowsKey = @"numRows";
 static NSString *const numColsKey = @"numCols";
 static NSString *const speedKey = @"speed";
+static NSString *const colorSchemeKey = @"colorScheme";
 static NSString *const numAntsKey = @"numAnts";
 static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
 static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
@@ -46,20 +47,22 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
     self.dict[numAntsKey] = @1;
     
     [self.demo extractSettingsFromDict:self.dict];
-    NSLog(@"about to copy");
     originalAnt = [self.demo.antsInitialStatus[0] copyWithZone:nil];
     widthOfShape = self.frame.size.width / [size floatValue];
     [self.demo.settingsGrid buildZeroStateMatrix];
     
+    
+    NSArray* colorList = self.demo.colorList;
     switch (self.demo.antType) {
         case FOUR_WAY:
-            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape];
+            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape colorList:colorList];
             break;
         case SIX_WAY:
-            self.demoGrid = [[HexagonGridColection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:NO];
+            self.demoGrid = [[HexagonGridColection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:NO colorList:colorList];
             break;
         case EIGHT_WAY:
-            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape];
+            self.demoGrid = [[SquareGridCollection alloc] initWithParentView:self grid:self.demo.settingsGrid boxWidth:widthOfShape drawAsCircle:self.demo.defaultShape colorList:colorList
+                             ];
             break;
         default:
             break;

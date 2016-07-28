@@ -12,18 +12,20 @@
 
 @implementation AbstractGridCollection
 NSMutableArray *gridOfViews;
+NSArray *colorListForGrid;
 UIView *parentView;
 CGFloat boxWidth;
 
 
--(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle {
+-(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle colorList:(NSArray*) colorList {
     self = [super init];
     if (self) {
         self.parentView = parentView;
         self.grid = myGrid;
         self.boxWidth = boxWidthFromVC;
         self.drawAsCircle = drawAsCircle;
-
+        self.colorListForGrid = colorList;
+        
         NSLog(@"starting GridColl setUp");
         [self setUpInitialViews];
         NSLog(@"finishedGridColl setUp");
@@ -34,7 +36,7 @@ CGFloat boxWidth;
 - (void)updateOrCreateTile:(GridPoint*) gridPoint {
     UIViewWithPath *changeTile = [[self.gridOfViews objectAtIndex: gridPoint.row ] objectAtIndex:gridPoint.col];
     NSInteger newState = [[[self.grid.matrix objectAtIndex:gridPoint.row] objectAtIndex:gridPoint.col] integerValue];
-    UIColor *stateColor = [Settings sharedInstance].colorList[newState];
+    UIColor *stateColor = self.colorListForGrid[newState];
     if ([changeTile isEqual:[NSNull null]] ) {
         CGRect rect = [self getRectOfGridShape:gridPoint];
         changeTile = [self createTile:rect color:stateColor];

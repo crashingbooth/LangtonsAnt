@@ -15,12 +15,13 @@
 @interface AbstractGridCollection : NSObject
 @property (weak, nonatomic) UIView *parentView;
 @property (weak, nonatomic) Grid *grid;
+@property (nonatomic, copy) NSArray *colorListForGrid;
 @property (strong, nonatomic) NSMutableArray *gridOfViews;
 @property (nonatomic) CGFloat boxWidth;
 @property (nonatomic) BOOL drawAsCircle;
 
 
-- (id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle;
+-(id)initWithParentView:(UIView*)parentView grid:(Grid*)myGrid boxWidth:(CGFloat)boxWidthFromVC drawAsCircle:(BOOL)drawAsCircle colorList:(NSArray*) colorList;
 - (void)updateOrCreateTile:(GridPoint*) gridPoint;
 - (void)updateViews;
 - (void)removeAllViews;

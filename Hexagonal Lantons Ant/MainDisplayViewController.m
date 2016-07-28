@@ -85,15 +85,16 @@ Settings *settings;
 }
 
 - (void)makeGridCollection {
+    NSArray* colorList = [Settings sharedInstance].colorList;
     switch (settings.antType) {
         case FOUR_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape];
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
             break;
         case SIX_WAY:
-            gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:NO];
+            gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:NO colorList:colorList];
             break;
         case EIGHT_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape];
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
             break;
         default:
             break;
