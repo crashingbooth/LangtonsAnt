@@ -57,7 +57,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [Settings sharedInstance].colorScheme = indexPath.row;
-    [[Settings sharedInstance] assignColorScheme:indexPath.row];
+    [Settings sharedInstance].colorList = [[Settings sharedInstance] assignColorScheme:indexPath.row];
+    [[Settings sharedInstance] recreateGrid];
      [self.navigationController popViewControllerAnimated:YES];
     
 }
