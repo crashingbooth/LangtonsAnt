@@ -48,6 +48,7 @@
 - (NSString*)getRuleSystemAsString;
 - (NSString*)getFullDescription;
 - (NSString*)getFullDescription:(NSDictionary*)dictWithCorrectAntNum;
+- (NSArray*)assignColorScheme:(NSInteger)colorIndex;
 - (void)recreateGrid;
 - (void)addState;
 - (void)addAnt;

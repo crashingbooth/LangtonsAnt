@@ -53,6 +53,9 @@
 		1FE896BE1D484757004AE72E /* ModifyAntTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896BD1D484757004AE72E /* ModifyAntTVC.m */; };
 		1FE896C11D4847A4004AE72E /* ModifyAntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C01D4847A4004AE72E /* ModifyAntCell.m */; };
 		1FE896C51D488F6B004AE72E /* AddAntCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C41D488F6B004AE72E /* AddAntCell.m */; };
+		1FE896C81D49A0FD004AE72E /* ColorSchemeSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C71D49A0FD004AE72E /* ColorSchemeSelectCell.m */; };
+		1FE896CB1D49A118004AE72E /* ColorSchemeInternalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */; };
+		1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +159,12 @@
 		1FE896C01D4847A4004AE72E /* ModifyAntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAntCell.m; sourceTree = "<group>"; };
 		1FE896C31D488F6B004AE72E /* AddAntCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAntCell.h; sourceTree = "<group>"; };
 		1FE896C41D488F6B004AE72E /* AddAntCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAntCell.m; sourceTree = "<group>"; };
+		1FE896C61D49A0FD004AE72E /* ColorSchemeSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeSelectCell.h; sourceTree = "<group>"; };
+		1FE896C71D49A0FD004AE72E /* ColorSchemeSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeSelectCell.m; sourceTree = "<group>"; };
+		1FE896C91D49A118004AE72E /* ColorSchemeInternalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeInternalView.h; sourceTree = "<group>"; };
+		1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeInternalView.m; sourceTree = "<group>"; };
+		1FE896CC1D49A4DA004AE72E /* ColorSchemeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeTVC.h; sourceTree = "<group>"; };
+		1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +306,7 @@
 				1FE896BA1D484725004AE72E /* MainMenu */,
 				1FE896BB1D484736004AE72E /* Load Settings */,
 				1FE896C21D4847AF004AE72E /* ModifyAnt */,
+				1FE896CF1D49A4EC004AE72E /* ColorSchemeTVC */,
 			);
 			name = "TableVC and Cells";
 			path = "Hexagonal Lantons Ant";
@@ -334,6 +344,10 @@
 			children = (
 				1F11D9C41D3A1AE300AEC27D /* MainMenuTVC.h */,
 				1F11D9C51D3A1AE300AEC27D /* MainMenuTVC.m */,
+				1FE896C61D49A0FD004AE72E /* ColorSchemeSelectCell.h */,
+				1FE896C71D49A0FD004AE72E /* ColorSchemeSelectCell.m */,
+				1FE896C91D49A118004AE72E /* ColorSchemeInternalView.h */,
+				1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */,
 				1FE896AE1D45DF21004AE72E /* SaveSettingsCell.h */,
 				1FE896AF1D45DF21004AE72E /* SaveSettingsCell.m */,
 				1F11D9C81D3AE43300AEC27D /* SpeedCell.h */,
@@ -378,6 +392,15 @@
 				1FE896C41D488F6B004AE72E /* AddAntCell.m */,
 			);
 			name = ModifyAnt;
+			sourceTree = "<group>";
+		};
+		1FE896CF1D49A4EC004AE72E /* ColorSchemeTVC */ = {
+			isa = PBXGroup;
+			children = (
+				1FE896CC1D49A4DA004AE72E /* ColorSchemeTVC.h */,
+				1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */,
+			);
+			name = ColorSchemeTVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,6 +508,7 @@
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
+				1FE896CB1D49A118004AE72E /* ColorSchemeInternalView.m in Sources */,
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
 				1FE896BE1D484757004AE72E /* ModifyAntTVC.m in Sources */,
 				1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */,
@@ -492,6 +516,7 @@
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
 				1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */,
 				1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */,
+				1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,
 				1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */,
@@ -507,6 +532,7 @@
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
 				1FE896B91D4824A2004AE72E /* ShapeCell.m in Sources */,
+				1FE896C81D49A0FD004AE72E /* ColorSchemeSelectCell.m in Sources */,
 				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
 				1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */,

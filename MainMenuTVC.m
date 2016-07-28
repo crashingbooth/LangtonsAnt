@@ -9,7 +9,7 @@
 #import "MainMenuTVC.h"
 #import "Constants.h"
 #import "Settings.h"
-#import "BasicCell.h"
+#import "ColorSchemeSelectCell.h"
 #import "SelectedRuleViewController.h"
 
 @interface MainMenuTVC ()
@@ -100,6 +100,7 @@ NSInteger ruleNumberOfSelection = -1;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    ColorSchemeSelectCell *colorCell;
 //    BasicCell *basicCell = [tableView dequeueReusableCellWithIdentifier:@"BasicCell" forIndexPath:indexPath];
     switch (indexPath.row) {
         case 0:
@@ -117,16 +118,22 @@ NSInteger ruleNumberOfSelection = -1;
             cell = [tableView dequeueReusableCellWithIdentifier:@"ShapeCell" forIndexPath:indexPath];
             break;
         case 4:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"AddAntCell" forIndexPath:indexPath];
+            
+            colorCell = [tableView dequeueReusableCellWithIdentifier:@"ColorScheme" forIndexPath:indexPath];
+            [colorCell.colorSchemeInternalView setUp:[Settings sharedInstance].colorScheme];
+            return colorCell;
             break;
         case 5:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"AddAntCell" forIndexPath:indexPath];
+            break;
+        case 6:
             cell = [tableView dequeueReusableCellWithIdentifier:@"SaveSettingsCell" forIndexPath:indexPath];
             break;
 
-        case 6:
+        case 7:
             cell = [tableView dequeueReusableCellWithIdentifier:@"LoadSettingsMenuCell" forIndexPath:indexPath];
             break;
-        case 7:
+        case 8:
             
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
             break;
@@ -166,7 +173,7 @@ NSInteger ruleNumberOfSelection = -1;
                 return 44;
             }
             break;
-        case 7:
+        case 8:
             if (selectedIndexPath.row == 7) {
                 return 88;
             } else {
@@ -199,9 +206,12 @@ NSInteger ruleNumberOfSelection = -1;
 //            [tableView endUpdates];
 //            break;
         case 4: // add ant
+            [self performSegueWithIdentifier:@"toColorSchemeTVC" sender:self];
+            break;
+        case 5: // add ant
             [self performSegueWithIdentifier:@"toModifyAntTVC" sender:self];
             break;
-        case 6: // load settings
+        case 7: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
             
@@ -217,11 +227,12 @@ NSInteger ruleNumberOfSelection = -1;
     cellLabels = @[ @"New Rules",       // 0
                     @"Edit Rules",      // 1
                     @"Dimensions",      // 2
-                    @"Cell Shape",
-                    @"Add Ant",         // 4
-                    @"Save Settings",   // 5
-                    @"Load Settings",   // 6
-                    @"Speed"            // 7
+                    @"Cell Shape",      // 3
+                    @"Color Scheme",     // 4
+                    @"Add Ant",         // 5
+                    @"Save Settings",   // 6
+                    @"Load Settings",   // 7
+                    @"Speed"            // 8
                     ];
                     
 }
