@@ -56,6 +56,7 @@
 		1FE896C81D49A0FD004AE72E /* ColorSchemeSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896C71D49A0FD004AE72E /* ColorSchemeSelectCell.m */; };
 		1FE896CB1D49A118004AE72E /* ColorSchemeInternalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */; };
 		1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */; };
+		1FE896D21D4B0B6C004AE72E /* UIColor+UIColorFromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,8 @@
 		1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeInternalView.m; sourceTree = "<group>"; };
 		1FE896CC1D49A4DA004AE72E /* ColorSchemeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemeTVC.h; sourceTree = "<group>"; };
 		1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeTVC.m; sourceTree = "<group>"; };
+		1FE896D01D4B0B6C004AE72E /* UIColor+UIColorFromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColorFromHex.h"; sourceTree = "<group>"; };
+		1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColorFromHex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 			children = (
 				1F11D9BB1D38CBE400AEC27D /* Settings.h */,
 				1F11D9BC1D38CBE400AEC27D /* Settings.m */,
+				1FE896D01D4B0B6C004AE72E /* UIColor+UIColorFromHex.h */,
+				1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */,
 				1F11D9BE1D38CF5D00AEC27D /* Constants.h */,
 				1F11D9BF1D38CF5D00AEC27D /* Constants.m */,
 				1F8CDAA91D2A350A00AE4D32 /* Ants */,
@@ -516,6 +521,7 @@
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
 				1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */,
 				1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */,
+				1FE896D21D4B0B6C004AE72E /* UIColor+UIColorFromHex.m in Sources */,
 				1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */,
 				1F2AD9661D23AA520020B06E /* Grid.m in Sources */,
 				1F11D9CA1D3AE43300AEC27D /* SpeedCell.m in Sources */,

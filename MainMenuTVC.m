@@ -239,17 +239,32 @@ NSInteger ruleNumberOfSelection = -1;
     [saveDialogueAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSString *chosenName = saveDialogueAlert.textFields[0].text;
         [Settings sharedInstance].name = chosenName;
-        [[Settings sharedInstance] saveCurrentSettings];
-        NSLog(@"saving");
+        if ([[Settings sharedInstance]settingsNameIsAvailable:chosenName ]) {
+               [Settings sharedInstance].name = chosenName;
+               [[Settings sharedInstance] saveCurrentSettings];
+        } else {
+            [self cantSaveAlert];
+        }
+        
     }]];
     [saveDialogueAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         
     }]];
     
-    [self presentViewController:saveDialogueAlert animated:YES completion:nil];
-    
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:saveDialogueAlert animated:YES completion:nil];
+    });
+      
 
+}
+
+- (void)cantSaveAlert {
+    UIAlertController *cantSave = [UIAlertController alertControllerWithTitle:@"Unable to Save" message: @"Settings name is already in use"  preferredStyle:UIAlertControllerStyleAlert];
+    [cantSave addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:cantSave animated:YES completion:nil];
+
+
+    
 }
 
 
@@ -266,6 +281,8 @@ NSInteger ruleNumberOfSelection = -1;
                     ];
                     
 }
+
+
 
 
 

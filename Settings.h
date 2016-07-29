@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIColor+UIColorFromHex.h"
 #import "Constants.h"
 #import "AbstractAnt.h"
 #import "FourWayAnt.h"
@@ -56,6 +57,7 @@
 - (void)removeAnt:(NSInteger)index;
 - (void)modifyAnt:(NSInteger)index startRow:(NSInteger)startRow startCol:(NSInteger)startCol startDir:(NSInteger)startDir;
 - (void)saveCurrentSettings;
+- (BOOL)settingsNameIsAvailable:(NSString*)nameAttempt;
 
 // to be called from AppDelegate:
 - (void)buildPresets;
