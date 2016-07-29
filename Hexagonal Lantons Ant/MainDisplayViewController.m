@@ -35,7 +35,7 @@ Settings *settings;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self displayOrHideSettingsButton];
+    [self displayOrHideSettingsButtonAndLabel];
     
     settings = [Settings sharedInstance];
 //    [self rebuildGridCollectionIfNecessary];
@@ -78,7 +78,7 @@ Settings *settings;
 
 - (void)setCurrentState:(CurrentState)currentState {
     _currentState = currentState;
-    [self displayOrHideSettingsButton];
+    [self displayOrHideSettingsButtonAndLabel];
     if (currentState == ACTIVE) {
          [NSTimer scheduledTimerWithTimeInterval:[settings.speed floatValue]  target:self selector:@selector(update:) userInfo:nil repeats:YES];
     }
@@ -110,15 +110,19 @@ Settings *settings;
 }
 
 
-- (void)displayOrHideSettingsButton {
+- (void)displayOrHideSettingsButtonAndLabel {
     if (_currentState == ACTIVE) {
         _settingsButton.enabled = NO;
         _settingsButton.alpha = 0;
+        _countLabel.alpha = 0;
         
     } else {
         _settingsButton.enabled = YES;
         _settingsButton.alpha = 1.0;
         [self.view bringSubviewToFront:_settingsButton];
+        _countLabel.alpha = 1.0;
+        [self.view bringSubviewToFront:_countLabel];
+        _countLabel.text = [ NSString stringWithFormat:@"Count: %li",  settings.settingsGrid.count ];
     }
 }
 

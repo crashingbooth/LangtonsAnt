@@ -31,12 +31,20 @@
                                     <segue destination="SPu-D8-1X4" kind="show" id="DsP-lT-5Y3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utj-46-q94">
+                                <rect key="frame" x="279" y="559" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="S1D-mV-uAa" secondAttribute="trailing" constant="-10" id="FuE-Pm-cm1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Utj-46-q94" secondAttribute="bottom" constant="20" id="bvS-DX-SDM"/>
                             <constraint firstItem="S1D-mV-uAa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="qys-hR-pdt"/>
+                            <constraint firstItem="Utj-46-q94" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x16-aA-6eN"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Ums-ax-WBw" appends="YES" id="n1y-CA-jMh"/>
@@ -44,6 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YvO-dP-pk3"/>
                     <connections>
+                        <outlet property="countLabel" destination="Utj-46-q94" id="lqS-dq-lx2"/>
                         <outlet property="settingsButton" destination="S1D-mV-uAa" id="U8F-ew-2Lv"/>
                     </connections>
                 </viewController>
@@ -435,7 +444,7 @@
                                 <rect key="frame" x="0.0" y="776" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nwn-xP-0Ag" id="qrz-jQ-MFZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-gm-sEu" customClass="ColorSchemeInternalView">

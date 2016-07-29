@@ -15,6 +15,7 @@
 @implementation Grid : NSObject
 NSUInteger numRows;
 NSUInteger numCols;
+NSUInteger count;
 NSMutableArray *ants;
 NSMutableArray *matrix;
 NSArray *statesList;
@@ -28,6 +29,7 @@ NSArray *statesList;
         self.statesList = statesList;
         self.matrix = [[NSMutableArray alloc] init ];
         self.ants = [[NSMutableArray alloc] init ];
+        self.count = 0;
     }
     return self;
 }
@@ -81,6 +83,7 @@ NSArray *statesList;
         [changedPositions addObject:newPos];
         
     }
+    self.count += 1;
     return changedPositions;
     
     

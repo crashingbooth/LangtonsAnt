@@ -12,6 +12,7 @@
 @interface Grid : NSObject
 @property (nonatomic) NSUInteger numRows;
 @property (nonatomic) NSUInteger numCols;
+@property (nonatomic) NSUInteger count;
 @property (nonatomic, strong) NSMutableArray *matrix;
 @property (nonatomic, strong) NSArray *statesList;
 @property (nonatomic, strong) NSMutableArray *ants;
