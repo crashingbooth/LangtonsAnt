@@ -63,6 +63,8 @@ Settings *settings;
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
     }
+    _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
+    _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
 }
@@ -72,6 +74,10 @@ Settings *settings;
         [timer invalidate];
     } else {
          [gridColl updateViews];
+        /// HERER!!!
+//        if ([Settings sharedInstance].settingsGrid.count == 384 || [Settings sharedInstance].settingsGrid.count == 1211) {
+//            _currentState = PAUSED;
+//        }
     }
    
 }

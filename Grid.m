@@ -54,7 +54,18 @@ NSArray *statesList;
 }
 
 -(void)addAnt:(AbstractAnt*)ant {
-    // ant will keep track of its own location
+    // check that ant position is valid
+    if (ant.currentPos.col >= self.numCols) {
+        ant.currentPos.col = (self.numCols / 2) - 1;
+        NSLog(@"modified ant col");
+    }
+    
+    if (ant.currentPos.row >= self.numRows) {
+        ant.currentPos.row = (self.numRows / 2) - 1;
+        NSLog(@"modified ant row");
+    }
+
+    
     [self.ants addObject:ant ];
 }
 
