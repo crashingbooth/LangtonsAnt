@@ -80,9 +80,9 @@ Settings *settings;
     } else {
          [gridColl updateViews];
         /// HERER!!!
-//        if ([Settings sharedInstance].settingsGrid.count == 384 || [Settings sharedInstance].settingsGrid.count == 1211) {
-//            _currentState = PAUSED;
-//        }
+        if ([Settings sharedInstance].settingsGrid.count == 747 || [Settings sharedInstance].settingsGrid.count == 645) {
+            _currentState = PAUSED;
+        }
     }
    
 }
