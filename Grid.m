@@ -46,24 +46,9 @@ NSArray *statesList;
     }
 }
 
--(void)logMatrix {
-    for (NSMutableArray *row in self.matrix) {
-        NSLog([row componentsJoinedByString:@" "]);
-    
-    }
-}
 
 -(void)addAnt:(AbstractAnt*)ant {
-    // check that ant position is valid
-    if (ant.currentPos.col >= self.numCols) {
-        ant.currentPos.col = (self.numCols / 2) - 1;
-        NSLog(@"modified ant col");
-    }
-    
-    if (ant.currentPos.row >= self.numRows) {
-        ant.currentPos.row = (self.numRows / 2) - 1;
-        NSLog(@"modified ant row");
-    }
+    // check that ant position is valid done in Settings createGrid
 
     
     [self.ants addObject:ant ];

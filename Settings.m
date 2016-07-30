@@ -73,7 +73,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     }
     [self buildPresets];
 //     [self extractSettingsFromDict:self.presetDictionaries[@"symmetrical hexagon 4-state"]];
-     [self extractSettingsFromDict:self.presetDictionaries[[self randomStartingPreset]]];
+   //  [self extractSettingsFromDict:self.presetDictionaries[[self randomStartingPreset]]];
   
     return self;
 }
@@ -101,6 +101,12 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 
 - (void)establishLengthToWidthRatio:(CGFloat)width length:(CGFloat)length {
     self.lengthToWidthRatio = length / width;
+
+    if (self.numRowsInGrid != [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid]) {
+        self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
+        NSLog(@"mod num rows");
+        [self makeInitialAntsConform];
+    }
 }
 
 - (NSInteger)getAppropriateNumberOfRowsForScreen:(NSInteger)numCols {
@@ -122,7 +128,9 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     self.antType = [dict[antTypeKey] integerValue];
     self.statesListInGrid = dict[statesListKey];
     self.numColsInGrid = [dict[numColsKey] integerValue];
+    NSInteger tempRow = [dict[numRowsKey] integerValue];
     if (self.lengthToWidthRatio == 0) {
+        NSLog([NSString stringWithFormat:@"length ratio not set for %@", self.name ]);
          self.numRowsInGrid = [dict[numRowsKey] integerValue];
     } else {
         self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
@@ -161,23 +169,10 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     self.needToRebuild = YES;
 }
 - (void)recreateGrid {
-     self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
-    self.settingsGrid.ants  = [[NSMutableArray alloc] init];
+    self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
+    [self makeInitialAntsConform];
+    [self copyInitialAntsToSettingsGrid];
     
-    NSInteger numberOfAnts = self.antsInitialStatus.count;
-    for (int i = 0; i < numberOfAnts; i++) {
-        AbstractAnt *originalAnt = self.antsInitialStatus[i];
-        AbstractAnt *copyAnt = [originalAnt copyWithZone:nil];
-        if (self.numColsInGrid != originalAnt.maxCol) {
-            copyAnt.maxCol = self.numColsInGrid;
-            copyAnt.maxRow = self.numRowsInGrid;
-            copyAnt.currentPos.col = self.numColsInGrid / 2;
-            copyAnt.currentPos.row = (self.numRowsInGrid / (numberOfAnts + 1)) * (i + 1);
-        }
-        
-        [self.settingsGrid addAnt: copyAnt];
-
-    }
     NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterShortStyle];
@@ -186,8 +181,39 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     self.needToRebuild = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateRuleCell" object:self];
     
+}
+
+- (void)makeInitialAntsConform {
     
+    NSInteger numberOfAnts = self.antsInitialStatus.count;
+    NSMutableArray *newInitialAnts = [[NSMutableArray alloc] init];
+    for (int i = 0; i < numberOfAnts; i++) {
+        AbstractAnt *originalAnt = self.antsInitialStatus[i];
+        AbstractAnt *copyAnt = [originalAnt copyWithZone:nil];
+        if (self.numColsInGrid != originalAnt.maxCol || originalAnt.currentPos.col >= self.numColsInGrid) {
+            NSLog(@"modified ant position");
+            copyAnt.maxCol = self.numColsInGrid;
+            copyAnt.maxRow = self.numRowsInGrid;
+            copyAnt.currentPos.col = self.numColsInGrid / 2 - 1;
+            copyAnt.currentPos.row = (self.numRowsInGrid / (numberOfAnts + 1)) * (i + 1);
+        }
+        
+        [newInitialAnts addObject:copyAnt];
+        
+    }
+    self.antsInitialStatus = newInitialAnts;
+
+}
+
+- (void)copyInitialAntsToSettingsGrid {
+    self.settingsGrid.ants  = [[NSMutableArray alloc] init];
     
+    NSInteger numberOfAnts = self.antsInitialStatus.count;
+    for (int i = 0; i < numberOfAnts; i++) {
+        AbstractAnt *originalAnt = self.antsInitialStatus[i];
+        AbstractAnt *copyAnt = [originalAnt copyWithZone:nil];
+        [self.settingsGrid addAnt: copyAnt];
+    }
 }
 
 - (NSArray*)assignColorScheme:(NSInteger)colorIndex {
@@ -432,7 +458,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"horizontal gridmaker";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3,@1];
-    rows = 106;
+    rows = 300;
     cols = 80;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
@@ -589,7 +615,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"bender";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[ @0,@4,@3];
-    rows = 106;
+    rows = 200;
     cols = 80;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
@@ -610,7 +636,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"basic 8-way";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[@1,@-1];
-    rows = 106;
+    rows = 300;
     cols = 80;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
@@ -618,7 +644,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[shapeKey] = [NSNumber numberWithBool:YES];
     dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
-    startRows = @[@(rows / 4)];
+    startRows = @[@(rows / 2)];
     startCols = @[@(cols / 2)];
     startDirections = @[@0];
     dict[antStartRowsKey] = startRows;
@@ -631,7 +657,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"period 13";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[@2,@-2, @1,@-1] ;
-    rows = 106;
+    rows = 1000;
     cols = 80;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];

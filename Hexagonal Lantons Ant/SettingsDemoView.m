@@ -79,8 +79,8 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 
 - (void) reset {
     if (originalAnt != nil) {
-        NSMutableArray *newAnt = @[[originalAnt copyWithZone:nil]];
-        demo.settingsGrid.ants = newAnt;
+        NSArray *newAnt = @[[originalAnt copyWithZone:nil]];
+        demo.settingsGrid.ants = [newAnt mutableCopy];
     }
     [demo.settingsGrid buildZeroStateMatrix];
     [demoGrid cleanGrid];
@@ -92,7 +92,6 @@ static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
 
 - (void)cleanUp:(NSNotification*)msg {
     [myTimer invalidate];
-    NSLog(@"msg recievde");
     self.demo = nil;
     [self.demoGrid removeAllViews];
     self.demoGrid = nil;

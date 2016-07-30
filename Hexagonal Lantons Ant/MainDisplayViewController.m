@@ -62,6 +62,11 @@ Settings *settings;
     // use this ratio when choosing custom widths
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
+        [Settings sharedInstance].needToRebuild = YES;
+    }
+    if ([Settings sharedInstance].name == nil) {
+        NSLog(@"unset");
+        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
     }
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
@@ -128,7 +133,7 @@ Settings *settings;
         [self.view bringSubviewToFront:_settingsButton];
         _countLabel.alpha = 1.0;
         [self.view bringSubviewToFront:_countLabel];
-        _countLabel.text = [ NSString stringWithFormat:@"Count: %li",  settings.settingsGrid.count ];
+        _countLabel.text = [ NSString stringWithFormat:@"Count: %li (tap screen to restart)",  settings.settingsGrid.count ];
     }
 }
 

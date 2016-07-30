@@ -16,7 +16,7 @@
 
 @implementation LoadSettingsTVC
 NSMutableArray *demoViews;
-NSTimeInterval timeInterval = 0.1;
+NSTimeInterval timeInterval = 0.05;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

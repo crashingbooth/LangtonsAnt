@@ -58,6 +58,7 @@
 - (void)modifyAnt:(NSInteger)index startRow:(NSInteger)startRow startCol:(NSInteger)startCol startDir:(NSInteger)startDir;
 - (void)saveCurrentSettings;
 - (BOOL)settingsNameIsAvailable:(NSString*)nameAttempt;
+- (NSString*)randomStartingPreset;
 
 // to be called from AppDelegate:
 - (void)buildPresets;
