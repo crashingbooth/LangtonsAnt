@@ -58,7 +58,6 @@ NSArray *dirVals;
     // requires that antNumber has been set in ModifyAntTVC
 
     NSAssert(self.antNumber >= 0, @"set up before antNumber set");
-    Settings *temp = [Settings sharedInstance];
     _antNumberLabel.text = [NSString stringWithFormat:@"Ant: %ld", (long)self.antNumber + 1];
     
     AbstractAnt *ant = [Settings sharedInstance].antsInitialStatus[self.antNumber];

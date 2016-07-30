@@ -27,4 +27,17 @@ typedef NS_ENUM(NSInteger, AntType) {
 
 extern float loadSettingsBoxSize;
 
+extern NSString *const nameKey;
+extern NSString *const antTypeKey;
+extern NSString *const statesListKey; // Array of NSInteger
+extern NSString *const numRowsKey;
+extern NSString *const numColsKey;
+extern NSString *const speedKey;
+extern NSString *const numAntsKey;
+extern NSString *const shapeKey;
+extern NSString *const colorSchemeKey;
+extern NSString *const antDirectionKey; // Array of NSInteger
+extern NSString *const antStartRowsKey; // Array of NSInteger
+extern NSString *const antStartColsKey; // Array of NSInteger
+
 @end

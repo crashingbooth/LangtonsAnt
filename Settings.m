@@ -33,19 +33,6 @@ BOOL needToRebuild = NO;
 CGFloat lengthToWidthRatio;
 
 
-static NSString *const nameKey = @"name";
-static NSString *const antTypeKey = @"antType";
-static NSString *const statesListKey = @"statesList"; // Array of NSInteger
-static NSString *const numRowsKey = @"numRows";
-static NSString *const numColsKey = @"numCols";
-static NSString *const speedKey = @"speed";
-static NSString *const numAntsKey = @"numAnts";
-static NSString *const shapeKey = @"shape";
-static NSString *const colorSchemeKey = @"colorScheme";
-static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
-static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
-static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
-
 static NSString *const userDefaultsPresetNameKey = @"userDefaultsPresetName";
 static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 
@@ -124,13 +111,16 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 }
 
 - (void) extractSettingsFromDict: (NSDictionary*) dict {
+    // this must be called after length ratio is set
+    
     self.name =  dict[nameKey];
     self.antType = [dict[antTypeKey] integerValue];
     self.statesListInGrid = dict[statesListKey];
     self.numColsInGrid = [dict[numColsKey] integerValue];
-    NSInteger tempRow = [dict[numRowsKey] integerValue];
+    
+    // in case ratio is not set - shouldn't be called ... delete??
     if (self.lengthToWidthRatio == 0) {
-        NSLog([NSString stringWithFormat:@"length ratio not set for %@", self.name ]);
+        NSLog(@"length ratio not set for %@", self.name);
          self.numRowsInGrid = [dict[numRowsKey] integerValue];
     } else {
         self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
@@ -143,7 +133,20 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     NSMutableArray *newAnts = [[NSMutableArray alloc] init];
     for (int i = 0; i < numAnts; i++) {
         AbstractAnt *ant;
-        GridPoint *start = [[GridPoint alloc] initWithRow:[startRows[i] integerValue] andCol:[startCols[i] integerValue]];
+        
+        // negative startRow or startCol values are default
+        NSInteger startRow = [startRows[i] integerValue];
+        if (startRow < 0) {
+            startRow = ((self.numRowsInGrid / (numAnts + 1) ) * (i + i) - 1);
+        }
+        
+        NSInteger startCol = [startCols[i] integerValue];
+        if (startCol < 0) {
+            startCol = (self.numColsInGrid / 2) - 1;
+        }
+        
+        
+        GridPoint *start = [[GridPoint alloc] initWithRow:startRow andCol:startCol];
         if (self.antType == FOUR_WAY) {
             ant = [[FourWayAnt alloc] initWithDirection:[startDirections[i] integerValue] atPos:start maxRow:self.numRowsInGrid maxCol:self.numColsInGrid];
         } else if (self.antType == SIX_WAY) {

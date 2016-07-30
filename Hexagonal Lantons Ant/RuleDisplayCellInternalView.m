@@ -97,7 +97,7 @@ NSMutableArray *menuRuleDisplayViews;
 - (void)tapped:(UITapGestureRecognizer*)gesture {
     UIView* view = gesture.view;
     CGPoint loc = [gesture locationInView:view];
-    NSLog([NSString stringWithFormat:@"%f, %f", loc.x, loc.y]);
+    NSLog(@"%f, %f", loc.x, loc.y);
     
     
     for (RuleDisplayView *rsv in menuRuleDisplayViews) {

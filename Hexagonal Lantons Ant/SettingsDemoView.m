@@ -20,18 +20,6 @@ Settings *demo;
 NSTimer *myTimer;
 NSMutableDictionary *dict;
 
-static NSString *const nameKey = @"name";
-static NSString *const antTypeKey = @"antType";
-static NSString *const statesListKey = @"statesList"; // Array of NSInteger
-static NSString *const numRowsKey = @"numRows";
-static NSString *const numColsKey = @"numCols";
-static NSString *const speedKey = @"speed";
-static NSString *const colorSchemeKey = @"colorScheme";
-static NSString *const numAntsKey = @"numAnts";
-static NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
-static NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
-static NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
-
 - (void)setUpWithSettingsDict:(NSMutableDictionary*) originalDict{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cleanUp:) name:@"loadSettingsNeedsCleanUp" object:nil];
     
