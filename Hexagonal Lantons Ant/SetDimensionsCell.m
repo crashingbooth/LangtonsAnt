@@ -20,7 +20,7 @@ NSMutableArray *pickerData;
   
     pickerData = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i < 16; i++) {
+    for (int i = 1; i < 25; i++) {
         [pickerData addObject:[NSNumber numberWithInt:i * 10]];
         [self updateLabels];
     }
