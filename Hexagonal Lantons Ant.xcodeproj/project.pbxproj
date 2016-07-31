@@ -57,6 +57,7 @@
 		1FE896CB1D49A118004AE72E /* ColorSchemeInternalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CA1D49A118004AE72E /* ColorSchemeInternalView.m */; };
 		1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */; };
 		1FE896D21D4B0B6C004AE72E /* UIColor+UIColorFromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */; };
+		1FE896D51D4D9A0C004AE72E /* RotationAwareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,8 @@
 		1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemeTVC.m; sourceTree = "<group>"; };
 		1FE896D01D4B0B6C004AE72E /* UIColor+UIColorFromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColorFromHex.h"; sourceTree = "<group>"; };
 		1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColorFromHex.m"; sourceTree = "<group>"; };
+		1FE896D31D4D9A0C004AE72E /* RotationAwareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationAwareNavigationController.h; sourceTree = "<group>"; };
+		1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationAwareNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,8 @@
 		1F2AD9301D23A9C70020B06E = {
 			isa = PBXGroup;
 			children = (
+				1FE896D31D4D9A0C004AE72E /* RotationAwareNavigationController.h */,
+				1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */,
 				1F11D9BB1D38CBE400AEC27D /* Settings.h */,
 				1F11D9BC1D38CBE400AEC27D /* Settings.m */,
 				1FE896D01D4B0B6C004AE72E /* UIColor+UIColorFromHex.h */,
@@ -549,6 +554,7 @@
 				1F11D9D31D3CAB7300AEC27D /* SettingsDemoView.m in Sources */,
 				1FE896C51D488F6B004AE72E /* AddAntCell.m in Sources */,
 				1FE896B01D45DF21004AE72E /* SaveSettingsCell.m in Sources */,
+				1FE896D51D4D9A0C004AE72E /* RotationAwareNavigationController.m in Sources */,
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,

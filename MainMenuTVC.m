@@ -47,6 +47,10 @@ NSInteger ruleNumberOfSelection = -1;
     // to prevent default selection of row 0:
     selectionMade = NO;
 }
+- (BOOL) shouldAutorotate {
+    return YES;
+}
+
 
 - (void) receiveTestNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"PresentEditableVC"]) {

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Jeff Holtzkener. All rights reserved.
 //
 
+
 #import "MainDisplayViewController.h"
 #import "Settings.h"
 #import "AbstractGridCollection.h"
@@ -31,12 +32,16 @@ Grid *grid;
 AbstractGridCollection *gridColl;
 CGFloat gridWidth;
 Settings *settings;
+BOOL isPortrait;
 @synthesize currentState = _currentState;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self displayOrHideSettingsButtonAndLabel];
-    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(orientationChanged:)
+        name:UIDeviceOrientationDidChangeNotification
+        object:[UIDevice currentDevice]];
     settings = [Settings sharedInstance];
 //    [self rebuildGridCollectionIfNecessary];
 }
@@ -58,8 +63,24 @@ Settings *settings;
     
 }
 
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (BOOL) currentlyPortait{
+    return self.view.frame.size.height > self.view.frame.size.width;
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    NSInteger orient = [[UIDevice currentDevice] orientation];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     // use this ratio when choosing custom widths
+    self.isPortrait = [self currentlyPortait];
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
         [Settings sharedInstance].needToRebuild = YES;
@@ -73,6 +94,15 @@ Settings *settings;
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
 }
+
+
+- (void)orientationChanged:(NSNotification*) notificiation {
+    if (self.isPortrait != [self currentlyPortait]) {
+        NSLog(@"change");
+    }
+}
+
+
 
 - (void)update:(NSTimer*)timer {
     if (_currentState == PAUSED) {

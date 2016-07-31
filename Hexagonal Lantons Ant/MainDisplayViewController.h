@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, CurrentState) {
 };
 @property (nonatomic) CurrentState currentState;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (nonatomic) BOOL isPortrait;
 
 @end
 
