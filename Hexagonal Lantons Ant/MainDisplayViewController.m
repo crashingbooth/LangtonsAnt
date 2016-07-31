@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jeff Holtzkener. All rights reserved.
 //
 
-
+#import <CoreMotion/CoreMotion.h>
 #import "MainDisplayViewController.h"
 #import "Settings.h"
 #import "AbstractGridCollection.h"
@@ -32,11 +32,28 @@ Grid *grid;
 AbstractGridCollection *gridColl;
 CGFloat gridWidth;
 Settings *settings;
+CMMotionManager *uMM;
+NSNumber *actualDeviceOrientation;
 BOOL isPortrait;
+BOOL orientationLocked;
+
 @synthesize currentState = _currentState;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    uMM = [[CMMotionManager alloc] init];
+    uMM.accelerometerUpdateInterval = 0.2;
+    [uMM startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 [self outputAccelertionData:accelerometerData.acceleration];
+                                                 if(error){
+                                                     NSLog(@"%@", error);
+                                                 }
+                                             }];
+    
+    
+    
     [self displayOrHideSettingsButtonAndLabel];
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(orientationChanged:)
@@ -45,6 +62,37 @@ BOOL isPortrait;
     settings = [Settings sharedInstance];
 //    [self rebuildGridCollectionIfNecessary];
 }
+
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    if (fabsf(acceleration.y) < fabsf(acceleration.x)) {
+        // landscape
+        if (acceleration.x > 0) {
+            // right
+            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+        } else {
+            // left
+            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+        }
+    } else {
+        // portrait
+        if (acceleration.y > 0) {
+            // down
+            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+        } else {
+            // up
+            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+
+        }
+    }
+    NSLog(@"actual orientation %@", actualDeviceOrientation);
+    
+  
+  
+    
+}
+
+
 
 - (void)rebuildGridCollectionIfNecessary{
     if (settings.needToRebuild) {
@@ -64,7 +112,7 @@ BOOL isPortrait;
 }
 
 - (BOOL)shouldAutorotate {
-    return NO;
+    return !orientationLocked;
 }
 
 - (BOOL) currentlyPortait{
@@ -73,14 +121,15 @@ BOOL isPortrait;
 
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-    NSInteger orient = [[UIDevice currentDevice] orientation];
-    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+    orientationLocked = NO;
+    NSLog(@"actual orientation %@", actualDeviceOrientation);
+    [[UIDevice currentDevice] setValue:actualDeviceOrientation forKey:@"orientation"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     // use this ratio when choosing custom widths
     self.isPortrait = [self currentlyPortait];
+    orientationLocked = YES;
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
         [Settings sharedInstance].needToRebuild = YES;
