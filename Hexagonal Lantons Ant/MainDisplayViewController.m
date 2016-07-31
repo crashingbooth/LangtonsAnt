@@ -42,16 +42,16 @@ BOOL orientationLocked;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    uMM = [[CMMotionManager alloc] init];
-    uMM.accelerometerUpdateInterval = 0.2;
-    [uMM startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                 [self outputAccelertionData:accelerometerData.acceleration];
-                                                 if(error){
-                                                     NSLog(@"%@", error);
-                                                 }
-                                             }];
-    
+//    uMM = [[CMMotionManager alloc] init];
+//    uMM.accelerometerUpdateInterval = 0.2;
+//    [uMM startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+//                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+//                                                 [self outputAccelertionData:accelerometerData.acceleration];
+//                                                 if(error){
+//                                                     NSLog(@"%@", error);
+//                                                 }
+//                                             }];
+//    
     
     
     [self displayOrHideSettingsButtonAndLabel];
@@ -63,34 +63,34 @@ BOOL orientationLocked;
 //    [self rebuildGridCollectionIfNecessary];
 }
 
--(void)outputAccelertionData:(CMAcceleration)acceleration
-{
-    if (fabsf(acceleration.y) < fabsf(acceleration.x)) {
-        // landscape
-        if (acceleration.x > 0) {
-            // right
-            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-        } else {
-            // left
-            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
-        }
-    } else {
-        // portrait
-        if (acceleration.y > 0) {
-            // down
-            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
-        } else {
-            // up
-            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
-
-        }
-    }
-    NSLog(@"actual orientation %@", actualDeviceOrientation);
-    
-  
-  
-    
-}
+//-(void)outputAccelertionData:(CMAcceleration)acceleration
+//{
+//    if (fabsf(acceleration.y) < fabsf(acceleration.x)) {
+//        // landscape
+//        if (acceleration.x > 0) {
+//            // right
+//            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+//        } else {
+//            // left
+//            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+//        }
+//    } else {
+//        // portrait
+//        if (acceleration.y > 0) {
+//            // down
+//            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+//        } else {
+//            // up
+//            actualDeviceOrientation = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+//
+//        }
+//    }
+//    NSLog(@"actual orientation %@", actualDeviceOrientation);
+//    
+//  
+//  
+//    
+//}
 
 
 
@@ -111,20 +111,20 @@ BOOL orientationLocked;
     
 }
 
-- (BOOL)shouldAutorotate {
-    return !orientationLocked;
-}
+//- (BOOL)shouldAutorotate {
+//    return !orientationLocked;
+//}
 
 - (BOOL) currentlyPortait{
     return self.view.frame.size.height > self.view.frame.size.width;
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated {
-    orientationLocked = NO;
-    NSLog(@"actual orientation %@", actualDeviceOrientation);
-    [[UIDevice currentDevice] setValue:actualDeviceOrientation forKey:@"orientation"];
-}
+//- (void)viewWillDisappear:(BOOL)animated {
+//    orientationLocked = NO;
+//    NSLog(@"actual orientation %@", actualDeviceOrientation);
+//    [[UIDevice currentDevice] setValue:actualDeviceOrientation forKey:@"orientation"];
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     // use this ratio when choosing custom widths
