@@ -15,7 +15,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    _slider.maximumValue = 1.0;
+//    _slider.maximumValue = 15.8;
+//    _slider.minimumValue = 3.2;
+    _slider.maximumValue = 0.5;
     _slider.minimumValue = 0.02;
     _slider.value = [[Settings sharedInstance].speed floatValue];
     [self updateLabel];
@@ -41,13 +43,20 @@
 }
 
 - (IBAction)speedSliderChanged:(UISlider *)sender {
-//    float num = powf(4.0, _slider.value) / 15.0;
+    float raw = _slider.maximumValue - _slider.value +_slider.minimumValue;
+    
+    
+//    float converted = powf(raw, 2.0) * 0.002;
+    float converted = raw;
+    
+    NSLog(@"original: %f raw: %f, converted %f",_slider.value,raw, converted);
+//    float num = powf(4., _slider.value) / 15.0;
 //    num -= 0.05;
 //    if (num > 1.0) {
 //        num = 1.0;
 //    }
-    float num = _slider.value;
-    [Settings sharedInstance].speed = [NSNumber numberWithFloat:num];
+
+    [Settings sharedInstance].speed = [NSNumber numberWithFloat:converted];
     [self updateLabel];
 }
 
