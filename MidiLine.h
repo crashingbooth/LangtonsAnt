@@ -13,5 +13,8 @@
 @property (nonatomic) AVAudioUnitSampler *sampler;
 @property UInt8 gmMidiNumber;
 @property UInt8 channel;
+@property UInt8 rootNote;
+
+-(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum;
 
 @end

@@ -11,12 +11,11 @@
 #import "AbstractMusicLine.h"
 
 @interface MusicInterpretter : NSObject
-@property (nonatomic, strong) NSNumber *root;
 @property (nonatomic, strong) NSString *scaleName;
-@property (nonatomic, strong) AbstractMusicLine *midi;
-@property (nonatomic, strong) NSMutableArray *scaleList;
+@property (nonatomic, strong) AbstractMusicLine *musicLine;
+@property (nonatomic, strong) NSArray *scaleList;
 
--(id)initWithRootNote:(NSNumber*)root withScale:(NSString*)scaleName onChannel:(NSNumber*)channel withMidi:(MidiNote*)midi;
+-(id)initWithMusicLine:(AbstractMusicLine*)musicLine scale:(NSString*)scaleName;
 -(void)playNoteFromDirection:(NSUInteger)direction;
 
 @end

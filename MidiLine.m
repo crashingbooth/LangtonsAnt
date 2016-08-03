@@ -14,13 +14,15 @@ AVAudioEngine *engine;
 AVAudioUnitSampler *sampler;
 UInt8 gmMidiNumber;
 UInt8 channel;
+UInt8 rootNote;
 
 
--(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber channel:(NSNumber*)channelNum {
+-(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum{
     self = [super init];
     if (self) {
         self.gmMidiNumber = [gmMidiNumber integerValue];
         self.channel = [channelNum integerValue];
+        self.rootNote = root;
         [self setUp];
     }
     return self;
@@ -64,6 +66,7 @@ UInt8 channel;
 -(void)playNote:(NSNumber*)note {
     NSArray *info = @[note];
     UInt8 rawNote = (UInt8)[note integerValue];
+    rawNote += self.rootNote;
     [self.sampler startNote:rawNote withVelocity:127 onChannel:self.channel];
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(finishNote:) userInfo:info repeats:NO];
 }

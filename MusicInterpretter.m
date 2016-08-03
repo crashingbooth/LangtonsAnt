@@ -12,15 +12,14 @@
 @implementation MusicInterpretter
 NSNumber *root;
 NSString *scaleName;
-NSMutableArray *scaleDict;
--(id)initWithRootNote:(NSNumber*)root withScale:(NSString*)scaleName  withMidi:(AbstractMusicLine*)midi {
+NSArray *scaleList;
+-(id)initWithMusicLine:(AbstractMusicLine*)musicLine scale:(NSString*)scaleName {
     self = [super init];
     if (self) {
-        self.root = root;
         self.scaleName = scaleName;
-        self.scaleList = [[NSMutableArray alloc] init];
+        self.scaleList = [[NSArray alloc] init];
         [self initScaleList];
-        self.midi = midi;
+        self.musicLine = musicLine;
         
     }
     return self;
@@ -60,17 +59,13 @@ NSMutableArray *scaleDict;
         
     }
     
-    for (int i = 0; i < intervals.count; i++) {
-        NSInteger rawNote = [[intervals objectAtIndex:i] integerValue] + [self.root integerValue];
-        NSNumber *note = [NSNumber numberWithInt:rawNote];
-        
-        [self.scaleList addObject:note];
-    }
+    self.scaleList = intervals;
+   
 }
 
 -(void)playNoteFromDirection:(NSUInteger)direction {
-    NSNumber *note = [self.scaleList objectAtIndex:direction];
-    [self.midi playNote:note];
+    NSNumber *note = self.scaleList[direction];
+    [self.musicLine playNote:note];
 }
 
 

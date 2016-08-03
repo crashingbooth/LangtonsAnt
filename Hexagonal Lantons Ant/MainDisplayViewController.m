@@ -17,7 +17,8 @@
 #import "AbstractAnt.h"
 #import "FourWayAnt.h"
 #import "EightWayAnt.h"
-#import "MidiNote.h"
+#import "AbstractMusicLine.h"
+#import "MidiLine.h"
 #import "MusicInterpretter.h"
 #import "UIViewWithPath.h"
 
@@ -88,12 +89,26 @@ BOOL orientationLocked;
     }
     if ([Settings sharedInstance].name == nil) {
         NSLog(@"unset");
-        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
+//        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
+        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"period 13"]];
+        [Settings sharedInstance].speed = [NSNumber numberWithFloat: 0.2];
     }
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
+    [self tempAddMusic];
+}
+
+- (void) tempAddMusic {
+  
+    NSInteger numAnts = [Settings sharedInstance].settingsGrid.ants.count;
+    for (int i = 0; i < numAnts; i++) {
+        AbstractAnt *ant = [Settings sharedInstance].settingsGrid.ants[i];
+        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:@108 root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
+        MusicInterpretter *musInt = [[MusicInterpretter alloc] initWithMusicLine:midLin scale:@"stacked3rds"];
+        [ant addMusicInterpretter:musInt];
+    }
 }
 
 
