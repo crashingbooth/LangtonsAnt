@@ -64,9 +64,10 @@ UInt8 rootNote;
  
 }
 -(void)playNote:(NSNumber*)note {
-    NSArray *info = @[note];
+  
     UInt8 rawNote = (UInt8)[note integerValue];
     rawNote += self.rootNote;
+    NSArray *info = @[[NSNumber numberWithInteger:rawNote]];
     [self.sampler startNote:rawNote withVelocity:127 onChannel:self.channel];
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(finishNote:) userInfo:info repeats:NO];
 }

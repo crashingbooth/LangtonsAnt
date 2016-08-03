@@ -101,11 +101,11 @@ BOOL orientationLocked;
 }
 
 - (void) tempAddMusic {
-  
+    NSArray *voices = @[@20, @21];
     NSInteger numAnts = [Settings sharedInstance].settingsGrid.ants.count;
     for (int i = 0; i < numAnts; i++) {
         AbstractAnt *ant = [Settings sharedInstance].settingsGrid.ants[i];
-        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:@108 root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
+        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
         MusicInterpretter *musInt = [[MusicInterpretter alloc] initWithMusicLine:midLin scale:@"stacked3rds"];
         [ant addMusicInterpretter:musInt];
     }
