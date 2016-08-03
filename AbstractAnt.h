@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GridPoint.h"
-
 #import "MusicInterpretter.h"
 
 
@@ -19,9 +18,9 @@
 @property (nonatomic) NSUInteger maxRow;
 @property (nonatomic) NSUInteger maxCol;
 @property (nonatomic) NSUInteger NUM_DIR; // should be class
-@property (nonatomic) BOOL isMusical;
 @property (nonatomic) NSInteger direction;
 @property (nonatomic) NSInteger totalDir;
+@property (nonatomic) BOOL silent;
 @property (nonatomic, strong) MusicInterpretter *musInt;
 
 -(id)initWithPosition:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol;

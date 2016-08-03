@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSArray *rowVals;
 @property (nonatomic, copy) NSArray *dirVals;
 @property (weak, nonatomic) IBOutlet UIButton *removeButtonOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *musicButtonOutlet;
 
 - (void)setUp;
 @end

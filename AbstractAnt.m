@@ -7,6 +7,7 @@
 //
 
 #import "AbstractAnt.h"
+#import "Settings.h"
 
 @implementation AbstractAnt
 
@@ -16,7 +17,6 @@ NSUInteger maxCol;
 NSInteger direction;
 NSInteger totalDir;
 NSInteger NUM_DIR;
-BOOL isMusical;
 MusicInterpretter *musInt;
 
 
@@ -24,9 +24,9 @@ MusicInterpretter *musInt;
     self = [super init];
     if (self) {
         self.currentPos = currentPos;
-        self.isMusical = NO;
         self.maxRow = maxRow;
         self.maxCol = maxCol;
+        self.silent = NO;
     }
     return self;
 }
@@ -51,12 +51,9 @@ MusicInterpretter *musInt;
     } else {
         self.direction %= [[self class] NUM_DIR];
     }
-    if (self.isMusical) {
+    if ([Settings sharedInstance].musicIsOn && !self.silent) {
         [self.musInt playNoteFromDirection:self.direction];
     }
-//
-//
-//    NSLog([NSString stringWithFormat:@"dir: %li, %lu", self.totalDir, self.direction]);
 }
 
 -(GridPoint*)moveToNewPosition {
@@ -66,7 +63,6 @@ MusicInterpretter *musInt;
 }
 
 -(void)addMusicInterpretter:(MusicInterpretter*)musInt {
-    self.isMusical = YES;
     self.musInt = musInt;
 }
 

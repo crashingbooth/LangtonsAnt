@@ -27,7 +27,7 @@
 @property (nonatomic, strong) NSArray *colorList;
 @property (nonatomic, copy) NSArray *antsInitialStatus;
 @property (nonatomic) NSInteger numAnts;
-@property (nonatomic, strong) Grid *settingsGrid;
+@property (nonatomic) Grid *settingsGrid;
 @property (nonatomic) NSNumber *speed;
 @property (nonatomic) BOOL defaultShape;
 @property (nonatomic) NSInteger colorScheme;
@@ -67,6 +67,7 @@
 - (void)saveCurrentSettings;
 - (BOOL)settingsNameIsAvailable:(NSString*)nameAttempt;
 - (NSString*)randomStartingPreset;
+- (void) updateMusicStatusOfAnts;
 
 // to be called from AppDelegate:
 - (void)buildPresets;

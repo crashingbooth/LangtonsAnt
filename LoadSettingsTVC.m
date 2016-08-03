@@ -107,7 +107,7 @@ NSTimeInterval timeInterval = 0.05;
     
     // return directly to MainDisplayVC
     NSMutableArray *navigationArray = [[NSMutableArray alloc] initWithArray: self.navigationController.viewControllers];
-    [navigationArray removeObjectAtIndex: 1];  // You can pass your index here
+    [navigationArray removeObjectAtIndex: 1]; 
     self.navigationController.viewControllers = navigationArray;
     [self.navigationController popViewControllerAnimated:YES];
 }

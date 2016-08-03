@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "Settings.h"
 #import "ColorSchemeSelectCell.h"
+#import "MusicToggleCell.h"
 #import "SelectedRuleViewController.h"
 
 @interface MainMenuTVC ()
@@ -141,6 +142,12 @@ NSInteger ruleNumberOfSelection = -1;
             
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
             break;
+        case 9:
+            
+           cell = [tableView dequeueReusableCellWithIdentifier:@"MusicOnCell" forIndexPath:indexPath];
+ 
+            break;
+
             
         default:
             cell = [tableView dequeueReusableCellWithIdentifier:@"StandardCell" forIndexPath:indexPath];
@@ -222,6 +229,16 @@ NSInteger ruleNumberOfSelection = -1;
         case 7: // load settings
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
+        case 9: // toggle music
+            [Settings sharedInstance].musicIsOn = ![Settings sharedInstance].musicIsOn;
+            if ([Settings sharedInstance].musicIsOn) {
+                [[Settings sharedInstance] updateMusicStatusOfAnts];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"toggledMusic" object:nil];
+            [self.tableView reloadData];
+            
+            break;
+
             
         default:
             [tableView beginUpdates];
@@ -273,15 +290,17 @@ NSInteger ruleNumberOfSelection = -1;
 
 
 - (void)fillArrays {
-    cellLabels = @[ @"New Rules",       // 0
-                    @"Edit Rules",      // 1
-                    @"Dimensions",      // 2
-                    @"Cell Shape",      // 3
-                    @"Color Scheme",     // 4
-                    @"Add Ant",         // 5
-                    @"Save Settings",   // 6
-                    @"Load Settings",   // 7
-                    @"Speed"            // 8
+    cellLabels = @[ @"New Rules",           // 0
+                    @"Edit Rules",          // 1
+                    @"Dimensions",          // 2
+                    @"Cell Shape",          // 3
+                    @"Color Scheme",        // 4
+                    @"Add Ant",             // 5
+                    @"Save Settings",       // 6
+                    @"Load Settings",       // 7
+                    @"Speed",               // 8
+                    @"Music is on"          // 9
+//                    @"About Langton's Ant" // 10
                     ];
                     
 }

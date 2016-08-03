@@ -33,8 +33,13 @@ NSMutableDictionary *dict;
     self.dict[antStartRowsKey] = antStart;
     self.dict[antStartColsKey] = antStart;
     self.dict[numAntsKey] = @1;
+    self.dict[musicIsOnKey] = [NSNumber numberWithBool:NO];
+    
     
     [self.demo extractSettingsFromDict:self.dict];
+    for (AbstractAnt *ant in self.demo.settingsGrid.ants) {
+        ant.silent = YES;
+    }
     originalAnt = [self.demo.antsInitialStatus[0] copyWithZone:nil];
     widthOfShape = self.frame.size.width / [size floatValue];
     [self.demo.settingsGrid buildZeroStateMatrix];

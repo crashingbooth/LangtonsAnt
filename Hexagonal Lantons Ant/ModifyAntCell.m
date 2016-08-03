@@ -46,12 +46,19 @@ NSArray *dirVals;
     [_antPicker setUserInteractionEnabled:YES];
     [_removeButtonOutlet setAlpha:0.7];
     [_removeButtonOutlet setUserInteractionEnabled:YES];
+    if ([Settings sharedInstance].musicIsOn) {
+        [_musicButtonOutlet setUserInteractionEnabled:YES];
+        [_musicButtonOutlet setAlpha:0.6];
+    }
 }
 
 - (void)notSelectedBehaviour {
     [_antPicker setUserInteractionEnabled:NO];
     [_removeButtonOutlet setAlpha:0.0];
     [_removeButtonOutlet setUserInteractionEnabled:NO];
+    [_musicButtonOutlet setUserInteractionEnabled:NO];
+    [_musicButtonOutlet setAlpha:0.0];
+
 }
 
 - (void)setUp {
@@ -210,5 +217,9 @@ NSArray *dirVals;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"couldDeleteAnt" object:nil];  // to ModifyAntTVC
     }
 }
+- (IBAction)musicButton:(UIButton *)sender {
+    
+}
+
 
 @end
