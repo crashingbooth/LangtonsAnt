@@ -24,5 +24,12 @@ NSString *const colorSchemeKey = @"colorScheme";
 NSString *const antDirectionKey = @"antDirections"; // Array of NSInteger
 NSString *const antStartRowsKey = @"antStartRows"; // Array of NSInteger
 NSString *const antStartColsKey = @"antStartCows"; // Array of NSInteger
+NSString *const musicIsOnKey = @"musicIsOn";
+NSString *const musicLinePanArrayKey = @"musicLinePanArray";
+NSString *const midiVoiceArrayKey = @"musicVoiceArray";
+NSString *const musicVolArrayKey = @"musicLineVolArray";
+NSString *const musicScaleKey = @"musicScale";
+NSString *const musicTypeArrayKey = @"musicType";
+NSString *const musicRegisterArrayKey = @"musicArray";
 
 @end

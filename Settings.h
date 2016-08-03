@@ -32,6 +32,14 @@
 @property (nonatomic) BOOL defaultShape;
 @property (nonatomic) NSInteger colorScheme;
 
+@property (nonatomic) BOOL musicIsOn;
+@property (nonatomic) NSString *scaleName;
+@property (nonatomic) NSArray *musicTypeArray;
+@property (nonatomic) NSArray *midiVoiceArray;
+@property (nonatomic) NSArray *panArray;
+@property (nonatomic) NSArray *volArray;
+@property (nonatomic) NSArray *registerArray;
+
 @property (nonatomic) BOOL needToRebuild;
 @property (nonatomic) NSMutableArray *eightWayPresetNames;
 @property (nonatomic) NSMutableArray *sixWayPresetNames;

@@ -39,5 +39,12 @@ extern NSString *const colorSchemeKey;
 extern NSString *const antDirectionKey; // Array of NSInteger
 extern NSString *const antStartRowsKey; // Array of NSInteger
 extern NSString *const antStartColsKey; // Array of NSInteger
+extern NSString *const musicIsOnKey;
+extern NSString *const musicVolArrayKey;
+extern NSString *const midiVoiceArrayKey;
+extern NSString *const musicLinePanArrayKey;
+extern NSString *const musicScaleKey;
+extern NSString *const musicTypeArrayKey;
+extern NSString *const musicRegisterArrayKey;
 
 @end

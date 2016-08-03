@@ -98,32 +98,12 @@ BOOL orientationLocked;
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
-    [self tempAddMusic];
-}
-
-- (void) tempAddMusic {
-    NSArray *voices = @[@108, @108, @108, @108, @0];
-    NSInteger numAnts = [Settings sharedInstance].settingsGrid.ants.count;
-    
-    for (int i = 0; i < numAnts; i++) {
-        AbstractAnt *ant = [Settings sharedInstance].settingsGrid.ants[i];
-//        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
-        AbstractMusicLine *mLine;
-        MusicInterpretter *mInt;
-        if (i % 2 == 1 ) {
-            mLine = [[DrumLine alloc] init];
-            mInt = [[MusicInterpretter alloc] initWithMusicLine:mLine scale:@"drum1"];
-
-        } else {
-            NSInteger root = 48 + (i / 2) * 12;
-            mLine = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:root channel:[NSNumber numberWithInt:i / 2] pan:0];
-            mInt = [[MusicInterpretter alloc] initWithMusicLine:mLine scale:@"dorian"];
-            
-        }
-      
-        [ant addMusicInterpretter:mInt];
+    if ([Settings sharedInstance].musicIsOn) {
+        [Settings sharedInstance].speed = @0.2;
     }
 }
+
+
 
 
 - (void)orientationChanged:(NSNotification*) notificiation {

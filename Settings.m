@@ -7,6 +7,9 @@
 //
 
 #import "Settings.h"
+#import "MusicInterpretter.h"
+#import "DrumLine.h"
+#import "MidiLine.h"
 
 
 
@@ -168,11 +171,60 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
     
+    // MUSIC
+    self.musicIsOn = [dict[musicIsOnKey] boolValue];
+    self.musicTypeArray = dict[musicTypeArrayKey];
+    self.scaleName = dict[musicScaleKey];
+    self.panArray = dict[musicLinePanArrayKey];
+    self.volArray = dict[musicLinePanArrayKey];
+    self.registerArray = dict[musicRegisterArrayKey];
+    self.midiVoiceArray = dict[midiVoiceArrayKey];
+    
     for (AbstractAnt *ant in self.antsInitialStatus) {
         [self.settingsGrid addAnt: [ant copyWithZone:nil]];
     }
+    [self updateMusicStatusOfAnts];
     self.needToRebuild = YES;
 }
+
+- (void) updateMusicStatusOfAnts {
+    NSInteger numAnts = self.settingsGrid.ants.count;
+    NSString *scale = self.scaleName;
+    for (int i = 0; i < numAnts; i++) {
+        MusicInterpretter *musInt;
+        AbstractMusicLine *line;
+        
+        BOOL isMelodic = [self.musicTypeArray[i] boolValue];
+        if (isMelodic) {
+            if (scale) {
+                NSNumber *voice = self.midiVoiceArray[i];
+                if (!voice) {
+                    NSLog(@"failed to get voice set to 0");
+                }
+                NSInteger root = [self.registerArray[i] integerValue] * 12 + 48;
+                
+                float pan = [self.panArray[i] floatValue];
+                line = [[MidiLine alloc] initWithGMMidiNumber:voice root:root channel:[NSNumber numberWithInt:i] pan:pan];
+                musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:scale];
+            } else {
+                 NSLog(@"somehow failed to create melodicAnt, made drums");
+                line = [[DrumLine alloc] init];
+                musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
+            }
+        } else {
+             NSLog(@"made drums");
+            line = [[DrumLine alloc] init];
+             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
+        }
+        
+        
+        
+               [self.settingsGrid.ants[i] addMusicInterpretter:musInt];
+    }
+}
+
+
+
 - (void)recreateGrid {
     self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
     [self makeInitialAntsConform];
@@ -680,6 +732,13 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
+    dict[musicIsOnKey] = [NSNumber numberWithBool:YES];
+    dict[musicScaleKey] = @"stacked3rds";
+    dict[musicTypeArrayKey] = @[@NO, @NO];
+    dict[musicLinePanArrayKey] = @[@-1, @1];
+    dict[musicVolArrayKey] = @[@1, @1];
+    dict[musicRegisterArrayKey] = @[@0, @1];
+    dict[midiVoiceArrayKey] = @[@108,@108];
     
     [self addPresetDictToPresetStorage:dict];
     
@@ -722,6 +781,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
+    
     
     [self addPresetDictToPresetStorage:dict];
 
