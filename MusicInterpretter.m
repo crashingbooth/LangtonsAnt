@@ -35,6 +35,7 @@ NSArray *scaleList;
     NSArray *lydian = @[@0, @2, @4, @6, @7, @9, @11, @12];
     NSArray *mixolydian = @[@0, @2, @4, @5, @7, @9, @10, @12];
     NSArray *iwato = @[@0, @1, @4, @5, @10, @12, @13, @16];
+    NSArray *drum1 = @[@0,@1, @2, @3, @4, @5,@6, @7];
     
     NSArray *intervals;
     
@@ -56,6 +57,9 @@ NSArray *scaleList;
         intervals = hepta;
     }  else if ([self.scaleName isEqualToString:@"stacked3rds"]) {
         intervals = stacked3rds;
+    }   else if ([self.scaleName isEqualToString:@"drum1"]) {
+            intervals = drum1;
+
         
     }
     

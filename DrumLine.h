@@ -7,7 +7,9 @@
 //
 
 #import "AbstractMusicLine.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface DrumLine : AbstractMusicLine
-
+@property (nonatomic) NSMutableArray *drumPlayerArray;
+- (instancetype) init;
 @end

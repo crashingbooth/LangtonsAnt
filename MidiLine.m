@@ -17,12 +17,13 @@ UInt8 channel;
 UInt8 rootNote;
 
 
--(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum{
+-(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum pan:(float)pan {
     self = [super init];
     if (self) {
         self.gmMidiNumber = [gmMidiNumber integerValue];
         self.channel = [channelNum integerValue];
         self.rootNote = root;
+        self.pan = pan;
         [self setUp];
     }
     return self;
@@ -61,6 +62,7 @@ UInt8 rootNote;
                                        bankLSB:kAUSampler_DefaultBankLSB
                                          error:&err];
     
+    [self.sampler setStereoPan:self.pan];
  
 }
 -(void)playNote:(NSNumber*)note {

@@ -19,6 +19,7 @@
 #import "EightWayAnt.h"
 #import "AbstractMusicLine.h"
 #import "MidiLine.h"
+#import "DrumLine.h"
 #import "MusicInterpretter.h"
 #import "UIViewWithPath.h"
 
@@ -101,13 +102,26 @@ BOOL orientationLocked;
 }
 
 - (void) tempAddMusic {
-    NSArray *voices = @[@20, @21];
+    NSArray *voices = @[@108, @108, @108, @108, @0];
     NSInteger numAnts = [Settings sharedInstance].settingsGrid.ants.count;
+    
     for (int i = 0; i < numAnts; i++) {
         AbstractAnt *ant = [Settings sharedInstance].settingsGrid.ants[i];
-        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
-        MusicInterpretter *musInt = [[MusicInterpretter alloc] initWithMusicLine:midLin scale:@"stacked3rds"];
-        [ant addMusicInterpretter:musInt];
+//        MidiLine *midLin = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:48 + (i * 12) channel:[NSNumber numberWithInt:i]];
+        AbstractMusicLine *mLine;
+        MusicInterpretter *mInt;
+        if (i % 2 == 1 ) {
+            mLine = [[DrumLine alloc] init];
+            mInt = [[MusicInterpretter alloc] initWithMusicLine:mLine scale:@"drum1"];
+
+        } else {
+            NSInteger root = 48 + (i / 2) * 12;
+            mLine = [[MidiLine alloc] initWithGMMidiNumber:voices[i] root:root channel:[NSNumber numberWithInt:i / 2] pan:0];
+            mInt = [[MusicInterpretter alloc] initWithMusicLine:mLine scale:@"dorian"];
+            
+        }
+      
+        [ant addMusicInterpretter:mInt];
     }
 }
 

@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface AbstractMusicLine : NSObject
+@property (nonatomic) float pan;
 -(void)playNote:(NSNumber*)note;
 @end
