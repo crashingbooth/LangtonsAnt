@@ -31,6 +31,9 @@
 		1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DAF431D336E76000D898A /* SquareGridCollection.m */; };
 		1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DAF461D337259000D898A /* HexagonGridColection.m */; };
 		1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2DAF491D3375DC000D898A /* UIViewWithPath.m */; };
+		1F35C4921D51707B003E9F6F /* AbstractMusicLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4911D51707B003E9F6F /* AbstractMusicLine.m */; };
+		1F35C4951D5170A4003E9F6F /* MidiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4941D5170A4003E9F6F /* MidiLine.m */; };
+		1F35C4981D5170BC003E9F6F /* DrumLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4971D5170BC003E9F6F /* DrumLine.m */; };
 		1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 1F40BCD41D27947600B303E0 /* Tim.sf2 */; };
 		1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */; };
 		1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */; };
@@ -118,6 +121,12 @@
 		1F2DAF461D337259000D898A /* HexagonGridColection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonGridColection.m; sourceTree = "<group>"; };
 		1F2DAF481D3375DC000D898A /* UIViewWithPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewWithPath.h; sourceTree = "<group>"; };
 		1F2DAF491D3375DC000D898A /* UIViewWithPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewWithPath.m; sourceTree = "<group>"; };
+		1F35C4901D51707B003E9F6F /* AbstractMusicLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractMusicLine.h; sourceTree = "<group>"; };
+		1F35C4911D51707B003E9F6F /* AbstractMusicLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractMusicLine.m; sourceTree = "<group>"; };
+		1F35C4931D5170A4003E9F6F /* MidiLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiLine.h; sourceTree = "<group>"; };
+		1F35C4941D5170A4003E9F6F /* MidiLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiLine.m; sourceTree = "<group>"; };
+		1F35C4961D5170BC003E9F6F /* DrumLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrumLine.h; sourceTree = "<group>"; };
+		1F35C4971D5170BC003E9F6F /* DrumLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrumLine.m; sourceTree = "<group>"; };
 		1F40BCD41D27947600B303E0 /* Tim.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tim.sf2; sourceTree = "<group>"; };
 		1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInterpretter.h; sourceTree = "<group>"; };
 		1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInterpretter.m; sourceTree = "<group>"; };
@@ -327,6 +336,12 @@
 			children = (
 				1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */,
 				1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */,
+				1F35C4901D51707B003E9F6F /* AbstractMusicLine.h */,
+				1F35C4911D51707B003E9F6F /* AbstractMusicLine.m */,
+				1F35C4931D5170A4003E9F6F /* MidiLine.h */,
+				1F35C4941D5170A4003E9F6F /* MidiLine.m */,
+				1F35C4961D5170BC003E9F6F /* DrumLine.h */,
+				1F35C4971D5170BC003E9F6F /* DrumLine.m */,
 				1F40BCD41D27947600B303E0 /* Tim.sf2 */,
 				1FDBD3EE1D2786A2008665FA /* MidiNote.h */,
 				1FDBD3EF1D2786A2008665FA /* MidiNote.m */,
@@ -515,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */,
+				1F35C4981D5170BC003E9F6F /* DrumLine.m in Sources */,
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
@@ -546,6 +562,7 @@
 				1FE896C81D49A0FD004AE72E /* ColorSchemeSelectCell.m in Sources */,
 				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
 				1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */,
+				1F35C4951D5170A4003E9F6F /* MidiLine.m in Sources */,
 				1FE896B31D45E214004AE72E /* EditSettingsCell.m in Sources */,
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
@@ -557,6 +574,7 @@
 				1FE896D51D4D9A0C004AE72E /* RotationAwareNavigationController.m in Sources */,
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
+				1F35C4921D51707B003E9F6F /* AbstractMusicLine.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
 				1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */,
 				1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */,

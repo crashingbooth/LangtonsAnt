@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MidiNote.h"
+#import "AbstractMusicLine.h"
 
 @interface MusicInterpretter : NSObject
 @property (nonatomic, strong) NSNumber *root;
-@property (nonatomic, strong) NSNumber *channel;
 @property (nonatomic, strong) NSString *scaleName;
-@property (nonatomic, strong) MidiNote *midi;
+@property (nonatomic, strong) AbstractMusicLine *midi;
 @property (nonatomic, strong) NSMutableArray *scaleList;
 
 -(id)initWithRootNote:(NSNumber*)root withScale:(NSString*)scaleName onChannel:(NSNumber*)channel withMidi:(MidiNote*)midi;
