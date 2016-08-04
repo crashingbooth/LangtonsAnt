@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MusicOptions.h"
 
-@interface MusicToggleCell : UITableViewCell
+@interface MusicToggleCell :UITableViewCell <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *musicOn;
 @property (weak, nonatomic) IBOutlet UILabel *musicOnDetail;
+@property (weak, nonatomic) IBOutlet UIPickerView *scalePicker;
+@property (weak, nonatomic) IBOutlet UISwitch *musicOnSwitch;
 
 @end

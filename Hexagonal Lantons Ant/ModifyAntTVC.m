@@ -10,6 +10,7 @@
 #import "Settings.h"
 #import "ModifyAntCell.h"
 #import "AddAntCell.h"
+#import "MusicPropertiesVC.h"
 
 @interface ModifyAntTVC ()
 
@@ -18,11 +19,13 @@
 
 @implementation ModifyAntTVC
 BOOL selectionMadeInModAnt = NO;
+NSInteger selectedAntNum;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"antDeleted" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"couldDeleteAnt" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"openMusicProperties" object:nil];
 
 }
 
@@ -127,6 +130,17 @@ BOOL selectionMadeInModAnt = NO;
         
         [self presentViewController:alert animated:YES completion:nil];
     
+    } else if ([notification.name isEqualToString:@"openMusicProperties"]) {
+        NSDictionary *userInfo = notification.userInfo;
+        selectedAntNum = [userInfo[@"antNumberKey"] integerValue];
+        [self performSegueWithIdentifier:@"toMusicPropertiesVC" sender:self];
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toMusicPropertiesVC"]) {
+        MusicPropertiesVC *mpVC = segue.destinationViewController;
+        
     }
 }
 

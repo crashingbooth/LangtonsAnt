@@ -56,6 +56,9 @@
 		1F35C4C01D5186D4003E9F6F /* snare_03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F35C4BD1D5186D4003E9F6F /* snare_03.wav */; };
 		1F35C4C31D51BAE6003E9F6F /* MusicToggleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4C21D51BAE6003E9F6F /* MusicToggleCell.m */; };
 		1F35C4C61D51C46D003E9F6F /* ModifyMusicalAnt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4C51D51C46D003E9F6F /* ModifyMusicalAnt.m */; };
+		1F35C4C91D51ED08003E9F6F /* MusicPropertiesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */; };
+		1F35C4CC1D51ED26003E9F6F /* MusicPropertiesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */; };
+		1F35C4D11D52BE2B003E9F6F /* MusicOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35C4D01D52BE2B003E9F6F /* MusicOptions.m */; };
 		1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 1F40BCD41D27947600B303E0 /* Tim.sf2 */; };
 		1F40BCD81D2798C800B303E0 /* MusicInterpretter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */; };
 		1F6EB2F51D3EF6D700C294B3 /* RuleDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */; };
@@ -173,6 +176,12 @@
 		1F35C4C21D51BAE6003E9F6F /* MusicToggleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicToggleCell.m; sourceTree = "<group>"; };
 		1F35C4C41D51C46D003E9F6F /* ModifyMusicalAnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyMusicalAnt.h; path = "Hexagonal Lantons Ant/ModifyMusicalAnt.h"; sourceTree = "<group>"; };
 		1F35C4C51D51C46D003E9F6F /* ModifyMusicalAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyMusicalAnt.m; path = "Hexagonal Lantons Ant/ModifyMusicalAnt.m"; sourceTree = "<group>"; };
+		1F35C4C71D51ED08003E9F6F /* MusicPropertiesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPropertiesVC.h; sourceTree = "<group>"; };
+		1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPropertiesVC.m; sourceTree = "<group>"; };
+		1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPropertiesView.h; sourceTree = "<group>"; };
+		1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPropertiesView.m; sourceTree = "<group>"; };
+		1F35C4CF1D52BE2B003E9F6F /* MusicOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicOptions.h; sourceTree = "<group>"; };
+		1F35C4D01D52BE2B003E9F6F /* MusicOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicOptions.m; sourceTree = "<group>"; };
 		1F40BCD41D27947600B303E0 /* Tim.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tim.sf2; sourceTree = "<group>"; };
 		1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicInterpretter.h; sourceTree = "<group>"; };
 		1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicInterpretter.m; sourceTree = "<group>"; };
@@ -257,6 +266,10 @@
 				1F6EB2F41D3EF6D700C294B3 /* RuleDisplayView.m */,
 				1F93F0341D42CD5000D018B9 /* SelectedRuleViewController.h */,
 				1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */,
+				1F35C4C71D51ED08003E9F6F /* MusicPropertiesVC.h */,
+				1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */,
+				1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */,
+				1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -413,6 +426,8 @@
 				1F40BCD41D27947600B303E0 /* Tim.sf2 */,
 				1FDBD3EE1D2786A2008665FA /* MidiNote.h */,
 				1FDBD3EF1D2786A2008665FA /* MidiNote.m */,
+				1F35C4CF1D52BE2B003E9F6F /* MusicOptions.h */,
+				1F35C4D01D52BE2B003E9F6F /* MusicOptions.m */,
 			);
 			name = "Music and MIDI";
 			sourceTree = "<group>";
@@ -624,6 +639,7 @@
 				1F11D9BA1D33BD1300AEC27D /* EightWayAnt.m in Sources */,
 				1FE896B61D46C279004AE72E /* RuleDisplayCellInternalView.m in Sources */,
 				1F2DAF471D337259000D898A /* HexagonGridColection.m in Sources */,
+				1F35C4C91D51ED08003E9F6F /* MusicPropertiesVC.m in Sources */,
 				1FE896CB1D49A118004AE72E /* ColorSchemeInternalView.m in Sources */,
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
 				1FE896BE1D484757004AE72E /* ModifyAntTVC.m in Sources */,
@@ -649,6 +665,7 @@
 				1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */,
 				1F8CDAA81D2A2E3D00AE4D32 /* FourWayAnt.m in Sources */,
 				1F6EB3221D409A0F00C294B3 /* RuleDisplayVC.m in Sources */,
+				1F35C4CC1D51ED26003E9F6F /* MusicPropertiesView.m in Sources */,
 				1FE896B91D4824A2004AE72E /* ShapeCell.m in Sources */,
 				1FE896C81D49A0FD004AE72E /* ColorSchemeSelectCell.m in Sources */,
 				1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */,
@@ -667,6 +684,7 @@
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F35C4921D51707B003E9F6F /* AbstractMusicLine.m in Sources */,
+				1F35C4D11D52BE2B003E9F6F /* MusicOptions.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
 				1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */,
 				1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */,

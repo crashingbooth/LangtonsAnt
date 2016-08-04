@@ -218,6 +218,9 @@ NSArray *dirVals;
     }
 }
 - (IBAction)musicButton:(UIButton *)sender {
+    // sending to ModifyAntTVC
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInteger:self.antNumber],  @"antNumberKey",nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openMusicProperties" object:nil userInfo:userInfo];
     
 }
 

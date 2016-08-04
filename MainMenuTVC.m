@@ -191,6 +191,13 @@ NSInteger ruleNumberOfSelection = -1;
                 return 44;
             }
             break;
+        case 9:
+            if (selectedIndexPath.row == 9) {
+                return 88;
+            } else {
+                return 44;
+            }
+            break;
             
         default:
             return 44;
@@ -230,14 +237,10 @@ NSInteger ruleNumberOfSelection = -1;
             [self performSegueWithIdentifier:@"toLoadSettingsTVC" sender:self];
             break;
         case 9: // toggle music
-            [Settings sharedInstance].musicIsOn = ![Settings sharedInstance].musicIsOn;
-            if ([Settings sharedInstance].musicIsOn) {
-                [[Settings sharedInstance] updateMusicStatusOfAnts];
-            }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"toggledMusic" object:nil];
-            [self.tableView reloadData];
-            
+            [tableView beginUpdates];
+            [tableView endUpdates];
             break;
+
 
             
         default:

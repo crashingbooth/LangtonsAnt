@@ -214,8 +214,8 @@
                                                 <action selector="addRuleButton:" destination="au5-PW-1HZ" eventType="touchUpInside" id="mSp-Td-FsT"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-xJ-Oz3" customClass="RuleDisplayCellInternalView">
-                                            <rect key="frame" x="8" y="8" width="554" height="63.5"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-xJ-Oz3" customClass="RuleDisplayCellInternalView">
+                                            <rect key="frame" x="8" y="9" width="554" height="63.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
@@ -478,8 +478,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Music:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-OE-g4w">
-                                            <rect key="frame" x="51" y="8" width="42" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr4-OE-g4w">
+                                            <rect key="frame" x="8" y="8" width="42" height="19"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -490,17 +490,34 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WV3-Jr-n3N">
+                                            <rect key="frame" x="150" y="0.0" width="300" height="79.5"/>
+                                        </pickerView>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKq-Zi-aqz">
+                                            <rect key="frame" x="543" y="24" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchToggled:" destination="HBO-QX-0eJ" eventType="valueChanged" id="oJ8-4Q-CEb"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="TKq-Zi-aqz" firstAttribute="centerY" secondItem="gUD-5M-DIZ" secondAttribute="centerY" id="84a-zb-w9a"/>
+                                        <constraint firstItem="WV3-Jr-n3N" firstAttribute="width" secondItem="gUD-5M-DIZ" secondAttribute="width" multiplier="0.5" id="Dvs-Hl-nsf"/>
                                         <constraint firstAttribute="topMargin" secondItem="Hr4-OE-g4w" secondAttribute="top" id="Kri-li-8vy"/>
+                                        <constraint firstItem="WV3-Jr-n3N" firstAttribute="height" secondItem="gUD-5M-DIZ" secondAttribute="height" id="Lhg-h0-EWx"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="Hr4-OE-g4w" secondAttribute="leading" id="NJW-Y1-S3h"/>
+                                        <constraint firstItem="WV3-Jr-n3N" firstAttribute="centerX" secondItem="gUD-5M-DIZ" secondAttribute="centerX" id="SOW-Uh-fl5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TKq-Zi-aqz" secondAttribute="trailing" id="T2a-HQ-KJp"/>
                                         <constraint firstItem="tXD-Lb-iBz" firstAttribute="leading" secondItem="gUD-5M-DIZ" secondAttribute="leadingMargin" constant="42" id="Tta-5K-uF1"/>
+                                        <constraint firstItem="WV3-Jr-n3N" firstAttribute="centerY" secondItem="gUD-5M-DIZ" secondAttribute="centerY" id="z3n-cx-JYZ"/>
                                         <constraint firstItem="tXD-Lb-iBz" firstAttribute="top" secondItem="Hr4-OE-g4w" secondAttribute="bottom" constant="3" id="zzK-W1-00S"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="musicOn" destination="Hr4-OE-g4w" id="b0d-ue-Lx0"/>
                                     <outlet property="musicOnDetail" destination="tXD-Lb-iBz" id="Z7p-4J-Lof"/>
+                                    <outlet property="musicOnSwitch" destination="TKq-Zi-aqz" id="eln-3s-tsl"/>
+                                    <outlet property="scalePicker" destination="WV3-Jr-n3N" id="pU1-gB-b9d"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="pdt-QG-VWV" customClass="LoadSettingsMenuCell">
@@ -860,10 +877,43 @@
                             <outlet property="delegate" destination="4I2-Qu-ikb" id="eud-uN-RB7"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="NzY-ge-AAf" kind="show" identifier="toMusicPropertiesVC" id="pl4-77-9aS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-bf-6oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1904" y="1188"/>
+        </scene>
+        <!--Music PropertiesVC-->
+        <scene sceneID="CIx-RE-Wec">
+            <objects>
+                <viewController id="NzY-ge-AAf" customClass="MusicPropertiesVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5dx-0F-zvB"/>
+                        <viewControllerLayoutGuide type="bottom" id="So1-gv-7B6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s8g-X6-DN1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9q6-3q-7bC" customClass="MusicPropertiesView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="9q6-3q-7bC" secondAttribute="trailing" constant="-20" id="72d-hM-b2p"/>
+                            <constraint firstItem="9q6-3q-7bC" firstAttribute="top" secondItem="s8g-X6-DN1" secondAttribute="topMargin" id="BIC-FY-zJt"/>
+                            <constraint firstItem="So1-gv-7B6" firstAttribute="top" secondItem="9q6-3q-7bC" secondAttribute="bottom" id="sUQ-Ue-GQc"/>
+                            <constraint firstItem="9q6-3q-7bC" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-20" id="wvp-YX-dmL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRA-Gu-Fgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904" y="1989"/>
         </scene>
     </scenes>
     <resources>
