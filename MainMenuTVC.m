@@ -139,14 +139,15 @@ NSInteger ruleNumberOfSelection = -1;
             cell = [tableView dequeueReusableCellWithIdentifier:@"LoadSettingsMenuCell" forIndexPath:indexPath];
             break;
         case 8:
-            
             cell = [tableView dequeueReusableCellWithIdentifier:@"SpeedCell" forIndexPath:indexPath];
             break;
         case 9:
-            
            cell = [tableView dequeueReusableCellWithIdentifier:@"MusicOnCell" forIndexPath:indexPath];
- 
             break;
+        case 10:
+            cell = [tableView dequeueReusableCellWithIdentifier:@"aboutLangton" forIndexPath:indexPath];
+            break;
+
 
             
         default:
@@ -214,15 +215,10 @@ NSInteger ruleNumberOfSelection = -1;
             [tableView endUpdates];
             break;
         case 1: // edit Setting
-//            [self performSegueWithIdentifier:@"toRuleSelectVC" sender:self];
             stillEditingRules = YES;
             [tableView beginUpdates];
             [tableView endUpdates];
             break;
-//        case 2:
-//            [tableView beginUpdates];
-//            [tableView endUpdates];
-//            break;
         case 4: // add ant
             [self performSegueWithIdentifier:@"toColorSchemeTVC" sender:self];
             break;
@@ -239,6 +235,9 @@ NSInteger ruleNumberOfSelection = -1;
         case 9: // toggle music
             [tableView beginUpdates];
             [tableView endUpdates];
+            break;
+        case 10: // about Langton's Ant
+            [self performSegueWithIdentifier:@"toAboutLangtonVC1" sender:self];
             break;
 
             
@@ -301,31 +300,13 @@ NSInteger ruleNumberOfSelection = -1;
                     @"Save Settings",       // 6
                     @"Load Settings",       // 7
                     @"Speed",               // 8
-                    @"Music is on"          // 9
-//                    @"About Langton's Ant" // 10
+                    @"Music is on",         // 9
+                    @"About Langton's Ant" // 10
                     ];
                     
 }
 
 
 
-
-
-
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

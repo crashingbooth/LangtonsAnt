@@ -70,6 +70,7 @@
 		1F93F0391D444FD900D018B9 /* SetDimensionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F0381D444FD900D018B9 /* SetDimensionsCell.m */; };
 		1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */; };
 		1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03E1D45B04900D018B9 /* NewRulesCell.m */; };
+		1F9AD0861D5458CF002184AF /* AboutLangtonVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 		1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896A91D45D70F004AE72E /* BasicCell.m */; };
@@ -203,6 +204,8 @@
 		1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleDisplayCell.m; sourceTree = "<group>"; };
 		1F93F03D1D45B04900D018B9 /* NewRulesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRulesCell.h; sourceTree = "<group>"; };
 		1F93F03E1D45B04900D018B9 /* NewRulesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRulesCell.m; sourceTree = "<group>"; };
+		1F9AD0841D5458CF002184AF /* AboutLangtonVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLangtonVC1.h; sourceTree = "<group>"; };
+		1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLangtonVC1.m; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */,
 				1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */,
 				1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */,
+				1F9AD0841D5458CF002184AF /* AboutLangtonVC1.h */,
+				1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -644,6 +649,7 @@
 				1F11D9BD1D38CBE400AEC27D /* Settings.m in Sources */,
 				1FE896BE1D484757004AE72E /* ModifyAntTVC.m in Sources */,
 				1F11D9C61D3A1AE300AEC27D /* MainMenuTVC.m in Sources */,
+				1F9AD0861D5458CF002184AF /* AboutLangtonVC1.m in Sources */,
 				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
 				1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */,

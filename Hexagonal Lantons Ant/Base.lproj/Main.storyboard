@@ -65,6 +65,24 @@
             </objects>
             <point key="canvasLocation" x="1173" y="314"/>
         </scene>
+        <!--About LangtonVC1-->
+        <scene sceneID="Grd-Db-fC2">
+            <objects>
+                <viewController id="jvl-Fh-0H3" customClass="AboutLangtonVC1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xfg-uE-FSh"/>
+                        <viewControllerLayoutGuide type="bottom" id="bRU-PA-xKo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xpO-Za-Vxl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEX-yM-YeJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2692" y="-1129"/>
+        </scene>
         <!--Main MenuTVC-->
         <scene sceneID="MDl-Ej-fRq">
             <objects>
@@ -520,7 +538,7 @@
                                     <outlet property="scalePicker" destination="WV3-Jr-n3N" id="pU1-gB-b9d"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="pdt-QG-VWV" customClass="LoadSettingsMenuCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutLangton" rowHeight="80" id="pdt-QG-VWV" customClass="LoadSettingsCell">
                                 <rect key="frame" x="0.0" y="936" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdt-QG-VWV" id="zgP-M5-b1O">
@@ -533,7 +551,27 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPj-N7-8Bi">
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="3n1-rq-FYS" secondAttribute="leading" id="KJc-7Z-3aa"/>
+                                        <constraint firstAttribute="topMargin" secondItem="3n1-rq-FYS" secondAttribute="top" id="i5Q-8i-bW2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="4qs-az-zda" customClass="LoadSettingsMenuCell">
+                                <rect key="frame" x="0.0" y="1016" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4qs-az-zda" id="w1z-Yn-eft">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About Langton's Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-ba-0cw">
+                                            <rect key="frame" x="-36" y="8" width="129" height="19"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJu-ZE-JAI">
                                             <rect key="frame" x="50" y="30" width="22.5" height="14.5"/>
                                             <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -541,14 +579,14 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="QPj-N7-8Bi" firstAttribute="top" secondItem="3n1-rq-FYS" secondAttribute="bottom" constant="3" id="2lD-SC-GWA"/>
-                                        <constraint firstItem="QPj-N7-8Bi" firstAttribute="leading" secondItem="zgP-M5-b1O" secondAttribute="leadingMargin" constant="42" id="ILC-SM-w2C"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="3n1-rq-FYS" secondAttribute="leading" id="KJc-7Z-3aa"/>
-                                        <constraint firstAttribute="topMargin" secondItem="3n1-rq-FYS" secondAttribute="top" id="i5Q-8i-bW2"/>
+                                        <constraint firstItem="HJu-ZE-JAI" firstAttribute="top" secondItem="iS5-ba-0cw" secondAttribute="bottom" constant="3" id="EKZ-9F-1Ku"/>
+                                        <constraint firstItem="HJu-ZE-JAI" firstAttribute="leading" secondItem="w1z-Yn-eft" secondAttribute="leadingMargin" constant="42" id="EKh-nK-BrY"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="iS5-ba-0cw" secondAttribute="leading" id="eqm-W5-q6z"/>
+                                        <constraint firstAttribute="topMargin" secondItem="iS5-ba-0cw" secondAttribute="top" id="mbr-el-fkz"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="detailsLabel" destination="QPj-N7-8Bi" id="DYi-h5-MEe"/>
+                                    <outlet property="detailsLabel" destination="HJu-ZE-JAI" id="wJh-Oo-YVd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -562,6 +600,7 @@
                         <segue destination="cOK-Ue-qrf" kind="show" identifier="toEditableRuleVC" id="DmZ-Bg-4hb"/>
                         <segue destination="4I2-Qu-ikb" kind="show" identifier="toModifyAntTVC" id="Bwu-hQ-CCq"/>
                         <segue destination="qvb-t5-h5A" kind="show" identifier="toColorSchemeTVC" id="g7i-Ad-gld"/>
+                        <segue destination="jvl-Fh-0H3" kind="show" identifier="toAboutLangtonVC1" id="PwQ-8B-zxO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZ3-3m-t4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -628,7 +667,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kki-N0-Sxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2575" y="314"/>
+            <point key="canvasLocation" x="2677" y="-393"/>
         </scene>
         <!--Selected Rule View Controller-->
         <scene sceneID="FtU-6A-3K7">
@@ -672,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qur-Ic-sBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2715" y="1172"/>
+            <point key="canvasLocation" x="2683" y="342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7V-c8-UEZ">
@@ -733,7 +772,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTQ-aH-v74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="1188"/>
+            <point key="canvasLocation" x="2716" y="1116"/>
         </scene>
         <!--Modify AntTVC-->
         <scene sceneID="60i-db-li3">
@@ -883,7 +922,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pfG-bf-6oc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="1188"/>
+            <point key="canvasLocation" x="1884" y="1304"/>
         </scene>
         <!--Music PropertiesVC-->
         <scene sceneID="CIx-RE-Wec">
@@ -976,7 +1015,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRA-Gu-Fgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1963" y="2062"/>
+            <point key="canvasLocation" x="1889" y="2214"/>
         </scene>
     </scenes>
     <resources>
