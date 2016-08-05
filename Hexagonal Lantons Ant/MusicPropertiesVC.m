@@ -32,6 +32,7 @@ NSInteger internalAntNumber;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    _antNumberLabel.text = [NSString stringWithFormat:@"Ant Number %li", [self.antNumberForMPVC integerValue] + 1 ];
     [_musicPropertiesPicker selectRow:self.typeStart inComponent:0 animated:NO];
     [_musicPropertiesPicker selectRow:self.voiceStart inComponent:1 animated:NO];
     [_musicPropertiesPicker selectRow:self.registerStart inComponent:2 animated:NO];
