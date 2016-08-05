@@ -38,7 +38,7 @@ UIColor *passedUIColor;
 - (IBAction)deleteStateButton:(UIButton *)sender {
     NSMutableArray *statesList = [[Settings sharedInstance].statesListInGrid mutableCopy];
     if (statesList.count <= 2 ) {
-        // TO DO popup warning minimum # of states
+        // TODO popup warning minimum # of states
         NSLog(@"too few states");
         [[NSNotificationCenter defaultCenter ] postNotificationName:@"min2StatesAlert" object:nil];
         return;

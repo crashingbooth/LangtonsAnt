@@ -897,23 +897,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9q6-3q-7bC" customClass="MusicPropertiesView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ant Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg7-Ya-FcZ">
+                                <rect key="frame" x="20" y="20" width="96" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AMM-jC-Mg5">
+                                <rect key="frame" x="20" y="66" width="560" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Music/Drum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45d-K2-YBp">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="23"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Voice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9z-eb-PnW">
+                                        <rect key="frame" x="112" y="0.0" width="112" height="23"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urq-aj-91m">
+                                        <rect key="frame" x="224" y="0.0" width="112" height="23"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRX-Sj-79L">
+                                        <rect key="frame" x="336" y="0.0" width="112" height="23"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urO-oi-QkO">
+                                        <rect key="frame" x="448" y="0.0" width="112" height="23"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z9-ZR-vxE">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="9q6-3q-7bC" secondAttribute="trailing" constant="-20" id="72d-hM-b2p"/>
-                            <constraint firstItem="9q6-3q-7bC" firstAttribute="top" secondItem="s8g-X6-DN1" secondAttribute="topMargin" id="BIC-FY-zJt"/>
-                            <constraint firstItem="So1-gv-7B6" firstAttribute="top" secondItem="9q6-3q-7bC" secondAttribute="bottom" id="sUQ-Ue-GQc"/>
-                            <constraint firstItem="9q6-3q-7bC" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-20" id="wvp-YX-dmL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Z9-ZR-vxE" secondAttribute="trailing" constant="-20" id="2DM-s4-0AR"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-20" id="3Sy-5t-7T0"/>
+                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" id="BWl-YH-H2o"/>
+                            <constraint firstItem="AMM-jC-Mg5" firstAttribute="leading" secondItem="4Z9-ZR-vxE" secondAttribute="trailing" id="FSt-hw-C02"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="top" secondItem="AMM-jC-Mg5" secondAttribute="bottom" constant="8" id="JRc-zt-k09"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AMM-jC-Mg5" secondAttribute="trailing" id="Uk7-xk-l4l"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="top" secondItem="urq-aj-91m" secondAttribute="bottom" constant="20" id="YPE-QJ-4s2"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="centerY" secondItem="s8g-X6-DN1" secondAttribute="centerY" id="g6x-SC-9tb"/>
+                            <constraint firstItem="AMM-jC-Mg5" firstAttribute="top" secondItem="Vg7-Ya-FcZ" secondAttribute="bottom" constant="23" id="ipI-hE-kNR"/>
+                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="top" secondItem="5dx-0F-zvB" secondAttribute="bottom" id="j8S-Et-0WG"/>
+                            <constraint firstItem="AMM-jC-Mg5" firstAttribute="top" secondItem="Vg7-Ya-FcZ" secondAttribute="bottom" constant="23" id="qLe-Ub-Hhb"/>
+                            <constraint firstItem="AMM-jC-Mg5" firstAttribute="centerX" secondItem="s8g-X6-DN1" secondAttribute="centerX" id="qgE-43-AQX"/>
+                            <constraint firstItem="AMM-jC-Mg5" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" id="xQb-UW-XKr"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FSt-hw-C02"/>
+                                <exclude reference="ipI-hE-kNR"/>
+                                <exclude reference="qgE-43-AQX"/>
+                                <exclude reference="JRc-zt-k09"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="antNumberLabel" destination="Vg7-Ya-FcZ" id="8S5-bp-nJu"/>
+                        <outlet property="musicPropertiesPicker" destination="4Z9-ZR-vxE" id="fpH-3x-Hm7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRA-Gu-Fgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="1989"/>
+            <point key="canvasLocation" x="1963" y="2062"/>
         </scene>
     </scenes>
     <resources>

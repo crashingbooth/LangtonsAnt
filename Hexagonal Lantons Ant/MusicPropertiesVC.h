@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MusicPropertiesVC : UIViewController
+@interface MusicPropertiesVC : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@property (nonatomic) NSInteger typeStart;
+@property (nonatomic) NSInteger voiceStart;
+@property (nonatomic) NSInteger panStart;
+@property (nonatomic) NSInteger registerStart;
+@property (nonatomic) NSInteger volStart;
 
+@property (nonatomic) NSNumber *antNumberForMPVC;
+@property (weak, nonatomic) IBOutlet UILabel *antNumberLabel;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *musicPropertiesPicker;
+
+- (void)getStartValues;
 @end

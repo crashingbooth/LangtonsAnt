@@ -68,6 +68,7 @@ BOOL orientationLocked;
         
         [grid update];
         [self setCurrentState:ACTIVE];
+        [settings updateMusicStatusOfAnts]; //new
         settings.needToRebuild = NO;
         
     }
@@ -91,7 +92,7 @@ BOOL orientationLocked;
     if ([Settings sharedInstance].name == nil) {
         NSLog(@"unset");
 //        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
-        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"period 13"]];
+        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"labyrinth maker"]];
         [Settings sharedInstance].speed = [NSNumber numberWithFloat: 0.2];
     }
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];

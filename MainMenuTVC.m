@@ -241,7 +241,6 @@ NSInteger ruleNumberOfSelection = -1;
             [tableView endUpdates];
             break;
 
-
             
         default:
             [tableView beginUpdates];

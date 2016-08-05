@@ -21,7 +21,7 @@
 @property (nonatomic) NSInteger direction;
 @property (nonatomic) NSInteger totalDir;
 @property (nonatomic) BOOL silent;
-@property (nonatomic, strong) MusicInterpretter *musInt;
+@property (nonatomic) MusicInterpretter *musInt;
 
 -(id)initWithPosition:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol;
 -(void)updateDirection:(NSInteger)turnDirection;

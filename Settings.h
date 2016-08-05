@@ -34,11 +34,11 @@
 
 @property (nonatomic) BOOL musicIsOn;
 @property (nonatomic) NSString *scaleName;
-@property (nonatomic) NSArray *musicTypeArray;
-@property (nonatomic) NSArray *midiVoiceArray;
-@property (nonatomic) NSArray *panArray;
-@property (nonatomic) NSArray *volArray;
-@property (nonatomic) NSArray *registerArray;
+@property (nonatomic) NSMutableArray *musicTypeArray;
+@property (nonatomic) NSMutableArray *midiVoiceArray;
+@property (nonatomic) NSMutableArray *panArray;
+@property (nonatomic) NSMutableArray *volArray;
+@property (nonatomic) NSMutableArray *registerArray;
 
 @property (nonatomic) BOOL needToRebuild;
 @property (nonatomic) NSMutableArray *eightWayPresetNames;

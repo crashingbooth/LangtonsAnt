@@ -96,6 +96,7 @@ NSInteger selectedAntNum;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     switch (indexPath.section) {
         case 0:
         
@@ -105,7 +106,11 @@ NSInteger selectedAntNum;
             break;
         case 2:
 //            selectionMadeInModAnt = NO;
+//            temp = [Settings sharedInstance];
+
             [[Settings sharedInstance] addAnt];
+//            temp = [Settings sharedInstance];
+            [[Settings sharedInstance] updateMusicStatusOfAnts];
             [tableView reloadData];
         default:
             break;
@@ -140,7 +145,8 @@ NSInteger selectedAntNum;
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toMusicPropertiesVC"]) {
         MusicPropertiesVC *mpVC = segue.destinationViewController;
-        
+        mpVC.antNumberForMPVC = [NSNumber numberWithInteger: selectedAntNum];
+        [mpVC getStartValues];
     }
 }
 
