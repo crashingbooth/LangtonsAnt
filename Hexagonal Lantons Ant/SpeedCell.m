@@ -14,13 +14,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
-//    _slider.maximumValue = 15.8;
-//    _slider.minimumValue = 3.2;
     _slider.maximumValue = 0.5;
     _slider.minimumValue = 0.02;
-    _slider.value = [[Settings sharedInstance].speed floatValue];
+    _slider.value =  [self setSliderFromSpeed:[Settings sharedInstance].speed];
     [self updateLabel];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"UpdateRuleCell" object:nil];
 
     
 }
@@ -43,21 +41,26 @@
 }
 
 - (IBAction)speedSliderChanged:(UISlider *)sender {
+    // fast values are high, so we are reversing
     float raw = _slider.maximumValue - _slider.value +_slider.minimumValue;
-    
-    
-//    float converted = powf(raw, 2.0) * 0.002;
     float converted = raw;
-    
-    NSLog(@"original: %f raw: %f, converted %f",_slider.value,raw, converted);
-//    float num = powf(4., _slider.value) / 15.0;
-//    num -= 0.05;
-//    if (num > 1.0) {
-//        num = 1.0;
-//    }
-
     [Settings sharedInstance].speed = [NSNumber numberWithFloat:converted];
     [self updateLabel];
 }
+
+- (float)setSliderFromSpeed:(NSNumber*)inSpeed {
+    float converted = _slider.maximumValue - [inSpeed floatValue] + _slider.minimumValue;
+    return converted;
+    
+}
+
+- (void) receiveTestNotification:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"UpdateRuleCell"])
+        _slider.value =  [self setSliderFromSpeed:[Settings sharedInstance].speed];
+    [self updateLabel];
+       
+}
+
+
 
 @end

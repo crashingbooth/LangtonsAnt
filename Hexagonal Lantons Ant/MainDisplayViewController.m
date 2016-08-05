@@ -98,10 +98,11 @@ BOOL orientationLocked;
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     [self.navigationController setNavigationBarHidden:YES];
-    [self rebuildGridCollectionIfNecessary];
+
     if ([Settings sharedInstance].musicIsOn) {
         [Settings sharedInstance].speed = @0.2;
     }
+    [self rebuildGridCollectionIfNecessary];
 }
 
 
@@ -116,7 +117,7 @@ BOOL orientationLocked;
 
 
 - (void)update:(NSTimer*)timer {
-    if (_currentState == PAUSED) {
+       if (_currentState == PAUSED) {
         [timer invalidate];
     } else {
          [gridColl updateViews];
