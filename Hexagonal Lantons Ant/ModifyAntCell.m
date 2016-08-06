@@ -214,7 +214,7 @@ NSArray *dirVals;
         [[Settings sharedInstance] removeAnt:self.antNumber];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"antDeleted" object:nil];  // to ModifyAntTVC
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"couldDeleteAnt" object:nil];  // to ModifyAntTVC
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"couldntDeleteAnt" object:nil];  // to ModifyAntTVC
     }
 }
 - (IBAction)musicButton:(UIButton *)sender {

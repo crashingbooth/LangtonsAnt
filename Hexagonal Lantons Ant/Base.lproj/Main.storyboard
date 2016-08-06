@@ -406,17 +406,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKh-H5-4kJ">
-                                            <rect key="frame" x="285" y="25" width="30" height="30"/>
+                                            <rect key="frame" x="287.5" y="28" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LKh-H5-4kJ" secondAttribute="height" multiplier="1:1" id="Ahr-xR-sf8"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="hexagon"/>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-je-N5Z">
-                                            <rect key="frame" x="150" y="25" width="300" height="30"/>
+                                            <rect key="frame" x="210" y="28" width="180" height="25"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCL-0t-B2P">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="xCL-0t-B2P" secondAttribute="height" multiplier="1:1" id="yAo-Fl-9bl"/>
                                                     </constraints>
@@ -426,7 +426,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-gs-biM">
-                                                    <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                                                    <rect key="frame" x="155" y="0.0" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="gCc-gs-biM" secondAttribute="height" multiplier="1:1" id="Xce-k6-eJt"/>
                                                     </constraints>
@@ -437,7 +437,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="RKY-ru-b83"/>
+                                                <constraint firstAttribute="height" constant="25" id="RKY-ru-b83"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -446,7 +446,7 @@
                                         <constraint firstItem="LKh-H5-4kJ" firstAttribute="top" secondItem="tZF-je-N5Z" secondAttribute="top" id="8p1-s3-JW1"/>
                                         <constraint firstItem="tZF-je-N5Z" firstAttribute="centerX" secondItem="iFr-MN-XVw" secondAttribute="centerX" id="Vba-s0-3qf"/>
                                         <constraint firstAttribute="topMargin" secondItem="f7y-g4-wax" secondAttribute="top" id="Wt2-Gj-gfl"/>
-                                        <constraint firstItem="tZF-je-N5Z" firstAttribute="width" secondItem="iFr-MN-XVw" secondAttribute="width" multiplier="0.5" id="hT3-O0-28a"/>
+                                        <constraint firstItem="tZF-je-N5Z" firstAttribute="width" secondItem="iFr-MN-XVw" secondAttribute="width" multiplier="0.3" id="hT3-O0-28a"/>
                                         <constraint firstItem="tZF-je-N5Z" firstAttribute="centerY" secondItem="iFr-MN-XVw" secondAttribute="centerY" id="rMg-qz-YJy"/>
                                         <constraint firstItem="LKh-H5-4kJ" firstAttribute="bottom" secondItem="tZF-je-N5Z" secondAttribute="bottom" id="rpV-M7-B8H"/>
                                         <constraint firstItem="LKh-H5-4kJ" firstAttribute="centerX" secondItem="tZF-je-N5Z" secondAttribute="centerX" id="upf-2O-lND"/>

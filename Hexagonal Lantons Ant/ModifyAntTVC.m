@@ -24,7 +24,7 @@ NSInteger selectedAntNum;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"antDeleted" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"couldDeleteAnt" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"couldntDeleteAnt" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecieved:) name:@"openMusicProperties" object:nil];
 
 }
@@ -105,13 +105,13 @@ NSInteger selectedAntNum;
             selectionMadeInModAnt = YES;
             break;
         case 2:
-//            selectionMadeInModAnt = NO;
-//            temp = [Settings sharedInstance];
-
-            [[Settings sharedInstance] addAnt];
-//            temp = [Settings sharedInstance];
-            [[Settings sharedInstance] updateMusicStatusOfAnts];
-            [tableView reloadData];
+            if ([Settings sharedInstance].settingsGrid.ants.count < 16) {
+                [[Settings sharedInstance] addAnt];
+                [[Settings sharedInstance] updateMusicStatusOfAnts];
+                [tableView reloadData];
+            } else {
+                [self cantAddAntAlert];
+            }
         default:
             break;
     }
@@ -121,21 +121,34 @@ NSInteger selectedAntNum;
       
 }
 
+- (void)cantAddAntAlert {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Too many ants!"
+                                  message:@"You probably don't really need more than 16 ants"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)cantDeleteAntAlert {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"You need at least 1 ant!"
+                                  message:@"Without at least one ant, nothing will happen"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)notificationRecieved:(NSNotification*)notification {
     if ([notification.name isEqualToString:@"antDeleted"]) {
         [self.tableView reloadData];
-    } else if ([notification.name isEqualToString:@"couldDeleteAnt"]) {
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"You need at least 1 ant!"
-                                      message:@"Without at least one ant, nothing will happen"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:okAction];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    
-    } else if ([notification.name isEqualToString:@"openMusicProperties"]) {
+    } else if ([notification.name isEqualToString:@"couldntDeleteAnt"]) {
+        [self cantDeleteAntAlert];
+    }  else if ([notification.name isEqualToString:@"openMusicProperties"]) {
         NSDictionary *userInfo = notification.userInfo;
         selectedAntNum = [userInfo[@"antNumberKey"] integerValue];
         [self performSegueWithIdentifier:@"toMusicPropertiesVC" sender:self];
