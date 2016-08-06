@@ -379,8 +379,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add/Remove Ants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSu-Gv-pvN">
-                                            <rect key="frame" x="8" y="8" width="116" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add/Modify/Remove Ants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSu-Gv-pvN">
+                                            <rect key="frame" x="-45" y="8" width="169" height="19"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1014,6 +1014,7 @@
                     <connections>
                         <outlet property="antNumberLabel" destination="Vg7-Ya-FcZ" id="8S5-bp-nJu"/>
                         <outlet property="musicPropertiesPicker" destination="4Z9-ZR-vxE" id="fpH-3x-Hm7"/>
+                        <outlet property="registerLabel" destination="Dn6-3x-Jtj" id="AgX-ek-9iH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRA-Gu-Fgy" userLabel="First Responder" sceneMemberID="firstResponder"/>

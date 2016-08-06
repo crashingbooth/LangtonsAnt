@@ -17,6 +17,7 @@
 
 @property (nonatomic) NSNumber *antNumberForMPVC;
 @property (weak, nonatomic) IBOutlet UILabel *antNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *registerLabel;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *musicPropertiesPicker;
 

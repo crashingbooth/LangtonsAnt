@@ -16,11 +16,13 @@
 @implementation MusicPropertiesVC
 NSArray *typeListDS;
 NSArray *voicesListDS;
+NSArray *drumVoiceListDS;
 NSArray *voicesListMeaning;
 NSArray *panDS;
 NSArray *panMeaning;
 NSArray *volumeDS;
 NSArray *registerDS;
+NSArray *drumRegisterDS;
 NSInteger internalAntNumber;
 
 
@@ -38,6 +40,7 @@ NSInteger internalAntNumber;
     [_musicPropertiesPicker selectRow:self.registerStart inComponent:2 animated:NO];
     [_musicPropertiesPicker selectRow:self.panStart inComponent:3 animated:NO];
     [_musicPropertiesPicker selectRow:self.volStart inComponent:4 animated:NO];
+    [self updateDrumToggle];
 }
 
 
@@ -45,11 +48,30 @@ NSInteger internalAntNumber;
 - (void)buildDataSource {
     typeListDS = @[@"music", @"drum"];
     voicesListDS = @[@"kalimba", @"piano", @"organ",@"ocarina", @"calliope synth", @"clavi"];
+    drumVoiceListDS = @[@"n/a"];
     voicesListMeaning =@[@108, @0, @17, @79, @83, @7];
     panDS = @[@"left", @"centre", @"right"];
     panMeaning = @[@-1, @0, @1];
     volumeDS = @[@0.0, @0.2, @0.4, @0.6, @0.8, @1.0];
     registerDS = @[@-2, @-1, @0, @1, @2];
+    drumRegisterDS = @[@-2, @-1, @0, @1, @2];
+}
+
+- (void) updateDrumToggle {
+     BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
+    if (isMelodic) {
+        _registerLabel.text = @"register";
+        
+    } else {
+        _registerLabel.text = @"drum kit num.";
+    }
+    [_musicPropertiesPicker reloadAllComponents];
+    if (isMelodic) {
+        NSNumber *voiceVal = [Settings sharedInstance].midiVoiceArray[internalAntNumber];
+        self.voiceStart = [voicesListMeaning indexOfObject:voiceVal];
+        [_musicPropertiesPicker selectRow:self.voiceStart inComponent:1 animated:NO];
+    }
+    
 }
 
 - (void)getStartValues {
@@ -83,16 +105,27 @@ NSInteger internalAntNumber;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+
+    BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
     switch (component) {
         case 0:
             return typeListDS.count;
             break;
         case 1:
-            return voicesListDS.count;  //repanval
+            if (isMelodic) {
+                return voicesListDS.count;
+            } else {
+                return drumVoiceListDS.count;
+            }
             break;
         case 2:
-            return registerDS.count;
+            if (isMelodic) {
+                return registerDS.count;
+            } else {
+                return drumRegisterDS.count;
+            }
             break;
+           
         case 3:
             return panDS.count;
             break;
@@ -111,15 +144,24 @@ NSInteger internalAntNumber;
 }
 
 - (NSString*)stringForRow:(NSInteger)row inComponent:(NSInteger)component {
+    BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
     switch (component) {
         case 0:
             return typeListDS[row];
             break;
         case 1:
-            return voicesListDS[row];
+            if (isMelodic) {
+                return voicesListDS[row];
+            } else {
+                return drumVoiceListDS[row];
+            }
             break;
         case 2:
-            return [NSString stringWithFormat:@"%@", registerDS[row] ];
+            if (isMelodic) {
+                 return [NSString stringWithFormat:@"%@", registerDS[row] ];
+            } else {
+                 return [NSString stringWithFormat:@"%@", drumRegisterDS[row] ];
+            }
             break;
         case 3:
             return [NSString stringWithFormat:@"%@",panDS[row] ];
@@ -158,6 +200,7 @@ NSInteger internalAntNumber;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
     switch (component) {
         case 0:
             if (row == 0) {
@@ -165,12 +208,17 @@ NSInteger internalAntNumber;
             } else {
                 [Settings sharedInstance].musicTypeArray[internalAntNumber] = [NSNumber numberWithBool:NO];
             }
+            [self updateDrumToggle];
             break;
         case 1:
             [Settings sharedInstance].midiVoiceArray[internalAntNumber] = voicesListMeaning[row];
             break;
         case 2:
-            [Settings sharedInstance].registerArray[internalAntNumber] = registerDS[row];
+            if (isMelodic) {
+                [Settings sharedInstance].registerArray[internalAntNumber] = registerDS[row];
+            } else {
+                [Settings sharedInstance].registerArray[internalAntNumber] = drumRegisterDS[row];
+            }
             break;
         case 3:
             [Settings sharedInstance].panArray[internalAntNumber] = panMeaning[row];

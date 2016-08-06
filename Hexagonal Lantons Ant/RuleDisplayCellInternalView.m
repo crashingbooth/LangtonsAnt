@@ -16,6 +16,7 @@ CGFloat iconWidth;
 CGFloat selfHeight = 71.5; // stipulated in MainMenuTVC
 CGFloat heightWidthRatio = 1.4;
 CGFloat MAX_RULES = 8.0;
+CGFloat alphaOfSubview = 0.8;
 NSInteger numberOfRulesToDisplay;
 RuleDisplayView *selectedRDV;
 NSMutableArray *menuRuleDisplayViews;
@@ -36,7 +37,7 @@ NSMutableArray *menuRuleDisplayViews;
     menuRuleDisplayViews = [[NSMutableArray alloc] init];
     for (int i = 0; i < numberOfRulesToDisplay; i++) {
         NSInteger num = [[Settings sharedInstance].statesListInGrid[i] integerValue];
-        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:0.4]];
+        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:alphaOfSubview]];
         rdv.editable = NO;
         [rdv setUserInteractionEnabled:NO];
         [menuRuleDisplayViews addObject: rdv];
@@ -104,6 +105,7 @@ NSMutableArray *menuRuleDisplayViews;
         if (CGRectContainsPoint(rsv.frame, loc)) {
             [self cleanUp];
             selectedRDV = rsv;
+            // send to mainMenuTVC
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject: [NSNumber numberWithInteger: rsv.ruleNumber] forKey:@"ruleNumber"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentEditableVC" object:nil userInfo:userInfo];
             
@@ -118,7 +120,7 @@ NSMutableArray *menuRuleDisplayViews;
     numberOfRulesToDisplay += 1;
     NSInteger num = numberOfRulesToDisplay - 1;
     NSInteger val = [[Settings sharedInstance].statesListInGrid[numberOfRulesToDisplay - 1] integerValue];
-    UIColor *col = [[Settings sharedInstance].colorList[num] colorWithAlphaComponent:0.4];
+    UIColor *col = [[Settings sharedInstance].colorList[num] colorWithAlphaComponent:alphaOfSubview];
     AntType newType = [Settings sharedInstance].antType;
     
     RuleDisplayView *newView = [[RuleDisplayView alloc] initWithType:newType ruleValue:val ruleNumber:num color:col];

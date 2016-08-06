@@ -50,7 +50,6 @@ BOOL orientationLocked;
         name:UIDeviceOrientationDidChangeNotification
         object:[UIDevice currentDevice]];
     settings = [Settings sharedInstance];
-//    [self rebuildGridCollectionIfNecessary];
 }
 
 
@@ -91,9 +90,9 @@ BOOL orientationLocked;
     }
     if ([Settings sharedInstance].name == nil) {
         NSLog(@"unset");
-//        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
-        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"labyrinth maker"]];
-        [Settings sharedInstance].speed = [NSNumber numberWithFloat: 0.2];
+        [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
+//        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"labyrinth maker"]];
+//        [Settings sharedInstance].speed = [NSNumber numberWithFloat: 0.2];
     }
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
