@@ -225,7 +225,7 @@ NSInteger ruleNumberOfSelection = -1;
         case 5: // add ant
             [self performSegueWithIdentifier:@"toModifyAntTVC" sender:self];
             break;
-        case 6: // add ant
+        case 6: // save settings
             [self saveDialogue];
           
             break;
@@ -264,6 +264,7 @@ NSInteger ruleNumberOfSelection = -1;
         if ([[Settings sharedInstance]settingsNameIsAvailable:chosenName ]) {
                [Settings sharedInstance].name = chosenName;
                [[Settings sharedInstance] saveCurrentSettings];
+               [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateRuleCell" object:self];
         } else {
             [self cantSaveAlert];
         }
@@ -276,6 +277,7 @@ NSInteger ruleNumberOfSelection = -1;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:saveDialogueAlert animated:YES completion:nil];
     });
+   
       
 
 }
