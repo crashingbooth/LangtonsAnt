@@ -44,8 +44,8 @@ NSInteger internalAntNumber;
 
 - (void)buildDataSource {
     typeListDS = @[@"music", @"drum"];
-    voicesListDS = @[@"kalimba", @"piano", @"organ"];
-    voicesListMeaning =@[@108, @0, @20];
+    voicesListDS = @[@"kalimba", @"piano", @"organ",@"ocarina", @"calliope synth", @"clavi"];
+    voicesListMeaning =@[@108, @0, @17, @79, @83, @7];
     panDS = @[@"left", @"centre", @"right"];
     panMeaning = @[@-1, @0, @1];
     volumeDS = @[@0.0, @0.2, @0.4, @0.6, @0.8, @1.0];

@@ -682,14 +682,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMX-OU-mol" customClass="RuleDisplayView">
-                                <rect key="frame" x="120" y="84" width="360" height="432"/>
+                                <rect key="frame" x="157" y="100" width="286" height="400"/>
                                 <color key="backgroundColor" red="1" green="0.90980392160000001" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YMX-OU-mol" secondAttribute="height" multiplier="5:6" id="3X3-9P-eYJ"/>
+                                    <constraint firstAttribute="width" secondItem="YMX-OU-mol" secondAttribute="height" multiplier="5:7" id="3X3-9P-eYJ"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU4-OP-I87">
-                                <rect key="frame" x="258" y="533" width="85" height="30"/>
+                                <rect key="frame" x="258" y="517" width="85" height="30"/>
                                 <state key="normal" title="Delete State"/>
                                 <connections>
                                     <action selector="deleteStateButton:" destination="cOK-Ue-qrf" eventType="touchUpInside" id="0Ik-vf-mHN"/>
@@ -702,8 +702,14 @@
                             <constraint firstItem="YMX-OU-mol" firstAttribute="centerY" secondItem="USy-bz-NXD" secondAttribute="centerY" id="H1t-mD-HXE"/>
                             <constraint firstItem="YMX-OU-mol" firstAttribute="centerX" secondItem="USy-bz-NXD" secondAttribute="centerX" id="Qpa-cs-fDb"/>
                             <constraint firstItem="uU4-OP-I87" firstAttribute="top" secondItem="YMX-OU-mol" secondAttribute="bottom" constant="17" id="oLq-S9-DQ1"/>
+                            <constraint firstItem="YMX-OU-mol" firstAttribute="height" secondItem="USy-bz-NXD" secondAttribute="height" multiplier="0.667" id="tRs-JN-Ffb"/>
                             <constraint firstItem="YMX-OU-mol" firstAttribute="width" secondItem="USy-bz-NXD" secondAttribute="width" multiplier="0.6" id="wiP-EA-L8b"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="wiP-EA-L8b"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="selectedRule" destination="YMX-OU-mol" id="Y2g-D2-2FD"/>
@@ -936,74 +942,71 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ant Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg7-Ya-FcZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ant Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vg7-Ya-FcZ">
                                 <rect key="frame" x="252" y="10" width="96" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="B1Z-cc-guk">
-                                <rect key="frame" x="0.0" y="53" width="600" height="24"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z9-ZR-vxE">
+                                <rect key="frame" x="0.0" y="60" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="XdK-em-mCG"/>
+                                </constraints>
+                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0SS-OI-Iid">
+                                <rect key="frame" x="0.0" y="43" width="600" height="23"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Music/Drum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45d-K2-YBp">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Music/Drum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4W-Gt-bog">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="23"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9z-eb-PnW">
-                                        <rect key="frame" x="120" y="0.0" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Voice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-ng-pNr">
+                                        <rect key="frame" x="120" y="0.0" width="120" height="23"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urq-aj-91m">
-                                        <rect key="frame" x="240" y="0.0" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dn6-3x-Jtj">
+                                        <rect key="frame" x="240" y="0.0" width="120" height="23"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRX-Sj-79L">
-                                        <rect key="frame" x="360" y="0.0" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDw-HL-DHH">
+                                        <rect key="frame" x="360" y="0.0" width="120" height="23"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urO-oi-QkO">
-                                        <rect key="frame" x="480" y="0.0" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Volume" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1RN-lE-mJR">
+                                        <rect key="frame" x="480" y="0.0" width="120" height="23"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Z9-ZR-vxE">
-                                <rect key="frame" x="0.0" y="60" width="600" height="100"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="So1-gv-7B6" firstAttribute="top" secondItem="B1Z-cc-guk" secondAttribute="bottom" constant="460" id="5Z3-D1-yE3"/>
-                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-10" id="BWl-YH-H2o"/>
-                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="centerX" secondItem="B1Z-cc-guk" secondAttribute="centerX" id="LgK-Bx-APj"/>
-                            <constraint firstAttribute="trailing" secondItem="B1Z-cc-guk" secondAttribute="trailing" id="MtM-8m-3Ks"/>
-                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="top" secondItem="B1Z-cc-guk" secondAttribute="bottom" constant="40" id="YUk-iX-hc7"/>
-                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="10" id="ZQh-I1-jds"/>
-                            <constraint firstItem="B1Z-cc-guk" firstAttribute="leading" secondItem="4Z9-ZR-vxE" secondAttribute="leading" id="bqQ-0Y-zg0"/>
-                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="top" secondItem="Vg7-Ya-FcZ" secondAttribute="bottom" constant="27" id="bx5-h8-wad"/>
-                            <constraint firstItem="B1Z-cc-guk" firstAttribute="top" secondItem="Vg7-Ya-FcZ" secondAttribute="bottom" constant="20" id="ehY-rK-Kf8"/>
-                            <constraint firstItem="B1Z-cc-guk" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leading" id="fYZ-VB-6cg"/>
-                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="centerY" secondItem="s8g-X6-DN1" secondAttribute="centerY" id="g6x-SC-9tb"/>
+                            <constraint firstItem="0SS-OI-Iid" firstAttribute="leading" secondItem="Vg7-Ya-FcZ" secondAttribute="trailing" constant="-282" id="5Lf-NN-Sqg"/>
+                            <constraint firstItem="0SS-OI-Iid" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-20" id="HNi-77-hUy"/>
+                            <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="centerX" secondItem="s8g-X6-DN1" secondAttribute="centerX" id="Slz-4Q-d3h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0SS-OI-Iid" secondAttribute="trailing" constant="-20" id="Tqa-KB-ouV"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="leading" secondItem="s8g-X6-DN1" secondAttribute="leadingMargin" constant="-20" id="aFN-mk-4pk"/>
+                            <constraint firstItem="0SS-OI-Iid" firstAttribute="top" secondItem="Vg7-Ya-FcZ" secondAttribute="bottom" constant="10" id="dsw-BW-RbM"/>
                             <constraint firstItem="So1-gv-7B6" firstAttribute="top" secondItem="4Z9-ZR-vxE" secondAttribute="bottom" constant="376" id="mAd-Cj-aE6"/>
                             <constraint firstItem="Vg7-Ya-FcZ" firstAttribute="top" secondItem="5dx-0F-zvB" secondAttribute="bottom" constant="10" id="pSV-XR-Nhu"/>
-                            <constraint firstItem="B1Z-cc-guk" firstAttribute="trailing" secondItem="4Z9-ZR-vxE" secondAttribute="trailing" id="uaL-8U-u9E"/>
+                            <constraint firstItem="4Z9-ZR-vxE" firstAttribute="top" secondItem="5dx-0F-zvB" secondAttribute="bottom" constant="60" id="qwV-Hp-w2L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Z9-ZR-vxE" secondAttribute="trailing" constant="-20" id="xX8-Rg-h16"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="YUk-iX-hc7"/>
-                                <exclude reference="g6x-SC-9tb"/>
-                                <exclude reference="BWl-YH-H2o"/>
-                                <exclude reference="ZQh-I1-jds"/>
+                                <exclude reference="5Lf-NN-Sqg"/>
+                                <exclude reference="mAd-Cj-aE6"/>
                             </mask>
                         </variation>
                     </view>

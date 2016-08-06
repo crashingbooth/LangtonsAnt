@@ -179,8 +179,8 @@
 		1F35C4C51D51C46D003E9F6F /* ModifyMusicalAnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyMusicalAnt.m; path = "Hexagonal Lantons Ant/ModifyMusicalAnt.m"; sourceTree = "<group>"; };
 		1F35C4C71D51ED08003E9F6F /* MusicPropertiesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPropertiesVC.h; sourceTree = "<group>"; };
 		1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPropertiesVC.m; sourceTree = "<group>"; };
-		1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPropertiesView.h; sourceTree = "<group>"; };
-		1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPropertiesView.m; sourceTree = "<group>"; };
+		1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicPropertiesView.h; path = "Hexagonal Lantons Ant/MusicPropertiesView.h"; sourceTree = "<group>"; };
+		1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MusicPropertiesView.m; path = "Hexagonal Lantons Ant/MusicPropertiesView.m"; sourceTree = "<group>"; };
 		1F35C4CF1D52BE2B003E9F6F /* MusicOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicOptions.h; sourceTree = "<group>"; };
 		1F35C4D01D52BE2B003E9F6F /* MusicOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicOptions.m; sourceTree = "<group>"; };
 		1F40BCD41D27947600B303E0 /* Tim.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tim.sf2; sourceTree = "<group>"; };
@@ -271,8 +271,6 @@
 				1F93F0351D42CD5000D018B9 /* SelectedRuleViewController.m */,
 				1F35C4C71D51ED08003E9F6F /* MusicPropertiesVC.h */,
 				1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */,
-				1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */,
-				1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */,
 				1F9AD0841D5458CF002184AF /* AboutLangtonVC1.h */,
 				1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */,
 			);
@@ -352,6 +350,8 @@
 		1F2DAF411D336DF1000D898A /* Old UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */,
+				1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */,
 				1F35C4C41D51C46D003E9F6F /* ModifyMusicalAnt.h */,
 				1F35C4C51D51C46D003E9F6F /* ModifyMusicalAnt.m */,
 				1F6EB3201D409A0F00C294B3 /* RuleDisplayVC.h */,
