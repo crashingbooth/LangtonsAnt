@@ -67,16 +67,15 @@ NSArray *stateNames; // 2d array
     self.stateNumLabel = [[UILabel alloc] init];
     [self addSubview:self.stateNumLabel];
     self.stateNumLabel.adjustsFontSizeToFitWidth = YES;
-    self.stateNumLabel.font = [self.stateNumLabel.font fontWithSize:8];
+    [self.stateNumLabel setFont:[UIFont fontWithName:@"Futura-Medium"  size:8]];
     self.stateNumLabel.textAlignment = NSTextAlignmentCenter;
-    self.stateNumLabel.textColor = [UIColor blueColor];
     self.stateNumLabel.minimumScaleFactor = 20;
     self.stateValLabel = [[UILabel alloc] init];
     [self addSubview:self.stateValLabel];
 
     self.stateValLabel.adjustsFontSizeToFitWidth = YES;
     self.stateValLabel.minimumScaleFactor = 20;
-    self.stateNumLabel.font = [self.stateValLabel.font fontWithSize:8];
+    [self.stateValLabel setFont:[UIFont fontWithName:@"Futura-Medium"  size:8]];
     self.stateValLabel.textAlignment = NSTextAlignmentCenter;
     
     

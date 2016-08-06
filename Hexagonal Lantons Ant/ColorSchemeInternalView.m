@@ -18,6 +18,8 @@ NSInteger colorSchemeIndex;
     self.colorListForColorScheme = [[Settings sharedInstance] assignColorScheme:index];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:@"added Rule" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:@"stateDeleted" object:nil ];
 }
 
 
@@ -50,6 +52,8 @@ NSInteger colorSchemeIndex;
 
 - (void)update:(NSNotification*) notification {
     if ([notification.name isEqualToString:@"added Rule"]) {
+        [self setNeedsDisplay];
+    } else  if ([notification.name isEqualToString:@"stateDeleted"]) {
         [self setNeedsDisplay];
     }
     

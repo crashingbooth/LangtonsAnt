@@ -688,8 +688,9 @@
                                     <constraint firstAttribute="width" secondItem="YMX-OU-mol" secondAttribute="height" multiplier="5:7" id="3X3-9P-eYJ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU4-OP-I87">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uU4-OP-I87">
                                 <rect key="frame" x="258" y="517" width="85" height="30"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <state key="normal" title="Delete State"/>
                                 <connections>
                                     <action selector="deleteStateButton:" destination="cOK-Ue-qrf" eventType="touchUpInside" id="0Ik-vf-mHN"/>
