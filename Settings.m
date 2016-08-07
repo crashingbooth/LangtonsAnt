@@ -41,7 +41,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 
 
 
-
+#pragma mark - Creattion and Initialization
 + (Settings *)sharedInstance {
     static Settings *sharedInstance = nil;
     static dispatch_once_t onceToken; // onceToken = 0
@@ -53,7 +53,6 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 }
 
 
-
 -(id)init {
     self = [super init];
     if (self) {
@@ -62,9 +61,6 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
         
     }
     [self buildPresets];
-//     [self extractSettingsFromDict:self.presetDictionaries[@"symmetrical hexagon 4-state"]];
-   //  [self extractSettingsFromDict:self.presetDictionaries[[self randomStartingPreset]]];
-  
     return self;
 }
 
@@ -89,30 +85,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     return @"";
 }
 
-- (void)establishLengthToWidthRatio:(CGFloat)width length:(CGFloat)length {
-    self.lengthToWidthRatio = length / width;
 
-    if (self.numRowsInGrid != [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid]) {
-        self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
-        NSLog(@"mod num rows");
-        [self makeInitialAntsConform];
-    }
-}
-
-- (NSInteger)getAppropriateNumberOfRowsForScreen:(NSInteger)numCols {
-    NSAssert(self.lengthToWidthRatio > 0 , @"lengthToWidthRatioUnset ");
-    
-    CGFloat rawNumber = (self.lengthToWidthRatio * (CGFloat)numCols);
-    if (self.antType == SIX_WAY) {
-        rawNumber = rawNumber/(1.5 * 0.577350269);
-    }
-    NSInteger numberOfRows = (NSInteger)rawNumber;
-    if (numberOfRows % 2 == 1) {
-        numberOfRows -= 1;
-    }
-    return numberOfRows;
-}
-
+#pragma mark - Extracting and Providing Values for Missing/Inappropriate Settings
 - (void) extractSettingsFromDict: (NSDictionary*) dict {
     // this must be called after length ratio is set
     
@@ -185,6 +159,30 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     }
     [self updateMusicStatusOfAnts];
     self.needToRebuild = YES;
+}
+
+- (void)establishLengthToWidthRatio:(CGFloat)width length:(CGFloat)length {
+    self.lengthToWidthRatio = length / width;
+    
+    if (self.numRowsInGrid != [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid]) {
+        self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
+        NSLog(@"mod num rows");
+        [self makeInitialAntsConform];
+    }
+}
+
+- (NSInteger)getAppropriateNumberOfRowsForScreen:(NSInteger)numCols {
+    NSAssert(self.lengthToWidthRatio > 0 , @"lengthToWidthRatioUnset ");
+    
+    CGFloat rawNumber = (self.lengthToWidthRatio * (CGFloat)numCols);
+    if (self.antType == SIX_WAY) {
+        rawNumber = rawNumber/(1.5 * 0.577350269);
+    }
+    NSInteger numberOfRows = (NSInteger)rawNumber;
+    if (numberOfRows % 2 == 1) {
+        numberOfRows -= 1;
+    }
+    return numberOfRows;
 }
 
 - (void) updateMusicStatusOfAnts {
@@ -282,12 +280,6 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 }
 
 - (void)copyInitialAntsToSettingsGrid {
-//    BOOL rebuild = NO;
-//    NSArray *oldAnts;
-//    if (self.settingsGrid.ants) {
-//        rebuild = YES;
-//        oldAnts = [self.settingsGrid.ants copy];
-//    }
     self.settingsGrid.ants  = [[NSMutableArray alloc] init];
     
     NSInteger numberOfAnts = self.antsInitialStatus.count;
@@ -295,11 +287,6 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
         AbstractAnt *originalAnt = self.antsInitialStatus[i];
         AbstractAnt *copyAnt = [originalAnt copyWithZone:nil];
         [self.settingsGrid addAnt: copyAnt];
-//        if (rebuild) {
-//            AbstractAnt *oldAnt = oldAnts[i];
-//            AbstractAnt *newAnt = self.settingsGrid.ants[i];
-//            [newAnt addMusicInterpretter:oldAnt.musInt];
-//        }
     }
 }
 
@@ -311,11 +298,24 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     return colors;
 }
 
+#pragma mark - Modifying Settings
+
 - (void)addState {
     NSMutableArray *statesListCopy = [self.statesListInGrid mutableCopy];
     [statesListCopy addObject:@0];
     self.statesListInGrid = statesListCopy;
     [self recreateGrid];
+}
+
+
+- (void)setMusicIsOn:(BOOL)musicIsOn {
+    _musicIsOn = musicIsOn;
+    if (self.musicIsOn) {
+        if ([self.speed floatValue] < 0.2) {
+            self.speed = @0.2;
+            NSLog(@"speed set because of music");
+        }
+    }
 }
 
 
@@ -364,6 +364,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 
 }
 
+
+#pragma mark - Saving Settings
 - (NSDictionary*) createDictFromCurrentSettings {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = self.name;
@@ -387,19 +389,18 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
     
+    //music:
+    dict[musicScaleKey] = self.scaleName;
+    dict[musicIsOnKey] = [NSNumber numberWithBool: self.musicIsOn];
+    dict[musicVolArrayKey] = [self.volArray mutableCopy];
+    dict[midiVoiceArrayKey] = [self.midiVoiceArray mutableCopy];
+    dict[musicTypeArrayKey] = [self.musicTypeArray mutableCopy];
+    dict[musicRegisterArrayKey] = [self.registerArray mutableCopy];
+    dict[musicLinePanArrayKey] = [self.panArray mutableCopy];
     
     return dict;
 }
 
-- (void)getPresetFromNSUserDefaults {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *arrayOfPresetDicts = [defaults arrayForKey:userDefaultsPresetDictKey];
-    if (arrayOfPresetDicts != nil) {
-        for (NSDictionary *dict in arrayOfPresetDicts) {
-             [self addPresetDictToPresetStorage:dict];
-        }
-    }
-}
 
 - (void)saveCurrentSettings {
     NSDictionary *dict = [self createDictFromCurrentSettings];
@@ -433,7 +434,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     return YES;
 }
 
-
+#pragma mark - Preset Unpacking
 - (void) buildPresets {
     // negative values for startRow, startCol are flags to set as default
     
@@ -817,11 +818,6 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     
     [self addPresetDictToPresetStorage:dict];
-
-
-    
-    
-
 }
 
 - (void)addPresetDictToPresetStorage:(NSDictionary*) dict {
@@ -834,12 +830,21 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     } else if (type == EIGHT_WAY) {
         [self.eightWayPresetNames addObject:dict[nameKey]];
     }
-//    self.presetDictionaries[name] = @"happy birthday";
     self.presetDictionaries[name] = dict;
-    
-//    [self.presetDictionaries setValue:dict forKey:dict[nameKey]];
 }
 
+- (void)getPresetFromNSUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *arrayOfPresetDicts = [defaults arrayForKey:userDefaultsPresetDictKey];
+    if (arrayOfPresetDicts != nil) {
+        for (NSDictionary *dict in arrayOfPresetDicts) {
+            [self addPresetDictToPresetStorage:dict];
+        }
+    }
+}
+
+
+#pragma mark - Generating Rule Strings
 - (NSString*)getStateName:(NSInteger)stateNumber forAntType:(AntType)type {
     NSString *stateName;
     switch (stateNumber) {
@@ -945,6 +950,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
 }
 
+
+#pragma mark - Colors
 + (NSArray*)masterColorList {
     NSArray *masterList = @[
                             //blue burgandy blue
@@ -976,7 +983,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                                [UIColor colorwithHexString:@"E5E2E2" alpha:1.0]],          // c3
                             
                             
-                                // pastelly brown green purple
+                            // pastelly brown green purple
                             @[[UIColor whiteColor],                                 // white
                               [UIColor colorwithHexString:@"FFE8C4" alpha:1.0],           // a1
                               [UIColor colorwithHexString:@"AAA6D0" alpha:1.0],           // b1
@@ -990,23 +997,23 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                               [UIColor colorwithHexString:@"383178" alpha:1.0],           // b3
                               [UIColor colorwithHexString:@"AD7E36" alpha:1.0]],          // c3
                             
-                                // b
+                            // b
                             @[ [UIColor whiteColor],         // white
-                                      [UIColor colorwithHexString:@"464A3E" alpha:1.0],           // a1
-                                      [UIColor colorwithHexString:@"A4AC96" alpha:1.0],           // b1
-                                      [UIColor colorwithHexString:@"857F74" alpha:1.0],           // c1
-                                      [UIColor colorwithHexString:@"6A6469" alpha:1.0],           // d1
-                                      [UIColor colorwithHexString:@"A2B37E" alpha:1.0],           // a2
-                                      [UIColor colorwithHexString:@"70726A" alpha:1.0],           // b2
-                                      [UIColor colorwithHexString:@"8C868B" alpha:1.0],           // c2
-                                      [UIColor colorwithHexString:@"A9A69E" alpha:1.0],           // d2
-                                      [UIColor colorwithHexString:@"747969" alpha:1.0],           // a3
-                                      [UIColor colorwithHexString:@"7A875E" alpha:1.0],           // b3
-                                      [UIColor colorwithHexString:@"2C2B2B" alpha:1.0]],          // c3
+                               [UIColor colorwithHexString:@"464A3E" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"A4AC96" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"857F74" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"6A6469" alpha:1.0],           // d1
+                               [UIColor colorwithHexString:@"A2B37E" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"70726A" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"8C868B" alpha:1.0],           // c2
+                               [UIColor colorwithHexString:@"A9A69E" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"747969" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"7A875E" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"2C2B2B" alpha:1.0]],          // c3
                             
-                        
                             
-             
+                            
+                            
                             
                             // nice blue purple green in shades
                             @[[UIColor whiteColor],
@@ -1021,7 +1028,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                               [UIColor colorwithHexString:@"90305A" alpha:1.0],  // d2
                               [UIColor colorwithHexString:@"201858" alpha:1.0],           // a3
                               [UIColor colorwithHexString:@"105D2A" alpha:1.0]],           // b3
-
+                            
                             
                             @[[UIColor whiteColor],[UIColor redColor], [UIColor orangeColor], [UIColor blueColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ]
                             
@@ -1030,9 +1037,5 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     return masterList;
 }
 
-
-
-//  8way  states = @[@3,@-2,@4, @2, @-3] , 60 x 40 good  ;
-//  8way  states = @[@3,@-2,@4, @2, @-3] , 70 x 55 good, row/4 col/2, row/2 col/4  ;
 
 @end

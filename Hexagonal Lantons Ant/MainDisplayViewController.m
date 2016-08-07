@@ -91,16 +91,12 @@ BOOL orientationLocked;
     if ([Settings sharedInstance].name == nil) {
         NSLog(@"unset");
         [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
-//        [[Settings sharedInstance] extractSettingsFromDict:  [Settings sharedInstance].presetDictionaries[@"labyrinth maker"]];
-//        [Settings sharedInstance].speed = [NSNumber numberWithFloat: 0.2];
+
     }
-    _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
-    _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.3];
+    _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+    _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     [self.navigationController setNavigationBarHidden:YES];
 
-    if ([Settings sharedInstance].musicIsOn) {
-        [Settings sharedInstance].speed = @0.2;
-    }
     [self rebuildGridCollectionIfNecessary];
 }
 
@@ -120,10 +116,6 @@ BOOL orientationLocked;
         [timer invalidate];
     } else {
          [gridColl updateViews];
-        /// HERER!!!
-//        if ([Settings sharedInstance].settingsGrid.count == 747 || [Settings sharedInstance].settingsGrid.count == 645) {
-//            _currentState = PAUSED;
-//        }
     }
    
 }

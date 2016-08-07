@@ -10,9 +10,11 @@
 
 @implementation DrumLine
 NSInteger const NUM_SAMPLES = 8;
+AVAudioUnitReverb *reverb;
 - (instancetype) init {
     self = [super init];
     if (self) {
+        
         [self createDrumPlayerArray];
     }
     return self;
@@ -27,8 +29,8 @@ NSInteger const NUM_SAMPLES = 8;
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"snare_01"]];
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"snare_02"]];
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"click_02"]];
-       [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"kick_05"]];
-      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"click_03"]];
+     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"kick_05"]];
+     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"click_03"]];
 }
 
 - (AVAudioPlayer*) createAudioPlayerWithString:(NSString*)fileName {
@@ -46,7 +48,7 @@ NSInteger const NUM_SAMPLES = 8;
 
 - (void)playNote:(NSNumber*)direction {
     AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue]];
-    [player play];
+       [player play];
 }
                        
 
