@@ -34,56 +34,20 @@ Grid *grid;
 AbstractGridCollection *gridColl;
 CGFloat gridWidth;
 Settings *settings;
-NSNumber *actualDeviceOrientation;
-BOOL isPortrait;
-BOOL orientationLocked;
+
 
 @synthesize currentState = _currentState;
 
-
+#pragma Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self displayOrHideSettingsButtonAndLabel];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(orientationChanged:)
-        name:UIDeviceOrientationDidChangeNotification
-        object:[UIDevice currentDevice]];
     settings = [Settings sharedInstance];
 }
 
-
-
-
-
-- (void)rebuildGridCollectionIfNecessary{
-    if (settings.needToRebuild) {
-        [gridColl removeAllViews];
-        gridWidth = self.view.frame.size.width / settings.numColsInGrid;
-        grid = settings.settingsGrid;
-        [grid buildZeroStateMatrix];
-        [self makeGridCollection];
-        [self.view bringSubviewToFront:_settingsButton];
-        
-        [grid update];
-        [self setCurrentState:ACTIVE];
-        [settings updateMusicStatusOfAnts]; //new
-        settings.needToRebuild = NO;
-        
-    }
-    
-}
-
-
-- (BOOL) currentlyPortait{
-    return self.view.frame.size.height > self.view.frame.size.width;
-}
-
-
 - (void)viewWillAppear:(BOOL)animated {
     // use this ratio when choosing custom widths
-    self.isPortrait = [self currentlyPortait];
-    orientationLocked = YES;
+    
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
         [Settings sharedInstance].needToRebuild = YES;
@@ -91,25 +55,16 @@ BOOL orientationLocked;
     if ([Settings sharedInstance].name == nil) {
         NSLog(@"unset");
         [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
-
+        
     }
     _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
     [self.navigationController setNavigationBarHidden:YES];
-
     [self rebuildGridCollectionIfNecessary];
 }
 
 
-
-
-- (void)orientationChanged:(NSNotification*) notificiation {
-    if (self.isPortrait != [self currentlyPortait]) {
-        NSLog(@"change");
-    }
-}
-
-
+#pragma mark CurrentState and Update
 
 - (void)update:(NSTimer*)timer {
        if (_currentState == PAUSED) {
@@ -128,22 +83,6 @@ BOOL orientationLocked;
     }
 }
 
-- (void)makeGridCollection {
-    NSArray* colorList = [Settings sharedInstance].colorList;
-    switch (settings.antType) {
-        case FOUR_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
-            break;
-        case SIX_WAY:
-            gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:NO colorList:colorList];
-            break;
-        case EIGHT_WAY:
-            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
-            break;
-        default:
-            break;
-    }
-}
 
 - (IBAction)screenTapped:(UITapGestureRecognizer *)sender {
     if (_currentState == ACTIVE) {
@@ -168,6 +107,44 @@ BOOL orientationLocked;
         [self.view bringSubviewToFront:_countLabel];
         _countLabel.text = [ NSString stringWithFormat:@"Count: %li (tap screen to restart)",  (unsigned long)settings.settingsGrid.count ];
     }
+}
+
+#pragma mark Building and Rebuilding
+
+- (void)makeGridCollection {
+    NSArray* colorList = [Settings sharedInstance].colorList;
+    switch (settings.antType) {
+        case FOUR_WAY:
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
+            break;
+        case SIX_WAY:
+            gridColl = [[HexagonGridColection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:NO colorList:colorList];
+            break;
+        case EIGHT_WAY:
+            gridColl = [[SquareGridCollection alloc] initWithParentView:self.view grid:grid boxWidth:gridWidth drawAsCircle:settings.defaultShape colorList:colorList];
+            break;
+        default:
+            break;
+    }
+}
+
+
+- (void)rebuildGridCollectionIfNecessary{
+    if (settings.needToRebuild) {
+        [gridColl removeAllViews];
+        gridWidth = self.view.frame.size.width / settings.numColsInGrid;
+        grid = settings.settingsGrid;
+        [grid buildZeroStateMatrix];
+        [self makeGridCollection];
+        [self.view bringSubviewToFront:_settingsButton];
+        
+        [grid update];
+        [self setCurrentState:ACTIVE];
+        [settings updateMusicStatusOfAnts]; //new
+        settings.needToRebuild = NO;
+        
+    }
+    
 }
 
 
