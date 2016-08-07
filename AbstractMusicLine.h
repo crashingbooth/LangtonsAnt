@@ -10,5 +10,6 @@
 
 @interface AbstractMusicLine : NSObject
 @property (nonatomic) float pan;
+@property (nonatomic) float vol;
 -(void)playNote:(NSNumber*)note;
 @end

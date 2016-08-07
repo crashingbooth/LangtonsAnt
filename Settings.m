@@ -230,7 +230,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
             NSNumber *voice = self.midiVoiceArray[i];
             NSInteger root = [self.registerArray[i] integerValue] * 12 + 48;
             float pan = [self.panArray[i] floatValue];
-            line = [[MidiLine alloc] initWithGMMidiNumber:voice root:root channel:[NSNumber numberWithInt:i] pan:pan];
+            float vol = [self.volArray[i] floatValue];
+            line = [[MidiLine alloc] initWithGMMidiNumber:voice root:root channel:[NSNumber numberWithInt:i] pan:pan vol:vol];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:self.scaleName];
         } else {
             line = [[DrumLine alloc] init];

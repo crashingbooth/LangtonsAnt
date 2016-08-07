@@ -7,6 +7,7 @@
 //
 #import <AVFoundation/AVFoundation.h>
 #import "AbstractMusicLine.h"
+#import "Settings.h"
 
 @interface MidiLine : AbstractMusicLine
 @property (nonatomic) AVAudioEngine *engine;
@@ -15,6 +16,6 @@
 @property UInt8 channel;
 @property UInt8 rootNote;
 
--(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum pan:(float)pan;
+-(id)initWithGMMidiNumber:(NSNumber*)gmMidiNumber root:(NSInteger)root channel:(NSNumber*)channelNum pan:(float)pan vol:(float)vol;
 
 @end
