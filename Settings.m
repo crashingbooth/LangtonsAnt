@@ -346,10 +346,30 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     } else if (self.antsInitialStatus.count <= 1) {
         NSLog(@"Too few ants");
     } else {
-        NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
-        [antsCopy removeObjectAtIndex:index];
-        // here TODO: update music settings with remove from index
-        self.antsInitialStatus = antsCopy;
+        NSMutableArray *tempArr = [self.antsInitialStatus mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.antsInitialStatus = tempArr;
+        
+        tempArr = [self.musicTypeArray mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.musicTypeArray = tempArr;
+        
+        tempArr = [self.midiVoiceArray mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.midiVoiceArray = tempArr;
+        
+        tempArr = [self.panArray mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.panArray = tempArr;
+        
+        tempArr = [self.volArray mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.volArray = tempArr;
+        
+        tempArr = [self.registerArray mutableCopy];
+        [tempArr removeObjectAtIndex:index];
+        self.registerArray = tempArr;
+        
         [self recreateGrid];
     }
 }
