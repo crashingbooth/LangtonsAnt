@@ -38,10 +38,12 @@ Settings *settings;
 
 @synthesize currentState = _currentState;
 
-#pragma Lifecycle
+#pragma mark Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self displayOrHideSettingsButtonAndLabel];
+   
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     settings = [Settings sharedInstance];
 }
 
@@ -57,8 +59,8 @@ Settings *settings;
         [[Settings sharedInstance] extractSettingsFromDict: [Settings sharedInstance].presetDictionaries[[[Settings sharedInstance] randomStartingPreset]]];
         
     }
-    _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
-    _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+    _settingsButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
 }
@@ -107,6 +109,10 @@ Settings *settings;
         [self.view bringSubviewToFront:_countLabel];
         _countLabel.text = [ NSString stringWithFormat:@"Count: %li (tap screen to restart)",  (unsigned long)settings.settingsGrid.count ];
     }
+}
+
+- (void)routeChanged:(NSNotification*)notification {
+    self.currentState = PAUSED;
 }
 
 #pragma mark Building and Rebuilding
