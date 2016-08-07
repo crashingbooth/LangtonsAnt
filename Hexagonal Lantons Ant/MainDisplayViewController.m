@@ -49,7 +49,6 @@ Settings *settings;
 
 - (void)viewWillAppear:(BOOL)animated {
     // use this ratio when choosing custom widths
-    
     if ([Settings sharedInstance].lengthToWidthRatio == 0.0 ) {
         [[Settings sharedInstance] establishLengthToWidthRatio:self.view.frame.size.width length:self.view.frame.size.height];
         [Settings sharedInstance].needToRebuild = YES;
@@ -63,12 +62,14 @@ Settings *settings;
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
+    self.currentState = PAUSED;
 }
 
 
 #pragma mark CurrentState and Update
 
 - (void)update:(NSTimer*)timer {
+    
        if (_currentState == PAUSED) {
         [timer invalidate];
     } else {

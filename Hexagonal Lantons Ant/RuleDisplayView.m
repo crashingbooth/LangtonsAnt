@@ -9,25 +9,11 @@
 #import "RuleDisplayView.h"
 
 @implementation RuleDisplayView
-AntType type;
+{
 NSUInteger numSectors;
-UIImageView *controlArrow;
-UIImageView *guideArrow;
-UILabel *stateNumLabel;
-UILabel *stateValLabel;
-
-
-UIColor *stateColor;
-NSInteger ruleValue;
-BOOL editable = NO;
 CGFloat PI;
 CGFloat sectorSize;
-Settings *ruleDisplaySettings;
-NSArray *stateNames; // 2d array
-
-
-
-
+}
 
 - (id)initWithType:(AntType) type ruleValue:(NSInteger)ruleValue ruleNumber:(NSInteger) ruleNumber color:(UIColor*) stateColor {
     self = [super init];
@@ -35,15 +21,10 @@ NSArray *stateNames; // 2d array
         [self basicSetup];
         [self setUpWithAntType:type];
         self.stateColor = stateColor;
-       
         self.ruleValue = ruleValue;
         self.ruleNumber = ruleNumber;
-        
         [self createLabelText];
-        
-            }
-
-    
+    }
     return self;
 }
 
@@ -55,8 +36,8 @@ NSArray *stateNames; // 2d array
     return self;
 }
 
+#pragma mark SetUp
 - (void)basicSetup {
-    ruleDisplaySettings = [Settings sharedInstance];
     PI = (CGFloat)M_PI;
     
     self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
@@ -95,7 +76,7 @@ NSArray *stateNames; // 2d array
 }
 
 - (void)createLabelText{
-    if (editable) {
+    if (self.editable) {
         self.stateNumLabel.text = [NSString stringWithFormat:@"State: %li", (long)self.ruleNumber];
     } else {
         self.stateNumLabel.text = [NSString stringWithFormat:@"%li", (long)self.ruleNumber];
@@ -122,40 +103,7 @@ NSArray *stateNames; // 2d array
     sectorSize = (PI * 2) / (CGFloat)numSectors;
 }
 
-- (void)longPressRecognized:(UILongPressGestureRecognizer*)gesture {
-    CGPoint loc = [gesture locationInView:self];
-    if (self.editable) {
-        if (gesture.state == UIGestureRecognizerStateChanged) {
-            
-            CGFloat angle = [self getAngleFromPoint:loc];
-            //        NSInteger sector = [self getSectorFromAngle:angle];
-            //        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
-            self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (angle - (PI / 2.0)));
-            
-            
-        } else if (gesture.state == UIGestureRecognizerStateEnded) {
-            
-            CGFloat angle = [self getAngleFromPoint:loc];
-            NSInteger sector = [self getSectorFromAngle:angle];
-            NSInteger newRuleValue = [self getRuleValueFromSector:sector];
-            if (newRuleValue != self.ruleValue) {
-                CGFloat finalAngle = ((CGFloat)sector * sectorSize);
-                self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
-                self.ruleValue = newRuleValue;
-                [self createLabelText];
-                [self changeSettings];
-            }
-        }
-    }
-}
-
-- (void)changeSettings {
-    NSMutableArray *stateList = [[Settings sharedInstance].statesListInGrid mutableCopy];
-    [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
-    [Settings sharedInstance].statesListInGrid = stateList;
-    [[Settings sharedInstance] recreateGrid];
-}
-
+#pragma mark Drawing
 
 - (void)drawRect:(CGRect)rect {
     CGFloat sideLength = self.frame.size.width;
@@ -221,10 +169,53 @@ NSArray *stateNames; // 2d array
     [self addSubview:self.controlArrow];
 }
 
+#pragma mark Modify Rules With Gestures
+
+- (void)longPressRecognized:(UILongPressGestureRecognizer*)gesture {
+    CGPoint loc = [gesture locationInView:self];
+    if (self.editable) {
+        if (gesture.state == UIGestureRecognizerStateChanged) {
+            
+            CGFloat angle = [self getAngleFromPoint:loc];
+            //        NSInteger sector = [self getSectorFromAngle:angle];
+            //        NSLog([NSString stringWithFormat:   @"rotating %.2f rule %li", angle, (long)[self getRuleValueFromSector:sector]]);
+            self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (angle - (PI / 2.0)));
+            
+            
+        } else if (gesture.state == UIGestureRecognizerStateEnded) {
+            
+            CGFloat angle = [self getAngleFromPoint:loc];
+            NSInteger sector = [self getSectorFromAngle:angle];
+            NSInteger newRuleValue = [self getRuleValueFromSector:sector];
+            if (newRuleValue != self.ruleValue) {
+                CGFloat finalAngle = ((CGFloat)sector * sectorSize);
+                self.controlArrow.transform = CGAffineTransformIdentity;
+                self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
+                self.ruleValue = newRuleValue;
+                [self createLabelText];
+                [self changeSettings];
+            } else {
+                sector = [self getSectorFromRule:self.ruleValue];
+                CGFloat finalAngle = ((CGFloat)sector * sectorSize);
+                self.controlArrow.transform = CGAffineTransformIdentity;
+                self.controlArrow.transform = CGAffineTransformMakeRotation(-1 * (finalAngle));
+            }
+        }
+    }
+}
+
+- (void)changeSettings {
+    NSMutableArray *stateList = [[Settings sharedInstance].statesListInGrid mutableCopy];
+    [stateList replaceObjectAtIndex:self.ruleNumber withObject:[NSNumber numberWithInteger:self.ruleValue]];
+    [Settings sharedInstance].statesListInGrid = stateList;
+    [[Settings sharedInstance] recreateGrid];
+}
 
 
 
 
+
+#pragma mark Geometry
 
 - (NSMutableArray*)markerPoints:(CGFloat)distanceFromEdge {
     NSMutableArray *points = [[NSMutableArray alloc] init];

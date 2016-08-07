@@ -71,6 +71,15 @@
 		1F93F03C1D45AFA000D018B9 /* RuleDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03B1D45AFA000D018B9 /* RuleDisplayCell.m */; };
 		1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F93F03E1D45B04900D018B9 /* NewRulesCell.m */; };
 		1F9AD0861D5458CF002184AF /* AboutLangtonVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */; };
+		1F9AD0901D56F1BD002184AF /* 181013__snapper4298__snare-drum2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD0871D56F1BD002184AF /* 181013__snapper4298__snare-drum2.wav */; };
+		1F9AD0911D56F1BD002184AF /* 56390__puke34__dissnares2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD0881D56F1BD002184AF /* 56390__puke34__dissnares2.wav */; };
+		1F9AD0921D56F1BD002184AF /* 25217__suonho__deconstruction-kit-highhat03.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD0891D56F1BD002184AF /* 25217__suonho__deconstruction-kit-highhat03.wav */; };
+		1F9AD0931D56F1BD002184AF /* 267445__alienxxx__snippet-16.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08A1D56F1BD002184AF /* 267445__alienxxx__snippet-16.wav */; };
+		1F9AD0941D56F1BD002184AF /* 266048__gis-sweden__glitchbd3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08B1D56F1BD002184AF /* 266048__gis-sweden__glitchbd3.wav */; };
+		1F9AD0951D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08C1D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav */; };
+		1F9AD0961D56F1BD002184AF /* 2098__opm__rs-set4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08D1D56F1BD002184AF /* 2098__opm__rs-set4.wav */; };
+		1F9AD0971D56F1BD002184AF /* 2085__opm__kk-set1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08E1D56F1BD002184AF /* 2085__opm__kk-set1.wav */; };
+		1F9AD0981D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08F1D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 		1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896A91D45D70F004AE72E /* BasicCell.m */; };
@@ -206,6 +215,15 @@
 		1F93F03E1D45B04900D018B9 /* NewRulesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRulesCell.m; sourceTree = "<group>"; };
 		1F9AD0841D5458CF002184AF /* AboutLangtonVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLangtonVC1.h; sourceTree = "<group>"; };
 		1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLangtonVC1.m; sourceTree = "<group>"; };
+		1F9AD0871D56F1BD002184AF /* 181013__snapper4298__snare-drum2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "181013__snapper4298__snare-drum2.wav"; sourceTree = "<group>"; };
+		1F9AD0881D56F1BD002184AF /* 56390__puke34__dissnares2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 56390__puke34__dissnares2.wav; sourceTree = "<group>"; };
+		1F9AD0891D56F1BD002184AF /* 25217__suonho__deconstruction-kit-highhat03.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "25217__suonho__deconstruction-kit-highhat03.wav"; sourceTree = "<group>"; };
+		1F9AD08A1D56F1BD002184AF /* 267445__alienxxx__snippet-16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "267445__alienxxx__snippet-16.wav"; sourceTree = "<group>"; };
+		1F9AD08B1D56F1BD002184AF /* 266048__gis-sweden__glitchbd3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "266048__gis-sweden__glitchbd3.wav"; sourceTree = "<group>"; };
+		1F9AD08C1D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "185301__casmarrav__tisshhh-hi-hat.wav"; sourceTree = "<group>"; };
+		1F9AD08D1D56F1BD002184AF /* 2098__opm__rs-set4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2098__opm__rs-set4.wav"; sourceTree = "<group>"; };
+		1F9AD08E1D56F1BD002184AF /* 2085__opm__kk-set1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2085__opm__kk-set1.wav"; sourceTree = "<group>"; };
+		1F9AD08F1D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "406__tictacshutup__click-1-d.wav"; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -400,6 +418,15 @@
 		1F8CDAA51D2A2E1100AE4D32 /* Music and MIDI */ = {
 			isa = PBXGroup;
 			children = (
+				1F9AD0871D56F1BD002184AF /* 181013__snapper4298__snare-drum2.wav */,
+				1F9AD0881D56F1BD002184AF /* 56390__puke34__dissnares2.wav */,
+				1F9AD0891D56F1BD002184AF /* 25217__suonho__deconstruction-kit-highhat03.wav */,
+				1F9AD08A1D56F1BD002184AF /* 267445__alienxxx__snippet-16.wav */,
+				1F9AD08B1D56F1BD002184AF /* 266048__gis-sweden__glitchbd3.wav */,
+				1F9AD08C1D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav */,
+				1F9AD08D1D56F1BD002184AF /* 2098__opm__rs-set4.wav */,
+				1F9AD08E1D56F1BD002184AF /* 2085__opm__kk-set1.wav */,
+				1F9AD08F1D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav */,
 				1F40BCD61D2798C800B303E0 /* MusicInterpretter.h */,
 				1F40BCD71D2798C800B303E0 /* MusicInterpretter.m */,
 				1F35C4901D51707B003E9F6F /* AbstractMusicLine.h */,
@@ -598,6 +625,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9AD0941D56F1BD002184AF /* 266048__gis-sweden__glitchbd3.wav in Resources */,
+				1F9AD0931D56F1BD002184AF /* 267445__alienxxx__snippet-16.wav in Resources */,
 				1F2AD94C1D23A9C70020B06E /* LaunchScreen.storyboard in Resources */,
 				1F35C49E1D518698003E9F6F /* click_01.wav in Resources */,
 				1F35C4B71D5186C5003E9F6F /* kick_02.wav in Resources */,
@@ -605,22 +634,29 @@
 				1F2AD9491D23A9C70020B06E /* Assets.xcassets in Resources */,
 				1F35C49A1D5180CB003E9F6F /* audio in Resources */,
 				1F35C4B61D5186C5003E9F6F /* kick_01.wav in Resources */,
+				1F9AD0971D56F1BD002184AF /* 2085__opm__kk-set1.wav in Resources */,
 				1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */,
+				1F9AD0951D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav in Resources */,
 				1F35C4B91D5186C5003E9F6F /* kick_04.wav in Resources */,
 				1F2AD9471D23A9C70020B06E /* Main.storyboard in Resources */,
+				1F9AD0981D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav in Resources */,
 				1F35C4B31D5186C5003E9F6F /* hihat_02.wav in Resources */,
 				1F35C4C01D5186D4003E9F6F /* snare_03.wav in Resources */,
+				1F9AD0961D56F1BD002184AF /* 2098__opm__rs-set4.wav in Resources */,
+				1F9AD0901D56F1BD002184AF /* 181013__snapper4298__snare-drum2.wav in Resources */,
 				1F35C4BF1D5186D4003E9F6F /* snare_02.wav in Resources */,
 				1F35C4A41D5186BA003E9F6F /* click_03.wav in Resources */,
 				1F35C4B51D5186C5003E9F6F /* hihat_04.wav in Resources */,
 				1F35C4BE1D5186D4003E9F6F /* snare_01.wav in Resources */,
 				1F35C4A31D5186BA003E9F6F /* click_02.wav in Resources */,
+				1F9AD0921D56F1BD002184AF /* 25217__suonho__deconstruction-kit-highhat03.wav in Resources */,
 				1F35C4A61D5186BA003E9F6F /* click_05.wav in Resources */,
 				1F35C4B21D5186C5003E9F6F /* hihat_01.wav in Resources */,
 				1F35C4B81D5186C5003E9F6F /* kick_03.wav in Resources */,
 				1F35C4BA1D5186C5003E9F6F /* kick_05.wav in Resources */,
 				1F35C4B11D5186C5003E9F6F /* cowbell_01.wav in Resources */,
 				1F35C4B41D5186C5003E9F6F /* hihat_03.wav in Resources */,
+				1F9AD0911D56F1BD002184AF /* 56390__puke34__dissnares2.wav in Resources */,
 				1F35C4A51D5186BA003E9F6F /* click_04.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,14 +7,16 @@
 //
 
 #import "DrumLine.h"
+#import "Settings.h"
 
 @implementation DrumLine
-NSInteger const NUM_SAMPLES = 8;
+NSInteger const NUM_SAMPLES = 17;
 AVAudioUnitReverb *reverb;
-- (instancetype) init {
+NSInteger registerOffset;
+- (instancetype) initWithRegister:(NSNumber*)registerNum {
     self = [super init];
     if (self) {
-        
+        registerOffset = ([registerNum integerValue] % 2) * 8;
         [self createDrumPlayerArray];
     }
     return self;
@@ -30,7 +32,17 @@ AVAudioUnitReverb *reverb;
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"snare_02"]];
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"click_02"]];
      [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"kick_05"]];
-     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"click_03"]];
+  
+    
+     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"181013__snapper4298__snare-drum2"]];
+     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"406__tictacshutup__click-1-d"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"2085__opm__kk-set1"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"2098__opm__rs-set4"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"266048__gis-sweden__glitchbd3"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"267445__alienxxx__snippet-16"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"25217__suonho__deconstruction-kit-highhat03"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"56390__puke34__dissnares2"]];
+
 }
 
 - (AVAudioPlayer*) createAudioPlayerWithString:(NSString*)fileName {
@@ -47,7 +59,9 @@ AVAudioUnitReverb *reverb;
 }
 
 - (void)playNote:(NSNumber*)direction {
-    AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue]];
+    // TODO probably a better way to do this
+
+    AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue] + registerOffset];
        [player play];
 }
                        
