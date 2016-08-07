@@ -51,16 +51,18 @@
 
 - (IBAction)fourWayPress:(UIButton *)sender {
      [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"standard Langton's Ant"]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"added Rule" object:nil];
     [[Settings sharedInstance] recreateGrid];
 }
 - (IBAction)sixWayPress:(id)sender {
     [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"symmetrical hex 2-state"]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"added Rule" object:nil];
     [[Settings sharedInstance] recreateGrid];
 }
 
 - (IBAction)eightWayPress:(UIButton *)sender {
     [[Settings sharedInstance] extractSettingsFromDict:[Settings sharedInstance].presetDictionaries[@"basic 8-way"]];
-    
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"added Rule" object:nil];
     [[Settings sharedInstance] recreateGrid];
 }
 

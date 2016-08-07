@@ -9,9 +9,6 @@
 #import "ColorSchemeInternalView.h"
 
 @implementation ColorSchemeInternalView
-NSArray *colorListForColorScheme;
-NSInteger numStatesForColorScheme;
-NSInteger colorSchemeIndex;
 
 - (void)setUp:(NSInteger)index {
     self.colorSchemeIndex = index;
@@ -28,17 +25,18 @@ NSInteger colorSchemeIndex;
 - (void)drawRect:(CGRect)rect {
     self.numStatesForColorScheme = [Settings sharedInstance].statesListInGrid.count;
     CGFloat maxNumStates = 12.0;
-    CGFloat xPadding = 4.0;
-    CGFloat circleDiameter = (self.frame.size.width - (xPadding * 2.0)) / maxNumStates;
-    if (circleDiameter > self.frame.size.height * 0.9) {
-        circleDiameter = self.frame.size.height * 0.9;
+    CGFloat spacing = 5.0;
+    CGFloat circleDiameter = (self.frame.size.width - ((maxNumStates + 1) * spacing)) / maxNumStates;
+    if (circleDiameter > self.frame.size.height * 0.8) {
+        circleDiameter = self.frame.size.height * 0.8;
     }
     
     CGFloat yOffset = (self.frame.size.height - circleDiameter) / 2.0;
-    CGFloat actualDisplayWidth = circleDiameter * self.numStatesForColorScheme;
-    CGFloat xOffset = (self.frame.size.width - actualDisplayWidth) / 2.0 + xPadding;
+    CGFloat actualDisplayWidth = circleDiameter * self.numStatesForColorScheme + ((self.numStatesForColorScheme + 1) * spacing);
+    CGFloat xOffset = (self.frame.size.width - actualDisplayWidth) / 2.0;
     
     for (int i = 0; i < self.numStatesForColorScheme; i++) {
+        xOffset += spacing;
         CGRect rect = CGRectMake(xOffset, yOffset, circleDiameter, circleDiameter);
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
         [self.colorListForColorScheme[i] setFill];
