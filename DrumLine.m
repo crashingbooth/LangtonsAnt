@@ -12,11 +12,10 @@
 @implementation DrumLine
 NSInteger const NUM_SAMPLES = 17;
 AVAudioUnitReverb *reverb;
-NSInteger registerOffset;
 - (instancetype) initWithRegister:(NSNumber*)registerNum {
     self = [super init];
     if (self) {
-        registerOffset = ([registerNum integerValue] % 2) * 8;
+
         [self createDrumPlayerArray];
     }
     return self;
@@ -59,9 +58,8 @@ NSInteger registerOffset;
 }
 
 - (void)playNote:(NSNumber*)direction {
-    // TODO probably a better way to do this
 
-    AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue] + registerOffset];
+    AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue]];
        [player play];
 }
                        

@@ -8,6 +8,7 @@
 
 #import "MusicPropertiesVC.h"
 #import "Settings.h"
+#import "MusicOptions.h"
 
 @interface MusicPropertiesVC ()
 
@@ -24,6 +25,7 @@ NSArray *volumeDS;
 NSArray *registerDS;
 NSArray *drumRegisterDS;
 NSInteger internalAntNumber;
+
 
 
 - (void)viewDidLoad {
@@ -54,29 +56,53 @@ NSInteger internalAntNumber;
     panMeaning = @[@-1, @0, @1];
     volumeDS = @[@0.0, @0.2, @0.4, @0.6, @0.8, @1.0];
     registerDS = @[@-2, @-1, @0, @1, @2];
-    drumRegisterDS = @[@-2, @-1, @0, @1, @2];
+    drumRegisterDS = [MusicOptions drumList];
 }
 
 - (void) updateDrumToggle {
+    // because drum and melodic use register value differetly, must force it to make sense when context changes
      BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
+    
     if (isMelodic) {
         _registerLabel.text = @"register";
         
     } else {
         _registerLabel.text = @"drum kit num.";
     }
-    [_musicPropertiesPicker reloadAllComponents];
+  
     if (isMelodic) {
         NSNumber *voiceVal = [Settings sharedInstance].midiVoiceArray[internalAntNumber];
         self.voiceStart = [voicesListMeaning indexOfObject:voiceVal];
         [_musicPropertiesPicker selectRow:self.voiceStart inComponent:1 animated:NO];
-    }
+         NSNumber *registerVal = [Settings sharedInstance].registerArray[internalAntNumber];
+        NSInteger currentIndex = [registerDS indexOfObject:registerVal];
+        if (self.toggled) {
+            currentIndex = 2;
+            [Settings sharedInstance].registerArray[internalAntNumber] = [NSNumber numberWithInteger:currentIndex];
+           
+        }
+        self.registerStart = currentIndex;
+        self.toggled = NO;
+        
+    } else {
+         NSInteger currentIndex = [[Settings sharedInstance].registerArray[internalAntNumber] integerValue];
+        if (self.toggled) {
+            currentIndex = 0;
+            [Settings sharedInstance].registerArray[internalAntNumber] = [NSNumber numberWithInteger:currentIndex];
+        }
+         self.registerStart = currentIndex;
+        self.toggled = NO;
+          }
+   
+    [_musicPropertiesPicker selectRow:self.registerStart inComponent:2 animated:NO];
+    [_musicPropertiesPicker reloadAllComponents];
     
 }
 
 - (void)getStartValues {
     [self buildDataSource];
     if (self.antNumberForMPVC) {
+        BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
         internalAntNumber = [self.antNumberForMPVC integerValue];
 
         NSNumber *typeVal = [Settings sharedInstance].musicTypeArray[internalAntNumber];
@@ -90,10 +116,16 @@ NSInteger internalAntNumber;
         } else {
             self.typeStart = 1;
         }
+
         
         self.voiceStart = [voicesListMeaning indexOfObject:voiceVal];
         self.panStart = [panMeaning indexOfObject:panVal];
-        self.registerStart = [registerDS indexOfObject:registerVal];
+        if (isMelodic) {
+            self.registerStart = [registerDS indexOfObject:registerVal];
+        } else {
+            self.registerStart = [drumRegisterDS indexOfObject:registerVal];
+        }
+        
         self.volStart = [volumeDS indexOfObject:volVal];
         
 
@@ -208,6 +240,7 @@ NSInteger internalAntNumber;
             } else {
                 [Settings sharedInstance].musicTypeArray[internalAntNumber] = [NSNumber numberWithBool:NO];
             }
+            self.toggled = YES;
             [self updateDrumToggle];
             break;
         case 1:

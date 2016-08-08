@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MusicOptions : NSObject
 + (NSDictionary*) scalesDict;
 + (NSArray*) scalesList;
++ (NSDictionary*) drumMapDict;
++ (NSArray*) drumList;
 
 @end

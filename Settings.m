@@ -7,9 +7,7 @@
 //
 
 #import "Settings.h"
-#import "MusicInterpretter.h"
-#import "DrumLine.h"
-#import "MidiLine.h"
+
 
 
 

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MidiNote.h"
 #import "AbstractMusicLine.h"
+#import "DrumLine.h"
+#import "MusicOptions.h"
+
 
 @interface MusicInterpretter : NSObject
 @property (nonatomic, strong) NSString *scaleName;

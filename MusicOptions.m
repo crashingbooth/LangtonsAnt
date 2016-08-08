@@ -25,8 +25,24 @@
     return scalesDict;
 }
 
++ (NSDictionary*) drumMapDict {
+    NSDictionary *drumMapDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @[@0, @1, @2, @3, @4, @5, @6, @7],@0,
+                                 @[@7, @6, @5, @4, @3, @2, @1, @0],@1,
+                                 @[@8, @9, @10, @11, @12, @13, @14, @15],@2,
+                                 @[@15, @14, @13, @12, @11, @10, @9, @8],@3,
+                                 @[@8, @0, @9, @1, @10, @2, @11, @3],@4,
+                                 @[@12, @4, @13, @5, @14, @6, @15, @7],@5
+                                 ,nil];
+    return drumMapDict;
+}
+
 + (NSArray*) scalesList {
     return [MusicOptions scalesDict].allKeys;
+}
+
++ (NSArray*) drumList {
+    return @[@0, @1,@2,@3,@4,@5];
 }
 
 @end

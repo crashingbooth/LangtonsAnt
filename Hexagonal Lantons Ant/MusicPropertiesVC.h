@@ -15,6 +15,8 @@
 @property (nonatomic) NSInteger registerStart;
 @property (nonatomic) NSInteger volStart;
 
+@property (nonatomic) BOOL toggled;
+
 @property (nonatomic) NSNumber *antNumberForMPVC;
 @property (weak, nonatomic) IBOutlet UILabel *antNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *registerLabel;

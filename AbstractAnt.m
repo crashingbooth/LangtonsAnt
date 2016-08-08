@@ -9,15 +9,8 @@
 #import "AbstractAnt.h"
 #import "Settings.h"
 
-@implementation AbstractAnt
 
-GridPoint *currentPos;
-NSUInteger maxRow;
-NSUInteger maxCol;
-NSInteger direction;
-NSInteger totalDir;
-NSInteger NUM_DIR;
-MusicInterpretter *musInt;
+@implementation AbstractAnt
 
 
 -(id)initWithPosition:(GridPoint*)currentPos  maxRow:(NSUInteger)maxRow maxCol:(NSUInteger)maxCol {

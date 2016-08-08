@@ -15,6 +15,9 @@
 #import "EightWayAnt.h"
 #import "GridPoint.h"
 #import "Grid.h"
+#import "MusicInterpretter.h"
+#import "DrumLine.h"
+#import "MidiLine.h"
 
 
 @interface Settings : NSObject

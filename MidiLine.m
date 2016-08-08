@@ -25,6 +25,7 @@ BOOL interrupted = NO;
         self.gmMidiNumber = [gmMidiNumber integerValue];
         self.channel = [channelNum integerValue];
         self.rootNote = root;
+        self.antIndex = [channelNum integerValue];
         self.pan = pan;
         self.vol = vol;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
