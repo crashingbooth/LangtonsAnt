@@ -34,7 +34,7 @@ CGFloat boxWidth;
 - (void)updateOrCreateTile:(GridPoint*) gridPoint {
     UIViewWithPath *changeTile = [[self.gridOfViews objectAtIndex: gridPoint.row ] objectAtIndex:gridPoint.col];
     NSInteger newState = [[[self.grid.matrix objectAtIndex:gridPoint.row] objectAtIndex:gridPoint.col] integerValue];
-    UIColor *stateColor = self.colorListForGrid[newState];
+    UIColor *stateColor = self.colorListForGrid[newState % 12];
     if ([changeTile isEqual:[NSNull null]] ) {
         CGRect rect = [self getRectOfGridShape:gridPoint];
         changeTile = [self createTile:rect color:stateColor];

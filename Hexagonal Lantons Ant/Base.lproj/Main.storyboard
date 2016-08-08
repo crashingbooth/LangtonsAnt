@@ -74,14 +74,349 @@
                         <viewControllerLayoutGuide type="bottom" id="bRU-PA-xKo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xpO-Za-Vxl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evw-55-1lo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-uc-k0r">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic Langton's Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK3-N2-MLB">
+                                                <rect key="frame" x="218.5" y="0.0" width="162" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTi-gW-IZb">
+                                                <rect key="frame" x="60" y="30" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="coL-qz-OjP">
+                                                <rect key="frame" x="210" y="70" width="180" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="52k-fZ-ZVr"/>
+                                                    <constraint firstAttribute="height" constant="180" id="AeX-T4-Yis"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gee-Um-9Iu">
+                                                <rect key="frame" x="60" y="258" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Langtons_Ant_Highway" translatesAutoresizingMaskIntoConstraints="NO" id="DLZ-pF-8iF">
+                                                <rect key="frame" x="210" y="288" width="180" height="185"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180" id="2NY-yS-8Tk"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ZCX-Vl-9R3"/>
+                                                    <constraint firstAttribute="height" constant="185" id="gfb-q6-STZ"/>
+                                                    <constraint firstAttribute="width" constant="100" id="lDO-R9-NYx"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="ZCX-Vl-9R3"/>
+                                                        <exclude reference="lDO-R9-NYx"/>
+                                                    </mask>
+                                                </variation>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKA-Ep-S9H">
+                                                <rect key="frame" x="217.5" y="918" width="165" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Extending Langton's Ant"/>
+                                                <connections>
+                                                    <segue destination="Vfb-Y1-3bx" kind="show" id="v1T-sT-dtj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="coL-qz-OjP" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="6N8-lz-ecV"/>
+                                            <constraint firstItem="coL-qz-OjP" firstAttribute="top" secondItem="CTi-gW-IZb" secondAttribute="bottom" constant="17" id="7VC-SL-Hgs"/>
+                                            <constraint firstItem="Gee-Um-9Iu" firstAttribute="top" secondItem="coL-qz-OjP" secondAttribute="bottom" constant="8" id="H5v-0o-KZD"/>
+                                            <constraint firstItem="CTi-gW-IZb" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="Hkw-v5-qPn"/>
+                                            <constraint firstItem="RK3-N2-MLB" firstAttribute="top" secondItem="7FF-uc-k0r" secondAttribute="top" id="IfA-ml-Kjg"/>
+                                            <constraint firstItem="Gee-Um-9Iu" firstAttribute="width" secondItem="7FF-uc-k0r" secondAttribute="width" multiplier="0.8" id="IlL-bc-jhN"/>
+                                            <constraint firstAttribute="bottom" secondItem="bKA-Ep-S9H" secondAttribute="bottom" constant="50" id="RSd-30-93M"/>
+                                            <constraint firstItem="Gee-Um-9Iu" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="asE-Fl-AFn"/>
+                                            <constraint firstAttribute="bottom" secondItem="bKA-Ep-S9H" secondAttribute="bottom" constant="-20" id="beI-8G-1ZX"/>
+                                            <constraint firstItem="RK3-N2-MLB" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="djK-yB-BTm"/>
+                                            <constraint firstItem="DLZ-pF-8iF" firstAttribute="top" secondItem="Gee-Um-9Iu" secondAttribute="bottom" constant="8" id="jKe-j6-n43"/>
+                                            <constraint firstItem="DLZ-pF-8iF" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="nxW-hW-HX1"/>
+                                            <constraint firstItem="bKA-Ep-S9H" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="oyt-57-21a"/>
+                                            <constraint firstItem="CTi-gW-IZb" firstAttribute="width" secondItem="7FF-uc-k0r" secondAttribute="width" multiplier="0.8" id="sbc-JA-qcV"/>
+                                            <constraint firstAttribute="height" constant="1000" id="vA6-ro-uQl"/>
+                                            <constraint firstItem="CTi-gW-IZb" firstAttribute="top" secondItem="RK3-N2-MLB" secondAttribute="bottom" constant="8" id="vPS-9j-dpc"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="beI-8G-1ZX"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7FF-uc-k0r" secondAttribute="trailing" id="ILD-G6-dN1"/>
+                                    <constraint firstAttribute="bottom" secondItem="7FF-uc-k0r" secondAttribute="bottom" id="KXo-b9-ve6"/>
+                                    <constraint firstItem="7FF-uc-k0r" firstAttribute="leading" secondItem="evw-55-1lo" secondAttribute="leading" id="hsd-fl-fn9"/>
+                                    <constraint firstAttribute="trailing" secondItem="7FF-uc-k0r" secondAttribute="trailing" id="kUo-Rq-J59"/>
+                                    <constraint firstItem="7FF-uc-k0r" firstAttribute="leading" secondItem="evw-55-1lo" secondAttribute="leading" id="nUn-L8-8Kl"/>
+                                    <constraint firstItem="7FF-uc-k0r" firstAttribute="top" secondItem="evw-55-1lo" secondAttribute="top" id="sBb-xZ-syh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="evw-55-1lo" firstAttribute="top" secondItem="Xfg-uE-FSh" secondAttribute="bottom" id="PwH-iM-ni0"/>
+                            <constraint firstItem="7FF-uc-k0r" firstAttribute="width" secondItem="xpO-Za-Vxl" secondAttribute="width" id="Qik-TO-JfE"/>
+                            <constraint firstAttribute="trailing" secondItem="evw-55-1lo" secondAttribute="trailing" id="Tox-On-T8n"/>
+                            <constraint firstItem="evw-55-1lo" firstAttribute="leading" secondItem="xpO-Za-Vxl" secondAttribute="leading" id="gVv-qq-oc8"/>
+                            <constraint firstItem="bRU-PA-xKo" firstAttribute="top" secondItem="evw-55-1lo" secondAttribute="bottom" id="win-Sq-7ib"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
+                    <connections>
+                        <outlet property="bottomLabel" destination="Gee-Um-9Iu" id="Wk0-sW-s8u"/>
+                        <outlet property="imageViewWithGif" destination="coL-qz-OjP" id="OY6-qZ-8ry"/>
+                        <outlet property="scrollView" destination="evw-55-1lo" id="fst-7S-qre"/>
+                        <outlet property="topLabel" destination="CTi-gW-IZb" id="Rsr-qg-QRB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEX-yM-YeJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2692" y="-1129"/>
+            <point key="canvasLocation" x="2759" y="-1454"/>
+        </scene>
+        <!--About LangtonVC2-->
+        <scene sceneID="7Tr-sj-53K">
+            <objects>
+                <viewController id="Vfb-Y1-3bx" customClass="AboutLangtonVC2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pnX-eJ-xGp"/>
+                        <viewControllerLayoutGuide type="bottom" id="2iQ-MX-mqr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jj4-9n-C2F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-1E-eg4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ry7-2P-Jbv">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Virtual Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-xy-n0G">
+                                                <rect key="frame" x="201.5" y="67" width="197" height="23"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-lY-eAw">
+                                                <rect key="frame" x="60" y="97" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-EN-8PX">
+                                                <rect key="frame" x="148" y="955" width="305" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Extending The Number of Possible Directions"/>
+                                                <connections>
+                                                    <segue destination="vPN-O7-eYz" kind="show" id="eUc-j6-Q4w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="o7P-xy-n0G" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="ILa-Dn-cEY"/>
+                                            <constraint firstAttribute="bottom" secondItem="Bjn-EN-8PX" secondAttribute="bottom" constant="13" id="NI5-Er-wKB"/>
+                                            <constraint firstAttribute="height" constant="1000" id="W9f-A1-vp6"/>
+                                            <constraint firstItem="HeO-lY-eAw" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="gQp-Bw-Q6V"/>
+                                            <constraint firstItem="HeO-lY-eAw" firstAttribute="width" secondItem="Ry7-2P-Jbv" secondAttribute="width" multiplier="0.8" id="mxC-Ui-l4x"/>
+                                            <constraint firstItem="HeO-lY-eAw" firstAttribute="top" secondItem="o7P-xy-n0G" secondAttribute="bottom" constant="7.5" id="oKm-6X-tOz"/>
+                                            <constraint firstItem="o7P-xy-n0G" firstAttribute="top" secondItem="Ry7-2P-Jbv" secondAttribute="top" constant="67" id="qbL-JR-q5n"/>
+                                            <constraint firstItem="Bjn-EN-8PX" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="wf4-Us-qcp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ry7-2P-Jbv" secondAttribute="trailing" id="Ab9-2A-350"/>
+                                    <constraint firstItem="Ry7-2P-Jbv" firstAttribute="top" secondItem="vTE-1E-eg4" secondAttribute="top" id="Y9I-C7-J3D"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ry7-2P-Jbv" secondAttribute="bottom" id="ebK-y1-SNW"/>
+                                    <constraint firstItem="Ry7-2P-Jbv" firstAttribute="leading" secondItem="vTE-1E-eg4" secondAttribute="leading" id="uAK-QW-eV3"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vTE-1E-eg4" firstAttribute="top" secondItem="Jj4-9n-C2F" secondAttribute="top" id="6b8-SR-bBE"/>
+                            <constraint firstItem="vTE-1E-eg4" firstAttribute="leading" secondItem="Jj4-9n-C2F" secondAttribute="leading" id="Fr3-kn-tKc"/>
+                            <constraint firstItem="2iQ-MX-mqr" firstAttribute="top" secondItem="vTE-1E-eg4" secondAttribute="bottom" id="Wna-d8-eKc"/>
+                            <constraint firstItem="Ry7-2P-Jbv" firstAttribute="width" secondItem="Jj4-9n-C2F" secondAttribute="width" id="aur-an-yAa"/>
+                            <constraint firstAttribute="trailing" secondItem="vTE-1E-eg4" secondAttribute="trailing" id="qS1-cD-XEI"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
+                    <connections>
+                        <outlet property="topLabel" destination="HeO-lY-eAw" id="hmy-JJ-mFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybB-Nr-9ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3462" y="-1454"/>
+        </scene>
+        <!--About LangtonVC3-->
+        <scene sceneID="XRx-PW-8Pj">
+            <objects>
+                <viewController id="vPN-O7-eYz" customClass="AboutLangtonVC3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ja2-07-Npd"/>
+                        <viewControllerLayoutGuide type="bottom" id="mL2-4Y-g5K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EKs-58-pKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-fV-X7g">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mN3-DL-iOt">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Extending The Number of Possible Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-bB-1NE">
+                                                <rect key="frame" x="53.5" y="67" width="345" height="23"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16z-FZ-SS5">
+                                                <rect key="frame" x="60" y="97" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-F7-2If">
+                                                <rect key="frame" x="218" y="955" width="165" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Extending Langton's Ant"/>
+                                                <connections>
+                                                    <segue destination="kKJ-f9-I41" kind="show" id="CMa-pz-lQO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="1Ao-F7-2If" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="8Jb-Or-Yoz"/>
+                                            <constraint firstAttribute="height" constant="1000" id="AYr-jO-SBC"/>
+                                            <constraint firstItem="cvq-bB-1NE" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="Ni7-VN-4Jg"/>
+                                            <constraint firstItem="16z-FZ-SS5" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="V6p-Mv-Cz2"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Ao-F7-2If" secondAttribute="bottom" constant="13" id="XSX-TM-VLd"/>
+                                            <constraint firstItem="16z-FZ-SS5" firstAttribute="width" secondItem="mN3-DL-iOt" secondAttribute="width" multiplier="0.8" id="c0w-9G-gfd"/>
+                                            <constraint firstItem="cvq-bB-1NE" firstAttribute="top" secondItem="mN3-DL-iOt" secondAttribute="top" constant="67" id="iis-HM-yDC"/>
+                                            <constraint firstItem="16z-FZ-SS5" firstAttribute="top" secondItem="cvq-bB-1NE" secondAttribute="bottom" constant="7.5" id="umx-IK-khU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mN3-DL-iOt" secondAttribute="trailing" id="8vs-5w-nhp"/>
+                                    <constraint firstAttribute="bottom" secondItem="mN3-DL-iOt" secondAttribute="bottom" id="D0v-Dq-xG9"/>
+                                    <constraint firstItem="mN3-DL-iOt" firstAttribute="leading" secondItem="EfZ-fV-X7g" secondAttribute="leading" id="Pet-2s-7wy"/>
+                                    <constraint firstItem="mN3-DL-iOt" firstAttribute="top" secondItem="EfZ-fV-X7g" secondAttribute="top" id="hDd-rG-1zW"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EfZ-fV-X7g" secondAttribute="trailing" id="1Ly-4t-gyl"/>
+                            <constraint firstItem="mL2-4Y-g5K" firstAttribute="top" secondItem="EfZ-fV-X7g" secondAttribute="bottom" id="Q5v-80-zGX"/>
+                            <constraint firstItem="EfZ-fV-X7g" firstAttribute="top" secondItem="EKs-58-pKJ" secondAttribute="top" id="TLX-Rl-M1P"/>
+                            <constraint firstItem="mN3-DL-iOt" firstAttribute="width" secondItem="EKs-58-pKJ" secondAttribute="width" id="UyY-YP-xew"/>
+                            <constraint firstItem="EfZ-fV-X7g" firstAttribute="leading" secondItem="EKs-58-pKJ" secondAttribute="leading" id="yma-L7-uBr"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B5e-AP-dkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4203" y="-1454"/>
+        </scene>
+        <!--About LangtonVC3-->
+        <scene sceneID="ayP-0n-j6P">
+            <objects>
+                <viewController id="kKJ-f9-I41" customClass="AboutLangtonVC3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cji-gW-NQD"/>
+                        <viewControllerLayoutGuide type="bottom" id="kUh-rE-swJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MVE-6W-bWS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTQ-hu-WWI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVN-N8-W6b">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Virtual Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMX-uj-pHp">
+                                                <rect key="frame" x="201.5" y="67" width="197" height="23"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAG-53-cdz">
+                                                <rect key="frame" x="60" y="97" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-s2-PWB">
+                                                <rect key="frame" x="218" y="955" width="165" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Extending Langton's Ant"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="WMX-uj-pHp" firstAttribute="centerX" secondItem="JVN-N8-W6b" secondAttribute="centerX" id="1Fk-CD-Sok"/>
+                                            <constraint firstItem="qAG-53-cdz" firstAttribute="width" secondItem="JVN-N8-W6b" secondAttribute="width" multiplier="0.8" id="Cgs-CX-M2T"/>
+                                            <constraint firstAttribute="bottom" secondItem="gRh-s2-PWB" secondAttribute="bottom" constant="13" id="GSF-pd-7pw"/>
+                                            <constraint firstItem="WMX-uj-pHp" firstAttribute="top" secondItem="JVN-N8-W6b" secondAttribute="top" constant="67" id="Gcq-I1-Kuf"/>
+                                            <constraint firstAttribute="height" constant="1000" id="Ht6-ue-7nA"/>
+                                            <constraint firstItem="qAG-53-cdz" firstAttribute="centerX" secondItem="JVN-N8-W6b" secondAttribute="centerX" id="Kz6-HG-B3y"/>
+                                            <constraint firstItem="gRh-s2-PWB" firstAttribute="centerX" secondItem="JVN-N8-W6b" secondAttribute="centerX" id="eV1-XJ-Xll"/>
+                                            <constraint firstItem="qAG-53-cdz" firstAttribute="top" secondItem="WMX-uj-pHp" secondAttribute="bottom" constant="7.5" id="fpr-I3-7mD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JVN-N8-W6b" firstAttribute="leading" secondItem="BTQ-hu-WWI" secondAttribute="leading" id="FPX-7c-004"/>
+                                    <constraint firstAttribute="bottom" secondItem="JVN-N8-W6b" secondAttribute="bottom" id="Vhl-ds-4i8"/>
+                                    <constraint firstAttribute="trailing" secondItem="JVN-N8-W6b" secondAttribute="trailing" id="lL2-ji-WPZ"/>
+                                    <constraint firstItem="JVN-N8-W6b" firstAttribute="top" secondItem="BTQ-hu-WWI" secondAttribute="top" id="tqe-c9-f93"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BTQ-hu-WWI" secondAttribute="trailing" id="43t-rl-NOm"/>
+                            <constraint firstItem="kUh-rE-swJ" firstAttribute="top" secondItem="BTQ-hu-WWI" secondAttribute="bottom" id="IO4-oT-Tkz"/>
+                            <constraint firstItem="BTQ-hu-WWI" firstAttribute="leading" secondItem="MVE-6W-bWS" secondAttribute="leading" id="T1x-to-hfS"/>
+                            <constraint firstItem="JVN-N8-W6b" firstAttribute="width" secondItem="MVE-6W-bWS" secondAttribute="width" id="vW0-qD-9cM"/>
+                            <constraint firstItem="BTQ-hu-WWI" firstAttribute="top" secondItem="MVE-6W-bWS" secondAttribute="top" id="yp7-Ah-f9x"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8j9-bZ-p9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4925" y="-1454"/>
         </scene>
         <!--Main MenuTVC-->
         <scene sceneID="MDl-Ej-fRq">
@@ -264,7 +599,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZw-t8-egv">
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZw-t8-egv">
                                             <rect key="frame" x="8" y="25" width="584" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create New Rule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imb-ZS-Mo1">
@@ -273,7 +608,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ONE-qn-8Jc">
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ONE-qn-8Jc">
                                                     <rect key="frame" x="207" y="0.0" width="377" height="31"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-df-40a">
@@ -293,7 +628,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2A-zd-iiE">
-                                                            <rect key="frame" x="253" y="0.0" width="124" height="31"/>
+                                                            <rect key="frame" x="254" y="0.0" width="124" height="31"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                             <state key="normal" title="Eight Way"/>
                                                             <connections>
@@ -1025,6 +1360,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Langtons_Ant_Highway" width="386" height="400"/>
         <image name="add-button-inside-black-circle" width="128" height="128"/>
         <image name="circle" width="128" height="128"/>
         <image name="cogwheel" width="256" height="256"/>

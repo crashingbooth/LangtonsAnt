@@ -837,6 +837,29 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     
     [self addPresetDictToPresetStorage:dict];
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"fractal 1";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    // lllr lrrr rrrr r
+    dict[statesListKey] = @[@-1,@-1,@-1,@1, @-1,@1,@1,@1, @1,@1,@1,@1, @1] ;
+    rows = 0;
+    cols = 220;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[shapeKey] = [NSNumber numberWithBool:YES];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@-1];
+    startCols = @[@-1];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+
 }
 
 - (void)addPresetDictToPresetStorage:(NSDictionary*) dict {
@@ -1042,15 +1065,84 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                               [UIColor colorwithHexString:@"5B5393" alpha:1.0],           // b2
                               [UIColor colorwithHexString:@"4E9C68" alpha:1.0],           // c2
                               [UIColor colorwithHexString:@"B45A81" alpha:1.0],
-                              [UIColor colorwithHexString:@"3A3276" alpha:1.0],         // white
+                              [UIColor colorwithHexString:@"3A3276" alpha:1.0],
                               [UIColor colorwithHexString:@"297C46" alpha:1.0],           // a1
                               [UIColor colorwithHexString:@"90305A" alpha:1.0],  // d2
                               [UIColor colorwithHexString:@"201858" alpha:1.0],           // a3
                               [UIColor colorwithHexString:@"105D2A" alpha:1.0]],           // b3
                             
                             
-                            @[[UIColor whiteColor],[UIColor redColor], [UIColor orangeColor], [UIColor blueColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ]
+                            @[ [UIColor whiteColor],         // white
+                               [UIColor colorwithHexString:@"713E5A" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"63A375" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"EDC79B" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"D57A66" alpha:1.0],           // d1
+                               [UIColor colorwithHexString:@"CA6680" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"9B778D" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"93BE9F" alpha:1.0],           // c2
+                               [UIColor colorwithHexString:@"F7E5CD" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"E1A193" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"D993A7" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"75634B" alpha:1.0]],          // c3
                             
+                            @[ [UIColor whiteColor],         // white
+                                [UIColor colorwithHexString:@"F6511D" alpha:1.0],          // c2
+                                   [UIColor colorwithHexString:@"0D2C54" alpha:1.0],
+                               [UIColor colorwithHexString:@"FFB400" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"7FB800" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"00A6ED" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"FA9579" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"6D8098" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"976C00" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"4B7000" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"00628D" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"F98462" alpha:1.0],          // c3
+                               [UIColor colorwithHexString:@"68CAF5" alpha:1.0]],          // c3
+    
+    @[ [UIColor whiteColor],         // white
+       [UIColor colorwithHexString:@"725752" alpha:1.0],           // a1
+       [UIColor colorwithHexString:@"878E8" alpha:1.0],           // b1
+       [UIColor colorwithHexString:@"96C0B7" alpha:1.0],           // c1
+       [UIColor colorwithHexString:@"D4DFC7" alpha:1.0],           // d1
+       [UIColor colorwithHexString:@"FEF6C9" alpha:1.0],           // a2
+       [UIColor colorwithHexString:@"3B2A2A" alpha:1.0],           // b2
+       [UIColor colorwithHexString:@"C3C5C4" alpha:1.0],           // c2
+       [UIColor colorwithHexString:@"5A746F" alpha:1.0],           // d2
+       [UIColor colorwithHexString:@"959D8B" alpha:1.0],           // a3
+       [UIColor colorwithHexString:@"817965" alpha:1.0],           // b3
+       [UIColor colorwithHexString:@"9C8A85" alpha:1.0],          // c3
+],          // c3
+    
+                            @[ [UIColor whiteColor],         // white
+                               [UIColor colorwithHexString:@"A6808C" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"D6CFCB" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"706677" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"CCB7AE" alpha:1.0],           // d1
+                               [UIColor colorwithHexString:@"292A32" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"624C54" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"827B7B" alpha:1.0],           // c2
+                               [UIColor colorwithHexString:@"443E47" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"7C6F6A" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"BCB8C4" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"C1A7B0" alpha:1.0],          // c3
+                               ],
+                            // c3
+                            @[ [UIColor whiteColor],         // white
+                               [UIColor colorwithHexString:@"824670" alpha:1.0],           // a1
+
+                               [UIColor colorwithHexString:@"C3D2D5" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"BDA0BC" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"DDD78D" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"A2708A" alpha:1.0],           // d1
+                               [UIColor colorwithHexString:@"412339" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"5F696C" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"5E505D" alpha:1.0],           // c2
+                               [UIColor colorwithHexString:@"857F55" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"422E36" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"9BA8AB" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"E9E7B9" alpha:1.0],          // c3
+                               ],
+                
                             ];
     
     return masterList;

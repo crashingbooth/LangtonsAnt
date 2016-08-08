@@ -81,7 +81,7 @@ NSInteger ruleNumberOfSelection = -1;
         SelectedRuleViewController * srvc = segue.destinationViewController;
         AntType selType = [Settings sharedInstance].antType;
         NSInteger selValue = [[Settings sharedInstance].statesListInGrid[ruleNumberOfSelection] integerValue];
-        UIColor *selColor = [[Settings sharedInstance].colorList[ruleNumberOfSelection] colorWithAlphaComponent:0.8];
+        UIColor *selColor = [[Settings sharedInstance].colorList[ruleNumberOfSelection % 12] colorWithAlphaComponent:0.8];
         
         [srvc getRuleDetails:selType ruleValue:selValue ruleNumber:ruleNumberOfSelection color:selColor];
                         

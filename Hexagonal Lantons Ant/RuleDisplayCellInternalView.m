@@ -37,7 +37,7 @@ NSMutableArray *menuRuleDisplayViews;
     menuRuleDisplayViews = [[NSMutableArray alloc] init];
     for (int i = 0; i < numberOfRulesToDisplay; i++) {
         NSInteger num = [[Settings sharedInstance].statesListInGrid[i] integerValue];
-        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i] colorWithAlphaComponent:alphaOfSubview]];
+        RuleDisplayView *rdv = [[RuleDisplayView alloc] initWithType:[Settings sharedInstance].antType ruleValue: num ruleNumber:i color:[[Settings sharedInstance].colorList[i % 12] colorWithAlphaComponent:alphaOfSubview]];
         rdv.editable = NO;
         [rdv setUserInteractionEnabled:NO];
         [menuRuleDisplayViews addObject: rdv];
@@ -120,7 +120,7 @@ NSMutableArray *menuRuleDisplayViews;
     numberOfRulesToDisplay += 1;
     NSInteger num = numberOfRulesToDisplay - 1;
     NSInteger val = [[Settings sharedInstance].statesListInGrid[numberOfRulesToDisplay - 1] integerValue];
-    UIColor *col = [[Settings sharedInstance].colorList[num] colorWithAlphaComponent:alphaOfSubview];
+    UIColor *col = [[Settings sharedInstance].colorList[num % 12] colorWithAlphaComponent:alphaOfSubview];
     AntType newType = [Settings sharedInstance].antType;
     
     RuleDisplayView *newView = [[RuleDisplayView alloc] initWithType:newType ruleValue:val ruleNumber:num color:col];

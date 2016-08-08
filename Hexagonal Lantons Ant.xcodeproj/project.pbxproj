@@ -80,6 +80,12 @@
 		1F9AD0961D56F1BD002184AF /* 2098__opm__rs-set4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08D1D56F1BD002184AF /* 2098__opm__rs-set4.wav */; };
 		1F9AD0971D56F1BD002184AF /* 2085__opm__kk-set1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08E1D56F1BD002184AF /* 2085__opm__kk-set1.wav */; };
 		1F9AD0981D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD08F1D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav */; };
+		1F9AD09E1D586660002184AF /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD09D1D586660002184AF /* UIImage+animatedGIF.m */; };
+		1F9AD0A01D586681002184AF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9AD09F1D586681002184AF /* ImageIO.framework */; };
+		1F9AD0A21D5866C5002184AF /* LangtonsAntAnimated.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1F9AD0A11D5866C5002184AF /* LangtonsAntAnimated.gif */; };
+		1F9AD0A51D587EF7002184AF /* AboutLangtonVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD0A41D587EF7002184AF /* AboutLangtonVC2.m */; };
+		1F9AD0A81D588536002184AF /* AboutLangtonVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD0A71D588536002184AF /* AboutLangtonVC3.m */; };
+		1F9AD0AB1D58854C002184AF /* AboutLangtonVC4.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9AD0AA1D58854C002184AF /* AboutLangtonVC4.m */; };
 		1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EC1D262D42008665FA /* GridPoint.m */; };
 		1FDBD3F01D2786A2008665FA /* MidiNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDBD3EF1D2786A2008665FA /* MidiNote.m */; };
 		1FE896AA1D45D70F004AE72E /* BasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896A91D45D70F004AE72E /* BasicCell.m */; };
@@ -224,6 +230,16 @@
 		1F9AD08D1D56F1BD002184AF /* 2098__opm__rs-set4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2098__opm__rs-set4.wav"; sourceTree = "<group>"; };
 		1F9AD08E1D56F1BD002184AF /* 2085__opm__kk-set1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "2085__opm__kk-set1.wav"; sourceTree = "<group>"; };
 		1F9AD08F1D56F1BD002184AF /* 406__tictacshutup__click-1-d.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "406__tictacshutup__click-1-d.wav"; sourceTree = "<group>"; };
+		1F9AD09C1D586660002184AF /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		1F9AD09D1D586660002184AF /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		1F9AD09F1D586681002184AF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1F9AD0A11D5866C5002184AF /* LangtonsAntAnimated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = LangtonsAntAnimated.gif; path = ../../Downloads/LangtonsAntAnimated.gif; sourceTree = "<group>"; };
+		1F9AD0A31D587EF7002184AF /* AboutLangtonVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLangtonVC2.h; sourceTree = "<group>"; };
+		1F9AD0A41D587EF7002184AF /* AboutLangtonVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLangtonVC2.m; sourceTree = "<group>"; };
+		1F9AD0A61D588536002184AF /* AboutLangtonVC3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLangtonVC3.h; sourceTree = "<group>"; };
+		1F9AD0A71D588536002184AF /* AboutLangtonVC3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLangtonVC3.m; sourceTree = "<group>"; };
+		1F9AD0A91D58854C002184AF /* AboutLangtonVC4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutLangtonVC4.h; sourceTree = "<group>"; };
+		1F9AD0AA1D58854C002184AF /* AboutLangtonVC4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutLangtonVC4.m; sourceTree = "<group>"; };
 		1FDBD3EB1D262D42008665FA /* GridPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPoint.h; sourceTree = "<group>"; };
 		1FDBD3EC1D262D42008665FA /* GridPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPoint.m; sourceTree = "<group>"; };
 		1FDBD3EE1D2786A2008665FA /* MidiNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiNote.h; sourceTree = "<group>"; };
@@ -263,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F9AD0A01D586681002184AF /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +308,12 @@
 				1F35C4C81D51ED08003E9F6F /* MusicPropertiesVC.m */,
 				1F9AD0841D5458CF002184AF /* AboutLangtonVC1.h */,
 				1F9AD0851D5458CF002184AF /* AboutLangtonVC1.m */,
+				1F9AD0A31D587EF7002184AF /* AboutLangtonVC2.h */,
+				1F9AD0A41D587EF7002184AF /* AboutLangtonVC2.m */,
+				1F9AD0A61D588536002184AF /* AboutLangtonVC3.h */,
+				1F9AD0A71D588536002184AF /* AboutLangtonVC3.m */,
+				1F9AD0A91D58854C002184AF /* AboutLangtonVC4.h */,
+				1F9AD0AA1D58854C002184AF /* AboutLangtonVC4.m */,
 			);
 			name = ViewControllers;
 			path = "Hexagonal Lantons Ant";
@@ -299,6 +322,9 @@
 		1F2AD9301D23A9C70020B06E = {
 			isa = PBXGroup;
 			children = (
+				1F9AD09F1D586681002184AF /* ImageIO.framework */,
+				1F9AD09C1D586660002184AF /* UIImage+animatedGIF.h */,
+				1F9AD09D1D586660002184AF /* UIImage+animatedGIF.m */,
 				1FE896D31D4D9A0C004AE72E /* RotationAwareNavigationController.h */,
 				1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */,
 				1F11D9BB1D38CBE400AEC27D /* Settings.h */,
@@ -307,6 +333,7 @@
 				1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */,
 				1F11D9BE1D38CF5D00AEC27D /* Constants.h */,
 				1F11D9BF1D38CF5D00AEC27D /* Constants.m */,
+				1F9AD0A11D5866C5002184AF /* LangtonsAntAnimated.gif */,
 				1F8CDAA91D2A350A00AE4D32 /* Ants */,
 				1F11D9C71D3A1EFF00AEC27D /* ViewControllers */,
 				1F6EB2F61D3EF6F300C294B3 /* TableVC and Cells */,
@@ -636,6 +663,7 @@
 				1F35C4B61D5186C5003E9F6F /* kick_01.wav in Resources */,
 				1F9AD0971D56F1BD002184AF /* 2085__opm__kk-set1.wav in Resources */,
 				1F40BCD51D27947600B303E0 /* Tim.sf2 in Resources */,
+				1F9AD0A21D5866C5002184AF /* LangtonsAntAnimated.gif in Resources */,
 				1F9AD0951D56F1BD002184AF /* 185301__casmarrav__tisshhh-hi-hat.wav in Resources */,
 				1F35C4B91D5186C5003E9F6F /* kick_04.wav in Resources */,
 				1F2AD9471D23A9C70020B06E /* Main.storyboard in Resources */,
@@ -688,6 +716,7 @@
 				1F9AD0861D5458CF002184AF /* AboutLangtonVC1.m in Sources */,
 				1F8CDAAC1D2A358B00AE4D32 /* AntGridView.m in Sources */,
 				1F11D9C31D38E04100AEC27D /* MainDisplayViewController.m in Sources */,
+				1F9AD09E1D586660002184AF /* UIImage+animatedGIF.m in Sources */,
 				1F11D9CD1D3C8C4000AEC27D /* LoadSettingsTVC.m in Sources */,
 				1F93F0361D42CD5000D018B9 /* SelectedRuleViewController.m in Sources */,
 				1FE896D21D4B0B6C004AE72E /* UIColor+UIColorFromHex.m in Sources */,
@@ -717,6 +746,7 @@
 				1F2AD9631D23A9E90020B06E /* HexagonalGridView.m in Sources */,
 				1F2AD96C1D23BF800020B06E /* AbstractAnt.m in Sources */,
 				1F35C4C61D51C46D003E9F6F /* ModifyMusicalAnt.m in Sources */,
+				1F9AD0AB1D58854C002184AF /* AboutLangtonVC4.m in Sources */,
 				1FDBD3ED1D262D42008665FA /* GridPoint.m in Sources */,
 				1F2DAF4A1D3375DC000D898A /* UIViewWithPath.m in Sources */,
 				1F11D9D31D3CAB7300AEC27D /* SettingsDemoView.m in Sources */,
@@ -726,10 +756,12 @@
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F35C4921D51707B003E9F6F /* AbstractMusicLine.m in Sources */,
+				1F9AD0A81D588536002184AF /* AboutLangtonVC3.m in Sources */,
 				1F35C4D11D52BE2B003E9F6F /* MusicOptions.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
 				1F93F03F1D45B04900D018B9 /* NewRulesCell.m in Sources */,
 				1F11D9C01D38CF5D00AEC27D /* Constants.m in Sources */,
+				1F9AD0A51D587EF7002184AF /* AboutLangtonVC2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

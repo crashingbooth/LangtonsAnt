@@ -39,7 +39,7 @@
         xOffset += spacing;
         CGRect rect = CGRectMake(xOffset, yOffset, circleDiameter, circleDiameter);
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
-        [self.colorListForColorScheme[i] setFill];
+        [self.colorListForColorScheme[i % 12] setFill];
         [[UIColor blackColor] setStroke];
         [path stroke];
         [path fill];

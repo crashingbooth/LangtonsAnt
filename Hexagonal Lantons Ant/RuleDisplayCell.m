@@ -68,7 +68,7 @@ BOOL expanded;
 }
 
 - (IBAction)addRuleButton:(UIButton *)sender {
-    if ([Settings sharedInstance].statesListInGrid.count < 12) {
+    if ([Settings sharedInstance].statesListInGrid.count < 16) {
         [_rdcInternal addViewWithAnimation];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"added Rule" object:nil];
     }    
