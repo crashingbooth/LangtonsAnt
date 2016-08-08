@@ -48,7 +48,7 @@ NSArray *dirVals;
     [_removeButtonOutlet setUserInteractionEnabled:YES];
     if ([Settings sharedInstance].musicIsOn) {
         [_musicButtonOutlet setUserInteractionEnabled:YES];
-        [_musicButtonOutlet setAlpha:0.6];
+        [_musicButtonOutlet setAlpha:0.48];
     }
 }
 
