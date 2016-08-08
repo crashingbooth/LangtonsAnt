@@ -62,7 +62,7 @@ Settings *settings;
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
-    self.currentState = PAUSED;
+//    self.currentState = PAUSED;
 }
 
 

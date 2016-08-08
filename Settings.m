@@ -55,7 +55,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     self = [super init];
     if (self) {
         self.colorList = @[[UIColor whiteColor],[UIColor darkGrayColor], [UIColor blueColor], [UIColor redColor], [UIColor blackColor], [UIColor purpleColor], [UIColor brownColor],[UIColor redColor], [UIColor blueColor],[UIColor blueColor],[UIColor lightGrayColor], [UIColor orangeColor] ];
-       
+        
         
     }
     [self buildPresets];
@@ -65,7 +65,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 - (NSString*)randomStartingPreset {
     NSInteger presetType = arc4random_uniform(3);
     
-  
+    
     switch (presetType) {
         case 0:
             return self.fourWayPresetNames[arc4random_uniform((u_int)self.fourWayPresetNames.count)];
@@ -96,11 +96,11 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     // in case ratio is not set - shouldn't be called ... delete??
     if (self.lengthToWidthRatio == 0) {
         NSLog(@"length ratio not set for %@", self.name);
-         self.numRowsInGrid = [dict[numRowsKey] integerValue];
+        self.numRowsInGrid = [dict[numRowsKey] integerValue];
     } else {
         self.numRowsInGrid = [self getAppropriateNumberOfRowsForScreen:self.numColsInGrid];
     }
-
+    
     NSInteger numAnts = [dict[numAntsKey] integerValue];
     NSArray *startRows = dict[antStartRowsKey];
     NSArray *startCols = dict[antStartColsKey];
@@ -119,7 +119,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
         NSInteger startCol = [startCols[i] integerValue];
         if (startCol < 0) {
             startCol = (self.numColsInGrid / 2) - 1;
-              NSLog(@"used default -1 col");
+            NSLog(@"used default -1 col");
         }
         
         
@@ -138,7 +138,13 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     self.speed = dict[speedKey];
     self.defaultShape = [dict[shapeKey] boolValue];
     
-    self.colorScheme = [dict[colorSchemeKey] integerValue];
+    
+    NSInteger colorVal =  [dict[colorSchemeKey] integerValue];
+    if (colorVal == -1) {
+        self.colorScheme =  arc4random_uniform((UInt32)[Settings masterColorList].count);
+    } else {
+        self.colorScheme = colorVal;
+    }
     self.colorList = [self assignColorScheme:self.colorScheme];
     
     self.settingsGrid = [[Grid alloc] initWithRows:self.numRowsInGrid andCols:self.numColsInGrid andStates:self.statesListInGrid];
@@ -235,7 +241,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
             line = [[DrumLine alloc] initWithRegister:self.registerArray[i]];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
         }
-    [self.settingsGrid.ants[i] addMusicInterpretter:musInt];
+        [self.settingsGrid.ants[i] addMusicInterpretter:musInt];
     }
 }
 
@@ -249,7 +255,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
                                                           dateStyle:NSDateFormatterShortStyle
                                                           timeStyle:NSDateFormatterShortStyle];
-   
+    
     self.name = [NSString stringWithFormat:@"custom: %@",dateString];
     self.needToRebuild = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateRuleCell" object:self];
@@ -275,7 +281,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
         
     }
     self.antsInitialStatus = newInitialAnts;
-
+    
 }
 
 - (void)copyInitialAntsToSettingsGrid {
@@ -292,7 +298,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 - (NSArray*)assignColorScheme:(NSInteger)colorIndex {
     NSArray* colors = [[NSArray alloc] init];
     // change ColorShemeTVC
-        colors = [Settings masterColorList][colorIndex];
+    colors = [Settings masterColorList][colorIndex];
     
     return colors;
 }
@@ -322,7 +328,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
 - (void)addAnt {
     // called in ModifyAntTVC
     NSMutableArray *antsCopy = [self.antsInitialStatus mutableCopy];
-
+    
     
     AbstractAnt *ant;
     GridPoint *start = [[GridPoint alloc] initWithRow: self.numRowsInGrid / 2 andCol: self.numColsInGrid / 2];
@@ -335,7 +341,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     }
     [antsCopy addObject:ant];
     self.antsInitialStatus = antsCopy;
-
+    
     [self recreateGrid];
 }
 
@@ -380,7 +386,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     ant.currentPos = newStart;
     ant.direction = startDir;
     // recreateGrid will be called when ModifyAntTVC is closed
-
+    
 }
 
 
@@ -490,7 +496,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: 50];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
     startRows = @[@-1];
     startCols = @[@-1];
@@ -531,7 +537,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: 60];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
     startRows = @[@-1];
     startCols = @[@-1];
@@ -547,7 +553,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"spiral";
     dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
     dict[statesListKey] =  @[@-1,@-2,@0, @3, @-2, @-1,@2];
-
+    
     NSInteger rows = 200;
     NSInteger cols = 240;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
@@ -576,7 +582,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[numAntsKey] = [NSNumber numberWithInteger:2];
     startRows = @[@-1,@-1];
     startCols = @[@(cols / 2), @(cols / 4)];
@@ -658,7 +664,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[nameKey] = @"square filler";
     dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
     dict[statesListKey] = @[ @-1,@1, @1,@1, @1,@1, @-1,@-1, @1 ];
-//    LR RR RR LL R
+    //    LR RR RR LL R
     rows = 150;
     cols = 240;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
@@ -693,14 +699,14 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     startRows = @[@(28)];
     startCols = @[@28];
     startDirections = @[@2]; // was 3
-     dict[antStartRowsKey] = startRows;
+    dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
     
     
     [self addPresetDictToPresetStorage:dict];
     
-
+    
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"diagonal gridmaker";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
@@ -711,7 +717,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[numAntsKey] = [NSNumber numberWithInteger:2];
     startRows = @[@-1,@-1];
     startCols = @[@(cols / 2), @(cols / 4)];
@@ -722,7 +728,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     [self addPresetDictToPresetStorage:dict];
     
-  
+    
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"bender";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
@@ -732,7 +738,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
     startRows = @[@-1];
@@ -755,7 +761,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.02];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:-1];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
     startRows = @[@-1];
     startCols = @[@-1];
@@ -859,7 +865,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     
     [self addPresetDictToPresetStorage:dict];
-
+    
 }
 
 - (void)addPresetDictToPresetStorage:(NSDictionary*) dict {
@@ -1086,8 +1092,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                                [UIColor colorwithHexString:@"75634B" alpha:1.0]],          // c3
                             
                             @[ [UIColor whiteColor],         // white
-                                [UIColor colorwithHexString:@"F6511D" alpha:1.0],          // c2
-                                   [UIColor colorwithHexString:@"0D2C54" alpha:1.0],
+                               [UIColor colorwithHexString:@"F6511D" alpha:1.0],          // c2
+                               [UIColor colorwithHexString:@"0D2C54" alpha:1.0],
                                [UIColor colorwithHexString:@"FFB400" alpha:1.0],           // a1
                                [UIColor colorwithHexString:@"7FB800" alpha:1.0],           // b1
                                [UIColor colorwithHexString:@"00A6ED" alpha:1.0],           // c1
@@ -1098,21 +1104,21 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                                [UIColor colorwithHexString:@"00628D" alpha:1.0],           // b3
                                [UIColor colorwithHexString:@"F98462" alpha:1.0],          // c3
                                [UIColor colorwithHexString:@"68CAF5" alpha:1.0]],          // c3
-    
-    @[ [UIColor whiteColor],         // white
-       [UIColor colorwithHexString:@"725752" alpha:1.0],           // a1
-       [UIColor colorwithHexString:@"878E8" alpha:1.0],           // b1
-       [UIColor colorwithHexString:@"96C0B7" alpha:1.0],           // c1
-       [UIColor colorwithHexString:@"D4DFC7" alpha:1.0],           // d1
-       [UIColor colorwithHexString:@"FEF6C9" alpha:1.0],           // a2
-       [UIColor colorwithHexString:@"3B2A2A" alpha:1.0],           // b2
-       [UIColor colorwithHexString:@"C3C5C4" alpha:1.0],           // c2
-       [UIColor colorwithHexString:@"5A746F" alpha:1.0],           // d2
-       [UIColor colorwithHexString:@"959D8B" alpha:1.0],           // a3
-       [UIColor colorwithHexString:@"817965" alpha:1.0],           // b3
-       [UIColor colorwithHexString:@"9C8A85" alpha:1.0],          // c3
-],          // c3
-    
+                            
+                            @[ [UIColor whiteColor],         // white
+                               [UIColor colorwithHexString:@"725752" alpha:1.0],           // a1
+                               [UIColor colorwithHexString:@"878E8" alpha:1.0],           // b1
+                               [UIColor colorwithHexString:@"96C0B7" alpha:1.0],           // c1
+                               [UIColor colorwithHexString:@"D4DFC7" alpha:1.0],           // d1
+                               [UIColor colorwithHexString:@"FEF6C9" alpha:1.0],           // a2
+                               [UIColor colorwithHexString:@"3B2A2A" alpha:1.0],           // b2
+                               [UIColor colorwithHexString:@"C3C5C4" alpha:1.0],           // c2
+                               [UIColor colorwithHexString:@"5A746F" alpha:1.0],           // d2
+                               [UIColor colorwithHexString:@"959D8B" alpha:1.0],           // a3
+                               [UIColor colorwithHexString:@"817965" alpha:1.0],           // b3
+                               [UIColor colorwithHexString:@"9C8A85" alpha:1.0],          // c3
+                               ],          // c3
+                            
                             @[ [UIColor whiteColor],         // white
                                [UIColor colorwithHexString:@"A6808C" alpha:1.0],           // a1
                                [UIColor colorwithHexString:@"D6CFCB" alpha:1.0],           // b1
@@ -1129,7 +1135,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                             // c3
                             @[ [UIColor whiteColor],         // white
                                [UIColor colorwithHexString:@"824670" alpha:1.0],           // a1
-
+                               
                                [UIColor colorwithHexString:@"C3D2D5" alpha:1.0],           // a1
                                [UIColor colorwithHexString:@"BDA0BC" alpha:1.0],           // b1
                                [UIColor colorwithHexString:@"DDD78D" alpha:1.0],           // c1
@@ -1142,7 +1148,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
                                [UIColor colorwithHexString:@"9BA8AB" alpha:1.0],           // b3
                                [UIColor colorwithHexString:@"E9E7B9" alpha:1.0],          // c3
                                ],
-                
+                            
                             ];
     
     return masterList;
