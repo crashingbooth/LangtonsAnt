@@ -12,10 +12,11 @@
 @implementation DrumLine
 NSInteger const NUM_SAMPLES = 17;
 AVAudioUnitReverb *reverb;
-- (instancetype) initWithRegister:(NSNumber*)registerNum {
+- (instancetype) initWithRegister:(NSNumber*)registerNum pan:(float)pan vol:(float)vol{
     self = [super init];
     if (self) {
-
+        self.pan = pan;
+        self.vol = vol;
         [self createDrumPlayerArray];
     }
     return self;
@@ -40,7 +41,7 @@ AVAudioUnitReverb *reverb;
     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"266048__gis-sweden__glitchbd3"]];
     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"267445__alienxxx__snippet-16"]];
     [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"25217__suonho__deconstruction-kit-highhat03"]];
-    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"56390__puke34__dissnares2"]];
+    [self.drumPlayerArray addObject:[self createAudioPlayerWithString:@"clap_01"]];
 
 }
 
@@ -60,6 +61,9 @@ AVAudioUnitReverb *reverb;
 - (void)playNote:(NSNumber*)direction {
 
     AVAudioPlayer *player = self.drumPlayerArray[[direction integerValue]];
+    
+    player.volume = self.vol;
+    player.pan =self.pan;
        [player play];
 }
                        

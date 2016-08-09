@@ -15,7 +15,7 @@
 @property (nonatomic) NSInteger ruleValue;
 @property (nonatomic) NSInteger ruleNumber;
 @property (nonatomic, strong) UIImageView *controlArrow;
-@property (nonatomic, strong) UIImageView *guideArrow;
+//@property (nonatomic, strong) UIImageView *guideArrow;
 @property (nonatomic, strong) UILabel *stateNumLabel;
 @property (nonatomic, strong) UILabel *stateValLabel;
 @property (nonatomic, strong) UIColor *stateColor;

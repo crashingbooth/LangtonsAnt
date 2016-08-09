@@ -40,10 +40,10 @@ CGFloat sectorSize;
 - (void)basicSetup {
     PI = (CGFloat)M_PI;
     
-    self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
-    self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
+//    self.guideArrow = [[UIImageView alloc] initWithFrame:CGRectMake(50,50,20,20)];
+//    self.guideArrow.image = [UIImage imageNamed:@"purple_arrow.png"];
     self.backgroundColor = [UIColor whiteColor];
-    [self addSubview:self.guideArrow];
+//    [self addSubview:self.guideArrow];
     [self addSubview:self.controlArrow];
     self.stateNumLabel = [[UILabel alloc] init];
     [self addSubview:self.stateNumLabel];
@@ -116,9 +116,7 @@ CGFloat sectorSize;
     [self.stateColor setFill];
     [circlePath fill];
     [circlePath stroke];
-    CGRect guideBounds = CGRectMake(circleWidth * 5, heightOffset + (circleWidth * 5), sideLength - (circleWidth * 10), sideLength - (circleWidth * 10));
-   
-    self.guideArrow.frame = guideBounds;
+
     [self recreateArrow];
 
     for (NSNumber *pointNum in [self markerPoints:(circleWidth *2)]) {

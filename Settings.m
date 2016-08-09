@@ -229,16 +229,16 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
             [self.volArray addObject: @0.6];
         }
         BOOL isMelodic = [self.musicTypeArray[i] boolValue];
-        
+        float pan = [self.panArray[i] floatValue];
+        float vol = [self.volArray[i] floatValue];
+
         if (isMelodic) {
             NSNumber *voice = self.midiVoiceArray[i];
             NSInteger root = [self.registerArray[i] integerValue] * 12 + 48;
-            float pan = [self.panArray[i] floatValue];
-            float vol = [self.volArray[i] floatValue];
             line = [[MidiLine alloc] initWithGMMidiNumber:voice root:root channel:[NSNumber numberWithInt:i] pan:pan vol:vol];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:self.scaleName];
         } else {
-            line = [[DrumLine alloc] initWithRegister:self.registerArray[i]];
+            line = [[DrumLine alloc] initWithRegister:self.registerArray[i] pan:pan vol:vol];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
         }
         [self.settingsGrid.ants[i] addMusicInterpretter:musInt];

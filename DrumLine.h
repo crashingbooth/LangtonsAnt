@@ -11,5 +11,5 @@
 
 @interface DrumLine : AbstractMusicLine
 @property (nonatomic) NSMutableArray *drumPlayerArray;
-- (instancetype) initWithRegister:(NSNumber*)registerNum;
+- (instancetype) initWithRegister:(NSNumber*)registerNum pan:(float)pan vol:(float)vol;
 @end
