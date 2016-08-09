@@ -206,10 +206,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ry7-2P-Jbv">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Virtual Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7P-xy-n0G">
-                                                <rect key="frame" x="201.5" y="67" width="197" height="23"/>
+                                                <rect key="frame" x="201" y="67" width="197" height="23"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-EN-8PX">
-                                                <rect key="frame" x="148" y="955" width="305" height="32"/>
+                                                <rect key="frame" x="148" y="655" width="305" height="32"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <state key="normal" title="Extending The Number of Possible Directions"/>
                                                 <connections>
@@ -302,7 +302,7 @@
                                             <constraint firstItem="pCh-bK-PaN" firstAttribute="top" secondItem="ALC-Bc-Zvp" secondAttribute="bottom" constant="8" id="Hxf-xH-1iV"/>
                                             <constraint firstItem="o7P-xy-n0G" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="ILa-Dn-cEY"/>
                                             <constraint firstAttribute="bottom" secondItem="Bjn-EN-8PX" secondAttribute="bottom" constant="13" id="NI5-Er-wKB"/>
-                                            <constraint firstAttribute="height" constant="1000" id="W9f-A1-vp6"/>
+                                            <constraint firstAttribute="height" constant="700" id="W9f-A1-vp6"/>
                                             <constraint firstItem="ALC-Bc-Zvp" firstAttribute="top" secondItem="HeO-lY-eAw" secondAttribute="bottom" constant="25.5" id="WDU-5C-hPk"/>
                                             <constraint firstItem="ALC-Bc-Zvp" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="baQ-Ub-0Q0"/>
                                             <constraint firstItem="HeO-lY-eAw" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="gQp-Bw-Q6V"/>
@@ -332,8 +332,6 @@
                             <constraint firstAttribute="trailing" secondItem="vTE-1E-eg4" secondAttribute="trailing" id="qS1-cD-XEI"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="1000"/>
                     <connections>
                         <outlet property="lowerLabel" destination="pCh-bK-PaN" id="Juo-xj-qRf"/>
                         <outlet property="tableView" destination="ALC-Bc-Zvp" id="O9W-kY-QT3"/>
@@ -360,7 +358,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mN3-DL-iOt">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Number of Possible Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-bB-1NE">
                                                 <rect key="frame" x="127.5" y="67" width="345" height="23"/>
@@ -375,7 +373,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-F7-2If">
-                                                <rect key="frame" x="209" y="955" width="183" height="32"/>
+                                                <rect key="frame" x="209" y="655" width="183" height="32"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <state key="normal" title="The Virtual Ant With Music"/>
                                                 <connections>
@@ -402,7 +400,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="1Ao-F7-2If" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="8Jb-Or-Yoz"/>
-                                            <constraint firstAttribute="height" constant="1000" id="AYr-jO-SBC"/>
+                                            <constraint firstAttribute="height" constant="700" id="AYr-jO-SBC"/>
                                             <constraint firstItem="cvq-bB-1NE" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="Ni7-VN-4Jg"/>
                                             <constraint firstItem="pz6-Uw-xlf" firstAttribute="leading" secondItem="mN3-DL-iOt" secondAttribute="leading" constant="14" id="SQ4-Is-V5I"/>
                                             <constraint firstItem="16z-FZ-SS5" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="V6p-Mv-Cz2"/>
@@ -459,7 +457,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVN-N8-W6b">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Virtual Ant With Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMX-uj-pHp">
                                                 <rect key="frame" x="222.5" y="67" width="176" height="23"/>
@@ -468,7 +466,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-s2-PWB">
-                                                <rect key="frame" x="241" y="955" width="119" height="32"/>
+                                                <rect key="frame" x="241" y="655" width="119" height="32"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <state key="normal" title="Return to Settings"/>
                                                 <connections>
@@ -488,7 +486,7 @@
                                             <constraint firstItem="qAG-53-cdz" firstAttribute="width" secondItem="JVN-N8-W6b" secondAttribute="width" multiplier="0.8" id="Cgs-CX-M2T"/>
                                             <constraint firstAttribute="bottom" secondItem="gRh-s2-PWB" secondAttribute="bottom" constant="13" id="GSF-pd-7pw"/>
                                             <constraint firstItem="WMX-uj-pHp" firstAttribute="top" secondItem="JVN-N8-W6b" secondAttribute="top" constant="67" id="Gcq-I1-Kuf"/>
-                                            <constraint firstAttribute="height" constant="1000" id="Ht6-ue-7nA"/>
+                                            <constraint firstAttribute="height" constant="700" id="Ht6-ue-7nA"/>
                                             <constraint firstItem="qAG-53-cdz" firstAttribute="centerX" secondItem="JVN-N8-W6b" secondAttribute="centerX" id="Kz6-HG-B3y"/>
                                             <constraint firstItem="gRh-s2-PWB" firstAttribute="centerX" secondItem="JVN-N8-W6b" secondAttribute="centerX" id="eV1-XJ-Xll"/>
                                             <constraint firstItem="qAG-53-cdz" firstAttribute="top" secondItem="WMX-uj-pHp" secondAttribute="bottom" constant="7.5" id="fpr-I3-7mD"/>
