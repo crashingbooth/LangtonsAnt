@@ -215,7 +215,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-lY-eAw">
-                                                <rect key="frame" x="60" y="97" width="480" height="22.5"/>
+                                                <rect key="frame" x="60" y="98" width="480" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -228,16 +228,89 @@
                                                     <segue destination="vPN-O7-eYz" kind="show" id="eUc-j6-Q4w"/>
                                                 </connections>
                                             </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ALC-Bc-Zvp">
+                                                <rect key="frame" x="0.0" y="146" width="600" height="88"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="88" id="WUg-FB-e38"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="helpEditSettings1" id="6sC-Hp-b4u" customClass="RuleDisplayCellForHelp">
+                                                        <rect key="frame" x="0.0" y="28" width="600" height="88"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6sC-Hp-b4u" id="XeB-1e-UVW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Rules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flv-QC-asy">
+                                                                    <rect key="frame" x="8" y="8" width="61" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9n-rC-AI9">
+                                                                    <rect key="frame" x="50" y="30" width="23" height="15"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="12"/>
+                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiU-eY-h8i">
+                                                                    <rect key="frame" x="562" y="28" width="30" height="31"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                                    <state key="normal" title="add"/>
+                                                                    <connections>
+                                                                        <action selector="addRuleButton:" destination="6sC-Hp-b4u" eventType="touchUpInside" id="3LN-ef-0j9"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FcZ-zP-0yi" customClass="RuleDisplayCellInternalView">
+                                                                    <rect key="frame" x="8" y="8" width="549" height="72"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="FcZ-zP-0yi" firstAttribute="top" secondItem="flv-QC-asy" secondAttribute="top" id="DBX-HN-ZQb"/>
+                                                                <constraint firstItem="flv-QC-asy" firstAttribute="leading" secondItem="XeB-1e-UVW" secondAttribute="leadingMargin" id="P77-bA-uNH"/>
+                                                                <constraint firstItem="flv-QC-asy" firstAttribute="top" secondItem="XeB-1e-UVW" secondAttribute="topMargin" id="Vty-86-ABc"/>
+                                                                <constraint firstItem="GiU-eY-h8i" firstAttribute="centerY" secondItem="XeB-1e-UVW" secondAttribute="centerY" id="YFJ-bp-61C"/>
+                                                                <constraint firstItem="y9n-rC-AI9" firstAttribute="leading" secondItem="XeB-1e-UVW" secondAttribute="leadingMargin" constant="42" id="gPU-yH-1mq"/>
+                                                                <constraint firstAttribute="leadingMargin" secondItem="FcZ-zP-0yi" secondAttribute="leading" id="lYV-Gf-xHa"/>
+                                                                <constraint firstItem="GiU-eY-h8i" firstAttribute="leading" secondItem="FcZ-zP-0yi" secondAttribute="trailing" constant="5" id="pp2-yr-bW5"/>
+                                                                <constraint firstItem="FcZ-zP-0yi" firstAttribute="centerY" secondItem="XeB-1e-UVW" secondAttribute="centerY" id="q3P-26-zh9"/>
+                                                                <constraint firstItem="y9n-rC-AI9" firstAttribute="top" secondItem="flv-QC-asy" secondAttribute="bottom" constant="3" id="tfD-jE-ZB6"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="GiU-eY-h8i" secondAttribute="trailing" id="zCC-6x-tn5"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="addButton2" destination="GiU-eY-h8i" id="q0o-UI-3Li"/>
+                                                            <outlet property="detailLabel2" destination="y9n-rC-AI9" id="cbd-Oy-cFd"/>
+                                                            <outlet property="mainLabel2" destination="flv-QC-asy" id="d3v-dn-fFs"/>
+                                                            <outlet property="rdcInternal2" destination="FcZ-zP-0yi" id="fcF-rF-C0w"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCh-bK-PaN">
+                                                <rect key="frame" x="60" y="242" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="pCh-bK-PaN" firstAttribute="width" secondItem="Ry7-2P-Jbv" secondAttribute="width" multiplier="0.8" id="CkU-oF-tUI"/>
+                                            <constraint firstItem="pCh-bK-PaN" firstAttribute="top" secondItem="ALC-Bc-Zvp" secondAttribute="bottom" constant="8" id="Hxf-xH-1iV"/>
                                             <constraint firstItem="o7P-xy-n0G" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="ILa-Dn-cEY"/>
                                             <constraint firstAttribute="bottom" secondItem="Bjn-EN-8PX" secondAttribute="bottom" constant="13" id="NI5-Er-wKB"/>
                                             <constraint firstAttribute="height" constant="1000" id="W9f-A1-vp6"/>
+                                            <constraint firstItem="ALC-Bc-Zvp" firstAttribute="top" secondItem="HeO-lY-eAw" secondAttribute="bottom" constant="25.5" id="WDU-5C-hPk"/>
+                                            <constraint firstItem="ALC-Bc-Zvp" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="baQ-Ub-0Q0"/>
                                             <constraint firstItem="HeO-lY-eAw" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="gQp-Bw-Q6V"/>
                                             <constraint firstItem="HeO-lY-eAw" firstAttribute="width" secondItem="Ry7-2P-Jbv" secondAttribute="width" multiplier="0.8" id="mxC-Ui-l4x"/>
+                                            <constraint firstItem="pCh-bK-PaN" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="o5t-pa-Drn"/>
                                             <constraint firstItem="HeO-lY-eAw" firstAttribute="top" secondItem="o7P-xy-n0G" secondAttribute="bottom" constant="7.5" id="oKm-6X-tOz"/>
                                             <constraint firstItem="o7P-xy-n0G" firstAttribute="top" secondItem="Ry7-2P-Jbv" secondAttribute="top" constant="67" id="qbL-JR-q5n"/>
+                                            <constraint firstItem="ALC-Bc-Zvp" firstAttribute="width" secondItem="Ry7-2P-Jbv" secondAttribute="width" id="v8c-6n-Bxw"/>
                                             <constraint firstItem="Bjn-EN-8PX" firstAttribute="centerX" secondItem="Ry7-2P-Jbv" secondAttribute="centerX" id="wf4-Us-qcp"/>
                                         </constraints>
                                     </view>
@@ -262,6 +335,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
                     <connections>
+                        <outlet property="lowerLabel" destination="pCh-bK-PaN" id="Juo-xj-qRf"/>
+                        <outlet property="tableView" destination="ALC-Bc-Zvp" id="O9W-kY-QT3"/>
                         <outlet property="topLabel" destination="HeO-lY-eAw" id="hmy-JJ-mFb"/>
                     </connections>
                 </viewController>
@@ -287,8 +362,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mN3-DL-iOt">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Extending The Number of Possible Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-bB-1NE">
-                                                <rect key="frame" x="53.5" y="67" width="345" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Number of Possible Directions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvq-bB-1NE">
+                                                <rect key="frame" x="127.5" y="67" width="345" height="23"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -300,11 +375,27 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ao-F7-2If">
-                                                <rect key="frame" x="218" y="955" width="165" height="32"/>
+                                                <rect key="frame" x="209" y="955" width="183" height="32"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <state key="normal" title="Extending Langton's Ant"/>
+                                                <state key="normal" title="The Virtual Ant With Music"/>
                                                 <connections>
                                                     <segue destination="kKJ-f9-I41" kind="show" id="CMa-pz-lQO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9f-Rc-1WY">
+                                                <rect key="frame" x="-1" y="127" width="196" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Langton's Ant Planar Graphs"/>
+                                                <connections>
+                                                    <action selector="firstLink:" destination="vPN-O7-eYz" eventType="touchUpInside" id="nE6-xw-6Vr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pz6-Uw-xlf">
+                                                <rect key="frame" x="-33" y="167" width="262" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Brtmr's Hexagonal Langton's Ant Page"/>
+                                                <connections>
+                                                    <action selector="secondLink:" destination="vPN-O7-eYz" eventType="touchUpInside" id="VPA-d6-Ao2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -313,11 +404,15 @@
                                             <constraint firstItem="1Ao-F7-2If" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="8Jb-Or-Yoz"/>
                                             <constraint firstAttribute="height" constant="1000" id="AYr-jO-SBC"/>
                                             <constraint firstItem="cvq-bB-1NE" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="Ni7-VN-4Jg"/>
+                                            <constraint firstItem="pz6-Uw-xlf" firstAttribute="leading" secondItem="mN3-DL-iOt" secondAttribute="leading" constant="14" id="SQ4-Is-V5I"/>
                                             <constraint firstItem="16z-FZ-SS5" firstAttribute="centerX" secondItem="mN3-DL-iOt" secondAttribute="centerX" id="V6p-Mv-Cz2"/>
                                             <constraint firstAttribute="bottom" secondItem="1Ao-F7-2If" secondAttribute="bottom" constant="13" id="XSX-TM-VLd"/>
                                             <constraint firstItem="16z-FZ-SS5" firstAttribute="width" secondItem="mN3-DL-iOt" secondAttribute="width" multiplier="0.8" id="c0w-9G-gfd"/>
                                             <constraint firstItem="cvq-bB-1NE" firstAttribute="top" secondItem="mN3-DL-iOt" secondAttribute="top" constant="67" id="iis-HM-yDC"/>
+                                            <constraint firstItem="pz6-Uw-xlf" firstAttribute="top" secondItem="Z9f-Rc-1WY" secondAttribute="bottom" constant="8" id="jGM-bj-UNA"/>
+                                            <constraint firstItem="Z9f-Rc-1WY" firstAttribute="leading" secondItem="mN3-DL-iOt" secondAttribute="leading" constant="14" id="l50-Fl-TLM"/>
                                             <constraint firstItem="16z-FZ-SS5" firstAttribute="top" secondItem="cvq-bB-1NE" secondAttribute="bottom" constant="7.5" id="umx-IK-khU"/>
+                                            <constraint firstItem="Z9f-Rc-1WY" firstAttribute="top" secondItem="16z-FZ-SS5" secondAttribute="bottom" constant="7.5" id="zR0-2h-Y4t"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -340,15 +435,18 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
+                    <connections>
+                        <outlet property="text1" destination="16z-FZ-SS5" id="3le-cN-Nkr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5e-AP-dkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4203" y="-1454"/>
         </scene>
-        <!--About LangtonVC3-->
+        <!--About LangtonVC4-->
         <scene sceneID="ayP-0n-j6P">
             <objects>
-                <viewController id="kKJ-f9-I41" customClass="AboutLangtonVC3" sceneMemberID="viewController">
+                <viewController id="kKJ-f9-I41" customClass="AboutLangtonVC4" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cji-gW-NQD"/>
                         <viewControllerLayoutGuide type="bottom" id="kUh-rE-swJ"/>
@@ -363,23 +461,26 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVN-N8-W6b">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extending The Virtual Ant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMX-uj-pHp">
-                                                <rect key="frame" x="201.5" y="67" width="197" height="23"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAG-53-cdz">
-                                                <rect key="frame" x="60" y="97" width="480" height="22.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Virtual Ant With Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMX-uj-pHp">
+                                                <rect key="frame" x="222.5" y="67" width="176" height="23"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-s2-PWB">
-                                                <rect key="frame" x="218" y="955" width="165" height="32"/>
+                                                <rect key="frame" x="241" y="955" width="119" height="32"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                <state key="normal" title="Extending Langton's Ant"/>
+                                                <state key="normal" title="Return to Settings"/>
+                                                <connections>
+                                                    <action selector="returnButton:" destination="kKJ-f9-I41" eventType="touchUpInside" id="TSo-Ll-ZmP"/>
+                                                </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAG-53-cdz">
+                                                <rect key="frame" x="60" y="98" width="480" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -413,6 +514,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
+                    <connections>
+                        <outlet property="text1" destination="qAG-53-cdz" id="kr1-dD-pjK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8j9-bZ-p9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -559,18 +663,18 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-xJ-Oz3" customClass="RuleDisplayCellInternalView">
+                                            <rect key="frame" x="8" y="8" width="554" height="63.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ5-4S-57L">
-                                            <rect key="frame" x="562" y="24.5" width="30" height="31"/>
+                                            <rect key="frame" x="562" y="24" width="30" height="31"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <state key="normal" title="add"/>
                                             <connections>
-                                                <action selector="addRuleButton:" destination="au5-PW-1HZ" eventType="touchUpInside" id="mSp-Td-FsT"/>
+                                                <action selector="addRuleButton:" destination="au5-PW-1HZ" eventType="touchUpInside" id="GPN-wD-Y4f"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-xJ-Oz3" customClass="RuleDisplayCellInternalView">
-                                            <rect key="frame" x="8" y="9" width="554" height="63.5"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dJ5-4S-57L" firstAttribute="centerY" secondItem="LIa-qn-nCG" secondAttribute="centerY" id="8Xs-Zq-UIS"/>

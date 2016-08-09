@@ -10,4 +10,5 @@
 
 @interface AboutLangtonVC3 : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *text1;
 @end

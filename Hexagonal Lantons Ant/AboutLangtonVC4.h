@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AboutLangtonVC4 : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *text1;
 
 @end

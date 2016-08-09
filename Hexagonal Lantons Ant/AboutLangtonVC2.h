@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutLangtonVC2 : UIViewController
+@interface AboutLangtonVC2 : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *lowerLabel;
 
 @end
