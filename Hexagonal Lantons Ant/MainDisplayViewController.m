@@ -69,7 +69,7 @@ Settings *settings;
 #pragma mark CurrentState and Update
 
 - (void)update:(NSTimer*)timer {
-//    if (settings.settingsGrid.count == 846) {
+//    if (settings.settingsGrid.count == 81754) {
 //        _currentState = PAUSED;
 //    }
        if (_currentState == PAUSED) {

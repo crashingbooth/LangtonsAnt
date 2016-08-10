@@ -131,16 +131,36 @@
                                                     <segue destination="Vfb-Y1-3bx" kind="show" id="v1T-sT-dtj"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oK-6g-VDY">
+                                                <rect key="frame" x="46" y="495" width="184" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Langton's Ant in Wikipedia"/>
+                                                <connections>
+                                                    <action selector="wikipediaLink:" destination="jvl-Fh-0H3" eventType="touchUpInside" id="xFB-aZ-LSd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMh-w0-3ZE">
+                                                <rect key="frame" x="46" y="535" width="429" height="32"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <state key="normal" title="Chris Langton's 'Studying Artificial Life With Cellular Automata'"/>
+                                                <connections>
+                                                    <action selector="LangtonLink:" destination="jvl-Fh-0H3" eventType="touchUpInside" id="QIB-f1-TEm"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="coL-qz-OjP" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="6N8-lz-ecV"/>
                                             <constraint firstItem="coL-qz-OjP" firstAttribute="top" secondItem="CTi-gW-IZb" secondAttribute="bottom" constant="17" id="7VC-SL-Hgs"/>
+                                            <constraint firstItem="0oK-6g-VDY" firstAttribute="leading" secondItem="7FF-uc-k0r" secondAttribute="leading" constant="46" id="EQV-E5-4sU"/>
                                             <constraint firstItem="Gee-Um-9Iu" firstAttribute="top" secondItem="coL-qz-OjP" secondAttribute="bottom" constant="8" id="H5v-0o-KZD"/>
                                             <constraint firstItem="CTi-gW-IZb" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="Hkw-v5-qPn"/>
                                             <constraint firstItem="RK3-N2-MLB" firstAttribute="top" secondItem="7FF-uc-k0r" secondAttribute="top" id="IfA-ml-Kjg"/>
                                             <constraint firstItem="Gee-Um-9Iu" firstAttribute="width" secondItem="7FF-uc-k0r" secondAttribute="width" multiplier="0.8" id="IlL-bc-jhN"/>
+                                            <constraint firstItem="xMh-w0-3ZE" firstAttribute="leading" secondItem="7FF-uc-k0r" secondAttribute="leading" constant="46" id="KRo-iA-TXd"/>
                                             <constraint firstAttribute="bottom" secondItem="bKA-Ep-S9H" secondAttribute="bottom" constant="50" id="RSd-30-93M"/>
+                                            <constraint firstItem="0oK-6g-VDY" firstAttribute="top" secondItem="DLZ-pF-8iF" secondAttribute="bottom" constant="22" id="TSl-wv-FyT"/>
+                                            <constraint firstItem="xMh-w0-3ZE" firstAttribute="top" secondItem="0oK-6g-VDY" secondAttribute="bottom" constant="8" id="Tlx-yB-5mp"/>
                                             <constraint firstItem="Gee-Um-9Iu" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="asE-Fl-AFn"/>
                                             <constraint firstAttribute="bottom" secondItem="bKA-Ep-S9H" secondAttribute="bottom" constant="-20" id="beI-8G-1ZX"/>
                                             <constraint firstItem="RK3-N2-MLB" firstAttribute="centerX" secondItem="7FF-uc-k0r" secondAttribute="centerX" id="djK-yB-BTm"/>

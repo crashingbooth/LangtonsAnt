@@ -574,28 +574,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     [self addPresetDictToPresetStorage:dict];
     
-    dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"Screen3";
-    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
-    dict[statesListKey] =  @[@-1,@-2,@0, @3, @-2, @-1,@2];
-    
-    rows = 200;
-    cols = 170;
-    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
-    dict[numColsKey] = [NSNumber numberWithInteger: cols];
-    dict[speedKey] = [NSNumber numberWithFloat: 0.01];
-    dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:1];
-    dict[numAntsKey] = [NSNumber numberWithInteger:1];
-    startRows = @[@-1];
-    startCols = @[@-1];
-    startDirections = @[@0];
-    dict[antStartRowsKey] = startRows;
-    dict[antStartColsKey] = startCols;
-    dict[antDirectionKey] = startDirections;
-    
-    
-    [self addPresetDictToPresetStorage:dict];
+ 
     
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"the ring";
@@ -609,10 +588,10 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     dict[numColsKey] = [NSNumber numberWithInteger: cols];
     dict[speedKey] = [NSNumber numberWithFloat: 0.01];
     dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:4];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:7];
     dict[numAntsKey] = [NSNumber numberWithInteger:1];
-    startRows = @[@50];
-    startCols = @[@90];
+    startRows = @[@25];
+    startCols = @[@100];
     startDirections = @[@3];
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
@@ -710,7 +689,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"Screen 2";
+    dict[nameKey] = @"2 ant symmetrical";
     dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
     dict[statesListKey] = @[ @1, @1, @-1, @-1];
     rows = 80;
@@ -844,7 +823,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"period 13";
+    dict[nameKey] = @"period 13 with music";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[@2,@-2, @1,@-1] ;
     NSLog(@"used -1 as Row val");
@@ -893,56 +872,13 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     [self addPresetDictToPresetStorage:dict];
     
-    dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"icon";
-    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
-    dict[statesListKey] = @[@2,@-1,@2, @2, @2] ;
-    rows = 0;
-    cols = 20;
-    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
-    dict[numColsKey] = [NSNumber numberWithInteger: cols];
-    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
-    dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:0];
-    dict[numAntsKey] = [NSNumber numberWithInteger:1];
-    startRows = @[@10];
-    startCols = @[@6];
-    startDirections = @[@0];
-    dict[antStartRowsKey] = startRows;
-    dict[antStartColsKey] = startCols;
-    dict[antDirectionKey] = startDirections;
     
-    
-    [self addPresetDictToPresetStorage:dict];
-    
-    
-    dict = [[NSMutableDictionary alloc] init];
-    dict[nameKey] = @"Screen01";
-    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
-      dict[statesListKey] = @[ @2, @-2, @2, @2, @2];
-    rows = 0;
-    cols = 30;
-    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
-    dict[numColsKey] = [NSNumber numberWithInteger: cols];
-    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
-    dict[shapeKey] = [NSNumber numberWithBool:YES];
-    dict[colorSchemeKey] = [NSNumber numberWithInteger:8];
-    dict[numAntsKey] = [NSNumber numberWithInteger:2];
-    startRows = @[@11, @15];
-    startCols = @[@16, @12];
-    startDirections = @[@0, @3];
-    dict[antStartRowsKey] = startRows;
-    dict[antStartColsKey] = startCols;
-    dict[antDirectionKey] = startDirections;
-    
-    
-    [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"fractal 1";
     dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
     // lllr lrrr rrrr r
-    dict[statesListKey] = @[@-1,@-1,@-1,@1, @-1,@1,@1,@1, @1,@1,@1,@1, @1] ;
+    dict[statesListKey] = @[@-1,@1,@1,@1, @1,@1,@-1,@1, @-1,@-1,@-1,@-1, @-1,@-1] ;
     rows = 0;
     cols = 220;
     dict[numRowsKey] = [NSNumber numberWithInteger: rows];

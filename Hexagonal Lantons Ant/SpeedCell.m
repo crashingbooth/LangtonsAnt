@@ -15,7 +15,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _slider.maximumValue = 0.5;
-    _slider.minimumValue = 0.01;
+    _slider.minimumValue = 0.02;
     _slider.value =  [self setSliderFromSpeed:[Settings sharedInstance].speed];
     [self updateLabel];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveTestNotification:) name:@"UpdateRuleCell" object:nil];
