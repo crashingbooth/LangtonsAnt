@@ -191,20 +191,27 @@ NSArray *dirVals;
     NSInteger newRow = self.startRow;
     NSInteger newCol = self.startCol;
     NSInteger newDir = self.startDir;
+//        NSInteger newRow = [Settings sharedInstance].antsInitialStatus[antNumber].s
+//        NSInteger newCol = self.startCol;
+//        NSInteger newDir = self.startDir;
     
     switch (component) {
         case 0:
             newCol = row;
+            self.startCol = newCol;
             break;
         case 1:
             newRow = row;
+            self.startRow = newRow;
             break;
         case 2:
             newDir = row;
+            self.startDir = newDir;
             break;
         default:
             break;
     }
+    
     
     [[Settings sharedInstance] modifyAnt:self.antNumber startRow:newRow startCol:newCol startDir:newDir];
 }

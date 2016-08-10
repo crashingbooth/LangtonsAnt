@@ -62,14 +62,16 @@ Settings *settings;
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
-    self.currentState = PAUSED;
+//    self.currentState = PAUSED;
 }
 
 
 #pragma mark CurrentState and Update
 
 - (void)update:(NSTimer*)timer {
-   
+//    if (settings.settingsGrid.count == 846) {
+//        _currentState = PAUSED;
+//    }
        if (_currentState == PAUSED) {
         [timer invalidate];
     } else {

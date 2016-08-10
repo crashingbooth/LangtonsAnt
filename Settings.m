@@ -385,6 +385,8 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     GridPoint *newStart = [[GridPoint alloc] initWithRow:startRow andCol:startCol];
     ant.currentPos = newStart;
     ant.direction = startDir;
+    
+    self.antsInitialStatus = antsCopy; // TODO determine if nec, should be!
     // recreateGrid will be called when ModifyAntTVC is closed
     
 }
@@ -573,6 +575,53 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     [self addPresetDictToPresetStorage:dict];
     
     dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Screen3";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+    dict[statesListKey] =  @[@-1,@-2,@0, @3, @-2, @-1,@2];
+    
+    rows = 200;
+    cols = 170;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.01];
+    dict[shapeKey] = [NSNumber numberWithBool:YES];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:1];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@-1];
+    startCols = @[@-1];
+    startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"the ring";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+//    L2NNL1L2L1
+    dict[statesListKey] =  @[@-2,@0,@0, @-1, @-2, @-1];
+    
+    rows = 200;
+    cols = 240;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.01];
+    dict[shapeKey] = [NSNumber numberWithBool:YES];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:4];
+    dict[numAntsKey] = [NSNumber numberWithInteger:1];
+    startRows = @[@50];
+    startCols = @[@90];
+    startDirections = @[@3];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"horizontal gridmaker";
     dict[antTypeKey] = [NSNumber numberWithInteger:EIGHT_WAY];
     dict[statesListKey] = @[ @(3), @(-2), @4, @2, @-3,@1];
@@ -653,6 +702,28 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     startRows = @[@-1];
     startCols = @[@-1];
     startDirections = @[@0];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Screen 2";
+    dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
+    dict[statesListKey] = @[ @1, @1, @-1, @-1];
+    rows = 80;
+    cols = 40;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.01];
+    dict[shapeKey] = [NSNumber numberWithBool:YES];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:1];
+    dict[numAntsKey] = [NSNumber numberWithInteger:2];
+    startRows = @[@10, @11];
+    startCols = @[@19, @20];
+    startDirections = @[@0, @2];
     dict[antStartRowsKey] = startRows;
     dict[antStartColsKey] = startCols;
     dict[antDirectionKey] = startDirections;
@@ -843,6 +914,30 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
     
     
     [self addPresetDictToPresetStorage:dict];
+    
+    
+    dict = [[NSMutableDictionary alloc] init];
+    dict[nameKey] = @"Screen01";
+    dict[antTypeKey] = [NSNumber numberWithInteger:SIX_WAY];
+      dict[statesListKey] = @[ @2, @-2, @2, @2, @2];
+    rows = 0;
+    cols = 30;
+    dict[numRowsKey] = [NSNumber numberWithInteger: rows];
+    dict[numColsKey] = [NSNumber numberWithInteger: cols];
+    dict[speedKey] = [NSNumber numberWithFloat: 0.02];
+    dict[shapeKey] = [NSNumber numberWithBool:YES];
+    dict[colorSchemeKey] = [NSNumber numberWithInteger:8];
+    dict[numAntsKey] = [NSNumber numberWithInteger:2];
+    startRows = @[@11, @15];
+    startCols = @[@16, @12];
+    startDirections = @[@0, @3];
+    dict[antStartRowsKey] = startRows;
+    dict[antStartColsKey] = startCols;
+    dict[antDirectionKey] = startDirections;
+    
+    
+    [self addPresetDictToPresetStorage:dict];
+    
     dict = [[NSMutableDictionary alloc] init];
     dict[nameKey] = @"fractal 1";
     dict[antTypeKey] = [NSNumber numberWithInteger:FOUR_WAY];
