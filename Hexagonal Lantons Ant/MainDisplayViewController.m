@@ -18,8 +18,7 @@
 #import "FourWayAnt.h"
 #import "EightWayAnt.h"
 #import "AbstractMusicLine.h"
-#import "MidiLine.h"
-#import "DrumLine.h"
+
 #import "MusicInterpretter.h"
 #import "UIViewWithPath.h"
 
@@ -149,7 +148,9 @@ Settings *settings;
         
         [grid update];
         [self setCurrentState:ACTIVE];
-        [settings updateMusicStatusOfAnts]; //new
+        if (settings.musicIsOn) {
+            [settings updateMusicStatusOfAnts]; //new
+        }
         settings.needToRebuild = NO;
         
     }

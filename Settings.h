@@ -16,7 +16,7 @@
 #import "GridPoint.h"
 #import "Grid.h"
 #import "MusicInterpretter.h"
-#import "DrumLine.h"
+#import "DrumPlayerLine.h"
 #import "MidiLine.h"
 
 

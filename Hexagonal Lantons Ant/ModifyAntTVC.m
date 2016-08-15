@@ -107,7 +107,9 @@ NSInteger selectedAntNum;
         case 2:
             if ([Settings sharedInstance].settingsGrid.ants.count < 16) {
                 [[Settings sharedInstance] addAnt];
-                [[Settings sharedInstance] updateMusicStatusOfAnts];
+                if ([Settings sharedInstance].musicIsOn) {
+                    [[Settings sharedInstance] updateMusicStatusOfAnts];
+                }
                 [tableView reloadData];
             } else {
                 [self cantAddAntAlert];

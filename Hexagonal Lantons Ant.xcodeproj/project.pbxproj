@@ -103,6 +103,7 @@
 		1FE896CE1D49A4DA004AE72E /* ColorSchemeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896CD1D49A4DA004AE72E /* ColorSchemeTVC.m */; };
 		1FE896D21D4B0B6C004AE72E /* UIColor+UIColorFromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */; };
 		1FE896D51D4D9A0C004AE72E /* RotationAwareNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */; };
+		1FEB686A1D6153BB0037EDF9 /* DrumPlayerLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEB68691D6153BB0037EDF9 /* DrumPlayerLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,8 @@
 		1FE896D11D4B0B6C004AE72E /* UIColor+UIColorFromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColorFromHex.m"; sourceTree = "<group>"; };
 		1FE896D31D4D9A0C004AE72E /* RotationAwareNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationAwareNavigationController.h; sourceTree = "<group>"; };
 		1FE896D41D4D9A0C004AE72E /* RotationAwareNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationAwareNavigationController.m; sourceTree = "<group>"; };
+		1FEB68681D6153BB0037EDF9 /* DrumPlayerLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrumPlayerLine.h; sourceTree = "<group>"; };
+		1FEB68691D6153BB0037EDF9 /* DrumPlayerLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrumPlayerLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +401,8 @@
 		1F2DAF411D336DF1000D898A /* Old UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				1F35C4961D5170BC003E9F6F /* DrumLine.h */,
+				1F35C4971D5170BC003E9F6F /* DrumLine.m */,
 				1F35C4CA1D51ED26003E9F6F /* MusicPropertiesView.h */,
 				1F35C4CB1D51ED26003E9F6F /* MusicPropertiesView.m */,
 				1F35C4C41D51C46D003E9F6F /* ModifyMusicalAnt.h */,
@@ -463,8 +468,8 @@
 				1F35C4911D51707B003E9F6F /* AbstractMusicLine.m */,
 				1F35C4931D5170A4003E9F6F /* MidiLine.h */,
 				1F35C4941D5170A4003E9F6F /* MidiLine.m */,
-				1F35C4961D5170BC003E9F6F /* DrumLine.h */,
-				1F35C4971D5170BC003E9F6F /* DrumLine.m */,
+				1FEB68681D6153BB0037EDF9 /* DrumPlayerLine.h */,
+				1FEB68691D6153BB0037EDF9 /* DrumPlayerLine.m */,
 				1F35C49B1D518692003E9F6F /* clap_01.wav */,
 				1F35C49D1D518698003E9F6F /* click_01.wav */,
 				1F35C49F1D5186BA003E9F6F /* click_02.wav */,
@@ -762,6 +767,7 @@
 				1F2DAF441D336E76000D898A /* SquareGridCollection.m in Sources */,
 				1F2AD93E1D23A9C70020B06E /* main.m in Sources */,
 				1F35C4921D51707B003E9F6F /* AbstractMusicLine.m in Sources */,
+				1FEB686A1D6153BB0037EDF9 /* DrumPlayerLine.m in Sources */,
 				1F9AD0A81D588536002184AF /* AboutLangtonVC3.m in Sources */,
 				1F35C4D11D52BE2B003E9F6F /* MusicOptions.m in Sources */,
 				1F11D9D01D3C8FD600AEC27D /* LoadSettingsCell.m in Sources */,
@@ -898,6 +904,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Hexagonal Lantons Ant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.crashingbooth.Hexagonal-Lantons-Ant";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -909,6 +916,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Hexagonal Lantons Ant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.crashingbooth.Hexagonal-Lantons-Ant";
 				PRODUCT_NAME = "$(TARGET_NAME)";

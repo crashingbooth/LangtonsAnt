@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MidiNote.h"
 #import "AbstractMusicLine.h"
-#import "DrumLine.h"
+#import "DrumPlayerLine.h"
 #import "MusicOptions.h"
 
 
@@ -20,5 +20,6 @@
 
 -(id)initWithMusicLine:(AbstractMusicLine*)musicLine scale:(NSString*)scaleName;
 -(void)playNoteFromDirection:(NSUInteger)direction;
+- (void) mapSounds;
 
 @end

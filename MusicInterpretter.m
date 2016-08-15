@@ -19,16 +19,7 @@ NSArray *scaleList;
     if (self) {
         self.scaleName = scaleName;
         self.musicLine = musicLine;
-        NSDictionary *mapping;
-        if ([self.musicLine isMemberOfClass:[DrumLine class]]) {
-            mapping = [MusicOptions drumMapDict];
-            NSNumber *regIndex = [Settings sharedInstance].registerArray[musicLine.antIndex];
-            self.scaleList = mapping[regIndex];
-        } else {
-            mapping = [MusicOptions scalesDict];
-            self.scaleList = mapping[self.scaleName];
-        }
-      
+        [self mapSounds];
         
     }
     return self;
@@ -38,6 +29,18 @@ NSArray *scaleList;
 -(void)playNoteFromDirection:(NSUInteger)direction {
     NSNumber *note = self.scaleList[direction];
     [self.musicLine playNote:note];
+}
+
+- (void) mapSounds{
+    NSDictionary *mapping;
+    if ([self.musicLine isMemberOfClass:[DrumPlayerLine class]]) {
+        mapping = [MusicOptions drumMapDict];
+        NSNumber *regIndex = [Settings sharedInstance].registerArray[self.musicLine.antIndex];
+        self.scaleList = mapping[regIndex];
+    } else {
+        mapping = [MusicOptions scalesDict];
+        self.scaleList = mapping[self.scaleName];
+    }
 }
 
 

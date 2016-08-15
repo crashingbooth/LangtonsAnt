@@ -238,7 +238,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
             line = [[MidiLine alloc] initWithGMMidiNumber:voice root:root channel:[NSNumber numberWithInt:i] pan:pan vol:vol];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:self.scaleName];
         } else {
-            line = [[DrumLine alloc] initWithRegister:self.registerArray[i] pan:pan vol:vol];
+            line = [[DrumPlayerLine alloc] initWithAntNum:i Pan:pan vol:vol];
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
         }
         [self.settingsGrid.ants[i] addMusicInterpretter:musInt];

@@ -91,6 +91,7 @@ NSInteger internalAntNumber;
             [Settings sharedInstance].registerArray[internalAntNumber] = [NSNumber numberWithInteger:currentIndex];
         }
          self.registerStart = currentIndex;
+//        [[Settings sharedInstance] updateMusicStatusOfAnts]; // added
         self.toggled = NO;
           }
    
@@ -233,6 +234,7 @@ NSInteger internalAntNumber;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
+    NSArray *regAr = [Settings sharedInstance].registerArray;
     switch (component) {
         case 0:
             if (row == 0) {
@@ -251,6 +253,9 @@ NSInteger internalAntNumber;
                 [Settings sharedInstance].registerArray[internalAntNumber] = registerDS[row];
             } else {
                 [Settings sharedInstance].registerArray[internalAntNumber] = drumRegisterDS[row];
+                AbstractAnt *ant = [Settings sharedInstance].antsInitialStatus[internalAntNumber];
+                // ant's musInt is nil at this point, maybe it needs to be created??
+                [ant.musInt mapSounds];
             }
             break;
         case 3:
@@ -263,6 +268,7 @@ NSInteger internalAntNumber;
         default:
             break;
     }
+    NSLog(@"%@", regAr[internalAntNumber]);
 
 }
 
