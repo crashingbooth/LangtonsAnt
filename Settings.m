@@ -239,7 +239,7 @@ static NSString *const userDefaultsPresetDictKey = @"userDefaultsPresetDict";
             musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:self.scaleName];
         } else {
             line = [[DrumPlayerLine alloc] initWithAntNum:i Pan:pan vol:vol];
-            musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"drum1"];
+            musInt = [[MusicInterpretter alloc] initWithMusicLine:line scale:@"chromatic"];
         }
         [self.settingsGrid.ants[i] addMusicInterpretter:musInt];
     }

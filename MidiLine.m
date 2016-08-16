@@ -29,7 +29,9 @@ BOOL interrupted = NO;
         self.pan = pan;
         self.vol = vol;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
-        [self setUp];
+        if ([Settings sharedInstance].musicIsOn) {
+            [self setUp];
+        }
     }
     return self;
 }
@@ -82,8 +84,8 @@ BOOL interrupted = NO;
     [self.sampler setStereoPan:self.pan];
     [self.sampler setMasterGain:self.vol];
 
-    
     [self confirmSession];
+    
     
  
 }

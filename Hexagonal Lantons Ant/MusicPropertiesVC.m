@@ -235,15 +235,23 @@ NSInteger internalAntNumber;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     BOOL isMelodic = [[[Settings sharedInstance].musicTypeArray objectAtIndex:[self.antNumberForMPVC integerValue]] boolValue];
     NSArray *regAr = [Settings sharedInstance].registerArray;
+    BOOL drumModIsPossible = YES;
     switch (component) {
+            
+            
         case 0:
             if (row == 0) {
                 [Settings sharedInstance].musicTypeArray[internalAntNumber] = [NSNumber numberWithBool:YES];
             } else {
-                [Settings sharedInstance].musicTypeArray[internalAntNumber] = [NSNumber numberWithBool:NO];
+                drumModIsPossible = [self addDrumCheck];
+                if (drumModIsPossible) {
+                    [Settings sharedInstance].musicTypeArray[internalAntNumber] = [NSNumber numberWithBool:NO];
+                }
             }
-            self.toggled = YES;
-            [self updateDrumToggle];
+            if (drumModIsPossible) {
+                self.toggled = YES;
+                [self updateDrumToggle];
+            }
             break;
         case 1:
             [Settings sharedInstance].midiVoiceArray[internalAntNumber] = voicesListMeaning[row];
@@ -270,6 +278,23 @@ NSInteger internalAntNumber;
     }
     NSLog(@"%@", regAr[internalAntNumber]);
 
+}
+
+- (BOOL)addDrumCheck {
+    // limit drum tracks to one - give alert if drum track already exists
+    BOOL drumFree = YES;
+    for (NSNumber *musicType in [Settings sharedInstance].musicTypeArray) {
+        if ([musicType  isEqual: @NO]) {
+            drumFree = NO;
+        }
+    }
+    if (!drumFree) {
+        [_musicPropertiesPicker selectRow:0 inComponent:0 animated:YES];
+        UIAlertController *cantSave = [UIAlertController alertControllerWithTitle:@"Already Using Drum Voice" message: @"Multiple drum voices will be available (*very soon*) in a future release.  Currently only one drum voice is available."  preferredStyle:UIAlertControllerStyleAlert];
+        [cantSave addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:cantSave animated:YES completion:nil];
+    }
+    return drumFree;
 }
 
 
