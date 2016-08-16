@@ -23,6 +23,7 @@
 #import "UIViewWithPath.h"
 
 
+
 @interface MainDisplayViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @end
@@ -33,6 +34,7 @@ Grid *grid;
 AbstractGridCollection *gridColl;
 CGFloat gridWidth;
 Settings *settings;
+TimedLoop *loop;
 
 
 @synthesize currentState = _currentState;
@@ -41,6 +43,10 @@ Settings *settings;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self displayOrHideSettingsButtonAndLabel];
+    
+    loop = [[TimedLoop alloc] initWithDuration:0.5];
+    loop.delegate = self;
+    
    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(routeChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     settings = [Settings sharedInstance];
@@ -61,8 +67,21 @@ Settings *settings;
     _countLabel.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
     [self.navigationController setNavigationBarHidden:YES];
     [self rebuildGridCollectionIfNecessary];
+    [loop startLoop];
 //    self.currentState = PAUSED;
 }
+
+- (void) loopBody {
+    NSLog(@"hi im loop body!");
+    if (_currentState == PAUSED) {
+        [loop stopLoop];
+    } else {
+        [gridColl updateViews];
+    }
+
+}
+
+
 
 
 #pragma mark CurrentState and Update
@@ -83,7 +102,11 @@ Settings *settings;
     _currentState = currentState;
     [self displayOrHideSettingsButtonAndLabel];
     if (currentState == ACTIVE) {
-         [NSTimer scheduledTimerWithTimeInterval:[settings.speed floatValue]  target:self selector:@selector(update:) userInfo:nil repeats:YES];
+        double dur = [settings.speed doubleValue];
+        [loop getTriggerFromDuration:dur];
+        [loop startLoop];
+        NSLog(@"should start");
+//         [NSTimer scheduledTimerWithTimeInterval:[settings.speed floatValue]  target:self selector:@selector(update:) userInfo:nil repeats:YES];
     }
 }
 

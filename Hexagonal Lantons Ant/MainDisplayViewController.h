@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimedLoop.h"
 
-@interface MainDisplayViewController : UIViewController
+@interface MainDisplayViewController : UIViewController <TimedLoopDelegate>
 
 typedef NS_ENUM(NSInteger, CurrentState) {
     ACTIVE = 0,
